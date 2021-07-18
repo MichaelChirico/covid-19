@@ -1,3 +1,6 @@
+# Generate Banner
+source("workflow/generate_banner.R")
+
 ## Put in double date breaker for daily update
 repeat {
   Sys.sleep(2)
@@ -32,10 +35,7 @@ repeat {
 
 pull(repo)
 
-# Generate Banner
-source("workflow/generate_banner.R")
-
-rivm.by_day <- read.csv("data/rivm_by_day.csv")
+#rivm.by_day <- read.csv("data/rivm_by_day.csv")
 
 # Verify RIVM data has been downloaded, otherwise stop script.
 #condition <- Sys.Date()!=as.Date(last(rivm.by_day$date))
