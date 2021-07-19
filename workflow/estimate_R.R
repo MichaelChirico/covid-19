@@ -33,7 +33,7 @@ t_end <- t_start + time # adding 6 to get 7-day windows as bounds included in wi
 
 res_parametric_si <- wallinga_teunis(covid.incidence, method="parametric_si",
                        config = list(t_start = t_start, t_end = t_end,
-                                     mean_si = 4.0, std_si = 0.30,
+                                     mean_si = 3.6, std_si = 0.3,
                                      n_sim = 10))
 
 
