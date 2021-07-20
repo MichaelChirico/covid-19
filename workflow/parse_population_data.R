@@ -134,8 +134,8 @@ schoolregion <- read.csv("https://raw.githubusercontent.com/mzelst/covid-19/mast
 colnames(schoolregion)[1]<-"Municipality_code"
 df.pop <- merge(df.pop, schoolregion[,c("Municipality_code","SchoolRegio")], by = "Municipality_code")
 
-colnames(df.pop) <- c("Municipality_code","GGD_name","Agegroup","Population_2021","Municipality_name","Province","Security_region_code",
-                      "Security_region_name","ROAZ_region","GGD_code","SchoolRegion")
+colnames(df.pop) <- c("Municipality_code","GGD_name","Age_group","Population_2021","Municipality_name","Province","Security_region_code",
+                      "Security_region_name","ROAZ_region","GGD_code","School_Region")
 
 ## Parse population - age - municipality data for 2020
 #leeftijdopbouw per gemeente ophalen
@@ -159,14 +159,14 @@ pop.age$Leeftijd3<-ifelse(pop.age$Leeftijd2>89,"90+",pop.age$Leeftijd3)
 
 #Lege kolom eruit gooien + kolomnaam aanpassen + oude gemeentes eruit knikkeren
 pop.age<-pop.age[c(4,6,9)]
-colnames(pop.age)<-c("Municipality_code","Aantalinwoners","Agegroup")
+colnames(pop.age)<-c("Municipality_code","Aantalinwoners","Age_group")
 pop.age<-pop.age[!is.na(pop.age$Aantalinwoners),]
 
 pop.age <- pop.age %>% 
-  group_by(Agegroup,Municipality_code) %>%
+  group_by(Age_group,Municipality_code) %>%
   summarise(Population_2020=sum(Aantalinwoners))
 
-df.pop <- merge(df.pop,pop.age, by = c("Municipality_code","Agegroup"))
+df.pop <- merge(df.pop,pop.age, by = c("Municipality_code","Age_group"))
 
 write.csv(df.pop,file = "misc/population_masterfile.csv",row.names=F)
 
