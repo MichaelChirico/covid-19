@@ -1,7 +1,21 @@
+## Put in double date breaker for NICE/LCPS update
+repeat {
+  Sys.sleep(30)
+  time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
+  time.now <- ymd_hms(Sys.time())
+  
+  if (time.start < time.now){
+    message <- "GO GO GO GO GO"
+    break
+  }
+}
+
 # Generate Banner
 source("workflow/generate_banner.R")
+source("workflow/parse_nice-data.R")
+source("workflow/parse_lcps-data.R")
 
-## Put in double date breaker for daily update
+## Put in double date breaker for RIVM update
 repeat {
   Sys.sleep(2)
   time.start <- ymd_hms(paste0(Sys.Date()," 15:15:00"))
@@ -44,8 +58,6 @@ pull(repo)
 #} else { 
 
 # Parse RIVM, NICE and corrections data
-source("workflow/parse_lcps-data.R")
-source("workflow/parse_nice-data.R")
 source("workflow/parse_rivm-data.R")
 source("workflow/parse_nursing-homes.R")
 source("workflow/parse_tests.R")

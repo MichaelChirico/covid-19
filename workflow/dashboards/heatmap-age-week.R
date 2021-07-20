@@ -1,7 +1,7 @@
 #windowsFonts() deze alleen de eerste keer draaien om je fonts uit windows te zoeken/importeren
 
 #leeftijdopbouw per gemeente ophalen
-gemeente_leeftijd <- cbs_get_data("03759ned", Perioden = has_substring(c("2020JJ00")),RegioS = has_substring(c("GM")) ,Geslacht = has_substring(c("T001038")),
+gemeente_leeftijd <- cbs_get_data("03759ned", Perioden = has_substring(c("2021JJ00")),RegioS = has_substring(c("GM")) ,Geslacht = has_substring(c("T001038")),
                                   BurgerlijkeStaat = has_substring(c("T001019")))
 
 #Totalen eruit filteren + CBScode omzetten naar leeftijd

@@ -10,10 +10,7 @@ tests_agg_day <- aggregate(Tested_positive ~ Date_of_statistics + Date_of_report
 
 tests_agg_day <- tests_agg_day %>%
   group_by(Date_of_statistics) %>%
-  mutate(diff = Tested_positive - lag(Tested_positive)) %>%
-  mutate(diff_2 = Tested_positive - lag(Tested_positive,2)) %>%
-  mutate(diff_3 = Tested_positive - lag(Tested_positive,3)) %>%
-  mutate(diff_4 = Tested_positive - lag(Tested_positive,4))
+  mutate(diff = Tested_positive - lag(Tested_positive))
 
 tests.corr <- tests_agg_day %>%
   filter(diff > 0 | diff < 0)
