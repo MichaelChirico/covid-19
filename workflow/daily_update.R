@@ -13,7 +13,6 @@ repeat {
 # Generate Banner
 source("workflow/generate_banner.R")
 source("workflow/parse_nice-data.R")
-source("workflow/parse_lcps-data.R")
 
 ## Put in double date breaker for RIVM update
 repeat {
@@ -58,6 +57,7 @@ pull(repo)
 #} else { 
 
 # Parse RIVM, NICE and corrections data
+#source("workflow/parse_lcps-data.R")
 source("workflow/parse_rivm-data.R")
 source("workflow/parse_nursing-homes.R")
 source("workflow/parse_tests.R")
@@ -138,29 +138,6 @@ posted_tweet <- post_tweet (
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.main.id <- posted_tweet$id_str
 tweet.last_id <- tweet.main.id
-
-tweet.lcps.weekend <- "De afgelopen weken publiceerde LCPS in het weekend geen actuele cijfers, alleen een schatting. Nu worden de cijfers weer wel bijgehouden. Data van vandaag zou dus accuraat moeten zijn. Uitstekend dat LCPS ons in het weekend weer op de hoogte houdt in deze fase van de epidemie."
-
-day.of.week <- wday(Sys.Date(), week_start = 1)
-
-ifelse(Kliniek_Nieuwe_Opnames == "Onbekend",
-       
-       posted_tweet <- post_tweet (
-         tweet.lcps.weekend,
-         token = token.mzelst,
-         media = c("plots/LCPS_data_weekend.png"),
-         in_reply_to_status_id = tweet.main.id,
-         auto_populate_reply_metadata = TRUE),
-       
-       ifelse(day.of.week > 5,
-              
-              posted_tweet <- post_tweet (
-                tweet.lcps.weekend,
-                token = token.mzelst,
-                media = c("plots/LCPS_data_weekend.png"),
-                in_reply_to_status_id = tweet.main.id,
-                auto_populate_reply_metadata = TRUE),
-              ""))
 
 ##### Generate municipality images ####
 
