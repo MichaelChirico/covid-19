@@ -29,3 +29,38 @@ df$diff.current.hosp <- df$Hospital_Currently.x-df$Hospital_Currently.y
 df$diff.current.ic <- df$IC_Current.x-df$IC_Current.y
 
 #rm(myfiles,temp,dat.threedaysago,dat.twodaysago,dat.yesterday,dat.today,df,vaccine.data,dat)
+
+dat.today$growth <- lead(dat.today$Hospital_Currently)/dat.today$Hospital_Currently
+dat.today$growth_7d <- frollmean(dat.today$growth,7)
+
+dat.today$growth_IC <- lead(dat.today$IC_Current)/dat.today$IC_Current
+dat.today$growth_IC_7d <- frollmean(dat.today$growth_IC,7)
+
+
+dat.today$date <- as.Date(dat.today$date)
+
+# Plot for positive tests per day
+dat.today %>%
+  ggplot(aes(x=date, y=growth_7d)) + 
+  geom_line(aes(y = growth_7d, color = "Groei in bezetting_7d"), lwd=1.2) +
+  geom_line(aes(y = growth_IC_7d, color = "Groei in bezetting_IC_7d"), lwd=1.2) +
+  #scale_x_date(expand = c(0, 2)) + 
+  #scale_y_continuous(expand = c(0, 200), limits = c(0, NA)) +
+  theme_bw() +
+  theme(axis.title.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.x.bottom = element_text(size=12, hjust = 0.2),
+        axis.text.y = element_text(size=12, face="bold"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(hjust = 0.5, size = 16, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5, size = 12),
+        legend.pos = "none",
+        legend.direction = "vertical",
+        legend.title = element_blank()) +
+  labs(x = "Datum",
+       y = "Groei in bezetting kliniek (7d gemiddelde)",
+       color = "Legend") +
+  geom_hline(yintercept = 1, linetype = "dotted") +
+  geom_hline(yintercept = 1.08, linetype = "dotted") +
+  ggtitle("Meldingen van geconstateerde besmettingen")
