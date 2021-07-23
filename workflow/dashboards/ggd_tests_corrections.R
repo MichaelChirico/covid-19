@@ -87,7 +87,7 @@ tests_growth %>%
         legend.title = element_blank()) +
   labs(x = "Datum",
        y = "Besmettingen per dag",
-       subtitle = ">0 = positieve testen groeien harder dan % positief \n Dikgedrukt = daling in positieve tests \n Dashed = stijging in positieve tests",
+       subtitle = ">0 = positieve testen groeien harder dan % positief \n Dikgedrukt = Omslagpunt in daling in positieve tests \n Dashed = Omslagpunt in stijging in positieve tests",
        color = "Legend") +
   geom_hline(yintercept=0) +
   geom_vline(xintercept= as.Date("2020-12-23")) +
@@ -107,5 +107,5 @@ git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 ##Push to git
 repo <- init()
 add(repo, path = "*")
-commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update vaccine data"))
+commit(repo, all = T, paste0("[", Sys.Date(), "] Daily GGD test tracker"))
 push(repo, credentials = git.auth)
