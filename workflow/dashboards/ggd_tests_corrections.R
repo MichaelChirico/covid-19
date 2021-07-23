@@ -15,6 +15,8 @@ tests_agg_day <- tests_agg_day %>%
 tests.corr <- tests_agg_day %>%
   filter(diff > 0 | diff < 0)
 
+write.csv(tests.corr, file = "corrections/ggd_tests_corrections.csv",row.names=F)
+
 temp = last(list.files(path = "data-rivm/tests/",pattern="*.csv.gz", full.names = T),1)
 tests_growth = read.csv(temp)
 
@@ -29,9 +31,8 @@ tests_growth <- percentage_positive_daily_national %>%
   mutate(growth_perc = lead(perc_positive_7d)/perc_positive_7d) %>%
   mutate(diff_growth = growth_pos - growth_perc)
 
-write.csv(tests.corr, file = "corrections/ggd_tests_corrections.csv",row.names=F)
 
-tests_growth$Date_of_statistics <- as.Date(tests_growth$Date_of_statistics)
+
 tests_growth$Date_of_statistics <- as.Date(tests_growth$date)
 
 ggd_tests <- tests_growth %>%
@@ -62,7 +63,7 @@ ggd_tests <- tests_growth %>%
   ggtitle("Meldingen van geconstateerde besmettingen")
 ggd_tests
 
-ggd_tests + facet_wrap(~Security_region_name, scales = "free_y")
+#ggd_tests + facet_wrap(~Security_region_name, scales = "free_y")
 
 
 
@@ -87,15 +88,15 @@ tests_growth %>%
         legend.title = element_blank()) +
   labs(x = "Datum",
        y = "Besmettingen per dag",
-       subtitle = ">0 = positieve testen groeien harder dan % positief \n Dikgedrukt = Omslagpunt in daling in positieve tests \n Dashed = Omslagpunt in stijging in positieve tests",
+       subtitle = ">0 = positieve testen groeien harder dan % positief \n Dikgedrukt = Piek in positieve tests \n Dotted = Dal in positieve tests",
        color = "Legend") +
   geom_hline(yintercept=0) +
   geom_vline(xintercept= as.Date("2020-12-23")) +
-  geom_vline(xintercept= as.Date("2021-02-14"), linetype = "dotted") +
-  geom_vline(xintercept= as.Date("2021-04-01")) +
-  geom_vline(xintercept= as.Date("2021-04-23"), linetype = "dotted") +
-  geom_vline(xintercept= as.Date("2021-06-30")) +
-  geom_vline(xintercept= as.Date("2021-07-19"), linetype = "dotted") +
+  geom_vline(xintercept= as.Date("2021-02-13"), linetype = "dotted") +
+  geom_vline(xintercept= as.Date("2021-03-29")) +
+  geom_vline(xintercept= as.Date("2021-04-22")) +
+  geom_vline(xintercept= as.Date("2021-06-28"), linetype = "dotted") +
+  geom_vline(xintercept= as.Date("2021-07-19")) +
   ggtitle("Verschil in groei tussen besmettingen en % positief")
 ggsave("plots/verschil_groei_postests_percentage.png")
 
