@@ -57,7 +57,7 @@ pull(repo)
 #} else { 
 
 # Parse RIVM, NICE and corrections data
-#source("workflow/parse_lcps-data.R")
+source("workflow/parse_lcps-data.R")
 source("workflow/parse_rivm-data.R")
 source("workflow/parse_nursing-homes.R")
 source("workflow/parse_tests.R")

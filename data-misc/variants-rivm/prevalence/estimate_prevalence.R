@@ -47,10 +47,10 @@ setwd("data-misc/variants-rivm/prevalence")
 # filedate = as.Date(gsub("_","-",dat)) # file date
 # filedate_num = as.numeric(filedate)
 # today = as.Date(Sys.time()) # we use the file date version as our definition of "today"
-today = as.Date("2021-07-07")
+today = as.Date("2021-07-23")
 today_num = as.numeric(today)
 
-selected_variants = c("B.1.1.7 (alpha)", "B.1.351 (beta)", "P.1 (gamma)", # B.1.617.1 (kappa)", 
+selected_variants = c("B.1.1.7 (alpha)", "B.1.351 (beta)", "P.1 (gamma)", "C.37 (lambda)", 
                       "B.1.617.2 (delta)")
 levels_VARIANTS = c(selected_variants,"other")
 colours_VARIANTS = c("#0085FF","#9A9D00","cyan3", # muted("magenta"),
