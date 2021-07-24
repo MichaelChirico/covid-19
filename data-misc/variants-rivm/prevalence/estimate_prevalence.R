@@ -312,6 +312,8 @@ plot_multinom_response = qplot(data=nl_seq_mfit0_preds,
   theme(legend.position = "right") 
 plot_multinom_response
 
+write.csv(nl_seq_mfit0_preds, file = "prevalence_variants_estimates.csv",row.names = F)
+
 ggsave("netherlands_baseline_surveillance_multinomial fits_response scale.png", width=12, height=10)
 
 
@@ -497,7 +499,7 @@ qplot(data=avg_r_cases, x=DATE-7, y=Re, ymin=Re_LOWER, ymax=Re_UPPER, geom="ribb
   # facet_wrap(~ REGION) +
   geom_line() + theme_hc() + xlab("Date of infection") +
   scale_x_continuous(breaks=as.Date(c("2020-03-01","2020-04-01","2020-05-01","2020-06-01","2020-07-01","2020-08-01","2020-09-01","2020-10-01","2020-11-01","2020-12-01","2021-01-01","2021-02-01","2021-03-01","2021-04-01","2021-05-01","2021-06-01","2021-07-01","2021-08-01","2021-09-01")),
-                     labels=c("M","A","M","J","J","A","S","O","N","D","J","F","M","A","M","J","J","A")) +
+                     labels=c("M","A","M","J","J","A","S","O","N","D","J","F","M","A","M","J","J","A","S")) +
   # scale_y_continuous(limits=c(1/2, 2), trans="log2") +
   geom_hline(yintercept=1, colour=I("red")) +
   ggtitle("Re IN THE NETHERLANDS AT MOMENT OF INFECTION BASED ON NEW CASES\n(data RIVM)") +
@@ -506,6 +508,8 @@ qplot(data=avg_r_cases, x=DATE-7, y=Re, ymin=Re_LOWER, ymax=Re_UPPER, geom="ribb
   theme(plot.tag.position = "bottomright",
         plot.tag = element_text(vjust = 1, hjust = 1, size=8)) # +
 # coord_cartesian(xlim=c(as.Date("2020-01-01"),NA))
+
+write.csv(avg_r_cases, file = "calculated_Reff.csv",row.names=F)
 
 # calculate above-average intrinsic growth rates per day of each variant over time based on multinomial fit using emtrends weighted effect contrasts ####
 # for best model fit3_sanger_multi
@@ -596,6 +600,8 @@ qplot(data=above_avg_r_variants2[!((above_avg_r_variants2$variant %in% c("other"
   theme(legend.position="right") 
 
 ggsave(file="Re values per variant_avgRe_from_cases_with clipping.png", width=8, height=6)
+
+write.csv(above_avg_r_variants2, file = "calculated_Reff_variants.csv",row.names=F)
 
 week.readfile <- isoweek(Sys.Date())
 
