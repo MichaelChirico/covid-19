@@ -1,9 +1,4 @@
-#lcps.data.original <- utils::read.csv('https://lcps.nu/wp-content/uploads/covid-19.csv', sep =',')
-#lcps.data.original <- read.csv("C:/Users/Marino/Downloads/covid-19.csv",sep = ",")
-
-download.file('https://lcps.nu/wp-content/uploads/covid-19.csv', 'lcps.csv', method="libcurl", headers=c('Cookie'='a'))
-lcps.data.original <- read.csv("lcps.csv")
-unlink("lcps.csv")
+lcps.data.original <- utils::read.csv('https://lcps.nu/wp-content/uploads/covid-19-datafeed.csv', sep =',')
 
 # Order numbers: IC_Bedden_COVID, IC_Bedden_Non_COVID, Kliniek_Bedden, IC_Nieuwe_Opnames_COVID, Kliniek_Nieuwe_Opnames_COVID
 lcps.data <- lcps.data.original %>%

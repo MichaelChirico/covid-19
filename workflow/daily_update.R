@@ -424,27 +424,27 @@ source("workflow/parse_deaths_comparison_tracker.R")
 #Vaccins geprikt (geschat): ",format(last(vaccines.by_day$vaccines_administered_estimated),decimal.mark = ",",big.mark =".",big.interval = 3),"
 
 ## Workflow for dashboard scrape 
-repeat {
-  Sys.sleep(10)
-  ## Scrape dashboard date
-  dat <- fromJSON(txt = "https://coronadashboard.rijksoverheid.nl/json/NL.json")
-  dashboard.date <- as.Date(as.POSIXct(last(dat$vaccine_administered_total$values$date_unix), origin="1970-01-01"))
-  today.date <- as.Date(Sys.Date())-1
-  if (dashboard.date == today.date){
-    Sys.sleep(60)
-    source("workflow/parse_vaccines.R")
-    git.credentials <- read_lines("git_auth.txt")
-    git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
+#repeat {
+#  Sys.sleep(10)
+#  ## Scrape dashboard date
+#  dat <- fromJSON(txt = "https://coronadashboard.rijksoverheid.nl/json/NL.json")
+#  dashboard.date <- as.Date(as.POSIXct(last(dat$vaccine_administered_total$values$date_unix), origin="1970-01-01"))
+#  today.date <- as.Date(Sys.Date())-1
+#  if (dashboard.date == today.date){
+#    Sys.sleep(60)
+#    source("workflow/parse_vaccines.R")
+#    git.credentials <- read_lines("git_auth.txt")
+#    git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
     
     ##Push to git
-    repo <- init()
-    add(repo, path = "*")
-    commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update vaccine data"))
-    push(repo, credentials = git.auth)
-    Sys.time()
-    break
-  }
-}
+#    repo <- init()
+#    add(repo, path = "*")
+#    commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update vaccine data"))
+#    push(repo, credentials = git.auth)
+#    Sys.time()
+#    break
+#  }
+#}
 
 
 #require(gmailr)
