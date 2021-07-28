@@ -145,6 +145,10 @@ source("workflow/parse_nice-municipalities-data.R")
 source("workflow/parse_municipalities.R")
 source("workflow/generate_municipality_images.R")
 
+bot <- TGBot$new(token = bot_token('RBot'))
+bot$set_default_chat_id(user_id('me'))
+bot$sendMessage('Gemeente update klaar')
+
 #####
 
 git.credentials <- read_lines("git_auth.txt")
