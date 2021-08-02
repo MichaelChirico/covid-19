@@ -1,3 +1,6 @@
+require(rgeos)
+require(geojsonio)
+
 temp = tail(list.files(path = "data-rivm/nursing-homes-datasets/",pattern="*.csv.gz", full.names = T),1)
 nursing.homes <- fread(temp)
 
@@ -90,6 +93,7 @@ nursing.homes.all$date <- as.Date(Sys.Date())
 
 colnames(nursing.homes.all) <- c("infections_today","infections_total","deaths_today","deaths_total","mutations_locations","total_current_locations","date")
 write.csv(nursing.homes.all, file = paste0("data-rivm/nursing-homes-per-day/nursery_daily_",Sys.Date(),".csv"),row.names = F)
+
 
 ## Merge all daily files
 temp = list.files(path = "data-rivm/nursing-homes-per-day/",pattern="*.csv", full.names = T) ## Fetch all day files

@@ -1,6 +1,4 @@
-require(rgeos)
-require(geojsonio)
-
+## Geo plot nursery homes per safety region ##
 #geoUrl <- "https://geodata.nationaalgeoregister.nl/cbsgebiedsindelingen/wfs?request=GetFeature&service=WFS&version=2.0.0&typeName=cbs_veiligheidsregio_2020_gegeneraliseerd&outputFormat=json"
 #download.file(geoUrl,destfile = "misc/maps/vrgrenzen2020.geojson")
 

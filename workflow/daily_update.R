@@ -1,9 +1,10 @@
+time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
+#time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
+
 ## Put in double date breaker for NICE/LCPS update
 repeat {
   Sys.sleep(30)
-  time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
   time.now <- ymd_hms(Sys.time())
-  
   if (time.start < time.now){
     message <- "GO GO GO GO GO"
     break
