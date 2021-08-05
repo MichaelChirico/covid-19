@@ -1,3 +1,8 @@
+This repository contains raw and processed data related to COVID19 in the Netherlands. We collect case numbers, hospitalizations, deaths, and many auxiliary data. The repository also contains output of multiple statistical models and a daily report on the epidemiological situation in the Netherlands.
+
+DOI for citation: https://doi.org/10.5281/zenodo.5163263
+
+
 # Dataset: COVID-19 case counts in The Netherlands
 
 We collect numbers on COVID-19 disease count cases in **The Netherlands**. The numbers are collected from various sources on a daily base, like [RIVM (National Institute for Public Health and the Environment)](https://www.rivm.nl/nieuws/actuele-informatie-over-coronavirus), [NICE (Nationale Intensive Care Evaluatie)](https://www.stichting-nice.nl/), and the [National Corona Dashboard](https://coronadashboard.rijksoverheid.nl/). The data in this repository are mainly used to inform the general public with daily updates on COVID-19 disease count cases. This project standardizes, and publishes data and makes it **Findable, Accessible, Interoperable, and Reusable (FAIR)**.
