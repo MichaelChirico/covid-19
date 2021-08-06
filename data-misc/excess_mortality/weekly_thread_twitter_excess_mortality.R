@@ -22,18 +22,18 @@ tweet.last_id <- tweet.main.id
 
 ## Build mededeling tweet ##
 
-tweet.mededeling <- paste0("1/
+#tweet.mededeling <- paste0("1/
 
-De sterfte is weer op het normale niveau en de sterfte door covid is op dit moment vrij laag. Dit is dus voorlopig de laatste oversterfte update. Mocht de sterfte weer sterk afwijken van de verwachting, plaats ik de update opnieuw.")
+#De sterfte is weer op het normale niveau en de sterfte door covid is op dit moment vrij laag. Dit is dus voorlopig de laatste oversterfte update. Mocht de sterfte weer sterk afwijken van de verwachting, plaats ik de update opnieuw.")
 
-posted_tweet <- post_tweet (
-  tweet.mededeling,
-  token = token.mzelst,
-  in_reply_to_status_id = tweet.main.id,
-  auto_populate_reply_metadata = TRUE
-)
-posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
-tweet.last_id <- posted_tweet$id_str
+#posted_tweet <- post_tweet (
+#  tweet.mededeling,
+#  token = token.mzelst,
+#  in_reply_to_status_id = tweet.main.id,
+#  auto_populate_reply_metadata = TRUE
+#)
+#posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+#tweet.last_id <- posted_tweet$id_str
 
 ## Build information tweet
 
@@ -169,7 +169,7 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Conclusie tweet
 
-conclusie.tweet <- paste0("Conclusie: Na de hogere sterfte van vorige week zijn we nu weer terug bij een sterfte zoals die wordt verwacht.")
+conclusie.tweet <- paste0("Conclusie: In tegenstelling tot de afgelopen weken is de sterfte deze week weer verhoogd en is er zelfs significante oversterfte in de groep 65-80. Het is waarschijnlijk dat dit door corona komt want het komt redelijk overeen met een vertraagd effect van de #DansenmetJanssen golf")
 
 posted_tweet <- post_tweet (
   conclusie.tweet,
