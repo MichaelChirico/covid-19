@@ -63,36 +63,35 @@ deaths_total <- merge(deaths_total,excess_dlm,by=c("Week","Year"), all.x=T)
 
 ## Deaths WLZ vs. other / CBS
 
-#u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/26/in-maart-stierven-1-6-duizend-mensen-aan-covid-19"
-#webpage.cbs <- read_html(u.cbs)
+u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/26/in-maart-stierven-1-6-duizend-mensen-aan-covid-19"
+webpage.cbs <- read_html(u.cbs)
 
-#cbs.death.statistics <- as.data.frame(html_table(webpage.cbs)[[2]])
-#colnames(cbs.death.statistics) <- c("Year","Week","wlz_deaths_perc","other_deaths_perc")
-#cbs.death.statistics <- mutate_all(cbs.death.statistics, function(x) as.numeric(as.character(x)))
-#cbs.death.statistics <- cbs.death.statistics %>%
-#  mutate(wlz_deaths_perc = wlz_deaths_perc/100) %>%
-#  mutate(other_deaths_perc = other_deaths_perc/100)
+cbs.death.statistics <- as.data.frame(html_table(webpage.cbs)[[2]])
+colnames(cbs.death.statistics) <- c("Year","Week","wlz_deaths_perc","other_deaths_perc")
+cbs.death.statistics <- mutate_all(cbs.death.statistics, function(x) as.numeric(as.character(x)))
+cbs.death.statistics <- cbs.death.statistics %>%
+  mutate(wlz_deaths_perc = wlz_deaths_perc/100) %>%
+  mutate(other_deaths_perc = other_deaths_perc/100)
 
-#urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
-#u.cbs.week <- last(urls$urls)
-#webpage.cbs.week <- read_html(u.cbs.week)
+urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
+u.cbs.week <- last(urls$urls)
+webpage.cbs.week <- read_html(u.cbs.week)
 
-#cbs.death.statistics.week <- as.data.frame(html_table(webpage.cbs.week)[[2]])[,c(1:3,6)]
-#colnames(cbs.death.statistics.week) <- c("Year","Week","wlz_deaths","other_deaths")
-#cbs.death.statistics.week <- mutate_all(cbs.death.statistics.week, function(x) as.numeric(as.character(x)))
-#cbs.death.statistics.week <- cbs.death.statistics.week[complete.cases(cbs.death.statistics.week),]
+cbs.death.statistics.week <- as.data.frame(html_table(webpage.cbs.week)[[2]])[,c(1:3,6)]
+colnames(cbs.death.statistics.week) <- c("Year","Week","wlz_deaths","other_deaths")
+cbs.death.statistics.week <- mutate_all(cbs.death.statistics.week, function(x) as.numeric(as.character(x)))
+cbs.death.statistics.week <- cbs.death.statistics.week[complete.cases(cbs.death.statistics.week),]
 
 
-#cbs.df <- merge(cbs.death.statistics,cbs.death.statistics.week, by = c("Week","Year"))
-#cbs.df <- cbs.df %>%
-#  mutate(wlz_covid = round(wlz_deaths*wlz_deaths_perc,0)) %>%
-#  mutate(other_covid = round(other_deaths*other_deaths_perc,0)) %>%
-#  select(Year, Week, wlz_covid, other_covid) %>%
-#  arrange(Year, Week)
+cbs.df <- merge(cbs.death.statistics,cbs.death.statistics.week, by = c("Week","Year"))
+cbs.df <- cbs.df %>%
+  mutate(wlz_covid = round(wlz_deaths*wlz_deaths_perc,0)) %>%
+  mutate(other_covid = round(other_deaths*other_deaths_perc,0)) %>%
+  select(Year, Week, wlz_covid, other_covid) %>%
+  arrange(Year, Week)
+rm(cbs.death.statistics, cbs.death.statistics.week, webpage.cbs, webpage.cbs.week, u.cbs, u.cbs.week,urls)
 
-#rm(cbs.death.statistics, cbs.death.statistics.week, webpage.cbs, webpage.cbs.week, u.cbs, u.cbs.week,urls)
-
-#deaths_total <- merge(deaths_total,cbs.df,by=c("Week","Year"), all.x=T)
+deaths_total <- merge(deaths_total,cbs.df,by=c("Week","Year"), all.x=T)
 
 setorder(deaths_total, Year, Week)
 
@@ -102,16 +101,16 @@ deaths_total$week_year <- ifelse(deaths_total$Week<10,
                                  paste0(deaths_total$Year,"-",deaths_total$Week))
 
 deaths_total <- deaths_total %>% 
-  #mutate(deaths_home = total_covid_mortality - deaths_nice - wlz_covid) %>%
-  #mutate(deaths_home_perc = round(deaths_home/total_covid_mortality*100,3)) %>%
+  mutate(deaths_home = total_covid_mortality - deaths_nice - wlz_covid) %>%
+  mutate(deaths_home_perc = round(deaths_home/total_covid_mortality*100,3)) %>%
   mutate(deaths_nice_perc = round(deaths_nice/total_covid_mortality*100,3)) %>%
-  #mutate(deaths_wlz_perc = round(wlz_covid/total_covid_mortality*100,3)) %>%
+  mutate(deaths_wlz_perc = round(wlz_covid/total_covid_mortality*100,3)) %>%
   mutate(deaths_estimate = round(deaths_nonnursing_RIVM*1.8+deaths_nursing*1.8,0)) %>%
   mutate(deaths_estimate_2 = round((deaths_nice + deaths_nursing*1.8)*1.1,0)) %>%
   mutate(deaths_estimate_3 = round(deaths_nice + (deaths_nice/3) + deaths_nursing*1.8,0)) %>%
   mutate(cbs_rivm_factor = round(total_covid_mortality/deaths_rivm,2)) %>%
-  #mutate(factor_wlz = round(wlz_covid/deaths_nursing,2)) %>%
-  #mutate(factor_other = round(other_covid/deaths_nonnursing_RIVM,2)) %>%
+  mutate(factor_wlz = round(wlz_covid/deaths_nursing,2)) %>%
+  mutate(factor_other = round(other_covid/deaths_nonnursing_RIVM,2)) %>%
   mutate(deviation_estim = round((deaths_estimate_3-total_covid_mortality)/total_covid_mortality*100,0))
 
 write.csv(deaths_total, file = "corrections/death_week_comparisons.csv", row.names = F)
@@ -157,39 +156,39 @@ ggsave("plots/sterfte_per_week_30K.png", width = 12, height=8)
 
 ## Percentages
 
-#plot <- deaths_total %>%
-#  filter(week_year >= "2020-39") %>%
-#  filter(week_year <= "2021-12") %>%
-#  ggplot(aes(x=factor(week_year), y=deaths_wlz_perc, group = 1)) + 
-#  geom_line(aes(y = deaths_wlz_perc, color = "Verpleeghuis"), lwd=1.2) +
- # geom_line(aes(y = deaths_home_perc, color = "Thuis"), lwd=1.2) +
-#  geom_line(aes(y = deaths_nice_perc, color = "Ziekenhuis"), lwd=1.2) +
-#  scale_y_continuous(expand = c(0, 0), limits = c(0, 100), n.breaks = 10) +
-#  theme_classic()+
-#  xlab("")+
-#  ylab("")+
-#  labs(title = "Sterfte per plaats van overlijden",
-#       subtitle = "Percentage van totale sterfte",
-#       caption = paste("Bron: CBS/RIVM/NICE | Plot: @mzelst  | ",Sys.Date())) +
-#  theme(
-#    legend.title = element_blank(),  ## legend title
-#    legend.position="top",
-#    legend.direction = "horizontal",
-#    legend.background = element_rect(fill="#f5f5f5", size=0.5, linetype="solid"),
-#    legend.text = element_text(size = 12),
-#    plot.background = element_rect(fill = "#F5F5F5"), #background color/size (border color and size)
-#    panel.background = element_rect(fill = "#F5F5F5", colour = "#F5F5F5"),
-#    plot.title =     element_text(hjust = 0.5 ,size = 24 ,face = "bold"),
-#    plot.subtitle =  element_text(hjust=0.5   ,size = 12 ,color = "black", face = "italic"),
-#    axis.text.x = element_text(size=10,color = "black",face = "bold", angle = 90),
-#    axis.ticks = element_line(colour = "#F5F5F5", size = 1, linetype = "solid"),
-#    axis.ticks.length = unit(0.5, "cm"),
-#    axis.line = element_line(colour = "#F5F5F5"),
-#    panel.grid.major.x = element_blank(),
-#    panel.grid.minor.x = element_blank())
+plot <- deaths_total %>%
+  filter(week_year >= "2020-39") %>%
+  filter(week_year <= "2021-12") %>%
+  ggplot(aes(x=factor(week_year), y=deaths_wlz_perc, group = 1)) + 
+  geom_line(aes(y = deaths_wlz_perc, color = "Verpleeghuis"), lwd=1.2) +
+  geom_line(aes(y = deaths_home_perc, color = "Thuis"), lwd=1.2) +
+  geom_line(aes(y = deaths_nice_perc, color = "Ziekenhuis"), lwd=1.2) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 100), n.breaks = 10) +
+  theme_classic()+
+  xlab("")+
+  ylab("")+
+  labs(title = "Sterfte per plaats van overlijden",
+       subtitle = "Percentage van totale sterfte",
+       caption = paste("Bron: CBS/RIVM/NICE | Plot: @mzelst  | ",Sys.Date())) +
+  theme(
+    legend.title = element_blank(),  ## legend title
+    legend.position="top",
+    legend.direction = "horizontal",
+    legend.background = element_rect(fill="#f5f5f5", size=0.5, linetype="solid"),
+    legend.text = element_text(size = 12),
+    plot.background = element_rect(fill = "#F5F5F5"), #background color/size (border color and size)
+    panel.background = element_rect(fill = "#F5F5F5", colour = "#F5F5F5"),
+    plot.title =     element_text(hjust = 0.5 ,size = 24 ,face = "bold"),
+    plot.subtitle =  element_text(hjust=0.5   ,size = 12 ,color = "black", face = "italic"),
+    axis.text.x = element_text(size=10,color = "black",face = "bold", angle = 90),
+    axis.ticks = element_line(colour = "#F5F5F5", size = 1, linetype = "solid"),
+    axis.ticks.length = unit(0.5, "cm"),
+    axis.line = element_line(colour = "#F5F5F5"),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank())
 
-#plot + scale_colour_manual(values = cols)
-#ggsave("plots/sterfte_per_week_30K_percentage.png", width = 12, height=8)
+plot + scale_colour_manual(values = cols)
+ggsave("plots/sterfte_per_week_30K_percentage.png", width = 12, height=8)
 
 
 
@@ -232,18 +231,20 @@ plot + scale_colour_manual(values = cols)
 ggsave("plots/sterfte_per_week_30K_totalen.png", width = 12, height=8)
 
 
-## cbs.deaths
-#u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/26/in-maart-stierven-1-6-duizend-mensen-aan-covid-19"
-#webpage.cbs <- read_html(u.cbs)
+##cbs.deaths
+u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/26/in-maart-stierven-1-6-duizend-mensen-aan-covid-19"
+webpage.cbs <- read_html(u.cbs)
 
-#cbs.death.statistics <- as.data.frame(html_table(webpage.cbs)[[3]])
-#cbs.deaths <- sum(as.numeric(cbs.death.statistics[1:(nrow(cbs.death.statistics)-1),"COVID-19"]))
+cbs.death.statistics <- as.data.frame(html_table(webpage.cbs)[[3]])
+cbs.deaths <- sum(as.numeric(cbs.death.statistics[1:(nrow(cbs.death.statistics)-1),"COVID-19"]),na.rm=T)
 
-#cbs.filter <- deaths_total %>%
-#  filter(Year == 2021 & Week >= 9)
-#cbs.filter$cumulative_deaths <- cumsum(cbs.filter$deaths_estimate_3) + cbs.deaths
-#deaths_total <- merge(deaths_total, cbs.filter[,c("Week","Year","cumulative_deaths")], by = c("Week","Year"),all.x=T)
-#setorder(deaths_total, Year, Week)
+cbs.filter <- deaths_total %>%
+  filter(Year == 2021 & Week >= 9)
+cbs.filter$cumulative_deaths <- cumsum(cbs.filter$deaths_estimate_3) + cbs.deaths
+deaths_total <- merge(deaths_total, cbs.filter[,c("Week","Year","cumulative_deaths")], by = c("Week","Year"),all.x=T)
+setorder(deaths_total, Year, Week)
+
+write.csv(deaths_total, file = "corrections/death_week_comparisons.csv", row.names = F)
 
 rm(deaths_total, plot, cols, dat, cbs.deaths, cbs.death.statistics,webpage.cbs, u.cbs)
 

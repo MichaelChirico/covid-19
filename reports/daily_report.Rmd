@@ -393,7 +393,7 @@ agegroup.data <- Reduce(
 colnames(agegroup.data) <- c("statnaam","cases_today","cases_lastweek","hosp_today","hosp_lastweek","death_today","death_lastweek")
 
 agegroup.data <- agegroup.data %>%
-  dplyr::filter(statnaam != "<50") %>%
+  #dplyr::filter(statnaam != "<50") %>%
   dplyr::filter(statnaam != "Onbekend") %>%
   replace_na(list(death_today = 0, death_lastweek = 0))
 
@@ -418,10 +418,12 @@ colnames(agegroup.data.table) <- c("Leeftijdsgroep","Totaal","%","Totaal","%","T
 
 footnote.leeftijd <- paste0("Leeftijdsverdeling van bij de GGD’en gemelde COVID-19 patiënten, in het ziekenhuis opgenomen COVID-19 patiënten en overleden COVID-19 patiënten van ",format((Sys.Date()-14),"%d")," ",format((Sys.Date()-14),"%B"), " t/m ",format((Sys.Date()),"%d")," ",format((Sys.Date()),"%B")," 10:00 uur.")
 
+footnote.under50 <- "Overlijdensgevallen van patiënten jonger dan 50 jaar oud worden door het RIVM in de casusdata gegroepeerd in de categorie <50. Deze overlijdensgevallen zijn hier dus niet zichtbaar in deze leeftijdsgroepen maar alleen via de groep '<50'."
+
 kable(agegroup.data.table, "latex", booktabs = T, linesep="") %>%
 kable_styling(font_size = 11) %>%
 add_header_above(c(" " = 1, "Besmettingen" = 2, "Ziekenhuisopnames" = 2, "Overleden" = 2)) %>%
-  footnote(number = c(footnote.leeftijd),threeparttable = T)
+  footnote(number = c(footnote.leeftijd, footnote.under50),threeparttable = T)
 ``` 
 
 \newpage
