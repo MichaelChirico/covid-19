@@ -423,7 +423,7 @@ source("workflow/dashboards/age-distribution-date-NICE.R")
 source("workflow/dashboards/ggd_tests_corrections.R")
 source("workflow/estimate_R.R")
 #source("workflow/excess_mortality_cbsmodel_2021.R")
-#source("workflow/parse_deaths_comparison_tracker.R")
+source("workflow/parse_deaths_comparison_tracker.R")
 ## Vaccine tweet for history ##
 #Vaccins geprikt: ",vaccins.geprikt,"
 #Vaccins geprikt (geschat): ",format(last(vaccines.by_day$vaccines_administered_estimated),decimal.mark = ",",big.mark =".",big.interval = 3),"
