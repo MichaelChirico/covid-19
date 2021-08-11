@@ -28,7 +28,6 @@ tests.ggd <- merge(tests_pos.corr, tests.corr, by = c("Date_of_statistics","Date
 
 ##
 
-
 write.csv(tests.ggd, file = "corrections/ggd_tests_corrections.csv",row.names=F)
 
 temp = last(list.files(path = "data-rivm/tests/",pattern="*.csv.gz", full.names = T),1)
