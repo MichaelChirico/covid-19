@@ -1,5 +1,5 @@
-#time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
-time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
+time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
+#time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
 
 ## Put in double date breaker for NICE/LCPS update
 repeat {
