@@ -3,6 +3,7 @@ require(tidyr)
 require(cbsodataR)
 require(reshape2)
 require(lubridate)
+require(readxl)
 
 source("data-misc/excess_mortality/parse_cbs_links.R")
 
@@ -189,22 +190,38 @@ deaths_weekly <- deaths_weekly %>%
   mutate(Overleden65_80 = round(Overleden65_80,0)) %>%
   mutate(`Overleden80+` = round(`Overleden80+`,0))
 
-## Retrieve link CBS mortality weekly
-urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
-u.cbs <- last(urls$urls)
+## CBS method excess mortality
 
-## Method CBS
-webpage.cbs <- read_html(u.cbs)
-cbs.death.statistics <- as.data.frame(html_table(webpage.cbs)[[1]])[,c(2:4)]
-colnames(cbs.death.statistics) <- c("Week","allcause_deaths","deaths_expected_cbs")
-cbs.death.statistics$allcause_deaths <- as.numeric(cbs.death.statistics$allcause_deaths)
-cbs.death.statistics$deaths_expected_cbs <- as.numeric(cbs.death.statistics$deaths_expected_cbs)
-cbs.death.statistics$excess_cbs_method <- cbs.death.statistics$allcause_deaths-cbs.death.statistics$deaths_expected_cbs
-cbs.death.statistics <- cbs.death.statistics[complete.cases(cbs.death.statistics),]
-cbs.death.statistics$Year <- 2020
-cbs.death.statistics[54:(nrow(cbs.death.statistics)),"Year"] <- 2021
+cbs_links <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
+cbs_url <- last(cbs_links)
+page <- read_html(cbs_url[1,1])
+page <- page %>% html_nodes("a") %>% html_attr('href')
+page <- data.frame(page)
+
+page$category <- grepl(".xlsx", page$page, fixed = TRUE)
+page <- page %>%
+  filter(category == "TRUE")
+cbs_url <- page[1,1]
+
+download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
+cbs_oversterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 7))[,1:10]
+unlink("cbs_deaths.xlsx")
+cbs_oversterfte <- cbs_oversterfte[8:nrow(cbs_oversterfte),]
+cbs_oversterfte <- cbs_oversterfte[-54,]
+cbs_oversterfte <- cbs_oversterfte[-c(106:109),]
+colnames(cbs_oversterfte) <- c("Periode","deaths_expected_cbs","verwacht_lb","Verwacht_ub","Verwacht_WLZ","verwacht_WLZ_lb","Verwacht_WLZ_ub",
+                               "Verwacht_other","Verwacht_other_lb","Verwacht_other_ub")
+
+cbs_oversterfte$Year <- parse_number(cbs_oversterfte$Periode)
+cbs_oversterfte$Week <- c(1:53,1:52)
+
+cbs.death.statistics <- cbs_oversterfte[,c("deaths_expected_cbs","Week","Year")]
+cbs.death.statistics$deaths_expected_cbs <- parse_number(cbs.death.statistics$deaths_expected_cbs)
 
 deaths_weekly <- merge(deaths_weekly, cbs.death.statistics, by = c("Week","Year"), all.x=T)
+deaths_weekly$excess_cbs_method <- deaths_weekly$Totaal_Overleden-deaths_weekly$deaths_expected_cbs
+
+
 
 # Arrange and write file
 deaths_weekly <- arrange(deaths_weekly, Year, Week)

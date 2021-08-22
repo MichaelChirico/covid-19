@@ -8,7 +8,7 @@ urls <- webpage %>%
 urls <- data.frame(urls)
 urls$number <- gsub("[^0-9.]", "",  urls$urls)
 urls$number <- substr(urls$number, 3, 8)
-urls$category <- grepl("nieuws", urls$urls, fixed = TRUE)
+urls$category <- grepl("provincie", urls$urls, fixed = TRUE)
 urls <- urls %>%
   filter(category == "TRUE") %>%
   filter(number >= 0) %>%
