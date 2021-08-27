@@ -1,117 +1,65 @@
 "Date_of_publication","Municipality_name","Municipal_health_service","cases.today.mun","cases.yesterday.mun","diff"
-2020-10-29,"Venlo","GGD Limburg-Noord",30,31,-1
-2020-11-04,"","GGD Brabant-Zuidoost",0,1,-1
-2020-11-04,"Gemert-Bakel","GGD Brabant-Zuidoost",7,6,1
-2020-11-05,"","GGD Brabant-Zuidoost",2,3,-1
-2020-11-05,"Eindhoven","GGD Brabant-Zuidoost",115,114,1
-2020-11-12,"","GGD Brabant-Zuidoost",1,2,-1
-2020-11-12,"Best","GGD Brabant-Zuidoost",5,4,1
-2020-12-06,"","GGD Brabant-Zuidoost",2,3,-1
-2020-12-06,"Vught","GGD Hart voor Brabant",20,19,1
-2020-12-16,"","GGD Brabant-Zuidoost",1,2,-1
-2020-12-16,"Eindhoven","GGD Brabant-Zuidoost",152,151,1
-2020-12-23,"Reusel-De Mierden","GGD Brabant-Zuidoost",6,7,-1
-2020-12-25,"","GGD Brabant-Zuidoost",4,3,1
-2020-12-25,"Geldrop-Mierlo","GGD Brabant-Zuidoost",32,33,-1
-2020-12-31,"Helmond","GGD Brabant-Zuidoost",38,39,-1
-2021-07-08,"Maastricht","GGD Zuid-Limburg",38,39,-1
-2021-07-10,"Amsterdam","GGD Amsterdam",913,914,-1
-2021-07-17,"Weert","GGD Limburg-Noord",25,26,-1
-2021-07-18,"Maastricht","GGD Zuid-Limburg",69,70,-1
-2021-07-21,"Gorinchem","Dienst Gezondheid & Jeugd ZHZ",5,6,-1
-2021-07-26,"Berg en Dal","GGD Gelderland-Zuid",7,8,-1
-2021-08-06,"","GGD Kennemerland",4,6,-2
-2021-08-06,"Haarlem","GGD Kennemerland",31,30,1
-2021-08-08,"Haarlem","GGD Kennemerland",24,25,-1
-2021-08-12,"","GGD Zaanstreek/Waterland",0,1,-1
-2021-08-12,"Amsterdam","GGD Amsterdam",197,196,1
-2021-08-12,"Haarlemmermeer","GGD Kennemerland",22,23,-1
-2021-08-12,"Zaanstad","GGD Zaanstreek/Waterland",35,34,1
-2021-08-14,"Doetinchem","GGD Noord- en Oost-Gelderland",5,6,-1
-2021-08-17,"","GGD Kennemerland",1,2,-1
-2021-08-17,"Amersfoort","GGD Regio Utrecht",22,23,-1
-2021-08-17,"Diemen","GGD Amsterdam",6,7,-1
-2021-08-17,"Haarlem","GGD Kennemerland",23,22,1
-2021-08-18,"Westland","GGD Haaglanden",17,18,-1
-2021-08-21,"","GGD Regio Utrecht",1,2,-1
-2021-08-21,"'s-Gravenhage","GGD Haaglanden",120,121,-1
-2021-08-21,"Apeldoorn","GGD Noord- en Oost-Gelderland",21,20,1
-2021-08-22,"Pekela","GGD Groningen",1,2,-1
-2021-08-22,"Zaanstad","GGD Zaanstreek/Waterland",31,32,-1
-2021-08-23,"","GGD Kennemerland",3,5,-2
-2021-08-23,"","GGD Noord- en Oost-Gelderland",0,1,-1
-2021-08-23,"","GGD Rotterdam-Rijnmond",9,8,1
-2021-08-23,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",1,2,-1
-2021-08-23,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",27,26,1
-2021-08-23,"Borne","GGD Twente",3,4,-1
-2021-08-23,"Borsele","GGD Zeeland",2,3,-1
-2021-08-23,"Goeree-Overflakkee","GGD Rotterdam-Rijnmond",6,7,-1
-2021-08-23,"Het Hogeland","GGD Groningen",6,5,1
-2021-08-24,"","GGD Amsterdam",3,4,-1
-2021-08-24,"","GGD Groningen",2,3,-1
-2021-08-24,"","GGD Hollands-Midden",0,1,-1
-2021-08-24,"","GGD Kennemerland",1,2,-1
-2021-08-24,"","GGD Regio Utrecht",1,2,-1
-2021-08-24,"","GGD Zaanstreek/Waterland",0,1,-1
-2021-08-24,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",0,2,-2
-2021-08-24,"Aalten","GGD Noord- en Oost-Gelderland",3,4,-1
-2021-08-24,"Amsterdam","GGD Amsterdam",223,224,-1
-2021-08-24,"Beekdaelen","GGD Zuid-Limburg",6,5,1
-2021-08-24,"De Ronde Venen","GGD Regio Utrecht",9,10,-1
-2021-08-24,"Groningen","GGD Groningen",38,37,1
-2021-08-24,"Haarlemmermeer","GGD Kennemerland",29,30,-1
-2021-08-24,"Hellendoorn","GGD Twente",0,1,-1
-2021-08-24,"Leeuwarden","GGD Fryslân",19,20,-1
-2021-08-24,"Leiden","GGD Hollands-Midden",26,25,1
-2021-08-24,"Oldenzaal","GGD Twente",5,6,-1
-2021-08-24,"Rheden","Veiligheids- en Gezondheidsregio Gelderland-Midden",4,3,1
-2021-08-24,"Rotterdam","GGD Rotterdam-Rijnmond",106,107,-1
-2021-08-24,"Sittard-Geleen","GGD Zuid-Limburg",9,10,-1
-2021-08-24,"Sliedrecht","Dienst Gezondheid & Jeugd ZHZ",7,8,-1
-2021-08-24,"Stichtse Vecht","GGD Regio Utrecht",3,2,1
-2021-08-24,"Tilburg","GGD Hart voor Brabant",34,35,-1
-2021-08-24,"Zaanstad","GGD Zaanstreek/Waterland",43,45,-2
-2021-08-24,"Zeist","GGD Regio Utrecht",7,6,1
-2021-08-24,"Zuidplas","GGD Hollands-Midden",8,9,-1
-2021-08-25,"","GGD Amsterdam",3,5,-2
-2021-08-25,"","GGD Fryslân",0,1,-1
-2021-08-25,"","GGD Gelderland-Zuid",0,1,-1
-2021-08-25,"","GGD Groningen",1,2,-1
-2021-08-25,"","GGD Haaglanden",4,5,-1
-2021-08-25,"","GGD Hollands-Midden",3,8,-5
-2021-08-25,"","GGD Kennemerland",9,11,-2
-2021-08-25,"","GGD Regio Utrecht",1,2,-1
-2021-08-25,"","GGD Rotterdam-Rijnmond",2,5,-3
-2021-08-25,"","GGD Twente",4,5,-1
-2021-08-25,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",1,3,-2
-2021-08-25,"'s-Gravenhage","GGD Haaglanden",117,119,-2
-2021-08-25,"Almelo","GGD Twente",11,12,-1
-2021-08-25,"Amstelveen","GGD Amsterdam",12,13,-1
-2021-08-25,"Beverwijk","GGD Kennemerland",10,8,2
-2021-08-25,"Culemborg","GGD Gelderland-Zuid",5,4,1
-2021-08-25,"Duiven","Veiligheids- en Gezondheidsregio Gelderland-Midden",4,5,-1
-2021-08-25,"Ede","Veiligheids- en Gezondheidsregio Gelderland-Midden",19,18,1
-2021-08-25,"Enschede","GGD Twente",41,39,2
-2021-08-25,"Groningen","GGD Groningen",40,39,1
-2021-08-25,"Haarlem","GGD Kennemerland",30,31,-1
-2021-08-25,"Heemskerk","GGD Kennemerland",12,13,-1
-2021-08-25,"Heemstede","GGD Kennemerland",5,4,1
-2021-08-25,"Houten","GGD Regio Utrecht",3,4,-1
-2021-08-25,"Kaag en Braassem","GGD Hollands-Midden",2,1,1
-2021-08-25,"Krimpenerwaard","GGD Hollands-Midden",3,4,-1
-2021-08-25,"Landerd","GGD Hart voor Brabant",2,3,-1
-2021-08-25,"Landsmeer","GGD Zaanstreek/Waterland",4,5,-1
-2021-08-25,"Leeuwarden","GGD Fryslân",21,22,-1
-2021-08-25,"Leiden","GGD Hollands-Midden",19,17,2
-2021-08-25,"Maastricht","GGD Zuid-Limburg",15,14,1
-2021-08-25,"Oosterhout","GGD West-Brabant",4,5,-1
-2021-08-25,"Rheden","Veiligheids- en Gezondheidsregio Gelderland-Midden",9,8,1
-2021-08-25,"Rotterdam","GGD Rotterdam-Rijnmond",166,163,3
-2021-08-25,"Sliedrecht","Dienst Gezondheid & Jeugd ZHZ",4,5,-1
-2021-08-25,"Súdwest-Fryslân","GGD Fryslân",23,22,1
-2021-08-25,"Teylingen","GGD Hollands-Midden",5,4,1
-2021-08-25,"Twenterand","GGD Twente",5,6,-1
-2021-08-25,"Utrecht","GGD Regio Utrecht",89,92,-3
-2021-08-25,"Woerden","GGD Regio Utrecht",7,6,1
-2021-08-25,"Woudenberg","GGD Regio Utrecht",2,3,-1
-2021-08-25,"Zuidplas","GGD Hollands-Midden",7,6,1
+2021-07-21,"","GGD Rotterdam-Rijnmond",6,7,-1
+2021-08-11,"Oude IJsselstreek","GGD Noord- en Oost-Gelderland",8,9,-1
+2021-08-15,"Het Hogeland","GGD Groningen",4,5,-1
+2021-08-15,"Rotterdam","GGD Rotterdam-Rijnmond",100,99,1
+2021-08-17,"Kerkrade","GGD Zuid-Limburg",2,3,-1
+2021-08-23,"Enschede","GGD Twente",29,30,-1
+2021-08-23,"Schiedam","GGD Rotterdam-Rijnmond",14,15,-1
+2021-08-24,"","GGD Groningen",0,2,-2
+2021-08-24,"","GGD Rotterdam-Rijnmond",4,5,-1
+2021-08-24,"Amsterdam","GGD Amsterdam",222,223,-1
+2021-08-24,"Groningen","GGD Groningen",39,38,1
+2021-08-24,"Het Hogeland","GGD Groningen",11,10,1
+2021-08-24,"Rotterdam","GGD Rotterdam-Rijnmond",107,106,1
+2021-08-25,"","GGD Brabant-Zuidoost",7,8,-1
+2021-08-25,"","GGD Haaglanden",3,4,-1
+2021-08-25,"","GGD Rotterdam-Rijnmond",1,2,-1
+2021-08-25,"","GGD Twente",3,4,-1
+2021-08-25,"'s-Gravenhage","GGD Haaglanden",118,117,1
+2021-08-25,"Amsterdam","GGD Amsterdam",223,224,-1
+2021-08-25,"Castricum","GGD Hollands-Noorden",9,10,-1
+2021-08-25,"Edam-Volendam","GGD Zaanstreek/Waterland",12,13,-1
+2021-08-25,"Eindhoven","GGD Brabant-Zuidoost",40,39,1
+2021-08-25,"Enschede","GGD Twente",42,41,1
+2021-08-25,"Groningen","GGD Groningen",38,40,-2
+2021-08-25,"Hengelo (O.)","GGD Twente",16,17,-1
+2021-08-25,"Leusden","GGD Regio Utrecht",6,7,-1
+2021-08-25,"Purmerend","GGD Zaanstreek/Waterland",16,15,1
+2021-08-25,"Rotterdam","GGD Rotterdam-Rijnmond",167,166,1
+2021-08-25,"Schagen","GGD Hollands-Noorden",7,8,-1
+2021-08-25,"Soest","GGD Regio Utrecht",5,6,-1
+2021-08-26,"","GGD Amsterdam",9,11,-2
+2021-08-26,"","GGD Flevoland",0,2,-2
+2021-08-26,"","GGD Fryslân",0,2,-2
+2021-08-26,"","GGD Groningen",2,6,-4
+2021-08-26,"","GGD Haaglanden",0,1,-1
+2021-08-26,"","GGD Kennemerland",8,10,-2
+2021-08-26,"","GGD Rotterdam-Rijnmond",7,8,-1
+2021-08-26,"","GGD Zeeland",3,0,3
+2021-08-26,"'s-Gravenhage","GGD Haaglanden",123,122,1
+2021-08-26,"Almere","GGD Flevoland",51,49,2
+2021-08-26,"Amstelveen","GGD Amsterdam",7,8,-1
+2021-08-26,"Amsterdam","GGD Amsterdam",150,155,-5
+2021-08-26,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",34,35,-1
+2021-08-26,"Barendrecht","GGD Rotterdam-Rijnmond",10,9,1
+2021-08-26,"Bergen (NH.)","GGD Hollands-Noorden",4,5,-1
+2021-08-26,"Bernheze","GGD Hart voor Brabant",5,6,-1
+2021-08-26,"Beverwijk","GGD Kennemerland",11,10,1
+2021-08-26,"Edam-Volendam","GGD Zaanstreek/Waterland",8,9,-1
+2021-08-26,"Ede","Veiligheids- en Gezondheidsregio Gelderland-Midden",31,32,-1
+2021-08-26,"Groningen","GGD Groningen",32,30,2
+2021-08-26,"Haarlem","GGD Kennemerland",28,27,1
+2021-08-26,"Het Hogeland","GGD Groningen",10,8,2
+2021-08-26,"Leeuwarden","GGD Fryslân",30,28,2
+2021-08-26,"Midden-Groningen","GGD Groningen",5,4,1
+2021-08-26,"Moerdijk","GGD West-Brabant",2,3,-1
+2021-08-26,"Rotterdam","GGD Rotterdam-Rijnmond",168,171,-3
+2021-08-26,"Scherpenzeel","Veiligheids- en Gezondheidsregio Gelderland-Midden",0,1,-1
+2021-08-26,"Schiedam","GGD Rotterdam-Rijnmond",19,20,-1
+2021-08-26,"Tilburg","GGD Hart voor Brabant",26,27,-1
+2021-08-26,"Utrecht","GGD Regio Utrecht",45,47,-2
+2021-08-26,"Vlissingen","GGD Zeeland",10,13,-3
+2021-08-26,"Zaltbommel","GGD Gelderland-Zuid",8,9,-1
+2021-08-26,"Zeist","GGD Regio Utrecht",6,7,-1
+2021-08-26,"Zutphen","GGD Noord- en Oost-Gelderland",5,6,-1
