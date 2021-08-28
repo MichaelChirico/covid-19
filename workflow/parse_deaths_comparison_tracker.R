@@ -1,3 +1,6 @@
+require(readxl)
+require(sjmisc)
+
 ## Deaths NICE ##
 temp = tail(list.files(path = "data-nice/exit/Clinical_Beds",pattern="*.csv", full.names = T),1)
 deaths_clinic <- fread(temp)[,c("date","Overleden")]
@@ -74,14 +77,96 @@ cbs.death.statistics <- cbs.death.statistics %>%
   mutate(other_deaths_perc = other_deaths_perc/100)
 
 urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
-u.cbs.week <- last(urls$urls)
-webpage.cbs.week <- read_html(u.cbs.week)
 
-cbs.death.statistics.week <- as.data.frame(html_table(webpage.cbs.week)[[2]])[,c(1:3,6)]
-colnames(cbs.death.statistics.week) <- c("Year","Week","wlz_deaths","other_deaths")
-cbs.death.statistics.week <- mutate_all(cbs.death.statistics.week, function(x) as.numeric(as.character(x)))
-cbs.death.statistics.week <- cbs.death.statistics.week[complete.cases(cbs.death.statistics.week),]
+cbs_url <- last(urls)
+page <- read_html(cbs_url[1,1])
+page <- page %>% html_nodes("a") %>% html_attr('href')
+page <- data.frame(page)
 
+page$category <- grepl(".xlsx", page$page, fixed = TRUE)
+page <- page %>%
+  filter(category == "TRUE")
+cbs_url <- page[1,1]
+
+download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
+
+#### Parse WLZ mortality data ####
+
+cbs_sterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 5))[,1:4]
+unlink("cbs_deaths.xlsx")
+cbs_sterfte <- cbs_sterfte[6:nrow(cbs_sterfte),]
+#cbs_sterfte <- cbs_sterfte[c(1:4)]
+
+## Select indices ##
+test <- row_count(cbs_sterfte, count = NA)
+rows.2020 <- which(test$rowcount == 4)[2]
+rows.2021 <- which(test$rowcount == 4)[1]
+
+wlz_sterfte.2020 <- cbs_sterfte[(rows.2021+2):(rows.2020-1),]
+colnames(wlz_sterfte.2020) <- c("Type","Jaar","Week","WLZ_gebruikers")
+
+wlz_sterfte.2020 <- wlz_sterfte.2020 %>%
+  mutate(Week = parse_number(Week)) %>%
+  mutate(WLZ_gebruikers = parse_number(WLZ_gebruikers))
+
+wlz_sterfte.2020$Type <- "WLZ"
+wlz_sterfte.2020$Jaar <- 2020
+
+
+
+wlz_sterfte.2021 <- cbs_sterfte[1:rows.2021-1]
+colnames(wlz_sterfte.2021) <- c("Type","Jaar","Week","WLZ_gebruikers")
+
+wlz_sterfte.2021 <- wlz_sterfte.2021 %>%
+  mutate(Week = parse_number(Week)) %>%
+  mutate(WLZ_gebruikers = parse_number(WLZ_gebruikers))
+
+wlz_sterfte.2021$Type <- "WLZ"
+wlz_sterfte.2021$Jaar <- 2021
+
+wlz_sterfte <- rbind(wlz_sterfte.2020,wlz_sterfte.2021)
+
+
+## Parse 'other' mortality data ##
+
+rows.2020 <- which(test$rowcount == 4)[2]
+rows.2021 <- which(test$rowcount == 4)[1]
+rows.2021.other <- which(test$rowcount == 4)[3]
+rows.2020.other <- which(test$rowcount == 4)[4]
+
+other_sterfte.2021 <- cbs_sterfte[(rows.2020+1):(rows.2021.other-1),]
+other_sterfte.2020 <- cbs_sterfte[(rows.2021.other+2):(rows.2020.other-1),]
+
+
+colnames(other_sterfte.2020) <- c("Type","Jaar","Week","Overige_bevolking")
+
+other_sterfte.2020 <- other_sterfte.2020 %>%
+  mutate(Week = parse_number(Week)) %>%
+  mutate(Overige_bevolking = parse_number(Overige_bevolking))
+
+other_sterfte.2020$Type <- "Overige_bevolking"
+other_sterfte.2020$Jaar <- 2020
+
+
+colnames(other_sterfte.2021) <- c("Type","Jaar","Week","Overige_bevolking")
+
+other_sterfte.2021 <- other_sterfte.2021 %>%
+  mutate(Week = parse_number(Week)) %>%
+  mutate(Overige_bevolking = parse_number(Overige_bevolking))
+
+other_sterfte.2021$Type <- "Overige_bevolking"
+other_sterfte.2021$Jaar <- 2021
+
+other_sterfte <- rbind(other_sterfte.2020,other_sterfte.2021)
+
+cbs.death.statistics.week <- merge(wlz_sterfte[,c("Week","Jaar","WLZ_gebruikers")],other_sterfte[,c("Week","Jaar","Overige_bevolking")],by=c("Week","Jaar"))
+####
+
+
+#### Merge CBS mortality data ####
+
+colnames(cbs.death.statistics.week) <- c("Week","Year","wlz_deaths","other_deaths")
+cbs.death.statistics.week <- data.frame(cbs.death.statistics.week)
 
 cbs.df <- merge(cbs.death.statistics,cbs.death.statistics.week, by = c("Week","Year"))
 cbs.df <- cbs.df %>%
@@ -116,7 +201,7 @@ deaths_total <- deaths_total %>%
 write.csv(deaths_total, file = "corrections/death_week_comparisons.csv", row.names = F)
 
 rm(deaths_clinic, deaths_IC,deaths_nice,df_deaths_rivm,excess_dlm,nursing.homes,nursing.homes.deaths.wide,
-   week_deaths_nursery, living.home_70, living.home_70.wide,week_deaths_living_home_70,temp)#, cbs.df)
+   week_deaths_nursery, living.home_70, living.home_70.wide,week_deaths_living_home_70,temp, cbs.df)
 
 
 ## PLOTS
