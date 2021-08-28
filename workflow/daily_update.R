@@ -146,8 +146,6 @@ source("workflow/parse_nice-municipalities-data.R")
 source("workflow/parse_municipalities.R")
 source("workflow/generate_municipality_images.R")
 
-tweet.main.id <- "1430881720920944644"
-tweet.last_id <- "1430881720920944644"
 
 bot <- TGBot$new(token = bot_token('RBot'))
 bot$set_default_chat_id(user_id('me'))
