@@ -478,4 +478,5 @@ rm(daily_vaccin_datalist,df.care.institutions,df.doctors,df.ggd,df.hospitals,df.
 
 rm(beta_long, cbs_dt, cbs.filter, covid_filt, fig2.1_dt,fig2.2_dt,fig4.1.1_dt,fig4.1.2_dt, fig4.2.1_dt,
    nl_dt,smooth_dt_dyn,totals,totals2020,week_labels,i,week.now,ci_5p,find_week, cbs.df, pos_tests_agg_day,
-   tests_pos.corr, tests.ggd)
+   tests_pos.corr, tests.ggd, cbs_sterfte, other_sterfte, other_sterfte.2020, onder_sterfte.2021, wlz_sterfte,
+   wlz_sterfte.2020, wlz_sterfte.2021, test)
