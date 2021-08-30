@@ -181,3 +181,6 @@ add(repo, path = "*")
 commit(repo, all = T, paste0("Monthly update population data - ",set.month))
 push(repo, credentials = git.auth)
 
+rm(dat.mun, dat.safetyregion, df, df.pop, gemeente.stats, gemeentegrenzen, gemeentes, ggd_population, ggds_population,
+   myfiles, nl_dt, pop.age, pop.safetyregion, province.identifier,schoolregion, token.mzelst, set.month,
+   temp, webhook.discord)
