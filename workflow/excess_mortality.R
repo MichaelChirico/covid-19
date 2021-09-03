@@ -243,7 +243,7 @@ mortality_wide %>%
   geom_line(aes(y = `2020`, color = "2020"), lwd=1.2) +
   geom_line(aes(y = `2021`, color = "2021"), lwd=1.2) +
   scale_y_continuous(limits = c(2000, 5500)) +
-  theme_minimal() +
+  theme_bw() +
   theme(axis.title.x=element_blank(),
         axis.title.y=element_blank(),
         axis.text.x.bottom = element_text(size=12),
