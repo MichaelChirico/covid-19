@@ -263,7 +263,7 @@ mortality_wide %>%
   scale_colour_manual(values=cbp2) +
   annotate("text", x = 08, y = 4300, label = "Griepgolf (2018)") +
   annotate("text", x = 14, y = 5200, label = "Eerste golf") +
-  annotate("text", x = 32, y = 3400, label = "Hittegolf") +
+  annotate("text", x = 32, y = 3400, label = "Hittegolf (2020)") +
   annotate("text", x = 44, y = 3800, label = "Tweede golf") +
   annotate("text", x = 14.5, y = 3400, label = "Derde golf")
 ggsave("data-misc/excess_mortality/plots_weekly_update/sterfte_perweek.png")
