@@ -59,12 +59,12 @@ tweet.last_id <- posted_tweet$id_str
 ## Build excess mortality (historical) tweet
 excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
 
-tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " juni"," - ",endday.week," juni):
+tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " augustus"," - ",endday.week," augustus):
 
 1) Historisch gemiddelde: ",last(excess_mortality$Oversterfte_Totaal),"
 2) Historisch gemiddelde (corr. leeftijd): ",last(excess_mortality$Oversterfte_Totaal_Gecorrigeerd),"
 3) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
-4) Methode RIVM (",rivm.startday," juni - ",rivm.endday," juni): ",last(excess_mortality$excess_mortality_rivm),"
+4) Methode RIVM (",rivm.startday," augustus - ",rivm.endday," augustus): ",last(excess_mortality$excess_mortality_rivm),"
 
 (grafieken CBS / RIVM)
 ")
@@ -81,7 +81,7 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Retrieve link CBS mortality weekly
 urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
-u.cbs <- last(urls$urls)
+u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/35/in-augustus-opnieuw-oversterfte"
 
 ## Load CBS website
 webpage <- read_html(u.cbs)
@@ -169,16 +169,16 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Conclusie tweet
 
-conclusie.tweet <- paste0("Conclusie: In tegenstelling tot de afgelopen weken is de sterfte deze week weer verhoogd en is er zelfs significante oversterfte in de groep 65-80. Het is waarschijnlijk dat dit door corona komt want het komt redelijk overeen met een vertraagd effect van de #DansenmetJanssen golf")
+#conclusie.tweet <- paste0("Conclusie: In tegenstelling tot de afgelopen weken is de sterfte deze week weer verhoogd en is er zelfs significante oversterfte in de groep 65-80. Het is waarschijnlijk dat dit door corona komt want het komt redelijk overeen met een vertraagd effect van de #DansenmetJanssen golf")
 
-posted_tweet <- post_tweet (
-  conclusie.tweet,
-  token = token.mzelst,
-  in_reply_to_status_id = tweet.last_id,
-  auto_populate_reply_metadata = TRUE
-)
-posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
-tweet.last_id <- posted_tweet$id_str
+#posted_tweet <- post_tweet (
+#  conclusie.tweet,
+#  token = token.mzelst,
+#  in_reply_to_status_id = tweet.last_id,
+#  auto_populate_reply_metadata = TRUE
+#)
+#posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+#tweet.last_id <- posted_tweet$id_str
 
 ## Eindnoot tweet
 
