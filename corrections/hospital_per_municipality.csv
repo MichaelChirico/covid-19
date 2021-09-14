@@ -1,23 +1,66 @@
 "Date_of_statistics","Municipality_name","Security_region_name","hospital.today.mun","hospital.yesterday.mun","diff"
-2021-09-03,"Stein","Limburg-Zuid",1,0,1
-2021-09-08,"Zaanstad","Zaanstreek-Waterland",2,1,1
-2021-09-09,"Landgraaf","Limburg-Zuid",1,0,1
-2021-09-09,"Zaltbommel","Gelderland-Zuid",1,0,1
-2021-09-10,"Alkmaar","Noord-Holland-Noord",2,0,2
-2021-09-10,"Altena","Midden- en West-Brabant",1,0,1
-2021-09-10,"Coevorden","Drenthe",1,0,1
-2021-09-10,"Terneuzen","Zeeland",1,0,1
-2021-09-10,"Westland","Haaglanden",1,0,1
-2021-09-11,"","",1,2,-1
-2021-09-11,"'s-Gravenhage","Haaglanden",1,0,1
-2021-09-11,"Alkmaar","Noord-Holland-Noord",1,0,1
-2021-09-11,"Amsterdam","Amsterdam-Amstelland",1,0,1
-2021-09-11,"Beek","Limburg-Zuid",1,0,1
-2021-09-11,"Coevorden","Drenthe",1,0,1
-2021-09-11,"Den Helder","Noord-Holland-Noord",1,0,1
-2021-09-11,"Diemen","Amsterdam-Amstelland",1,0,1
-2021-09-11,"Hardenberg","IJsselland",2,1,1
-2021-09-11,"Overbetuwe","Gelderland-Midden",1,0,1
-2021-09-11,"Rotterdam","Rotterdam-Rijnmond",3,2,1
-2021-09-11,"Terneuzen","Zeeland",1,0,1
-2021-09-11,"Zaanstad","Zaanstreek-Waterland",1,0,1
+2021-09-02,"Eindhoven","Brabant-Zuidoost",1,0,1
+2021-09-03,"","",4,3,1
+2021-09-03,"Eindhoven","Brabant-Zuidoost",1,0,1
+2021-09-03,"Roermond","Limburg-Noord",1,0,1
+2021-09-04,"Best","Brabant-Zuidoost",1,0,1
+2021-09-05,"","",2,3,-1
+2021-09-06,"Eindhoven","Brabant-Zuidoost",1,0,1
+2021-09-06,"Soest","Utrecht",1,0,1
+2021-09-07,"Midden-Groningen","Groningen",2,1,1
+2021-09-07,"Rotterdam","Rotterdam-Rijnmond",5,4,1
+2021-09-08,"","",2,3,-1
+2021-09-08,"Amsterdam","Amsterdam-Amstelland",3,2,1
+2021-09-08,"Eindhoven","Brabant-Zuidoost",1,0,1
+2021-09-08,"Tynaarlo","Drenthe",1,0,1
+2021-09-09,"","",5,4,1
+2021-09-09,"Eindhoven","Brabant-Zuidoost",1,0,1
+2021-09-09,"Groningen","Groningen",2,1,1
+2021-09-09,"Maastricht","Limburg-Zuid",1,0,1
+2021-09-09,"Nunspeet","Noord- en Oost-Gelderland",2,1,1
+2021-09-09,"Roermond","Limburg-Noord",1,0,1
+2021-09-09,"Rotterdam","Rotterdam-Rijnmond",2,3,-1
+2021-09-10,"","",1,0,1
+2021-09-10,"Haarlem","Kennemerland",1,0,1
+2021-09-10,"Hillegom","Hollands-Midden",1,0,1
+2021-09-10,"Lansingerland","Rotterdam-Rijnmond",1,0,1
+2021-09-10,"Lelystad","Flevoland",1,0,1
+2021-09-10,"Oldebroek","Noord- en Oost-Gelderland",1,0,1
+2021-09-10,"Rotterdam","Rotterdam-Rijnmond",4,1,3
+2021-09-10,"Schiedam","Rotterdam-Rijnmond",2,0,2
+2021-09-11,"","",3,1,2
+2021-09-11,"'s-Gravenhage","Haaglanden",2,1,1
+2021-09-11,"Alphen aan den Rijn","Hollands-Midden",1,0,1
+2021-09-11,"Amersfoort","Utrecht",1,0,1
+2021-09-11,"Deventer","IJsselland",1,0,1
+2021-09-11,"Groningen","Groningen",1,0,1
+2021-09-11,"Hardenberg","IJsselland",3,2,1
+2021-09-11,"Maassluis","Rotterdam-Rijnmond",1,0,1
+2021-09-11,"Maastricht","Limburg-Zuid",1,0,1
+2021-09-11,"Nunspeet","Noord- en Oost-Gelderland",2,0,2
+2021-09-11,"Oosterhout","Midden- en West-Brabant",1,0,1
+2021-09-11,"Rijssen-Holten","Twente",1,0,1
+2021-09-11,"Rotterdam","Rotterdam-Rijnmond",7,3,4
+2021-09-11,"Schiedam","Rotterdam-Rijnmond",1,0,1
+2021-09-11,"Stichtse Vecht","Utrecht",1,0,1
+2021-09-11,"Zaltbommel","Gelderland-Zuid",1,0,1
+2021-09-12,"","",1,0,1
+2021-09-12,"'s-Gravenhage","Haaglanden",3,2,1
+2021-09-12,"Almere","Flevoland",2,1,1
+2021-09-12,"Amsterdam","Amsterdam-Amstelland",3,1,2
+2021-09-12,"Beesel","Limburg-Noord",1,0,1
+2021-09-12,"Berkelland","Noord- en Oost-Gelderland",1,0,1
+2021-09-12,"Breda","Midden- en West-Brabant",1,0,1
+2021-09-12,"Deventer","IJsselland",1,0,1
+2021-09-12,"Eersel","Brabant-Zuidoost",1,0,1
+2021-09-12,"Hilversum","Gooi en Vechtstreek",1,0,1
+2021-09-12,"Lochem","Noord- en Oost-Gelderland",1,0,1
+2021-09-12,"Lopik","Utrecht",1,0,1
+2021-09-12,"Nissewaard","Rotterdam-Rijnmond",1,0,1
+2021-09-12,"Nunspeet","Noord- en Oost-Gelderland",1,0,1
+2021-09-12,"Roermond","Limburg-Noord",1,0,1
+2021-09-12,"Rotterdam","Rotterdam-Rijnmond",4,0,4
+2021-09-12,"Soest","Utrecht",1,0,1
+2021-09-12,"Terneuzen","Zeeland",1,0,1
+2021-09-12,"Utrecht","Utrecht",1,0,1
+2021-09-12,"Vlaardingen","Rotterdam-Rijnmond",1,0,1
