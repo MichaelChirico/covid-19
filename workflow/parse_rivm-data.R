@@ -122,6 +122,24 @@ settings <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_settings_per
 filename.bco.settings <- paste0("data-rivm/bco-settings/bco_settings_daily_",last(settings$Date_of_publication),".csv") ## Filename for daily data
 fwrite(settings, file = filename.bco.settings,row.names = F)
 
+## Download vaccine rate per municipality
+
+vaccine.municipality <- fread("https://data.rivm.nl/data/covid-19/COVID-19_vaccinatiegraad_per_gemeente_per_week_leeftijd.csv")
+filename.vaccine.municipality <- paste0("data-rivm/vaccine-municipality/vaccine_municipality_weekly_",as.Date(last(vaccine.municipality$Date_of_report)),".csv") ## Filename for daily data
+fwrite(vaccine.municipality, file = filename.vaccine.municipality,row.names = F)
+
+## Download Infectieradar
+
+infectieradar <- fread("https://data.rivm.nl/covid-19/COVID-19_Infectieradar_symptomen_per_dag.csv")
+filename.infectieradar <- paste0("data-rivm/infectieradar/infectieradar_daily_",as.Date(last(infectieradar$Date_of_statistics)),".csv") ## Filename for daily data
+fwrite(infectieradar, file = filename.infectieradar,row.names = F)
+
+## Download vaccine rate per municipality
+
+vaccine.municipality <- fread("https://data.rivm.nl/data/covid-19/COVID-19_vaccinatiegraad_per_gemeente_per_week_leeftijd.csv")
+filename.vaccine.municipality <- paste0("data-rivm/vaccine-municipality/vaccine_municipality_weekly_",as.Date(last(vaccine.municipality$Date_of_report)),".csv") ## Filename for daily data
+fwrite(vaccine.municipality, file = filename.vaccine.municipality,row.names = F)
+
 ## Download variant data 
 
 variants <- fread("https://data.rivm.nl/covid-19/COVID-19_varianten.csv", sep = ";")
