@@ -2,7 +2,7 @@
 ## original author: Trond Husby
 ## edits by: Marino van Zelst
 ## date: 26.06.2020
-## last edit: 20-03-2021
+## last edit: 20-09-2021
 
 ##
 ## house keeping
@@ -11,7 +11,7 @@
 ## Put in double date breaker for daily update
 repeat {
   Sys.sleep(2)
-  time.start <- ymd_hms(paste0("2021-09-17"," 06:00:00"))
+  time.start <- ymd_hms(paste0("2021-09-24"," 06:00:00"))
   time.now <- ymd_hms(Sys.time())
   
   if (time.start < time.now){
