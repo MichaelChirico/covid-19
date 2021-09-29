@@ -126,6 +126,8 @@ df.pop <- merge(pop.age, myfiles[,c("Municipality_code","Municipality_name","Pro
 ## Add code Municipal_health region
 ggd_population <- read.csv("misc/ggds-population.csv")
 colnames(ggd_population)[1]<-"Municipal_health_service"
+ggd_population <- ggd_population %>%                               # Replacing values
+  mutate(Municipal_health_service = replace(Municipal_health_service, Municipal_health_service == "GGD Regio Twente", "GGD Twente"))
 df.pop <- merge(df.pop, ggd_population[,c("Municipal_health_service","ggd_code")])
 
 ## Add schoolregions
