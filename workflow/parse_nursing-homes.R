@@ -1,6 +1,3 @@
-require(rgeos)
-require(geojsonio)
-
 temp = tail(list.files(path = "data-rivm/nursing-homes-datasets/",pattern="*.csv.gz", full.names = T),1)
 nursing.homes <- fread(temp)
 
