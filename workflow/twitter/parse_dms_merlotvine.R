@@ -87,13 +87,18 @@ names_merlot <- c("Nootje82154939"
 ,"TailfoxTim"
 ,"Saskia_Furdytje"
 ,"nvermaire"
-,"PesmanGerard")
+,"PesmanGerard"
+,"@mondkapjehelpt"
+,"@IngridStaa"
+,"@JulianKuiten2"
+,"@Herman_NoCovid"
+,"@Berrie70")
 
 source("workflow/twitter/token_merlotvine.R")
 
-message <- "Vanavond tussen 19.00 en 19.15  weer een selectie van (wetenschappelijk) nieuws over covid-19 /sarscov2! https://twitter.com/MerlotVine/status/1443561271043973121"
+message <- "Vanavond tussen 19.00 - 19.25 post ik weer een selectie van (wetenschappelijk) nieuws over Covid-19 /sarscov2! https://twitter.com/MerlotVine/status/1449002615291908097"
 
-for(i in 1:90){
+for(i in 1:95){
 post_message(message, names_merlot[i], token = token)
 }
 
