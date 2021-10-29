@@ -481,13 +481,5 @@ source("workflow/parse_deaths_comparison_tracker.R")
 
 #gm_send_message(my_email_message)
 
-rm(daily_vaccin_datalist,df.care.institutions,df.doctors,df.ggd,df.hospitals,df.total,
-   myfiles,vaccine_data,vaccines_by_day,vaccines_delivery,dashboard.date,filename.daily.vaccins,
-   filename.daily.vaccins.delivered,last.date,temp,today.date, vaccine.data, dat, doses, table, vaccins.df, webpage, u, time.now, time.start, message,
-   ggd_tests, percentage_positive_daily_national, tests_agg_day, tests_growth,
-   tests_per_day, tests.corr)
-
-rm(beta_long, cbs_dt, cbs.filter, covid_filt, fig2.1_dt,fig2.2_dt,fig4.1.1_dt,fig4.1.2_dt, fig4.2.1_dt,
-   nl_dt,smooth_dt_dyn,totals,totals2020,week_labels,i,week.now,ci_5p,find_week, cbs.df, pos_tests_agg_day,
-   tests_pos.corr, tests.ggd, cbs_sterfte, other_sterfte, other_sterfte.2020, onder_sterfte.2021, wlz_sterfte,
-   wlz_sterfte.2020, wlz_sterfte.2021, test, cbs_url, other_sterfte.2021,rows.2020,rows.2020.other,rows.2021,rows.2021.other,page)
+remove(list = ls())
+source("workflow/twitter/token_mzelst.R")
