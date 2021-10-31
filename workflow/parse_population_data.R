@@ -2,7 +2,7 @@
 require(geojsonio)
 ## Set month
 
-set.month <- paste0("2021MM",0,month(Sys.Date())-2)
+set.month <- paste0("2021MM",0,month(Sys.Date())-1)
 
 dat.mun <- cbs_get_data("37230ned",add_column_labels = FALSE,Perioden = has_substring(c(set.month)))
 dat.mun <- dat.mun[,c("RegioS","BevolkingAanHetEindeVanDePeriode_15")]
@@ -81,7 +81,7 @@ write.csv(pop.safetyregion, file = "misc/safetyregions-population.csv")
 
 
 ## Age population data
-pop.age <- cbs_get_data("83482NED",add_column_labels = FALSE,Perioden = has_substring(c("2021MM05")), 
+pop.age <- cbs_get_data("83482NED",add_column_labels = FALSE,Perioden = has_substring(c("2021MM10")), 
                         Migratieachtergrond = has_substring(c("T001040")),
                         Generatie = has_substring(c("T001040")),
                         Geslacht = has_substring(c("T001038")))
