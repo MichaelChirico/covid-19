@@ -2,7 +2,7 @@
 require(geojsonio)
 ## Set month
 
-set.month <- paste0("2021MM",0,month(Sys.Date())-1)
+set.month <- paste0("2021MM",0,month(Sys.Date())-2)
 
 dat.mun <- cbs_get_data("37230ned",add_column_labels = FALSE,Perioden = has_substring(c(set.month)))
 dat.mun <- dat.mun[,c("RegioS","BevolkingAanHetEindeVanDePeriode_15")]

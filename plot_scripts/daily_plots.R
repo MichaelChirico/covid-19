@@ -29,7 +29,7 @@ cases <- all.data %>%
   geom_line(aes(y = net.infection, color = "Toename besmettingen per dag (incl. correcties)"), lwd=1.2) +
   geom_line(aes(y = positive_7daverage, color = "Voortschrijdend gemiddelde (7 dagen)"), lwd=1.2) +
   geom_line(aes(y = new.infection, color = "Nieuw gemelde besmettingen per dag"), lwd=1.2) +
-  scale_x_date(expand = c(0, 2)) + 
+  scale_x_date(expand = c(0, 3)) + 
   scale_y_continuous(expand = c(0, 200), limits = c(0, NA)) +
   theme_bw() +
   theme(axis.title.x=element_blank(),
@@ -56,6 +56,7 @@ cases <- all.data %>%
   geom_vline(xintercept = as.Date(Sys.Date()-14-day.today), linetype = "dotted") +
   geom_vline(xintercept = as.Date(Sys.Date()-7-day.today), linetype = "dotted") +
   geom_vline(xintercept = as.Date(Sys.Date()-day.today), linetype = "dotted") +
+  geom_vline(xintercept = as.Date(Sys.Date()+7-day.today), linetype = "dotted") +
   ggtitle("Meldingen van geconstateerde besmettingen")
 
 ggsave("plots/positieve_tests_per_dag.png",width=12, height = 8)
@@ -93,6 +94,7 @@ testplot <- testdata %>%
   geom_vline(xintercept = as.Date(Sys.Date()-14-day.today), linetype = "dotted") +
   geom_vline(xintercept = as.Date(Sys.Date()-7-day.today), linetype = "dotted") +
   geom_vline(xintercept = as.Date(Sys.Date()-day.today), linetype = "dotted") +
+  geom_vline(xintercept = as.Date(Sys.Date()+7-day.today), linetype = "dotted") +
   ggtitle("Percentage positief per dag (GGD)")
 
 ggsave("plots/percentage_positief_per_dag.png",width=12, height = 8)
@@ -158,6 +160,7 @@ opnames <- all.data %>%
   geom_vline(xintercept = as.Date(Sys.Date()-14-day.today), linetype = "dotted") +
   geom_vline(xintercept = as.Date(Sys.Date()-7-day.today), linetype = "dotted") +
   geom_vline(xintercept = as.Date(Sys.Date()-day.today), linetype = "dotted") +
+  geom_vline(xintercept = as.Date(Sys.Date()+7-day.today), linetype = "dotted") +
   ggtitle("Opnames op de verpleegafdeling en IC")
 
 ggsave("plots/overview_opnames_zkh.png", width = 12, height=8)
