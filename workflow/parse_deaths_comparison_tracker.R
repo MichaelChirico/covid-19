@@ -66,12 +66,12 @@ deaths_total <- merge(deaths_total,excess_dlm,by=c("Week","Year"), all.x=T)
 
 ## Deaths WLZ vs. other / CBS
 
-u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/26/in-maart-stierven-1-6-duizend-mensen-aan-covid-19"
+u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/44/in-2e-kwartaal-2021-minder-mensen-overleden-aan-covid-19-dan-in-1e-kwartaal"
 webpage.cbs <- read_html(u.cbs)
 
 cbs.death.statistics <- as.data.frame(html_table(webpage.cbs)[[2]])
 colnames(cbs.death.statistics) <- c("Year","Week","wlz_deaths_perc","other_deaths_perc")
-cbs.death.statistics <- mutate_all(cbs.death.statistics, function(x) as.numeric(as.character(x)))
+cbs.death.statistics <- mutate_all(cbs.death.statistics, function(x) parse_number(as.character(x)))
 cbs.death.statistics <- cbs.death.statistics %>%
   mutate(wlz_deaths_perc = wlz_deaths_perc/100) %>%
   mutate(other_deaths_perc = other_deaths_perc/100)
@@ -210,7 +210,7 @@ cols <- c("#009E73", "#87109A","#E6830C","#D96DEA", "#2231C5","#000000")
 
 
 plot <- deaths_total %>%
-  filter(week_year <= "2021-12") %>%
+  filter(week_year <= "2021-25") %>%
   ggplot(aes(x=factor(week_year), y=deaths_rivm, group = 1)) + 
   geom_line(aes(y = deaths_rivm, color = "RIVM"), lwd=1.2) +
   geom_line(aes(y = total_covid_mortality, color = "CBS"), lwd=1.2) +
@@ -218,7 +218,7 @@ plot <- deaths_total %>%
   xlab("")+
   ylab("")+
   labs(title = "Sterfte per week",
-       subtitle = "CBS data beschikbaar t/m maart 2021",
+       subtitle = "CBS data beschikbaar t/m juni 2021",
        caption = paste("Bron: CBS/RIVM | Plot: @mzelst  | ",Sys.Date())) +
   theme(
     legend.title = element_blank(),  ## legend title
@@ -243,7 +243,7 @@ ggsave("plots/sterfte_per_week_30K.png", width = 12, height=8)
 
 plot <- deaths_total %>%
   filter(week_year >= "2020-39") %>%
-  filter(week_year <= "2021-12") %>%
+  filter(week_year <= "2021-25") %>%
   ggplot(aes(x=factor(week_year), y=deaths_wlz_perc, group = 1)) + 
   geom_line(aes(y = deaths_wlz_perc, color = "Verpleeghuis"), lwd=1.2) +
   geom_line(aes(y = deaths_home_perc, color = "Thuis"), lwd=1.2) +
