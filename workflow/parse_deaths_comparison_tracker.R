@@ -317,14 +317,14 @@ ggsave("plots/sterfte_per_week_30K_totalen.png", width = 12, height=8)
 
 
 ##cbs.deaths
-u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/26/in-maart-stierven-1-6-duizend-mensen-aan-covid-19"
+u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/44/in-2e-kwartaal-2021-minder-mensen-overleden-aan-covid-19-dan-in-1e-kwartaal"
 webpage.cbs <- read_html(u.cbs)
 
 cbs.death.statistics <- as.data.frame(html_table(webpage.cbs)[[3]])
 cbs.deaths <- sum(as.numeric(cbs.death.statistics[1:(nrow(cbs.death.statistics)-1),"COVID-19"]),na.rm=T)
 
 cbs.filter <- deaths_total %>%
-  filter(Year == 2021 & Week >= 9)
+  filter(Year == 2021 & Week >= 26)
 cbs.filter$cumulative_deaths <- cumsum(cbs.filter$deaths_estimate_3) + cbs.deaths
 deaths_total <- merge(deaths_total, cbs.filter[,c("Week","Year","cumulative_deaths")], by = c("Week","Year"),all.x=T)
 setorder(deaths_total, Year, Week)
@@ -339,5 +339,3 @@ repo <- init()
 add(repo, path = "*")
 commit(repo, all = T, paste0("[", Sys.Date(), "] Update death comparison tracker for Twitter thread"))
 push(repo, credentials = git.auth)
-
-  
