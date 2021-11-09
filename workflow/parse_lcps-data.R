@@ -1,3 +1,26 @@
+repeat {
+  Sys.sleep(5)
+  lcps.data.original <- utils::read.csv('https://lcps.nu/wp-content/uploads/covid-19-datafeed.csv', sep =',')
+  
+  lcps.data <- lcps.data.original %>%
+    mutate(
+      date = as.Date(Datum, tryFormats = c('%d-%m-%Y')),
+      .before = Datum
+    ) %>%
+    mutate(
+      Datum = NULL
+    )
+  
+  date.lcps <- first(lcps.data$date)
+  date.now <- as.Date(Sys.Date())
+  if (date.lcps == date.now){
+    message <- "GO GO GO GO GO"
+    break
+  }
+}
+
+rm(lcps.data, lcps.data.original, date.lcps, date.now, message)
+
 lcps.data.original <- utils::read.csv('https://lcps.nu/wp-content/uploads/covid-19-datafeed.csv', sep =',')
 
 # Order numbers: IC_Bedden_COVID, IC_Bedden_Non_COVID, Kliniek_Bedden, IC_Nieuwe_Opnames_COVID, Kliniek_Nieuwe_Opnames_COVID
@@ -46,4 +69,8 @@ if (lcps.condition) {stop("The value is TRUE, so the script must end here")
   
 }
 
-rm(filename, filename.common, filename.daily, lcps.condition, lcps.date, lcps.dailydata, lcps.data.original)
+bot <- TGBot$new(token = bot_token('RBot'))
+bot$set_default_chat_id(user_id('me'))
+bot$sendMessage('LCPS Data klaar')
+
+rm(filename, filename.common, filename.daily, lcps.condition, lcps.date, lcps.dailydata, lcps.data.original,bot)
