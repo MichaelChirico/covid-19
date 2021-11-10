@@ -71,6 +71,6 @@ if (lcps.condition) {stop("The value is TRUE, so the script must end here")
 
 bot <- TGBot$new(token = bot_token('RBot'))
 bot$set_default_chat_id(user_id('me'))
-bot$sendMessage('LCPS Data klaar')
+bot$sendMessage((lcps.data$Kliniek_Nieuwe_Opnames_COVID[1]))
 
 rm(filename, filename.common, filename.daily, lcps.condition, lcps.date, lcps.dailydata, lcps.data.original,bot)
