@@ -18,8 +18,8 @@ require(xtable)
 require(shiny)
 require(metathis)
 
-const.toplist_minimum <- 35 
-const.hosp_toplist_minimum <- 1
+const.toplist_minimum <- 50 
+const.hosp_toplist_minimum <- 2
 
 setwd('../')
 
