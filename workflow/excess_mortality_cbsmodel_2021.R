@@ -621,9 +621,12 @@ fig4.2.1_dt <- fig4.2.1_dt %>%
   dplyr::filter(model == "Dynamisch")
 
 ## plot
-ggplot(fig4.2.1_dt, aes(factor(week), mid, group = 1)) +
+fig4.2.1_dt_2021 <- totals %>%
+  filter(weekyear >= "2021-01")
+
+ggplot(fig4.2.1_dt_2021, aes(factor(week), deaths_week_mid, group = 1)) +
   geom_col(size = 4, position = 'dodge') +
-  geom_errorbar(aes(ymin = lwr, ymax = upr, col = ifelse(model == 'CBS', NA, 'red')), alpha = 0.4) +
+  geom_errorbar(aes(ymin = deaths_week_low, ymax = deaths_week_high, col = ifelse(model == 'CBS', NA, 'red')), alpha = 0.4) +
   ## scale_x_continuous(breaks = as.numeric(time(window(cbs_deaths_ts, start = c(2020, 1)))),
   ##                    labels = seq(1, nl_dt[year == 2020, max(week)])
   ##                    ) +
@@ -634,6 +637,7 @@ ggplot(fig4.2.1_dt, aes(factor(week), mid, group = 1)) +
   theme_bw() + 
   theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold")) +
   ggtitle("Sterfte door corona (2021)")
+
 ggsave('plots/2021_fig4.2.1.png')
 
 ## figure 4.2.2
