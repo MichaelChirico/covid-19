@@ -8,8 +8,16 @@ endday.week <- substr(Sys.Date()-5,9,10)
 rivm.startday <- substr(Sys.Date()-15,9,10)
 rivm.endday <- substr(Sys.Date()-9,9,10)
 
+excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
+
+meer.minder <- ifelse(last(excess_mortality$percent_excess)>0,"meer","minder")
+
+perc_excess_text <- paste0(last(excess_mortality$percent_excess),"% ",meer.minder," dan verwacht.")
+
 ## Build main tweet
-tweet.main <- paste0("CBS heeft het aantal overlijdensgevallen bijgewerkt t/m week ",thisweek," van 2021. In dit draadje duid ik de sterfte per week + het aantal mensen dat is overleden door corona.")
+tweet.main <- paste0("CBS heeft het aantal overlijdensgevallen bijgewerkt t/m week ",thisweek," van 2021. In week 44 overleden er ",last(excess_mortality$Totaal_Overleden)," mensen. Dat is ",perc_excess_text,"
+
+In dit draadje duid ik de sterfte per week + het aantal mensen dat is overleden door corona.")
 
 posted_tweet <- post_tweet (
   tweet.main,
@@ -59,12 +67,10 @@ tweet.last_id <- posted_tweet$id_str
 ## Build excess mortality (historical) tweet
 excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
 
-tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " september"," - ",endday.week," oktober):
+tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " november"," - ",endday.week," november):
 
-1) Historisch gemiddelde: ",last(excess_mortality$Oversterfte_Totaal),"
-2) Historisch gemiddelde (corr. leeftijd): ",last(excess_mortality$Oversterfte_Totaal_Gecorrigeerd),"
-3) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
-4) Methode RIVM (",rivm.startday," september - ",rivm.endday," september): ",last(excess_mortality$excess_mortality_rivm),"
+1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
+2) Methode RIVM (",rivm.startday," oktober - ",rivm.endday," november): ",last(excess_mortality$excess_mortality_rivm),"
 
 (grafieken CBS / RIVM)
 ")
@@ -79,29 +85,59 @@ posted_tweet <- post_tweet (
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
 
-## Retrieve link CBS mortality weekly
-urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
-u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/40/in-september-opnieuw-oversterfte"
-
-## Load CBS website
-webpage <- read_html(u.cbs)
-
 ## Tweet WLZ mortality
-table.wlz <- as.data.frame(html_table(webpage)[2])
-colnames(table.wlz) <- c("Year","Week","deaths_wlz","expected_deaths_wlz","ci_expected_deaths_wlz","deaths_other","expected_deaths_other","ci_expected_deaths_other")
-table.wlz$deaths_wlz <- as.numeric(table.wlz$deaths_wlz)
-table.wlz$expected_deaths_wlz <- as.numeric(table.wlz$expected_deaths_wlz)
-table.wlz$deaths_other <- as.numeric(table.wlz$deaths_other)
-table.wlz$expected_deaths_other <- as.numeric(table.wlz$expected_deaths_other)
-table.wlz$excess_wlz <- table.wlz$deaths_wlz-table.wlz$expected_deaths_wlz
-table.wlz$excess_other <- table.wlz$deaths_other-table.wlz$expected_deaths_other
+cbs_links <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
+cbs_url <- last(cbs_links)
+page <- read_html(cbs_url[1,1])
+page <- page %>% html_nodes("a") %>% html_attr('href')
+page <- data.frame(page)
 
-table.wlz <- table.wlz %>%
-  filter(excess_wlz != "NA")
+page$category <- grepl(".xlsx", page$page, fixed = TRUE)
+page <- page %>%
+  filter(category == "TRUE")
+cbs_url <- page[1,1]
 
-table.wlz$excess_wlz_perc <- round(table.wlz$excess_wlz/table.wlz$expected_deaths_wlz*100,0)
+download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
+cbs_oversterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 7))[,1:10]
+unlink("cbs_deaths.xlsx")
+cbs_oversterfte <- cbs_oversterfte[8:nrow(cbs_oversterfte),]
+cbs_oversterfte <- cbs_oversterfte[-54,]
+cbs_oversterfte <- cbs_oversterfte[-c(106:109),]
+colnames(cbs_oversterfte) <- c("Periode","deaths_expected_cbs","verwacht_lb","Verwacht_ub","Verwacht_WLZ","verwacht_WLZ_lb","Verwacht_WLZ_ub",
+                               "Verwacht_other","Verwacht_other_lb","Verwacht_other_ub")
+
+cbs_oversterfte$Year <- parse_number(cbs_oversterfte$Periode)
+cbs_oversterfte$Week <- c(1:53,1:52)
+
+download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
+wlz_sterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 6))[-c(1:6),c(1:2,5,10)]
+unlink("cbs_deaths.xlsx")
+
+colnames(wlz_sterfte) <- c("Year","Week","WLZ_total","Other_total")
+
+wlz_sterfte <- wlz_sterfte %>%
+  mutate(Year = 2021) %>%
+  mutate(Week = parse_number(Week)) %>%
+  mutate(WLZ_total = parse_number(WLZ_total)) %>%
+  mutate(Other_total = parse_number(Other_total))
+
+thisweek <- isoweek(Sys.Date())-2
+end_file_week <- isoweek(Sys.Date())+1
+
+wlz_sterfte <- wlz_sterfte[c(1:thisweek,end_file_week),]
+wlz_sterfte[nrow(wlz_sterfte),"Week"] <- isoweek(Sys.Date())-1
+
+sterfte_wlz_other <- merge(cbs_oversterfte, wlz_sterfte, by = c("Year","Week"), all.x=T)
+
+sterfte_wlz_other <- sterfte_wlz_other %>%
+  mutate_if(is.character,as.numeric) %>%
+  mutate(excess_wlz_perc = round((WLZ_total-Verwacht_WLZ)/Verwacht_WLZ*100,1)) %>%
+  mutate(excess_other_perc = round((Other_total-Verwacht_other)/Verwacht_other*100,1)) %>%
+  select(-c("Periode"))
+
+table.wlz <- sterfte_wlz_other[complete.cases(sterfte_wlz_other),]
+
 wlz.text <- ifelse(last(table.wlz$excess_wlz_perc)<0,"minder","meer")
-table.wlz$excess_other_perc <- round(table.wlz$excess_other/table.wlz$expected_deaths_other*100,0)
 other.text <- ifelse(last(table.wlz$excess_other_perc)<0,"minder","meer")
 
 tweet.wlz <- paste0("4/ Oversterfte Wlz en overige bevolking (CBS)
@@ -120,6 +156,8 @@ posted_tweet <- post_tweet (
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
+
+thisweek <- isoweek(Sys.Date())-1
 
 ## Tweet DLM analyses
 
@@ -144,7 +182,7 @@ tweet.last_id <- posted_tweet$id_str
 
 deaths.comparison.tracker <- read.csv("corrections/death_week_comparisons.csv")
 deaths.comparison.tracker <- deaths.comparison.tracker %>%
-  filter(Year == 2021 & Week > 8 & Week <= thisweek)
+  filter(Year == 2021 & Week > 25 & Week <= thisweek)
 
 cbs.deaths <- sum(excess_mortality$Covid_deaths_CBS_death_statistics,na.rm=T)
 est.deaths <- sum(deaths.comparison.tracker$deaths_estimate_3)
@@ -153,7 +191,7 @@ tweet.newmodel <- paste0("6/ Een andere methode om de sterfte door corona te sch
 
 Het aantal sterfgevallen in week ",thisweek," aan de hand van deze methode is ",last(deaths.comparison.tracker$deaths_estimate_3),".
 
-De sterfte door corona tot nu toe is ",cbs.deaths+est.deaths, ".
+De sterfte door corona tot nu toe is dan ",cbs.deaths+est.deaths, ".
 ")
 
 posted_tweet <- post_tweet (
@@ -169,7 +207,7 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Conclusie tweet
 
-conclusie.tweet <- paste0("Conclusie: De sterfte is de afgelopen weken hoger dan verwacht en kan niet alleen worden verklaard door het aantal sterfgevallen door corona. Mogelijke effecten van het #zorginfarct, maar meer data is nodig voor definitieve conclusies.")
+conclusie.tweet <- paste0("Conclusie: De sterfte is de afgelopen weken hoger dan verwacht en ligt bijna volledig in lijn met de sterfte in 2020 in dezelfde periode. De oversterfte komt vrijwel compleet door de twee oudste leeftijdsgroepen. Een deel wordt waarschijnlijk ook verklaard door uitgestelde zorg.")
 
 posted_tweet <- post_tweet (
   conclusie.tweet,

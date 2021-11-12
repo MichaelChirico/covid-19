@@ -222,10 +222,12 @@ cbs.death.statistics$deaths_expected_cbs <- parse_number(cbs.death.statistics$de
 deaths_weekly <- merge(deaths_weekly, cbs.death.statistics, by = c("Week","Year"), all.x=T)
 deaths_weekly$excess_cbs_method <- deaths_weekly$Totaal_Overleden-deaths_weekly$deaths_expected_cbs
 
-
-
 # Arrange and write file
 deaths_weekly <- arrange(deaths_weekly, Year, Week)
+
+deaths_weekly <- deaths_weekly %>%
+  mutate(percent_excess = round((Totaal_Overleden - deaths_expected_cbs)/deaths_expected_cbs*100,1))
+
 write.csv(deaths_weekly, file = "data-misc/excess_mortality/excess_mortality.csv", row.names = F)
 
 cbp2 <- c("#009E73", "#87109A","#E6830C",
