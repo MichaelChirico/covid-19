@@ -38,9 +38,12 @@ dat.today$growth_IC_7d <- frollmean(dat.today$growth_IC,7)
 
 
 dat.today$date <- as.Date(dat.today$date)
+today.date <- dat.today[nrow(dat.today)-4,"date"]
 
+  
 # Plot for positive tests per day
 dat.today %>%
+  filter(date <= today.date) %>%
   ggplot(aes(x=date, y=growth_7d)) + 
   geom_line(aes(y = growth_7d, color = "Groei in bezetting_7d"), lwd=1.2) +
   geom_line(aes(y = growth_IC_7d, color = "Groei in bezetting_IC_7d"), lwd=1.2) +
