@@ -15,7 +15,7 @@ meer.minder <- ifelse(last(excess_mortality$percent_excess)>0,"meer","minder")
 perc_excess_text <- paste0(last(excess_mortality$percent_excess),"% ",meer.minder," dan verwacht.")
 
 ## Build main tweet
-tweet.main <- paste0("CBS heeft het aantal overlijdensgevallen bijgewerkt t/m week ",thisweek," van 2021. In week 44 overleden er ",last(excess_mortality$Totaal_Overleden)," mensen. Dat is ",perc_excess_text,"
+tweet.main <- paste0("CBS heeft het aantal overlijdensgevallen bijgewerkt t/m week ",thisweek," van 2021. In week ",thisweek," overleden er ",last(excess_mortality$Totaal_Overleden)," mensen. Dat is ",perc_excess_text,"
 
 In dit draadje duid ik de sterfte per week + het aantal mensen dat is overleden door corona.")
 
@@ -70,7 +70,7 @@ excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
 tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " november"," - ",endday.week," november):
 
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
-2) Methode RIVM (",rivm.startday," oktober - ",rivm.endday," november): ",last(excess_mortality$excess_mortality_rivm),"
+2) Methode RIVM (",rivm.startday," november - ",rivm.endday," november): ",last(excess_mortality$excess_mortality_rivm),"
 
 (grafieken CBS / RIVM)
 ")
@@ -207,10 +207,57 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Conclusie tweet
 
-conclusie.tweet <- paste0("Conclusie: De sterfte is de afgelopen weken hoger dan verwacht en ligt bijna volledig in lijn met de sterfte in 2020 in dezelfde periode. De oversterfte komt vrijwel compleet door de twee oudste leeftijdsgroepen. Een deel wordt waarschijnlijk ook verklaard door uitgestelde zorg.")
+conclusie.tweet <- paste0("Conclusie: De sterfte is de afgelopen weken hoger dan verwacht en ligt nu, zoals verwacht, boven de sterfte in 2020 in dezelfde periode. 
+
+De oversterfte komt vrijwel compleet door de twee oudste leeftijdsgroepen. Een deel wordt waarschijnlijk ook verklaard door uitgestelde zorg.")
 
 posted_tweet <- post_tweet (
   conclusie.tweet,
+  token = token.mzelst,
+  in_reply_to_status_id = tweet.last_id,
+  auto_populate_reply_metadata = TRUE
+)
+posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+tweet.last_id <- posted_tweet$id_str
+
+## Verwachting
+
+verwachting.tweet <- paste0("Verwachting: de coronasterfte van week ",thisweek," is veroorzaakt door besmettingen uit de voorgaande weken. Gegeven het oplopende aantal besmettingen is de verwachting dat de sterfte daardoor verder stijgt.
+
+Een toenemend zorginfarct, zonder intensieve interventies, versterkt dit effect.")
+
+posted_tweet <- post_tweet (
+  verwachting.tweet,
+  token = token.mzelst,
+  in_reply_to_status_id = tweet.last_id,
+  auto_populate_reply_metadata = TRUE
+)
+posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+tweet.last_id <- posted_tweet$id_str
+
+## Verwachting - deel 2
+
+verwachting.tweet_2 <- paste0("Verwachting 2: In 2020 werd de coronasterfte in deze periode al gedempt door de gedeeltelijke lockdown. 
+
+Gegeven de stijgende besmettingen, zal de sterfte in ieder geval op de korte termijn waarschijnlijk hoger blijven dan in dezelfde periode vorig jaar.")
+
+posted_tweet <- post_tweet (
+  verwachting.tweet_2,
+  token = token.mzelst,
+  in_reply_to_status_id = tweet.last_id,
+  auto_populate_reply_metadata = TRUE
+)
+posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+tweet.last_id <- posted_tweet$id_str
+
+## Disclaimer
+
+disclaimer.tweet <- "Dit moet ik er blijkbaar elke keer weer bij zetten: ja, de vaccins werken goed tegen sterfte. Nee, ze zijn niet perfect en dus voorkomen ze niet alle sterfgevallen.
+
+Maar met tienduizenden besmettingen per dag sterven er alsnog vele mensen, zelfs met een uitermate goed vaccin."
+
+posted_tweet <- post_tweet (
+  disclaimer.tweet,
   token = token.mzelst,
   in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE
