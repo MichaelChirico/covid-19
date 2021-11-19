@@ -154,19 +154,6 @@ tweet.main.id <- posted_tweet$id_str
 tweet.last_id <- tweet.main.id
 
 ##### Generate municipality images ####
-
-tweet.storing = "Melding over de storingen.
-
-De GGD'en hebben de meldingen die bij de technische storing betrokken waren inmiddels bijgewerkt. De cijfers van vandaag bevatten echter nog wel nameldingen. Vanaf morgen valt het aantal meldingen niet meer hoger uit door de storing."
-
-posted_tweet <- post_tweet (
-  tweet.storing,
-  token = token.mzelst,
-  media = "C:/Users/Marino/Downloads/Storing.png",
-  in_reply_to_status_id = "1461267668883980288",
-  auto_populate_reply_metadata = TRUE
-)
-
 source("workflow/parse_nice-municipalities-data.R")
 source("workflow/parse_municipalities.R")
 source("workflow/generate_municipality_images.R")
