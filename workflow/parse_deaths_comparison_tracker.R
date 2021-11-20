@@ -45,7 +45,7 @@ living.home_70.wide <- living.home_70.wide %>%
 week_deaths_living_home_70 <- aggregate(Total_deceased_reported ~ Week + Year, data = living.home_70.wide, FUN = sum)
 colnames(week_deaths_living_home_70) <- c("Week","Year","deaths_living_home_70")
 
-deaths_total <- merge(deaths_total,week_deaths_living_home_70, by = c("Week","Year"))
+deaths_total <- merge(deaths_total,week_deaths_living_home_70, by = c("Week","Year"), all.x=T)
 
 ## RIVM all deaths
 
