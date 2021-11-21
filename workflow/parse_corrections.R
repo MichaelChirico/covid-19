@@ -50,6 +50,8 @@ temp = list.files(path = "corrections/corrections_per_day/",pattern="*.csv", ful
 myfiles = lapply(temp, read.csv)
 corrections.perday <- dplyr::bind_rows(myfiles)
 corrections.perday$positive_7daverage <- round(frollmean(corrections.perday[,"new.infection"],7),0) # Calculate 7-day average (based on newly reported infections, gross number)
+corrections.perday$positive_14d <- lag(corrections.perday$positive_7daverage,7)
+corrections.perday$growth_infections <- round(corrections.perday$positive_7daverage/corrections.perday$positive_14d*100,1)
 
 write.csv(corrections.perday, file = "corrections/corrections_perday.csv", row.names = FALSE)
 

@@ -472,7 +472,7 @@ source("workflow/parse_deaths_comparison_tracker.R")
 #IC_message <- ifelse(last(dat$IC_Cumulative)>10000,"IC=10000","IC is nog niet 10000")
 #my_email_message <- gm_mime() %>%
 #  gm_to("j.m.vanzelst@uvt.nl") %>%
-#  gm_from("marinovanzelst@gmail.com") %>%
+#  gm_from("marinovanzelst@gm ail.com") %>%
 #  gm_subject(latest_msg) %>%
 #  gm_text_body(IC_message)
 
