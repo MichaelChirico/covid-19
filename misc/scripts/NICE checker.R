@@ -65,5 +65,5 @@ dat.today %>%
        y = "Groei in bezetting kliniek (7d gemiddelde)",
        color = "Legend") +
   geom_hline(yintercept = 1, linetype = "dotted") +
-  geom_hline(yintercept = 1.08, linetype = "dotted") +
+  geom_hline(yintercept = 1.03, linetype = "dotted") +
   ggtitle("Meldingen van geconstateerde besmettingen")
