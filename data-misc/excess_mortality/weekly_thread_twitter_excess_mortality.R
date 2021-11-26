@@ -17,7 +17,9 @@ perc_excess_text <- paste0(last(excess_mortality$percent_excess),"% ",meer.minde
 ## Build main tweet
 tweet.main <- paste0("CBS heeft het aantal overlijdensgevallen bijgewerkt t/m week ",thisweek," van 2021. In week ",thisweek," overleden er ",last(excess_mortality$Totaal_Overleden)," mensen. Dat is ",perc_excess_text,"
 
-In dit draadje duid ik de sterfte per week + het aantal mensen dat is overleden door corona.")
+Een draad over de sterfte per week en sterfte door corona.
+                     
+En waarom code zwart in Limburg al zichtbaar is.")
 
 posted_tweet <- post_tweet (
   tweet.main,
