@@ -44,6 +44,7 @@ today.date <- dat.today[nrow(dat.today)-4,"date"]
 # Plot for positive tests per day
 dat.today %>%
   filter(date <= today.date) %>%
+  filter(date >= "2021-10-05") %>%
   ggplot(aes(x=date, y=growth_7d)) + 
   geom_line(aes(y = growth_7d, color = "Groei in bezetting_7d"), lwd=1.2) +
   geom_line(aes(y = growth_IC_7d, color = "Groei in bezetting_IC_7d"), lwd=1.2) +

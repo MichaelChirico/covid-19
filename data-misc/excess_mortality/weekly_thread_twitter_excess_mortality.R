@@ -19,7 +19,7 @@ tweet.main <- paste0("CBS heeft het aantal overlijdensgevallen bijgewerkt t/m we
 
 Een draad over de sterfte per week en sterfte door corona.
                      
-En waarom code zwart in Limburg al zichtbaar is.")
+En waarom code zwart in Limburg al zichtbaar wordt.")
 
 posted_tweet <- post_tweet (
   tweet.main,
@@ -211,7 +211,7 @@ tweet.last_id <- posted_tweet$id_str
 
 conclusie.tweet <- paste0("Conclusie: De sterfte is de afgelopen weken hoger dan verwacht en ligt nu, zoals verwacht, boven de sterfte in 2020 in dezelfde periode. 
 
-De oversterfte komt vrijwel compleet door de twee oudste leeftijdsgroepen. Een deel wordt waarschijnlijk ook verklaard door uitgestelde zorg.")
+De oversterfte komt compleet door de twee oudste leeftijdsgroepen. Een deel wordt waarschijnlijk ook verklaard door uitgestelde zorg.")
 
 posted_tweet <- post_tweet (
   conclusie.tweet,
