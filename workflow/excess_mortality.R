@@ -267,9 +267,9 @@ mortality_wide %>%
   annotate("text", x = 06, y = 4300, label = "Griepgolf (2018)", color="#E6830C") +
   annotate("text", x = 14, y = 5200, label = "Eerste golf", color = "#2231C5") +
   annotate("text", x = 32, y = 3400, label = "Hittegolf (2020)", color ="#2231C5") +
-  annotate("text", x = 44, y = 3200, label = "Tweede golf", color = "#2231C5") +
+  annotate("text", x = 44, y = 3300, label = "Tweede golf", color = "#2231C5") +
   annotate("text", x = 14.5, y = 3400, label = "Derde golf", color = "#000000") +
-  annotate("text", x = 44, y = 3900, label = "Vijfde golf", color = "#000000")
+  annotate("text", x = 44, y = 4000, label = "Vijfde golf", color = "#000000")
 ggsave("data-misc/excess_mortality/plots_weekly_update/sterfte_perweek.png")
 
 git.credentials <- read_lines("git_auth.txt")
