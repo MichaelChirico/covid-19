@@ -10,8 +10,8 @@
 
 ## Put in double date breaker for daily update
 repeat {
-  Sys.sleep(120)
-  time.start <- ymd_hms(paste0("2021-11-26"," 06:00:00"))
+  Sys.sleep(600)
+  time.start <- ymd_hms(paste0("2021-12-03"," 06:00:00"))
   time.now <- ymd_hms(Sys.time())
   
   if (time.start < time.now){

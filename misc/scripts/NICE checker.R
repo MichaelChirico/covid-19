@@ -37,6 +37,8 @@ dat.today$growth_IC <- lead(dat.today$IC_Current)/dat.today$IC_Current
 dat.today$growth_IC_7d <- frollmean(dat.today$growth_IC,7)
 
 
+dat.today$totaal_bezetting <- dat.today$Hospital_Currently + dat.today$IC_Current 
+
 dat.today$date <- as.Date(dat.today$date)
 today.date <- dat.today[nrow(dat.today)-4,"date"]
 

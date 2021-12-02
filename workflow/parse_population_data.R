@@ -2,7 +2,7 @@
 require(geojsonio)
 ## Set month
 
-set.month <- paste0("2021MM",0,month(Sys.Date())-2)
+set.month <- paste0("2021MM",month(Sys.Date())-2)
 
 dat.mun <- cbs_get_data("37230ned",add_column_labels = FALSE,Perioden = has_substring(c(set.month)))
 dat.mun <- dat.mun[,c("RegioS","BevolkingAanHetEindeVanDePeriode_15")]
@@ -20,7 +20,7 @@ colnames(gemeente.stats) <- c("Municipality_code","Municipality_name","populatio
 write.csv(gemeente.stats, file = "misc/municipalities-population.csv")
 
 ## Parse GGD population data
-nl_dt <- fread("data-rivm/municipal-datasets-per-day/rivm_municipality_perday_2021-06-01.csv.gz")
+nl_dt <- fread("data-rivm/municipal-datasets-per-day/rivm_municipality_perday_2021-12-01.csv.gz")
 nl_dt <- aggregate(Deceased ~ Municipal_health_service + Municipality_code, data = nl_dt, sum)
 
 dat.mun <- cbs_get_data("37230ned",add_column_labels = FALSE,Perioden = has_substring(c(set.month)))
@@ -81,7 +81,7 @@ write.csv(pop.safetyregion, file = "misc/safetyregions-population.csv")
 
 
 ## Age population data
-pop.age <- cbs_get_data("83482NED",add_column_labels = FALSE,Perioden = has_substring(c("2021MM10")), 
+pop.age <- cbs_get_data("83482NED",add_column_labels = FALSE,Perioden = has_substring(c("2021MM11")), 
                         Migratieachtergrond = has_substring(c("T001040")),
                         Generatie = has_substring(c("T001040")),
                         Geslacht = has_substring(c("T001038")))
