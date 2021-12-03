@@ -144,6 +144,8 @@ tweet.wlz <- paste0("4/ Oversterfte Wlz en overige bevolking (CBS)
 
 De sterfte bij Wlz-gebruikers (mensen in zorginstellingen) is ",abs(last(table.wlz$excess_wlz_perc)),"% ",wlz.text," dan verwacht.
 
+Aflevering 44 van 'De stille ramp'.
+
 De sterfte in de overige bevolking is ",abs(last(table.wlz$excess_other_perc)),"% ",other.text," dan verwacht.
 ")
 
@@ -207,9 +209,7 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Conclusie tweet
 
-conclusie.tweet <- paste0("Conclusie: De sterfte is de afgelopen weken hoger dan verwacht en ligt nu, zoals verwacht, boven de sterfte in 2020 in dezelfde periode. 
-
-De oversterfte komt compleet door de twee oudste leeftijdsgroepen. Een deel wordt waarschijnlijk ook verklaard door uitgestelde zorg.")
+conclusie.tweet <- paste0("Conclusie: De sterfte is de afgelopen weken hoger dan verwacht. Relatief gezien (%) is de oversterfte (in de afgelopen drie weken) niet meer zo hoog geweest sinds de eerste golf.")
 
 posted_tweet <- post_tweet (
   conclusie.tweet,
@@ -222,14 +222,15 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Verwachting
 
-verwachting.tweet <- paste0("Verwachting: de coronasterfte van week ",thisweek," is veroorzaakt door besmettingen uit de voorgaande weken. Gegeven het oplopende aantal besmettingen is de verwachting dat de sterfte daardoor verder stijgt.
+verwachting.tweet <- paste0("Interpretatie: de geschatte coronasterfte van week 47 is tussen de 70-90% van de totale oversterfte. Ik vermoed dat op dit moment zo'n 15-25% van de oversterfte wordt veroorzaakt door het zorginfarct. 
 
-Een toenemend zorginfarct, zonder intensieve interventies, versterkt dit effect.")
+Goed dat dit wordt onderzocht n.a.v. een aangenomen motie van @PieterOmtzigt.")
 
 posted_tweet <- post_tweet (
   verwachting.tweet,
   token = token.mzelst,
   in_reply_to_status_id = tweet.last_id,
+  media = "data-misc/excess_mortality/plots_weekly_update/motie_omtzigt.png",
   auto_populate_reply_metadata = TRUE
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))

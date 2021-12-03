@@ -97,7 +97,7 @@ names_merlot <- c("Nootje82154939"
 source("workflow/twitter/token_merlotvine.R")
 
 message <- "Vanavond vanaf 19.00 post ik weer een selectie van (wetenschappelijk) nieuws over Covid19/sarscov2 !
-Na 19.15 alle artikelen onder deze link: https://twitter.com/search?q=%C3%9E%20(from%3AMerlotVine)%20until%3A2021-11-27%20since%3A2021-11-26&src=typed_query Þ https://twitter.com/MerlotVine/status/1464224924852269056"
+Na 19.17 alle artikelen onder deze link: https://twitter.com/search?q=%C3%9E%20(from%3AMerlotVine)%20until%3A2021-12-04%20since%3A2021-12-03&src=typed_query Þ https://twitter.com/MerlotVine/status/1466761641207349252"
 
 for(i in 1:95){
 post_message(message, names_merlot[i], token = token)
