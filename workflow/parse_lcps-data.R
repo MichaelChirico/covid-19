@@ -49,18 +49,18 @@ if (lcps.condition) {stop("The value is TRUE, so the script must end here")
   lcps.data <- lcps.data[order(lcps.data$date),]
   
   lcps.data <- lcps.data %>%
-    mutate(Totaal_Bezetting = Kliniek_Bedden + IC_Bedden_COVID) %>%
-    mutate(IC_Opnames_7d = frollmean(IC_Nieuwe_Opnames_COVID,7)) %>%
-    mutate(Kliniek_Opnames_7d = frollmean(Kliniek_Nieuwe_Opnames_COVID,7)) %>%
-    mutate(Totaal_opnames = IC_Nieuwe_Opnames_COVID + Kliniek_Nieuwe_Opnames_COVID) %>%
+    mutate(Totaal_Bezetting = Kliniek_Bedden_Nederland + IC_Bedden_COVID_Nederland) %>%
+    mutate(IC_Opnames_7d = frollmean(IC_Nieuwe_Opnames_COVID_Nederland,7)) %>%
+    mutate(Kliniek_Opnames_7d = frollmean(Kliniek_Nieuwe_Opnames_COVID_Nederland,7)) %>%
+    mutate(Totaal_opnames = IC_Nieuwe_Opnames_COVID_Nederland + Kliniek_Nieuwe_Opnames_COVID_Nederland) %>%
     mutate(Totaal_opnames_7d = IC_Opnames_7d + Kliniek_Opnames_7d) %>%
-    mutate(Totaal_IC = IC_Bedden_COVID + IC_Bedden_Non_COVID) %>%
+    mutate(Totaal_IC = IC_Bedden_COVID_Nederland + IC_Bedden_Non_COVID_Nederland) %>%
     mutate(IC_opnames_14d = lag(IC_Opnames_7d,7)) %>%
     mutate(Kliniek_opnames_14d = lag(Kliniek_Opnames_7d,7)) %>%
     mutate(OMT_Check_IC = round(IC_Opnames_7d/IC_opnames_14d*100,1)) %>%
     mutate(OMT_Check_Kliniek = round(Kliniek_Opnames_7d/Kliniek_opnames_14d*100,1)) %>%
-    mutate(Kliniek_Bedden_7d = frollmean(Kliniek_Bedden,7)) %>%
-    mutate(IC_Bedden_7d = frollmean(IC_Bedden_COVID,7)) %>%
+    mutate(Kliniek_Bedden_7d = frollmean(Kliniek_Bedden_Nederland,7)) %>%
+    mutate(IC_Bedden_7d = frollmean(IC_Bedden_COVID_Nederland,7)) %>%
     mutate(Totaal_Bedden_7d = frollmean(Totaal_Bezetting,7)) %>%
     mutate(IC_Bedden_14d = lag(IC_Bedden_7d,7)) %>%
     mutate(Kliniek_Bedden_14d = lag(Kliniek_Bedden_7d,7)) %>%

@@ -1,5 +1,5 @@
-#time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
-time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
+time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
+#time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
 
 ## Put in double date breaker for NICE update
 repeat {
@@ -109,18 +109,22 @@ all.data <- read.csv("data/all_data.csv")
 source("workflow/twitter/token_mzelst.R")
 #source("workflow/twitter/token_edwinveldhuizen.R")
 
-LCPS_klinisch_two_days <- last(all.data$Kliniek_Bedden,2)
+LCPS_klinisch_two_days <- last(all.data$Kliniek_Bedden_Nederland,2)
 LCPS_Verpleeg_Huidig_Toename <- LCPS_klinisch_two_days[2] - LCPS_klinisch_two_days[1]
-LCPS_IC_two_days <- last(all.data$IC_Bedden_COVID,2)
+LCPS_IC_two_days <- last(all.data$IC_Bedden_COVID_Nederland,2)
 LCPS_IC_Huidig_Toename <- LCPS_IC_two_days[2] - LCPS_IC_two_days[1]
+LCPS_IC_Int_two_days <- last(all.data$IC_Bedden_COVID_Internationaal,2)
+LCPS_IC_Int_Huidig_Toename <- LCPS_IC_Int_two_days[2] - LCPS_IC_Int_two_days[1]
  
 sign.hosp.lcps <- paste0(ifelse(LCPS_Verpleeg_Huidig_Toename>=0," (+"," ("))
 sign.ic.lcps <- paste0(ifelse(LCPS_IC_Huidig_Toename>=0," (+"," ("))
+sign.ic.int.lcps <- paste0(ifelse(LCPS_IC_Int_Huidig_Toename>=0," (+"," ("))
 
-Kliniek_Nieuwe_Opnames <- ifelse(is.na(last(all.data$Kliniek_Nieuwe_Opnames_COVID)),"Onbekend",last(all.data$Kliniek_Nieuwe_Opnames_COVID))
-Kliniek_Aanwezig <- ifelse(is.na(last(all.data$Kliniek_Bedden)),"Onbekend",paste0(format(last(all.data$Kliniek_Bedden),decimal.mark = ",",big.mark =".",big.interval = 3),sign.hosp.lcps,LCPS_Verpleeg_Huidig_Toename))
-IC_Nieuwe_Opnames <- ifelse(is.na(last(all.data$IC_Nieuwe_Opnames_COVID)),"Onbekend",last(all.data$IC_Nieuwe_Opnames_COVID))
-IC_Aanwezig <- ifelse(is.na(last(all.data$IC_Bedden_COVID)),"Onbekend",paste0(last(all.data$IC_Bedden_COVID),sign.ic.lcps,LCPS_IC_Huidig_Toename))
+Kliniek_Nieuwe_Opnames <- ifelse(is.na(last(all.data$Kliniek_Nieuwe_Opnames_COVID_Nederland)),"Onbekend",last(all.data$Kliniek_Nieuwe_Opnames_COVID_Nederland))
+Kliniek_Aanwezig <- ifelse(is.na(last(all.data$Kliniek_Bedden_Nederland)),"Onbekend",paste0(format(last(all.data$Kliniek_Bedden_Nederland),decimal.mark = ",",big.mark =".",big.interval = 3),sign.hosp.lcps,LCPS_Verpleeg_Huidig_Toename))
+IC_Nieuwe_Opnames <- ifelse(is.na(last(all.data$IC_Nieuwe_Opnames_COVID_Nederland)),"Onbekend",last(all.data$IC_Nieuwe_Opnames_COVID_Nederland))
+IC_Aanwezig <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Nederland)),"Onbekend",paste0(last(all.data$IC_Bedden_COVID_Nederland),sign.ic.lcps,LCPS_IC_Huidig_Toename))
+IC_Aanwezig_Int <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Internationaal)),"Onbekend",paste0(last(all.data$IC_Bedden_COVID_Internationaal),sign.ic.int.lcps,LCPS_IC_Int_Huidig_Toename))
 
 #vaccins.geprikt <- format(last(vaccines.by_day$vaccines_administered_ggd+vaccines.by_day$vaccines_administered_estimated_hospital),decimal.mark = ",",big.mark =".",big.interval = 3)
 
@@ -136,7 +140,8 @@ Opgenomen: ",Kliniek_Nieuwe_Opnames,"
 Huidig: ",Kliniek_Aanwezig,")
 
 Opgenomen op IC: ",IC_Nieuwe_Opnames,"
-Huidig: ",IC_Aanwezig,")
+Huidig IC NL: ",IC_Aanwezig,")
+Huidig IC Duitsland: ",IC_Aanwezig_Int,")
 
 Overleden: ",last(all.data$new.deaths),"
 Totaal: ",format(last(all.data$deaths),decimal.mark = ",",big.mark =".",big.interval = 3),"")
