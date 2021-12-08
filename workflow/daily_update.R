@@ -140,7 +140,7 @@ Opgenomen: ",Kliniek_Nieuwe_Opnames,"
 Huidig: ",Kliniek_Aanwezig,")
 
 Opgenomen op IC: ",IC_Nieuwe_Opnames,"
-Huidig IC NL: ",IC_Aanwezig,")
+Huidig IC Nederland: ",IC_Aanwezig,")
 Huidig IC Duitsland: ",IC_Aanwezig_Int,")
 
 Overleden: ",last(all.data$new.deaths),"
