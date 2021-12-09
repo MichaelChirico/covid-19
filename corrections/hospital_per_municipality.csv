@@ -1,1032 +1,161 @@
 "Date_of_statistics","Municipality_name","Security_region_name","hospital.today.mun","hospital.yesterday.mun","diff"
-2020-03-04,"","",0,1,-1
-2020-03-04,"Venray","Limburg-Noord",1,0,1
-2020-03-11,"","",4,5,-1
-2020-03-11,"Venlo","Limburg-Noord",1,0,1
-2020-03-12,"","",3,4,-1
-2020-03-12,"Venlo","Limburg-Noord",1,0,1
-2020-03-13,"","",1,2,-1
-2020-03-13,"Venlo","Limburg-Noord",1,0,1
-2020-03-16,"","",2,4,-2
-2020-03-16,"Venlo","Limburg-Noord",2,0,2
-2020-03-17,"","",2,4,-2
-2020-03-17,"Peel en Maas","Limburg-Noord",1,0,1
-2020-03-17,"Venlo","Limburg-Noord",1,0,1
-2020-03-18,"","",2,6,-4
-2020-03-18,"Peel en Maas","Limburg-Noord",2,0,2
-2020-03-18,"Venlo","Limburg-Noord",1,0,1
-2020-03-18,"Venray","Limburg-Noord",2,1,1
-2020-03-20,"","",4,6,-2
-2020-03-20,"Peel en Maas","Limburg-Noord",1,0,1
-2020-03-20,"Venray","Limburg-Noord",3,2,1
-2020-03-21,"","",3,4,-1
-2020-03-21,"Venlo","Limburg-Noord",1,0,1
-2020-03-22,"","",3,4,-1
-2020-03-22,"Venlo","Limburg-Noord",1,0,1
-2020-03-23,"","",7,9,-2
-2020-03-23,"Peel en Maas","Limburg-Noord",2,1,1
-2020-03-23,"Venlo","Limburg-Noord",3,2,1
-2020-03-24,"","",7,9,-2
-2020-03-24,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-03-25,"","",13,14,-1
-2020-03-25,"Beesel","Limburg-Noord",2,1,1
-2020-03-26,"","",7,11,-4
-2020-03-26,"Peel en Maas","Limburg-Noord",5,2,3
-2020-03-26,"Venlo","Limburg-Noord",2,1,1
-2020-03-27,"","",12,16,-4
-2020-03-27,"Peel en Maas","Limburg-Noord",3,2,1
-2020-03-27,"Venlo","Limburg-Noord",4,1,3
-2020-03-28,"","",4,6,-2
-2020-03-28,"Peel en Maas","Limburg-Noord",1,0,1
-2020-03-28,"Venlo","Limburg-Noord",3,2,1
-2020-03-29,"","",5,7,-2
-2020-03-29,"Peel en Maas","Limburg-Noord",1,0,1
-2020-03-29,"Venlo","Limburg-Noord",2,1,1
-2020-03-30,"","",7,11,-4
-2020-03-30,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-03-30,"Peel en Maas","Limburg-Noord",3,1,2
-2020-03-30,"Venlo","Limburg-Noord",2,1,1
-2020-03-31,"","",6,8,-2
-2020-03-31,"Peel en Maas","Limburg-Noord",3,2,1
-2020-03-31,"Venlo","Limburg-Noord",4,2,2
-2020-04-01,"","",3,5,-2
-2020-04-01,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-04-01,"Venray","Limburg-Noord",1,0,1
-2020-04-02,"","",10,13,-3
-2020-04-02,"Peel en Maas","Limburg-Noord",1,0,1
-2020-04-02,"Venlo","Limburg-Noord",2,1,1
-2020-04-02,"Venray","Limburg-Noord",1,0,1
-2020-04-03,"","",2,5,-3
-2020-04-03,"Venlo","Limburg-Noord",3,0,3
-2020-04-04,"","",6,8,-2
-2020-04-04,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-04-04,"Venlo","Limburg-Noord",1,0,1
-2020-04-05,"","",8,9,-1
-2020-04-05,"Peel en Maas","Limburg-Noord",1,0,1
-2020-04-06,"","",5,8,-3
-2020-04-06,"Horst aan de Maas","Limburg-Noord",2,0,2
-2020-04-06,"Venlo","Limburg-Noord",3,2,1
-2020-04-08,"","",1,4,-3
-2020-04-08,"Beesel","Limburg-Noord",1,0,1
-2020-04-08,"Peel en Maas","Limburg-Noord",1,0,1
-2020-04-08,"Venlo","Limburg-Noord",1,0,1
-2020-04-09,"","",1,3,-2
-2020-04-09,"Peel en Maas","Limburg-Noord",1,0,1
-2020-04-09,"Venlo","Limburg-Noord",1,0,1
-2020-04-10,"","",8,13,-5
-2020-04-10,"Horst aan de Maas","Limburg-Noord",2,0,2
-2020-04-10,"Peel en Maas","Limburg-Noord",2,1,1
-2020-04-10,"Venlo","Limburg-Noord",1,0,1
-2020-04-10,"Venray","Limburg-Noord",1,0,1
-2020-04-12,"","",5,6,-1
-2020-04-12,"Beesel","Limburg-Noord",1,0,1
-2020-04-13,"","",2,4,-2
-2020-04-13,"Beesel","Limburg-Noord",1,0,1
-2020-04-13,"Peel en Maas","Limburg-Noord",1,0,1
-2020-04-14,"","",1,5,-4
-2020-04-14,"Peel en Maas","Limburg-Noord",2,0,2
-2020-04-14,"Venlo","Limburg-Noord",1,0,1
-2020-04-14,"Venray","Limburg-Noord",1,0,1
-2020-04-15,"","",1,2,-1
-2020-04-15,"Peel en Maas","Limburg-Noord",1,0,1
-2020-04-16,"","",1,7,-6
-2020-04-16,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-04-16,"Venlo","Limburg-Noord",4,0,4
-2020-04-17,"","",1,5,-4
-2020-04-17,"Venlo","Limburg-Noord",3,0,3
-2020-04-18,"","",3,4,-1
-2020-04-18,"Horst aan de Maas","Limburg-Noord",0,1,-1
-2020-04-18,"Peel en Maas","Limburg-Noord",1,0,1
-2020-04-19,"","",1,2,-1
-2020-04-19,"Venlo","Limburg-Noord",1,0,1
-2020-04-20,"","",1,4,-3
-2020-04-20,"Peel en Maas","Limburg-Noord",2,0,2
-2020-04-20,"Venlo","Limburg-Noord",1,0,1
-2020-04-21,"","",2,5,-3
-2020-04-21,"Venlo","Limburg-Noord",3,0,3
-2020-04-22,"","",1,2,-1
-2020-04-22,"Venlo","Limburg-Noord",1,0,1
-2020-04-23,"","",2,3,-1
-2020-04-23,"Venlo","Limburg-Noord",1,0,1
-2020-04-24,"","",3,4,-1
-2020-04-24,"Venlo","Limburg-Noord",1,0,1
-2020-04-25,"","",3,4,-1
-2020-04-25,"Venlo","Limburg-Noord",0,1,-1
-2020-04-25,"Venray","Limburg-Noord",1,0,1
-2020-04-26,"","",1,2,-1
-2020-04-26,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-04-28,"","",3,4,-1
-2020-04-28,"Venlo","Limburg-Noord",1,0,1
-2020-04-29,"","",0,2,-2
-2020-04-29,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-04-29,"Venlo","Limburg-Noord",1,0,1
-2020-04-30,"","",1,2,-1
-2020-05-02,"","",0,1,-1
-2020-05-02,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-05-07,"","",0,1,-1
-2020-05-07,"Venlo","Limburg-Noord",1,0,1
-2020-05-11,"","",1,2,-1
-2020-05-11,"Venlo","Limburg-Noord",1,0,1
-2020-05-12,"","",0,2,-2
-2020-05-12,"Venlo","Limburg-Noord",1,0,1
-2020-05-18,"","",1,2,-1
-2020-05-19,"","",0,1,-1
-2020-05-20,"","",0,2,-2
-2020-05-20,"Venlo","Limburg-Noord",1,0,1
-2020-09-07,"","",0,1,-1
-2020-09-07,"Venlo","Limburg-Noord",1,0,1
-2020-09-10,"","",1,2,-1
-2020-09-10,"Venlo","Limburg-Noord",1,0,1
-2020-09-21,"","",3,4,-1
-2020-09-21,"Venray","Limburg-Noord",1,0,1
-2020-09-23,"","",0,3,-3
-2020-09-23,"Venlo","Limburg-Noord",2,0,2
-2020-09-23,"Venray","Limburg-Noord",1,0,1
-2020-09-26,"","",4,5,-1
-2020-09-26,"Venlo","Limburg-Noord",1,0,1
-2020-09-28,"","",3,4,-1
-2020-09-29,"","",2,3,-1
-2020-09-29,"Venlo","Limburg-Noord",1,0,1
-2020-09-30,"","",3,4,-1
-2020-09-30,"Venlo","Limburg-Noord",1,0,1
-2020-10-03,"","",0,1,-1
-2020-10-03,"Rotterdam","Rotterdam-Rijnmond",16,15,1
-2020-10-04,"","",5,7,-2
-2020-10-04,"Venlo","Limburg-Noord",1,0,1
-2020-10-04,"Venray","Limburg-Noord",1,0,1
-2020-10-05,"","",3,4,-1
-2020-10-07,"","",3,6,-3
-2020-10-07,"Oisterwijk","Midden- en West-Brabant",1,0,1
-2020-10-07,"Venlo","Limburg-Noord",1,0,1
-2020-10-08,"","",3,5,-2
-2020-10-08,"Beesel","Limburg-Noord",1,0,1
-2020-10-08,"Venlo","Limburg-Noord",1,0,1
-2020-10-09,"","",3,9,-6
-2020-10-09,"Peel en Maas","Limburg-Noord",1,0,1
-2020-10-09,"Venlo","Limburg-Noord",3,0,3
-2020-10-09,"Venray","Limburg-Noord",1,0,1
-2020-10-12,"","",5,6,-1
-2020-10-12,"Venray","Limburg-Noord",1,0,1
-2020-10-14,"","",2,3,-1
-2020-10-14,"Venlo","Limburg-Noord",1,0,1
-2020-10-16,"","",0,8,-8
-2020-10-16,"Venlo","Limburg-Noord",2,0,2
-2020-10-16,"Venray","Limburg-Noord",1,0,1
-2020-10-17,"","",4,6,-2
-2020-10-17,"Venlo","Limburg-Noord",1,0,1
-2020-10-18,"","",5,6,-1
-2020-10-18,"Venlo","Limburg-Noord",1,0,1
-2020-10-19,"","",6,9,-3
-2020-10-19,"Venlo","Limburg-Noord",1,0,1
-2020-10-19,"Venray","Limburg-Noord",1,0,1
-2020-10-20,"","",2,3,-1
-2020-10-21,"","",5,8,-3
-2020-10-21,"Venlo","Limburg-Noord",2,0,2
-2020-10-22,"","",4,8,-4
-2020-10-22,"Venlo","Limburg-Noord",3,0,3
-2020-10-23,"","",7,11,-4
-2020-10-23,"Peel en Maas","Limburg-Noord",1,0,1
-2020-10-23,"Venlo","Limburg-Noord",2,0,2
-2020-10-23,"Venray","Limburg-Noord",3,2,1
-2020-10-24,"","",3,4,-1
-2020-10-25,"","",6,7,-1
-2020-10-25,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-10-26,"","",9,15,-6
-2020-10-26,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-10-26,"Venlo","Limburg-Noord",3,0,3
-2020-10-26,"Venray","Limburg-Noord",2,0,2
-2020-10-27,"","",5,11,-6
-2020-10-27,"Beesel","Limburg-Noord",1,0,1
-2020-10-27,"Bergen (L.)","Limburg-Noord",1,0,1
-2020-10-27,"Peel en Maas","Limburg-Noord",1,0,1
-2020-10-27,"Venlo","Limburg-Noord",2,0,2
-2020-10-27,"Venray","Limburg-Noord",1,0,1
-2020-10-28,"","",1,3,-2
-2020-10-28,"Beesel","Limburg-Noord",0,1,-1
-2020-10-28,"Horst aan de Maas","Limburg-Noord",2,1,1
-2020-10-28,"Venray","Limburg-Noord",0,3,-3
-2020-10-29,"","",3,4,-1
-2020-10-29,"Venlo","Limburg-Noord",2,1,1
-2020-10-30,"","",5,9,-4
-2020-10-30,"Beesel","Limburg-Noord",1,0,1
-2020-10-30,"Venlo","Limburg-Noord",2,0,2
-2020-10-31,"","",2,8,-6
-2020-10-31,"Rotterdam","Rotterdam-Rijnmond",16,15,1
-2020-10-31,"Venlo","Limburg-Noord",1,0,1
-2020-10-31,"Venray","Limburg-Noord",1,0,1
-2020-11-01,"","",2,3,-1
-2020-11-01,"Venray","Limburg-Noord",1,0,1
-2020-11-02,"","",4,9,-5
-2020-11-02,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-11-02,"Rotterdam","Rotterdam-Rijnmond",23,22,1
-2020-11-02,"Venlo","Limburg-Noord",3,0,3
-2020-11-03,"","",0,4,-4
-2020-11-03,"Beesel","Limburg-Noord",1,0,1
-2020-11-03,"Venlo","Limburg-Noord",2,0,2
-2020-11-04,"","",3,9,-6
-2020-11-04,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-11-04,"Venlo","Limburg-Noord",2,1,1
-2020-11-04,"Venray","Limburg-Noord",1,0,1
-2020-11-06,"","",8,11,-3
-2020-11-06,"Venlo","Limburg-Noord",1,0,1
-2020-11-06,"Venray","Limburg-Noord",1,0,1
-2020-11-07,"","",3,4,-1
-2020-11-07,"Peel en Maas","Limburg-Noord",1,0,1
-2020-11-08,"","",5,7,-2
-2020-11-08,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-11-08,"Venlo","Limburg-Noord",1,0,1
-2020-11-09,"","",1,9,-8
-2020-11-09,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-11-09,"Venlo","Limburg-Noord",5,0,5
-2020-11-10,"","",8,10,-2
-2020-11-10,"Peel en Maas","Limburg-Noord",1,0,1
-2020-11-10,"Venlo","Limburg-Noord",1,0,1
-2020-11-11,"","",0,4,-4
-2020-11-11,"Capelle aan den IJssel","Rotterdam-Rijnmond",1,0,1
-2020-11-11,"Venlo","Limburg-Noord",2,0,2
-2020-11-11,"Venray","Limburg-Noord",2,1,1
-2020-11-12,"","",5,7,-2
-2020-11-13,"","",3,5,-2
-2020-11-13,"Beesel","Limburg-Noord",1,0,1
-2020-11-14,"","",1,6,-5
-2020-11-14,"Horst aan de Maas","Limburg-Noord",2,0,2
-2020-11-14,"Peel en Maas","Limburg-Noord",1,0,1
-2020-11-14,"Venlo","Limburg-Noord",1,0,1
-2020-11-15,"Capelle aan den IJssel","Rotterdam-Rijnmond",4,5,-1
-2020-11-16,"","",4,7,-3
-2020-11-16,"Venlo","Limburg-Noord",2,0,2
-2020-11-16,"Venray","Limburg-Noord",1,0,1
-2020-11-18,"","",1,4,-3
-2020-11-18,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-11-18,"Venlo","Limburg-Noord",2,0,2
-2020-11-20,"","",4,5,-1
-2020-11-20,"Peel en Maas","Limburg-Noord",1,0,1
-2020-11-21,"","",1,2,-1
-2020-11-21,"Venray","Limburg-Noord",1,0,1
-2020-11-22,"","",2,4,-2
-2020-11-22,"Venlo","Limburg-Noord",1,0,1
-2020-11-23,"","",1,5,-4
-2020-11-23,"Venlo","Limburg-Noord",3,0,3
-2020-11-23,"Venray","Limburg-Noord",2,1,1
-2020-11-24,"","",6,9,-3
-2020-11-24,"Horst aan de Maas","Limburg-Noord",2,0,2
-2020-11-24,"Venlo","Limburg-Noord",1,0,1
-2020-11-25,"","",6,7,-1
-2020-11-25,"Beesel","Limburg-Noord",1,0,1
-2020-11-26,"","",3,6,-3
-2020-11-26,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-11-26,"Peel en Maas","Limburg-Noord",1,0,1
-2020-11-26,"Venlo","Limburg-Noord",1,0,1
-2020-11-27,"","",1,4,-3
-2020-11-27,"Peel en Maas","Limburg-Noord",1,0,1
-2020-11-27,"Venlo","Limburg-Noord",1,0,1
-2020-11-28,"","",2,3,-1
-2020-11-28,"Venlo","Limburg-Noord",2,1,1
-2020-12-01,"","",3,6,-3
-2020-12-01,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-12-01,"Venlo","Limburg-Noord",2,0,2
-2020-12-03,"","",4,6,-2
-2020-12-03,"Venlo","Limburg-Noord",1,0,1
-2020-12-08,"","",1,4,-3
-2020-12-08,"Venlo","Limburg-Noord",2,0,2
-2020-12-09,"Beesel","Limburg-Noord",1,0,1
-2020-12-10,"","",1,4,-3
-2020-12-10,"Horst aan de Maas","Limburg-Noord",2,0,2
-2020-12-10,"Venlo","Limburg-Noord",1,0,1
-2020-12-11,"","",6,8,-2
-2020-12-11,"Venlo","Limburg-Noord",2,0,2
-2020-12-12,"","",2,4,-2
-2020-12-12,"Venlo","Limburg-Noord",2,0,2
-2020-12-13,"","",3,7,-4
-2020-12-13,"Venlo","Limburg-Noord",3,0,3
-2020-12-13,"Venray","Limburg-Noord",1,0,1
-2020-12-14,"","",3,7,-4
-2020-12-14,"Horst aan de Maas","Limburg-Noord",3,1,2
-2020-12-14,"Peel en Maas","Limburg-Noord",1,0,1
-2020-12-14,"Venlo","Limburg-Noord",1,0,1
-2020-12-15,"","",4,5,-1
-2020-12-15,"Venlo","Limburg-Noord",2,1,1
-2020-12-16,"","",3,6,-3
-2020-12-16,"Peel en Maas","Limburg-Noord",1,0,1
-2020-12-16,"Venlo","Limburg-Noord",2,1,1
-2020-12-17,"","",7,8,-1
-2020-12-17,"Venlo","Limburg-Noord",2,1,1
-2020-12-18,"","",1,5,-4
-2020-12-18,"Horst aan de Maas","Limburg-Noord",2,1,1
-2020-12-18,"Peel en Maas","Limburg-Noord",2,0,2
-2020-12-18,"Venlo","Limburg-Noord",2,1,1
-2020-12-19,"","",1,4,-3
-2020-12-19,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-12-19,"Venlo","Limburg-Noord",1,0,1
-2020-12-19,"Venray","Limburg-Noord",1,0,1
-2020-12-20,"","",4,7,-3
-2020-12-20,"Venlo","Limburg-Noord",2,0,2
-2020-12-21,"","",7,13,-6
-2020-12-21,"Peel en Maas","Limburg-Noord",1,0,1
-2020-12-21,"Venlo","Limburg-Noord",4,0,4
-2020-12-21,"Venray","Limburg-Noord",1,0,1
-2020-12-22,"","",3,8,-5
-2020-12-22,"Beesel","Limburg-Noord",1,0,1
-2020-12-22,"Horst aan de Maas","Limburg-Noord",2,0,2
-2020-12-22,"Venlo","Limburg-Noord",3,1,2
-2020-12-23,"","",4,7,-3
-2020-12-23,"Peel en Maas","Limburg-Noord",1,0,1
-2020-12-23,"Venlo","Limburg-Noord",1,0,1
-2020-12-23,"Venray","Limburg-Noord",1,0,1
-2020-12-24,"","",4,6,-2
-2020-12-24,"Venlo","Limburg-Noord",1,0,1
-2020-12-25,"","",2,4,-2
-2020-12-25,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-12-25,"Venlo","Limburg-Noord",2,1,1
-2020-12-26,"","",2,5,-3
-2020-12-26,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-12-26,"Venlo","Limburg-Noord",1,0,1
-2020-12-26,"Venray","Limburg-Noord",1,0,1
-2020-12-27,"","",1,3,-2
-2020-12-27,"Venray","Limburg-Noord",1,0,1
-2020-12-28,"","",9,15,-6
-2020-12-28,"Beesel","Limburg-Noord",1,0,1
-2020-12-28,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-12-28,"Venlo","Limburg-Noord",3,0,3
-2020-12-28,"Venray","Limburg-Noord",1,0,1
-2020-12-29,"","",4,7,-3
-2020-12-29,"Horst aan de Maas","Limburg-Noord",1,0,1
-2020-12-29,"Venlo","Limburg-Noord",1,0,1
-2020-12-29,"Venray","Limburg-Noord",0,1,-1
-2020-12-30,"","",4,6,-2
-2020-12-30,"Venlo","Limburg-Noord",2,0,2
-2020-12-31,"","",0,2,-2
-2020-12-31,"Venlo","Limburg-Noord",1,0,1
-2020-12-31,"Venray","Limburg-Noord",2,1,1
-2021-01-01,"","",5,8,-3
-2021-01-01,"Venlo","Limburg-Noord",3,0,3
-2021-01-02,"","",2,5,-3
-2021-01-02,"Venlo","Limburg-Noord",2,0,2
-2021-01-04,"","",2,3,-1
-2021-01-04,"Venlo","Limburg-Noord",1,0,1
-2021-01-05,"","",4,5,-1
-2021-01-05,"Simpelveld","Limburg-Zuid",1,0,1
-2021-01-06,"","",3,10,-7
-2021-01-06,"Gulpen-Wittem","Limburg-Zuid",1,0,1
-2021-01-06,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-01-06,"Sittard-Geleen","Limburg-Zuid",4,3,1
-2021-01-06,"Venlo","Limburg-Noord",3,0,3
-2021-01-06,"Voerendaal","Limburg-Zuid",1,0,1
-2021-01-07,"","",0,2,-2
-2021-01-07,"Venlo","Limburg-Noord",2,1,1
-2021-01-07,"Venray","Limburg-Noord",1,0,1
-2021-01-10,"","",2,5,-3
-2021-01-10,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-01-10,"Venlo","Limburg-Noord",2,0,2
-2021-01-11,"","",2,3,-1
-2021-01-12,"","",3,5,-2
-2021-01-12,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-01-12,"Venray","Limburg-Noord",1,0,1
-2021-01-13,"","",3,8,-5
-2021-01-13,"Bergen (L.)","Limburg-Noord",2,1,1
-2021-01-13,"Peel en Maas","Limburg-Noord",1,0,1
-2021-01-13,"Venlo","Limburg-Noord",2,0,2
-2021-01-13,"Venray","Limburg-Noord",1,0,1
-2021-01-14,"","",5,6,-1
-2021-01-14,"Landgraaf","Limburg-Zuid",1,0,1
-2021-01-15,"","",5,8,-3
-2021-01-15,"Peel en Maas","Limburg-Noord",1,0,1
-2021-01-15,"Venlo","Limburg-Noord",1,0,1
-2021-01-15,"Venray","Limburg-Noord",1,0,1
-2021-01-17,"","",1,2,-1
-2021-01-17,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-01-18,"","",2,5,-3
-2021-01-18,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-01-18,"Sittard-Geleen","Limburg-Zuid",2,1,1
-2021-01-18,"Venlo","Limburg-Noord",1,0,1
-2021-01-19,"","",2,3,-1
-2021-01-19,"Venlo","Limburg-Noord",1,0,1
-2021-01-20,"","",1,4,-3
-2021-01-20,"Venlo","Limburg-Noord",2,0,2
-2021-01-20,"Venray","Limburg-Noord",1,0,1
-2021-01-21,"","",3,5,-2
-2021-01-21,"Horst aan de Maas","Limburg-Noord",2,1,1
-2021-01-21,"Venray","Limburg-Noord",1,0,1
-2021-01-22,"","",2,6,-4
-2021-01-22,"Heerlen","Limburg-Zuid",1,0,1
-2021-01-22,"Landgraaf","Limburg-Zuid",2,1,1
-2021-01-22,"Venlo","Limburg-Noord",1,0,1
-2021-01-22,"Venray","Limburg-Noord",1,0,1
-2021-01-23,"","",2,3,-1
-2021-01-23,"Venlo","Limburg-Noord",1,0,1
-2021-01-24,"","",3,5,-2
-2021-01-24,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-01-24,"Peel en Maas","Limburg-Noord",1,0,1
-2021-01-25,"","",3,7,-4
-2021-01-25,"Horst aan de Maas","Limburg-Noord",3,1,2
-2021-01-25,"Venlo","Limburg-Noord",1,0,1
-2021-01-25,"Venray","Limburg-Noord",1,0,1
-2021-01-26,"","",3,5,-2
-2021-01-26,"Venlo","Limburg-Noord",1,0,1
-2021-01-26,"Venray","Limburg-Noord",1,0,1
-2021-01-27,"","",1,2,-1
-2021-01-27,"Venlo","Limburg-Noord",1,0,1
-2021-01-28,"","",3,4,-1
-2021-01-28,"Venlo","Limburg-Noord",1,0,1
-2021-01-29,"","",1,5,-4
-2021-01-29,"Beesel","Limburg-Noord",2,1,1
-2021-01-29,"Boxmeer","Brabant-Noord",1,0,1
-2021-01-29,"Venlo","Limburg-Noord",1,0,1
-2021-01-29,"Venray","Limburg-Noord",1,0,1
-2021-01-30,"","",3,4,-1
-2021-01-30,"Venlo","Limburg-Noord",1,0,1
-2021-01-31,"","",1,2,-1
-2021-01-31,"Venray","Limburg-Noord",1,0,1
-2021-02-01,"","",1,4,-3
-2021-02-01,"Venlo","Limburg-Noord",3,0,3
-2021-02-02,"","",1,2,-1
-2021-02-02,"Venlo","Limburg-Noord",1,0,1
-2021-02-04,"","",4,9,-5
-2021-02-04,"Venray","Limburg-Noord",3,0,3
-2021-02-05,"","",3,6,-3
-2021-02-05,"Venlo","Limburg-Noord",1,0,1
-2021-02-05,"Venray","Limburg-Noord",1,0,1
-2021-02-06,"","",3,6,-3
-2021-02-06,"Beekdaelen","Limburg-Zuid",1,0,1
-2021-02-06,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-02-06,"Venray","Limburg-Noord",1,0,1
-2021-02-07,"","",5,7,-2
-2021-02-07,"Venlo","Limburg-Noord",1,0,1
-2021-02-07,"Venray","Limburg-Noord",1,0,1
-2021-02-08,"","",4,8,-4
-2021-02-08,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-02-08,"Peel en Maas","Limburg-Noord",1,0,1
-2021-02-08,"Venlo","Limburg-Noord",2,0,2
-2021-02-09,"","",2,5,-3
-2021-02-09,"Roermond","Limburg-Noord",4,3,1
-2021-02-09,"Venray","Limburg-Noord",2,0,2
-2021-02-10,"","",3,4,-1
-2021-02-10,"Venlo","Limburg-Noord",1,0,1
-2021-02-11,"","",1,3,-2
-2021-02-11,"Venray","Limburg-Noord",2,0,2
-2021-02-12,"","",2,3,-1
-2021-02-12,"Beesel","Limburg-Noord",1,0,1
-2021-02-13,"","",1,2,-1
-2021-02-13,"Peel en Maas","Limburg-Noord",1,0,1
-2021-02-15,"","",6,11,-5
-2021-02-15,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-02-15,"Peel en Maas","Limburg-Noord",1,0,1
-2021-02-15,"Venlo","Limburg-Noord",2,0,2
-2021-02-17,"","",1,2,-1
-2021-02-18,"","",2,5,-3
-2021-02-18,"Peel en Maas","Limburg-Noord",1,0,1
-2021-02-18,"Venlo","Limburg-Noord",2,0,2
-2021-02-19,"","",1,2,-1
-2021-02-19,"Venray","Limburg-Noord",1,0,1
-2021-02-20,"","",2,4,-2
-2021-02-20,"Venray","Limburg-Noord",2,0,2
-2021-02-21,"","",1,2,-1
-2021-02-21,"Venlo","Limburg-Noord",1,0,1
-2021-02-22,"","",1,2,-1
-2021-02-22,"Venlo","Limburg-Noord",1,0,1
-2021-02-27,"","",3,5,-2
-2021-02-27,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-02-28,"","",6,8,-2
-2021-02-28,"Peel en Maas","Limburg-Noord",2,0,2
-2021-03-01,"","",5,11,-6
-2021-03-01,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-03-01,"Peel en Maas","Limburg-Noord",2,0,2
-2021-03-01,"Venlo","Limburg-Noord",1,0,1
-2021-03-01,"Venray","Limburg-Noord",1,0,1
-2021-03-02,"","",4,6,-2
-2021-03-02,"Peel en Maas","Limburg-Noord",1,0,1
-2021-03-04,"","",1,2,-1
-2021-03-04,"Peel en Maas","Limburg-Noord",0,1,-1
-2021-03-04,"Venray","Limburg-Noord",1,0,1
-2021-03-05,"","",2,3,-1
-2021-03-05,"Venray","Limburg-Noord",1,0,1
-2021-03-07,"","",1,2,-1
-2021-03-07,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-03-08,"","",5,6,-1
-2021-03-08,"Venlo","Limburg-Noord",2,1,1
-2021-03-09,"","",3,4,-1
-2021-03-10,"","",4,6,-2
-2021-03-10,"Roermond","Limburg-Noord",1,0,1
-2021-03-10,"Venray","Limburg-Noord",1,0,1
-2021-03-11,"","",6,8,-2
-2021-03-11,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-03-11,"Venlo","Limburg-Noord",1,0,1
-2021-03-13,"","",6,7,-1
-2021-03-13,"Horst aan de Maas","Limburg-Noord",0,1,-1
-2021-03-13,"Peel en Maas","Limburg-Noord",1,0,1
-2021-03-15,"","",2,5,-3
-2021-03-15,"Venlo","Limburg-Noord",2,0,2
-2021-03-16,"","",7,8,-1
-2021-03-16,"Peel en Maas","Limburg-Noord",1,0,1
-2021-03-17,"","",7,9,-2
-2021-03-17,"Venlo","Limburg-Noord",2,0,2
-2021-03-18,"","",7,8,-1
-2021-03-18,"Peel en Maas","Limburg-Noord",1,0,1
-2021-03-19,"","",11,13,-2
-2021-03-19,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-03-20,"","",3,4,-1
-2021-03-20,"Venlo","Limburg-Noord",1,0,1
-2021-03-21,"","",5,7,-2
-2021-03-21,"Venlo","Limburg-Noord",3,0,3
-2021-03-22,"","",3,5,-2
-2021-03-22,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-03-22,"Venlo","Limburg-Noord",1,0,1
-2021-03-23,"","",2,4,-2
-2021-03-23,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-03-23,"Venlo","Limburg-Noord",1,0,1
-2021-03-24,"","",6,11,-5
-2021-03-24,"Beesel","Limburg-Noord",1,0,1
-2021-03-24,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-03-24,"Peel en Maas","Limburg-Noord",1,0,1
-2021-03-24,"Venlo","Limburg-Noord",2,0,2
-2021-03-25,"","",2,4,-2
-2021-03-25,"Venlo","Limburg-Noord",2,0,2
-2021-03-26,"","",8,11,-3
-2021-03-26,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-03-26,"Peel en Maas","Limburg-Noord",1,0,1
-2021-03-26,"Venlo","Limburg-Noord",2,1,1
-2021-03-28,"","",8,11,-3
-2021-03-28,"Beesel","Limburg-Noord",1,0,1
-2021-03-28,"Venlo","Limburg-Noord",2,0,2
-2021-03-29,"","",5,10,-5
-2021-03-29,"Bergen (L.)","Limburg-Noord",1,0,1
-2021-03-29,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-03-29,"Venlo","Limburg-Noord",1,0,1
-2021-03-29,"Venray","Limburg-Noord",1,0,1
-2021-03-30,"","",2,5,-3
-2021-03-30,"Bergen (L.)","Limburg-Noord",1,0,1
-2021-03-30,"Venlo","Limburg-Noord",2,0,2
-2021-03-31,"","",4,7,-3
-2021-03-31,"Beesel","Limburg-Noord",1,0,1
-2021-03-31,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-03-31,"Venlo","Limburg-Noord",1,0,1
-2021-04-01,"","",5,6,-1
-2021-04-01,"Venlo","Limburg-Noord",1,0,1
-2021-04-02,"","",6,8,-2
-2021-04-02,"Peel en Maas","Limburg-Noord",1,0,1
-2021-04-02,"Venlo","Limburg-Noord",1,0,1
-2021-04-02,"Venray","Limburg-Noord",2,1,1
-2021-04-03,"","",4,5,-1
-2021-04-03,"Venray","Limburg-Noord",1,0,1
-2021-04-04,"","",6,10,-4
-2021-04-04,"Horst aan de Maas","Limburg-Noord",2,0,2
-2021-04-04,"Venlo","Limburg-Noord",1,0,1
-2021-04-05,"","",4,9,-5
-2021-04-05,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-04-05,"Venlo","Limburg-Noord",3,1,2
-2021-04-05,"Venray","Limburg-Noord",1,0,1
-2021-04-06,"","",5,9,-4
-2021-04-06,"Venlo","Limburg-Noord",3,0,3
-2021-04-07,"","",8,9,-1
-2021-04-07,"Beesel","Limburg-Noord",1,0,1
-2021-04-07,"Venlo","Limburg-Noord",1,2,-1
-2021-04-09,"","",7,12,-5
-2021-04-09,"Horst aan de Maas","Limburg-Noord",2,0,2
-2021-04-09,"Venlo","Limburg-Noord",3,0,3
-2021-04-10,"","",8,12,-4
-2021-04-10,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-04-10,"Venlo","Limburg-Noord",1,0,1
-2021-04-10,"Venray","Limburg-Noord",2,1,1
-2021-04-11,"","",4,7,-3
-2021-04-11,"Venlo","Limburg-Noord",2,0,2
-2021-04-11,"Venray","Limburg-Noord",1,0,1
-2021-04-13,"","",3,6,-3
-2021-04-13,"Peel en Maas","Limburg-Noord",2,0,2
-2021-04-14,"","",4,5,-1
-2021-04-14,"Venlo","Limburg-Noord",2,1,1
-2021-04-15,"","",7,13,-6
-2021-04-15,"Venlo","Limburg-Noord",6,0,6
-2021-04-16,"","",6,8,-2
-2021-04-16,"Venlo","Limburg-Noord",1,0,1
-2021-04-17,"","",5,7,-2
-2021-04-17,"Venlo","Limburg-Noord",1,0,1
-2021-04-18,"","",1,4,-3
-2021-04-18,"Venlo","Limburg-Noord",2,0,2
-2021-04-19,"","",5,10,-5
-2021-04-19,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-04-19,"Venlo","Limburg-Noord",3,0,3
-2021-04-20,"","",4,7,-3
-2021-04-20,"Peel en Maas","Limburg-Noord",1,0,1
-2021-04-21,"","",7,13,-6
-2021-04-21,"Beesel","Limburg-Noord",1,0,1
-2021-04-21,"Peel en Maas","Limburg-Noord",1,0,1
-2021-04-21,"Venlo","Limburg-Noord",1,0,1
-2021-04-22,"","",4,8,-4
-2021-04-22,"Venray","Limburg-Noord",2,1,1
-2021-04-23,"","",12,14,-2
-2021-04-23,"Horst aan de Maas","Limburg-Noord",2,1,1
-2021-04-23,"Leudal","Limburg-Noord",2,1,1
-2021-04-24,"","",7,10,-3
-2021-04-24,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-04-24,"Venlo","Limburg-Noord",1,0,1
-2021-04-25,"","",4,8,-4
-2021-04-25,"Leudal","Limburg-Noord",1,0,1
-2021-04-25,"Peel en Maas","Limburg-Noord",1,0,1
-2021-04-26,"","",11,12,-1
-2021-04-26,"Venlo","Limburg-Noord",1,0,1
-2021-04-27,"","",3,5,-2
-2021-04-27,"Horst aan de Maas","Limburg-Noord",0,1,-1
-2021-04-27,"Venlo","Limburg-Noord",3,2,1
-2021-04-27,"Venray","Limburg-Noord",1,0,1
-2021-04-28,"","",4,13,-9
-2021-04-28,"Beesel","Limburg-Noord",2,1,1
-2021-04-28,"Venlo","Limburg-Noord",4,1,3
-2021-04-28,"Venray","Limburg-Noord",2,0,2
-2021-04-29,"","",4,8,-4
-2021-04-29,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-04-29,"Venlo","Limburg-Noord",3,1,2
-2021-04-30,"","",2,7,-5
-2021-04-30,"Peel en Maas","Limburg-Noord",0,1,-1
-2021-04-30,"Venlo","Limburg-Noord",5,2,3
-2021-04-30,"Venray","Limburg-Noord",0,1,-1
-2021-05-01,"Venlo","Limburg-Noord",1,0,1
-2021-05-02,"","",5,6,-1
-2021-05-02,"Horst aan de Maas","Limburg-Noord",0,1,-1
-2021-05-03,"","",2,8,-6
-2021-05-03,"Peel en Maas","Limburg-Noord",2,0,2
-2021-05-03,"Venlo","Limburg-Noord",1,0,1
-2021-05-03,"Venray","Limburg-Noord",3,0,3
-2021-05-04,"","",2,5,-3
-2021-05-04,"Beesel","Limburg-Noord",1,0,1
-2021-05-04,"Venray","Limburg-Noord",3,2,1
-2021-05-05,"","",2,6,-4
-2021-05-05,"Beesel","Limburg-Noord",3,2,1
-2021-05-05,"Venlo","Limburg-Noord",4,1,3
-2021-05-05,"Venray","Limburg-Noord",0,1,-1
-2021-05-06,"","",3,5,-2
-2021-05-07,"","",4,7,-3
-2021-05-07,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-05-07,"Venlo","Limburg-Noord",3,2,1
-2021-05-07,"Venray","Limburg-Noord",1,0,1
-2021-05-08,"","",5,6,-1
-2021-05-08,"Venlo","Limburg-Noord",1,0,1
-2021-05-10,"","",3,5,-2
-2021-05-10,"Beesel","Limburg-Noord",1,0,1
-2021-05-11,"","",3,5,-2
-2021-05-11,"Venlo","Limburg-Noord",1,0,1
-2021-05-12,"","",3,4,-1
-2021-05-13,"","",1,2,-1
-2021-05-13,"Venlo","Limburg-Noord",2,1,1
-2021-05-14,"","",3,5,-2
-2021-05-14,"Venlo","Limburg-Noord",2,1,1
-2021-05-15,"","",2,6,-4
-2021-05-15,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-05-15,"Venlo","Limburg-Noord",2,0,2
-2021-05-15,"Venray","Limburg-Noord",1,0,1
-2021-05-16,"","",1,3,-2
-2021-05-16,"Venlo","Limburg-Noord",2,1,1
-2021-05-17,"","",3,6,-3
-2021-05-17,"Venlo","Limburg-Noord",2,0,2
-2021-05-17,"Venray","Limburg-Noord",1,0,1
-2021-05-18,"","",1,4,-3
-2021-05-18,"Venlo","Limburg-Noord",2,1,1
-2021-05-19,"","",3,6,-3
-2021-05-19,"Venlo","Limburg-Noord",2,0,2
-2021-05-20,"","",2,3,-1
-2021-05-20,"Venlo","Limburg-Noord",1,0,1
-2021-05-21,"","",3,4,-1
-2021-05-21,"Venlo","Limburg-Noord",1,0,1
-2021-05-22,"","",3,4,-1
-2021-05-22,"Venlo","Limburg-Noord",1,0,1
-2021-05-23,"","",2,3,-1
-2021-05-24,"","",1,2,-1
-2021-05-24,"Venlo","Limburg-Noord",1,0,1
-2021-05-25,"","",4,8,-4
-2021-05-25,"Bergen (L.)","Limburg-Noord",1,0,1
-2021-05-25,"Peel en Maas","Limburg-Noord",1,0,1
-2021-05-25,"Venlo","Limburg-Noord",2,0,2
-2021-05-26,"","",1,6,-5
-2021-05-26,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-05-26,"Venlo","Limburg-Noord",4,0,4
-2021-05-27,"","",1,6,-5
-2021-05-27,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-05-27,"Venlo","Limburg-Noord",3,0,3
-2021-05-28,"","",5,8,-3
-2021-05-28,"Beesel","Limburg-Noord",1,0,1
-2021-05-28,"Venlo","Limburg-Noord",1,0,1
-2021-05-28,"Venray","Limburg-Noord",1,0,1
-2021-05-29,"","",1,2,-1
-2021-05-29,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-06-01,"","",1,3,-2
-2021-06-01,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-06-02,"","",2,3,-1
-2021-06-02,"Venlo","Limburg-Noord",1,0,1
-2021-06-04,"","",1,2,-1
-2021-06-05,"","",1,2,-1
-2021-06-05,"Venray","Limburg-Noord",1,0,1
-2021-06-08,"Venlo","Limburg-Noord",0,1,-1
-2021-06-11,"","",0,1,-1
-2021-06-11,"Venlo","Limburg-Noord",1,0,1
-2021-06-13,"","",1,2,-1
-2021-06-13,"Venlo","Limburg-Noord",1,0,1
-2021-06-15,"","",0,1,-1
-2021-06-15,"Venray","Limburg-Noord",1,0,1
-2021-06-17,"","",3,4,-1
-2021-06-17,"Venlo","Limburg-Noord",1,0,1
-2021-06-18,"","",1,2,-1
-2021-06-18,"Venlo","Limburg-Noord",1,0,1
-2021-06-23,"","",0,1,-1
-2021-06-23,"Venlo","Limburg-Noord",1,0,1
-2021-07-08,"","",2,4,-2
-2021-07-08,"Venlo","Limburg-Noord",2,0,2
-2021-07-12,"","",0,1,-1
-2021-07-12,"Venlo","Limburg-Noord",1,0,1
-2021-07-17,"Venlo","Limburg-Noord",1,2,-1
-2021-07-21,"","",3,7,-4
-2021-07-21,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-07-21,"Venlo","Limburg-Noord",1,0,1
-2021-07-25,"","",2,3,-1
-2021-07-25,"Venlo","Limburg-Noord",1,0,1
-2021-07-26,"","",3,4,-1
-2021-07-26,"Venray","Limburg-Noord",1,0,1
-2021-07-28,"","",0,2,-2
-2021-07-28,"Venlo","Limburg-Noord",2,1,1
-2021-07-29,"","",4,5,-1
-2021-07-29,"Venlo","Limburg-Noord",1,0,1
-2021-08-02,"","",3,4,-1
-2021-08-02,"Peel en Maas","Limburg-Noord",1,0,1
-2021-08-05,"","",4,5,-1
-2021-08-05,"Venray","Limburg-Noord",1,0,1
-2021-08-12,"","",7,9,-2
-2021-08-12,"Venlo","Limburg-Noord",2,0,2
-2021-08-15,"","",3,4,-1
-2021-08-16,"","",3,4,-1
-2021-08-16,"Venlo","Limburg-Noord",1,0,1
-2021-08-18,"","",2,4,-2
-2021-08-18,"Venlo","Limburg-Noord",2,0,2
-2021-08-19,"","",2,3,-1
-2021-08-19,"Venlo","Limburg-Noord",1,0,1
-2021-08-20,"","",0,1,-1
-2021-08-20,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-08-21,"","",3,4,-1
-2021-08-21,"Venlo","Limburg-Noord",1,0,1
-2021-08-23,"","",2,3,-1
-2021-08-23,"Peel en Maas","Limburg-Noord",1,0,1
-2021-08-28,"","",2,4,-2
-2021-08-28,"Sint Anthonis","Brabant-Noord",1,0,1
-2021-08-29,"","",1,2,-1
-2021-08-29,"Meierijstad","Brabant-Noord",1,0,1
-2021-09-01,"","",2,3,-1
-2021-09-01,"Heerlen","Limburg-Zuid",1,0,1
-2021-09-02,"","",2,3,-1
-2021-09-02,"Peel en Maas","Limburg-Noord",1,0,1
-2021-09-03,"","",2,4,-2
-2021-09-03,"Peel en Maas","Limburg-Noord",1,0,1
-2021-09-03,"Venlo","Limburg-Noord",1,0,1
-2021-09-08,"","",1,2,-1
-2021-09-08,"Peel en Maas","Limburg-Noord",1,0,1
-2021-09-10,"","",1,2,-1
-2021-09-10,"Laren","Gooi en Vechtstreek",1,0,1
-2021-09-13,"","",3,4,-1
-2021-09-13,"Venray","Limburg-Noord",1,0,1
-2021-09-20,"","",3,4,-1
-2021-09-20,"Venray","Limburg-Noord",1,0,1
-2021-09-28,"","",0,1,-1
-2021-09-28,"Venlo","Limburg-Noord",1,0,1
-2021-10-01,"","",4,5,-1
-2021-10-01,"Venlo","Limburg-Noord",1,0,1
-2021-10-02,"","",2,3,-1
-2021-10-02,"Venlo","Limburg-Noord",1,0,1
-2021-10-06,"","",0,1,-1
-2021-10-06,"Venlo","Limburg-Noord",1,0,1
-2021-10-11,"","",4,5,-1
-2021-10-11,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-10-13,"","",2,3,-1
-2021-10-13,"Venray","Limburg-Noord",1,0,1
-2021-10-15,"","",2,4,-2
-2021-10-15,"Peel en Maas","Limburg-Noord",1,0,1
-2021-10-15,"Valkenswaard","Brabant-Zuidoost",1,0,1
-2021-10-15,"Venray","Limburg-Noord",1,0,1
-2021-10-18,"","",4,7,-3
-2021-10-18,"Peel en Maas","Limburg-Noord",1,0,1
-2021-10-18,"Venray","Limburg-Noord",3,1,2
-2021-10-19,"","",4,5,-1
-2021-10-19,"Venlo","Limburg-Noord",1,0,1
-2021-10-21,"","",2,6,-4
-2021-10-21,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-10-21,"Venlo","Limburg-Noord",2,0,2
-2021-10-21,"Venray","Limburg-Noord",1,0,1
-2021-10-22,"","",5,6,-1
-2021-10-24,"","",3,5,-2
-2021-10-24,"Horst aan de Maas","Limburg-Noord",2,0,2
-2021-10-25,"","",3,6,-3
-2021-10-25,"Horst aan de Maas","Limburg-Noord",2,0,2
-2021-10-25,"Venlo","Limburg-Noord",1,0,1
-2021-10-26,"","",3,4,-1
-2021-10-26,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-10-27,"","",3,5,-2
-2021-10-27,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-10-28,"","",2,5,-3
-2021-10-28,"Horst aan de Maas","Limburg-Noord",2,0,2
-2021-10-28,"Venray","Limburg-Noord",1,0,1
-2021-10-30,"","",3,4,-1
-2021-10-30,"Horst aan de Maas","Limburg-Noord",3,2,1
-2021-10-31,"","",5,7,-2
-2021-10-31,"Beesel","Limburg-Noord",1,0,1
-2021-10-31,"Peel en Maas","Limburg-Noord",1,0,1
-2021-11-01,"","",6,8,-2
-2021-11-01,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-11-01,"Venlo","Limburg-Noord",3,2,1
-2021-11-02,"","",9,13,-4
-2021-11-02,"Peel en Maas","Limburg-Noord",1,0,1
-2021-11-02,"Venray","Limburg-Noord",2,0,2
-2021-11-03,"","",4,7,-3
-2021-11-03,"Horst aan de Maas","Limburg-Noord",0,1,-1
-2021-11-03,"Venray","Limburg-Noord",2,0,2
-2021-11-04,"","",1,3,-2
-2021-11-04,"Beesel","Limburg-Noord",1,0,1
-2021-11-04,"Venray","Limburg-Noord",1,0,1
-2021-11-05,"","",3,4,-1
-2021-11-05,"Peel en Maas","Limburg-Noord",2,1,1
-2021-11-06,"","",1,3,-2
-2021-11-06,"Horst aan de Maas","Limburg-Noord",0,1,-1
-2021-11-06,"Venlo","Limburg-Noord",2,1,1
-2021-11-08,"","",6,9,-3
-2021-11-08,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-11-08,"Venlo","Limburg-Noord",2,0,2
-2021-11-09,"","",6,8,-2
-2021-11-09,"Peel en Maas","Limburg-Noord",3,1,2
-2021-11-10,"","",6,8,-2
-2021-11-10,"Venlo","Limburg-Noord",3,1,2
-2021-11-11,"","",2,6,-4
-2021-11-11,"Peel en Maas","Limburg-Noord",2,1,1
-2021-11-11,"Venlo","Limburg-Noord",3,2,1
-2021-11-12,"","",3,4,-1
-2021-11-12,"Peel en Maas","Limburg-Noord",2,1,1
-2021-11-13,"","",2,3,-1
-2021-11-14,"","",6,7,-1
-2021-11-15,"","",9,10,-1
-2021-11-15,"Katwijk","Hollands-Midden",2,1,1
-2021-11-15,"Peel en Maas","Limburg-Noord",2,3,-1
-2021-11-15,"Venlo","Limburg-Noord",2,3,-1
-2021-11-20,"Cranendonck","Brabant-Zuidoost",0,1,-1
-2021-11-22,"","",7,6,1
-2021-11-23,"","",4,5,-1
-2021-11-29,"Krimpenerwaard","Hollands-Midden",1,0,1
-2021-11-30,"Horst aan de Maas","Limburg-Noord",1,0,1
-2021-11-30,"Rotterdam","Rotterdam-Rijnmond",14,13,1
-2021-12-01,"Den Helder","Noord-Holland-Noord",1,0,1
-2021-12-01,"Lansingerland","Rotterdam-Rijnmond",4,3,1
-2021-12-01,"Rotterdam","Rotterdam-Rijnmond",15,13,2
-2021-12-01,"Waadhoeke","Fryslân",2,1,1
-2021-12-02,"","",3,4,-1
-2021-12-02,"Almere","Flevoland",2,3,-1
-2021-12-02,"Amsterdam","Amsterdam-Amstelland",10,9,1
-2021-12-02,"Bergen (NH.)","Noord-Holland-Noord",1,0,1
-2021-12-02,"Maassluis","Rotterdam-Rijnmond",2,1,1
-2021-12-02,"Rotterdam","Rotterdam-Rijnmond",15,13,2
-2021-12-02,"Vijfheerenlanden","Utrecht",1,0,1
-2021-12-02,"Vlaardingen","Rotterdam-Rijnmond",2,1,1
-2021-12-03,"","",4,6,-2
-2021-12-03,"Eersel","Brabant-Zuidoost",2,1,1
-2021-12-03,"Ouder-Amstel","Amsterdam-Amstelland",1,0,1
-2021-12-03,"Rotterdam","Rotterdam-Rijnmond",11,10,1
-2021-12-03,"Schiedam","Rotterdam-Rijnmond",3,1,2
-2021-12-03,"Uithoorn","Amsterdam-Amstelland",1,0,1
-2021-12-03,"Venlo","Limburg-Noord",1,2,-1
-2021-12-03,"Vlaardingen","Rotterdam-Rijnmond",1,0,1
-2021-12-04,"","",5,7,-2
-2021-12-04,"Achtkarspelen","Fryslân",1,0,1
-2021-12-04,"Baarn","Utrecht",1,0,1
-2021-12-04,"De Fryske Marren","Fryslân",1,0,1
-2021-12-04,"Enschede","Twente",3,2,1
-2021-12-04,"Gemert-Bakel","Brabant-Zuidoost",2,1,1
-2021-12-04,"Lansingerland","Rotterdam-Rijnmond",3,0,3
-2021-12-04,"Maassluis","Rotterdam-Rijnmond",1,0,1
-2021-12-04,"Rotterdam","Rotterdam-Rijnmond",16,10,6
-2021-12-04,"Schiedam","Rotterdam-Rijnmond",3,2,1
-2021-12-04,"Vlaardingen","Rotterdam-Rijnmond",4,2,2
-2021-12-05,"","",7,6,1
-2021-12-05,"'s-Gravenhage","Haaglanden",5,4,1
-2021-12-05,"'s-Hertogenbosch","Brabant-Noord",3,1,2
-2021-12-05,"Amsterdam","Amsterdam-Amstelland",12,11,1
-2021-12-05,"Barneveld","Gelderland-Midden",3,0,3
-2021-12-05,"Dantumadiel","Fryslân",1,0,1
-2021-12-05,"Enschede","Twente",2,1,1
-2021-12-05,"Landgraaf","Limburg-Zuid",3,2,1
-2021-12-05,"Leeuwarden","Fryslân",1,0,1
-2021-12-05,"Lelystad","Flevoland",1,0,1
-2021-12-05,"Nijmegen","Gelderland-Zuid",1,0,1
-2021-12-05,"Noardeast-Fryslân","Fryslân",2,1,1
-2021-12-05,"Nunspeet","Noord- en Oost-Gelderland",1,0,1
-2021-12-05,"Pijnacker-Nootdorp","Haaglanden",1,0,1
-2021-12-05,"Reusel-De Mierden","Brabant-Zuidoost",1,0,1
-2021-12-05,"Rotterdam","Rotterdam-Rijnmond",13,10,3
-2021-12-05,"Schiedam","Rotterdam-Rijnmond",1,0,1
-2021-12-05,"Sint-Michielsgestel","Brabant-Noord",1,0,1
-2021-12-05,"Terneuzen","Zeeland",2,1,1
-2021-12-05,"Tilburg","Midden- en West-Brabant",1,0,1
-2021-12-05,"Tytsjerksteradiel","Fryslân",1,0,1
-2021-12-05,"Vlaardingen","Rotterdam-Rijnmond",1,2,-1
-2021-12-05,"West Betuwe","Gelderland-Zuid",2,1,1
-2021-12-06,"","",4,1,3
-2021-12-06,"'s-Gravenhage","Haaglanden",8,4,4
-2021-12-06,"'s-Hertogenbosch","Brabant-Noord",4,0,4
-2021-12-06,"Aalten","Noord- en Oost-Gelderland",1,0,1
-2021-12-06,"Achtkarspelen","Fryslân",1,0,1
-2021-12-06,"Alkmaar","Noord-Holland-Noord",1,0,1
-2021-12-06,"Almere","Flevoland",3,2,1
-2021-12-06,"Alphen aan den Rijn","Hollands-Midden",1,0,1
-2021-12-06,"Altena","Midden- en West-Brabant",1,0,1
-2021-12-06,"Amersfoort","Utrecht",4,0,4
-2021-12-06,"Amsterdam","Amsterdam-Amstelland",9,4,5
-2021-12-06,"Apeldoorn","Noord- en Oost-Gelderland",4,0,4
-2021-12-06,"Assen","Drenthe",4,3,1
-2021-12-06,"Barneveld","Gelderland-Midden",2,0,2
-2021-12-06,"Bergeijk","Brabant-Zuidoost",1,0,1
-2021-12-06,"Bergen op Zoom","Midden- en West-Brabant",4,1,3
-2021-12-06,"Beuningen","Gelderland-Zuid",2,0,2
-2021-12-06,"Bodegraven-Reeuwijk","Hollands-Midden",1,0,1
-2021-12-06,"Borne","Twente",2,1,1
-2021-12-06,"Borsele","Zeeland",1,0,1
-2021-12-06,"Breda","Midden- en West-Brabant",6,1,5
-2021-12-06,"Capelle aan den IJssel","Rotterdam-Rijnmond",4,3,1
-2021-12-06,"Cranendonck","Brabant-Zuidoost",3,0,3
-2021-12-06,"De Bilt","Utrecht",1,0,1
-2021-12-06,"De Ronde Venen","Utrecht",1,0,1
-2021-12-06,"Delft","Haaglanden",2,0,2
-2021-12-06,"Den Helder","Noord-Holland-Noord",4,1,3
-2021-12-06,"Doetinchem","Noord- en Oost-Gelderland",2,0,2
-2021-12-06,"Dordrecht","Zuid-Holland-Zuid",2,0,2
-2021-12-06,"Dronten","Flevoland",2,0,2
-2021-12-06,"Druten","Gelderland-Zuid",1,0,1
-2021-12-06,"Duiven","Gelderland-Midden",2,0,2
-2021-12-06,"Edam-Volendam","Zaanstreek-Waterland",2,0,2
-2021-12-06,"Eemsdelta","Groningen",2,1,1
-2021-12-06,"Eindhoven","Brabant-Zuidoost",1,0,1
-2021-12-06,"Elburg","Noord- en Oost-Gelderland",2,0,2
-2021-12-06,"Emmen","Drenthe",2,0,2
-2021-12-06,"Enschede","Twente",5,1,4
-2021-12-06,"Geertruidenberg","Midden- en West-Brabant",1,0,1
-2021-12-06,"Geldrop-Mierlo","Brabant-Zuidoost",3,0,3
-2021-12-06,"Gilze en Rijen","Midden- en West-Brabant",1,0,1
-2021-12-06,"Goeree-Overflakkee","Rotterdam-Rijnmond",1,0,1
-2021-12-06,"Gorinchem","Zuid-Holland-Zuid",3,0,3
-2021-12-06,"Groningen","Groningen",1,0,1
-2021-12-06,"Haaksbergen","Twente",2,1,1
-2021-12-06,"Haarlemmermeer","Kennemerland",3,1,2
-2021-12-06,"Heemskerk","Kennemerland",3,1,2
-2021-12-06,"Heerenveen","Fryslân",1,0,1
-2021-12-06,"Hengelo (O.)","Twente",1,0,1
-2021-12-06,"Heusden","Brabant-Noord",3,0,3
-2021-12-06,"Hilversum","Gooi en Vechtstreek",2,0,2
-2021-12-06,"Hoeksche Waard","Zuid-Holland-Zuid",1,0,1
-2021-12-06,"Hoogeveen","Drenthe",2,1,1
-2021-12-06,"Hoorn","Noord-Holland-Noord",1,0,1
-2021-12-06,"Hulst","Zeeland",3,0,3
-2021-12-06,"IJsselstein","Utrecht",1,0,1
-2021-12-06,"Kampen","IJsselland",1,0,1
-2021-12-06,"Koggenland","Noord-Holland-Noord",1,0,1
-2021-12-06,"Krimpenerwaard","Hollands-Midden",1,0,1
-2021-12-06,"Laarbeek","Brabant-Zuidoost",1,0,1
-2021-12-06,"Langedijk","Noord-Holland-Noord",1,0,1
-2021-12-06,"Leiden","Hollands-Midden",2,1,1
-2021-12-06,"Lelystad","Flevoland",2,1,1
-2021-12-06,"Leudal","Limburg-Noord",1,0,1
-2021-12-06,"Loon op Zand","Midden- en West-Brabant",1,0,1
-2021-12-06,"Maasdriel","Gelderland-Zuid",1,0,1
-2021-12-06,"Maassluis","Rotterdam-Rijnmond",1,0,1
-2021-12-06,"Meppel","Drenthe",1,0,1
-2021-12-06,"Molenlanden","Zuid-Holland-Zuid",1,0,1
-2021-12-06,"Nijmegen","Gelderland-Zuid",5,0,5
-2021-12-06,"Nissewaard","Rotterdam-Rijnmond",2,0,2
-2021-12-06,"Nuenen, Gerwen en Nederwetten","Brabant-Zuidoost",1,0,1
-2021-12-06,"Nunspeet","Noord- en Oost-Gelderland",1,0,1
-2021-12-06,"Oldebroek","Noord- en Oost-Gelderland",1,0,1
-2021-12-06,"Oosterhout","Midden- en West-Brabant",3,2,1
-2021-12-06,"Opsterland","Fryslân",2,1,1
-2021-12-06,"Papendrecht","Zuid-Holland-Zuid",1,0,1
-2021-12-06,"Peel en Maas","Limburg-Noord",1,0,1
-2021-12-06,"Purmerend","Zaanstreek-Waterland",3,0,3
-2021-12-06,"Reusel-De Mierden","Brabant-Zuidoost",1,0,1
-2021-12-06,"Ridderkerk","Rotterdam-Rijnmond",4,0,4
-2021-12-06,"Rijssen-Holten","Twente",3,2,1
-2021-12-06,"Rijswijk","Haaglanden",1,0,1
-2021-12-06,"Rotterdam","Rotterdam-Rijnmond",6,3,3
-2021-12-06,"Schiedam","Rotterdam-Rijnmond",2,0,2
-2021-12-06,"Schouwen-Duiveland","Zeeland",1,0,1
-2021-12-06,"Sittard-Geleen","Limburg-Zuid",5,4,1
-2021-12-06,"Sliedrecht","Zuid-Holland-Zuid",1,0,1
-2021-12-06,"Smallingerland","Fryslân",1,0,1
-2021-12-06,"Terschelling","Fryslân",1,0,1
-2021-12-06,"Tiel","Gelderland-Zuid",1,0,1
-2021-12-06,"Tilburg","Midden- en West-Brabant",3,0,3
-2021-12-06,"Tubbergen","Twente",1,0,1
-2021-12-06,"Twenterand","Twente",4,0,4
-2021-12-06,"Tytsjerksteradiel","Fryslân",1,0,1
-2021-12-06,"Utrecht","Utrecht",9,2,7
-2021-12-06,"Utrechtse Heuvelrug","Utrecht",2,1,1
-2021-12-06,"Valkenswaard","Brabant-Zuidoost",3,1,2
-2021-12-06,"Velsen","Kennemerland",1,0,1
-2021-12-06,"Venlo","Limburg-Noord",2,0,2
-2021-12-06,"Vijfheerenlanden","Utrecht",3,2,1
-2021-12-06,"Vlissingen","Zeeland",1,0,1
-2021-12-06,"Weert","Limburg-Noord",1,0,1
-2021-12-06,"Westerwolde","Groningen",1,0,1
-2021-12-06,"Westland","Haaglanden",3,0,3
-2021-12-06,"Wijchen","Gelderland-Zuid",1,0,1
-2021-12-06,"Wijdemeren","Gooi en Vechtstreek",1,0,1
-2021-12-06,"Winterswijk","Noord- en Oost-Gelderland",2,0,2
-2021-12-06,"Zuidplas","Hollands-Midden",2,0,2
-2021-12-06,"Zutphen","Noord- en Oost-Gelderland",1,0,1
-2021-12-06,"Zwartewaterland","IJsselland",1,0,1
+2021-03-16,"Tilburg","Midden- en West-Brabant",3,2,1
+2021-03-17,"Tilburg","Midden- en West-Brabant",5,6,-1
+2021-08-05,"","",3,4,-1
+2021-08-05,"Tilburg","Midden- en West-Brabant",4,3,1
+2021-08-23,"Tilburg","Midden- en West-Brabant",2,1,1
+2021-08-24,"Tilburg","Midden- en West-Brabant",0,1,-1
+2021-10-24,"Rheden","Gelderland-Midden",1,0,1
+2021-10-26,"Rheden","Gelderland-Midden",0,1,-1
+2021-11-08,"Venlo","Limburg-Noord",3,2,1
+2021-11-11,"Roermond","Limburg-Noord",3,2,1
+2021-11-15,"Heerlen","Limburg-Zuid",3,2,1
+2021-11-16,"Apeldoorn","Noord- en Oost-Gelderland",6,5,1
+2021-11-23,"Schagen","Noord-Holland-Noord",1,0,1
+2021-11-26,"Amsterdam","Amsterdam-Amstelland",11,10,1
+2021-11-26,"Midden-Groningen","Groningen",2,1,1
+2021-11-29,"Horst aan de Maas","Limburg-Noord",2,1,1
+2021-11-29,"Houten","Utrecht",1,0,1
+2021-11-30,"Utrechtse Heuvelrug","Utrecht",2,1,1
+2021-12-01,"","",11,12,-1
+2021-12-02,"Venlo","Limburg-Noord",5,4,1
+2021-12-03,"Maastricht","Limburg-Zuid",6,5,1
+2021-12-03,"Venlo","Limburg-Noord",2,1,1
+2021-12-04,"De Bilt","Utrecht",1,0,1
+2021-12-04,"Maastricht","Limburg-Zuid",2,1,1
+2021-12-05,"Opsterland","Fryslân",1,0,1
+2021-12-05,"Venlo","Limburg-Noord",2,1,1
+2021-12-06,"Achtkarspelen","Fryslân",2,1,1
+2021-12-06,"Almere","Flevoland",5,3,2
+2021-12-06,"Ameland","Fryslân",1,0,1
+2021-12-06,"Amstelveen","Amsterdam-Amstelland",1,0,1
+2021-12-06,"Asten","Brabant-Zuidoost",1,0,1
+2021-12-06,"Bergen (L.)","Limburg-Noord",1,0,1
+2021-12-06,"Gooise Meren","Gooi en Vechtstreek",1,0,1
+2021-12-06,"Haarlem","Kennemerland",1,0,1
+2021-12-06,"Heerlen","Limburg-Zuid",2,1,1
+2021-12-06,"Hilversum","Gooi en Vechtstreek",4,2,2
+2021-12-06,"Leeuwarden","Fryslân",3,0,3
+2021-12-06,"Maastricht","Limburg-Zuid",4,2,2
+2021-12-06,"Roermond","Limburg-Noord",1,0,1
+2021-12-06,"Sittard-Geleen","Limburg-Zuid",6,5,1
+2021-12-06,"Smallingerland","Fryslân",2,1,1
+2021-12-06,"Stein","Limburg-Zuid",3,1,2
+2021-12-06,"Tubbergen","Twente",0,1,-1
+2021-12-06,"Velsen","Kennemerland",2,1,1
+2021-12-07,"","",13,8,5
+2021-12-07,"'s-Gravenhage","Haaglanden",3,2,1
+2021-12-07,"Aa en Hunze","Drenthe",1,0,1
+2021-12-07,"Aalten","Noord- en Oost-Gelderland",1,0,1
+2021-12-07,"Alkmaar","Noord-Holland-Noord",3,1,2
+2021-12-07,"Almere","Flevoland",2,0,2
+2021-12-07,"Altena","Midden- en West-Brabant",2,0,2
+2021-12-07,"Amsterdam","Amsterdam-Amstelland",10,7,3
+2021-12-07,"Apeldoorn","Noord- en Oost-Gelderland",4,0,4
+2021-12-07,"Asten","Brabant-Zuidoost",1,0,1
+2021-12-07,"Barendrecht","Rotterdam-Rijnmond",2,1,1
+2021-12-07,"Beek","Limburg-Zuid",1,0,1
+2021-12-07,"Beekdaelen","Limburg-Zuid",1,0,1
+2021-12-07,"Beesel","Limburg-Noord",1,0,1
+2021-12-07,"Bergen op Zoom","Midden- en West-Brabant",1,0,1
+2021-12-07,"Beuningen","Gelderland-Zuid",2,0,2
+2021-12-07,"Bloemendaal","Kennemerland",1,0,1
+2021-12-07,"Boxmeer","Brabant-Noord",1,0,1
+2021-12-07,"Breda","Midden- en West-Brabant",4,2,2
+2021-12-07,"Bronckhorst","Noord- en Oost-Gelderland",1,0,1
+2021-12-07,"Castricum","Noord-Holland-Noord",1,0,1
+2021-12-07,"Coevorden","Drenthe",2,1,1
+2021-12-07,"Cranendonck","Brabant-Zuidoost",2,0,2
+2021-12-07,"Cuijk","Brabant-Noord",1,0,1
+2021-12-07,"Dantumadiel","Fryslân",1,0,1
+2021-12-07,"De Bilt","Utrecht",1,0,1
+2021-12-07,"De Wolden","Drenthe",1,0,1
+2021-12-07,"Den Helder","Noord-Holland-Noord",2,1,1
+2021-12-07,"Dordrecht","Zuid-Holland-Zuid",3,0,3
+2021-12-07,"Echt-Susteren","Limburg-Noord",1,0,1
+2021-12-07,"Edam-Volendam","Zaanstreek-Waterland",2,0,2
+2021-12-07,"Eersel","Brabant-Zuidoost",2,0,2
+2021-12-07,"Eindhoven","Brabant-Zuidoost",3,0,3
+2021-12-07,"Emmen","Drenthe",2,1,1
+2021-12-07,"Enkhuizen","Noord-Holland-Noord",1,0,1
+2021-12-07,"Geldrop-Mierlo","Brabant-Zuidoost",3,0,3
+2021-12-07,"Goes","Zeeland",1,0,1
+2021-12-07,"Gooise Meren","Gooi en Vechtstreek",1,0,1
+2021-12-07,"Gouda","Hollands-Midden",2,0,2
+2021-12-07,"Groningen","Groningen",3,2,1
+2021-12-07,"Haaksbergen","Twente",1,0,1
+2021-12-07,"Haarlem","Kennemerland",3,0,3
+2021-12-07,"Haarlemmermeer","Kennemerland",5,1,4
+2021-12-07,"Heerlen","Limburg-Zuid",4,0,4
+2021-12-07,"Hellendoorn","Twente",1,0,1
+2021-12-07,"Hellevoetsluis","Rotterdam-Rijnmond",1,0,1
+2021-12-07,"Hilversum","Gooi en Vechtstreek",2,0,2
+2021-12-07,"Hoeksche Waard","Zuid-Holland-Zuid",2,1,1
+2021-12-07,"Hoogeveen","Drenthe",1,0,1
+2021-12-07,"Horst aan de Maas","Limburg-Noord",2,1,1
+2021-12-07,"Houten","Utrecht",1,0,1
+2021-12-07,"Hulst","Zeeland",1,0,1
+2021-12-07,"IJsselstein","Utrecht",1,0,1
+2021-12-07,"Kampen","IJsselland",1,0,1
+2021-12-07,"Kerkrade","Limburg-Zuid",4,1,3
+2021-12-07,"Krimpenerwaard","Hollands-Midden",1,0,1
+2021-12-07,"Laarbeek","Brabant-Zuidoost",1,0,1
+2021-12-07,"Landgraaf","Limburg-Zuid",2,0,2
+2021-12-07,"Leeuwarden","Fryslân",1,0,1
+2021-12-07,"Maasgouw","Limburg-Noord",1,0,1
+2021-12-07,"Medemblik","Noord-Holland-Noord",1,0,1
+2021-12-07,"Middelburg","Zeeland",2,0,2
+2021-12-07,"Midden-Drenthe","Drenthe",1,0,1
+2021-12-07,"Mill en Sint Hubert","Brabant-Noord",1,0,1
+2021-12-07,"Nieuwegein","Utrecht",2,0,2
+2021-12-07,"Nijmegen","Gelderland-Zuid",2,1,1
+2021-12-07,"Nissewaard","Rotterdam-Rijnmond",1,0,1
+2021-12-07,"Noardeast-Fryslân","Fryslân",2,0,2
+2021-12-07,"Noordoostpolder","Flevoland",1,0,1
+2021-12-07,"Nunspeet","Noord- en Oost-Gelderland",1,0,1
+2021-12-07,"Oosterhout","Midden- en West-Brabant",3,0,3
+2021-12-07,"Ooststellingwerf","Fryslân",1,0,1
+2021-12-07,"Oss","Brabant-Noord",1,0,1
+2021-12-07,"Peel en Maas","Limburg-Noord",2,0,2
+2021-12-07,"Purmerend","Zaanstreek-Waterland",1,0,1
+2021-12-07,"Ridderkerk","Rotterdam-Rijnmond",1,0,1
+2021-12-07,"Rijswijk","Haaglanden",1,0,1
+2021-12-07,"Roermond","Limburg-Noord",1,0,1
+2021-12-07,"Roosendaal","Midden- en West-Brabant",5,3,2
+2021-12-07,"Rotterdam","Rotterdam-Rijnmond",11,7,4
+2021-12-07,"Rucphen","Midden- en West-Brabant",1,0,1
+2021-12-07,"Schagen","Noord-Holland-Noord",1,0,1
+2021-12-07,"Schiedam","Rotterdam-Rijnmond",4,0,4
+2021-12-07,"Sittard-Geleen","Limburg-Zuid",6,0,6
+2021-12-07,"Sluis","Zeeland",1,0,1
+2021-12-07,"Stadskanaal","Groningen",2,0,2
+2021-12-07,"Steenbergen","Midden- en West-Brabant",1,0,1
+2021-12-07,"Steenwijkerland","IJsselland",2,0,2
+2021-12-07,"Stein","Limburg-Zuid",1,0,1
+2021-12-07,"Terneuzen","Zeeland",2,0,2
+2021-12-07,"Tholen","Zeeland",2,1,1
+2021-12-07,"Tiel","Gelderland-Zuid",1,0,1
+2021-12-07,"Tilburg","Midden- en West-Brabant",3,0,3
+2021-12-07,"Twenterand","Twente",1,0,1
+2021-12-07,"Tytsjerksteradiel","Fryslân",1,0,1
+2021-12-07,"Utrecht","Utrecht",3,1,2
+2021-12-07,"Veldhoven","Brabant-Zuidoost",1,0,1
+2021-12-07,"Venlo","Limburg-Noord",5,3,2
+2021-12-07,"Vlaardingen","Rotterdam-Rijnmond",1,0,1
+2021-12-07,"Vlissingen","Zeeland",4,0,4
+2021-12-07,"Waddinxveen","Hollands-Midden",1,0,1
+2021-12-07,"Weert","Limburg-Noord",2,0,2
+2021-12-07,"West Betuwe","Gelderland-Zuid",1,0,1
+2021-12-07,"Westland","Haaglanden",2,0,2
+2021-12-07,"Weststellingwerf","Fryslân",2,0,2
+2021-12-07,"Wierden","Twente",2,0,2
+2021-12-07,"Wijdemeren","Gooi en Vechtstreek",1,0,1
+2021-12-07,"Wijk bij Duurstede","Utrecht",1,0,1
+2021-12-07,"Woensdrecht","Midden- en West-Brabant",3,1,2
+2021-12-07,"Woerden","Utrecht",1,0,1
+2021-12-07,"Zaanstad","Zaanstreek-Waterland",1,0,1
+2021-12-07,"Zandvoort","Kennemerland",1,0,1
+2021-12-07,"Zeist","Utrecht",1,0,1
+2021-12-07,"Zoetermeer","Haaglanden",1,0,1
+2021-12-07,"Zutphen","Noord- en Oost-Gelderland",1,0,1
+2021-12-07,"Zwijndrecht","Zuid-Holland-Zuid",2,0,2
