@@ -70,7 +70,7 @@ testplot <- testdata %>%
   geom_line(aes(y = values.infected_percentage, color = "Percentage positief per dag (GGD)"), lwd=1.2) +
   geom_line(aes(y = pos.rate.7d.avg, color = "Percentage positief - Zwevend 7-daags gemiddelde (GGD)"), lwd=1.2) +
   scale_x_date(breaks = "1 weeks") + 
-  scale_y_continuous(limits = c(0, 0.30), labels = scales::percent, breaks = seq(0,0.26,0.02)) +
+  scale_y_continuous(limits = c(0, 0.30), labels = scales::percent, breaks = seq(0,0.30,0.02)) +
   theme_bw() +
   theme(axis.title.x=element_blank(),
         axis.title.y=element_blank(),
@@ -105,8 +105,8 @@ aanwezig <- all.data %>%
   ggplot(aes(x=date, y=Hospital_Currently)) + 
   geom_line(aes(y = Hospital_Currently, color = "Aanwezig op verpleegafdeling (NICE)"), lwd=1.2) +
   geom_line(aes(y = IC_Current, color = "Aanwezig op IC (NICE)"), lwd=1.2) +
-  geom_line(aes(y = Kliniek_Bedden, color = "Aanwezig op verpleegafdeling (LCPS)"), lwd=1.2) +
-  geom_line(aes(y = IC_Bedden_COVID, color = "Aanwezig op IC (LCPS)"), lwd=1.2) +
+  geom_line(aes(y = Kliniek_Bedden_Nederland, color = "Aanwezig op verpleegafdeling (LCPS)"), lwd=1.2) +
+  geom_line(aes(y = IC_Bedden_COVID_Nederland, color = "Aanwezig op IC (LCPS)"), lwd=1.2) +
   scale_y_continuous(expand = c(0, 50), limits = c(0, NA)) +
   scale_color_manual(values = c("#F58121", "#228AC7", "#f79a4d", "#7ab9dd")) +
   guides(colour = guide_legend(reverse=T)) +
@@ -128,10 +128,10 @@ opnames <- all.data %>%
   filter(date > filter.date) %>%
   ggplot(aes(x=date, y=new.hospitals, group = 1)) + 
   geom_line(aes(y = hospital_intake_rivm, color = "Opname op verpleegafdeling (GGDs)"), lwd=1.2) +
-  geom_line(aes(y = Kliniek_Nieuwe_Opnames_COVID, color = "Opname op verpleegafdeling (LCPS)"), lwd=1.2, position = position_nudge(x=-1)) +
+  geom_line(aes(y = Kliniek_Nieuwe_Opnames_COVID_Nederland, color = "Opname op verpleegafdeling (LCPS)"), lwd=1.2, position = position_nudge(x=-1)) +
   geom_line(aes(y = Hospital_Intake, color = "Opname op verpleegafdeling (NICE)"), lwd=1.2, na.rm = TRUE) +
   geom_line(aes(y = IC_Intake, color = "Opname op IC (NICE)"), lwd=1.2, na.rm = TRUE) +
-  geom_line(aes(y = IC_Nieuwe_Opnames_COVID, color = "Opname op IC (LCPS)"), lwd=1.2, position = position_nudge(x=-1)) +
+  geom_line(aes(y = IC_Nieuwe_Opnames_COVID_Nederland, color = "Opname op IC (LCPS)"), lwd=1.2, position = position_nudge(x=-1)) +
   scale_y_continuous(expand = c(0, 10), limits = c(0, NA)) +
   scale_color_manual(values = c("#F58121", "#228AC7", "#F9E11E", "#f79a4d", "#7ab9dd")) +
   guides(colour = guide_legend(reverse=T)) +
