@@ -67,10 +67,10 @@ tweet.last_id <- posted_tweet$id_str
 ## Build excess mortality (historical) tweet
 excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
 
-tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " november"," - ",endday.week," november):
+tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " november"," - ",endday.week," december):
 
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
-2) Methode RIVM (",rivm.startday," november - ",rivm.endday," november): ",last(excess_mortality$excess_mortality_rivm),"
+2) Methode RIVM (",rivm.startday," november - ",rivm.endday," december): ",last(excess_mortality$excess_mortality_rivm),"
 
 (grafieken CBS / RIVM)
 ")
@@ -144,7 +144,7 @@ tweet.wlz <- paste0("4/ Oversterfte Wlz en overige bevolking (CBS)
 
 De sterfte bij Wlz-gebruikers (mensen in zorginstellingen) is ",abs(last(table.wlz$excess_wlz_perc)),"% ",wlz.text," dan verwacht.
 
-Aflevering 44 van 'De stille ramp'.
+Aflevering 45 van 'De stille ramp'.
 
 De sterfte in de overige bevolking is ",abs(last(table.wlz$excess_other_perc)),"% ",other.text," dan verwacht.
 ")
@@ -206,10 +206,45 @@ posted_tweet <- post_tweet (
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
 
+## Provincie - oversterfte
+excess_mort_province <- read.csv("data-misc/excess_mortality/excess_mortality_provinces_clean.csv")
+
+excess_mort_province_filtered <- excess_mort_province %>%
+  filter(Week == thisweek) %>%
+  filter(Jaar == 2021)
+
+excess_province_long <- gather(excess_mort_province_filtered, "statnaam","excess_mortality",3:14)
+excess_province_long$excess_mortality <- round(excess_province_long$excess_mortality,0)
+excess_province_long$statnaam <- recode(excess_province_long$statnaam, "Noord.Holland" = "Noord-Holland",
+                                        "Zuid.Holland" = "Zuid-Holland",
+                                        "Noord.Brabant" = "Noord-Brabant")
+
+high.prov.mort <- max(excess_province_long$excess_mortality)
+highest.province <- excess_province_long %>%
+  filter(excess_mortality == high.prov.mort)
+
+tweet.provincie <- paste0("De relatieve oversterfte was afgelopen week het hoogste in ",highest.province[,"statnaam"],": ",high.prov.mort,"%.
+
+Dit is de hoogste oversterfte in " ,highest.province[,'statnaam']," sinds het begin van de crisis.
+
+De oversterfte in Zeeland (63%) was afgelopen week ook hoger dan tijdens de eerste golf.")
+
+posted_tweet <- post_tweet (
+  tweet.provincie,
+  token = token.mzelst,
+  media = c("data-misc/excess_mortality/plots_weekly_update/oversterfte_provincie.png"),
+  in_reply_to_status_id = tweet.last_id,
+  auto_populate_reply_metadata = TRUE
+)
+posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+tweet.last_id <- posted_tweet$id_str
+
 
 ## Conclusie tweet
 
-conclusie.tweet <- paste0("Conclusie: De sterfte is de afgelopen weken hoger dan verwacht. Relatief gezien (%) is de oversterfte (in de afgelopen drie weken) niet meer zo hoog geweest sinds de eerste golf.")
+conclusie.tweet <- paste0("Conclusie: De sterfte van deze week is hoger dan de piek van de tweede golf en net zo hoog als de vierde week van de eerste golf.
+                          
+Relatief gezien (%) is de oversterfte (in de afgelopen vier weken) niet meer zo hoog geweest sinds de eerste golf.")
 
 posted_tweet <- post_tweet (
   conclusie.tweet,
@@ -222,7 +257,7 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Verwachting
 
-verwachting.tweet <- paste0("Interpretatie: de geschatte coronasterfte van week 47 is tussen de 70-90% van de totale oversterfte. Ik vermoed dat op dit moment zo'n 15-25% van de oversterfte wordt veroorzaakt door het zorginfarct. 
+verwachting.tweet <- paste0("Interpretatie: de geschatte coronasterfte van week 48 is tussen de 60-95% van de totale oversterfte. Ik vermoed dat op dit moment zo'n 15-40% van de oversterfte wordt veroorzaakt door het zorginfarct. 
 
 Goed dat dit wordt onderzocht n.a.v. een aangenomen motie van @PieterOmtzigt.")
 
@@ -238,18 +273,18 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Verwachting - deel 2
 
-verwachting.tweet_2 <- paste0("Verwachting 2: In 2020 werd de coronasterfte in deze periode al gedempt door de gedeeltelijke lockdown. 
+#verwachting.tweet_2 <- paste0("Verwachting 2: Het is lastig bepalen waar het nu heen gaat maar  
 
-Gegeven de stijgende besmettingen, zal de sterfte in ieder geval op de korte termijn waarschijnlijk hoger blijven dan in dezelfde periode vorig jaar.")
+#")
 
-posted_tweet <- post_tweet (
-  verwachting.tweet_2,
-  token = token.mzelst,
-  in_reply_to_status_id = tweet.last_id,
-  auto_populate_reply_metadata = TRUE
-)
-posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
-tweet.last_id <- posted_tweet$id_str
+#posted_tweet <- post_tweet (
+#  verwachting.tweet_2,
+#  token = token.mzelst,
+#  in_reply_to_status_id = tweet.last_id,
+#  auto_populate_reply_metadata = TRUE
+#)
+#posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+#tweet.last_id <- posted_tweet$id_str
 
 ## Disclaimer
 
