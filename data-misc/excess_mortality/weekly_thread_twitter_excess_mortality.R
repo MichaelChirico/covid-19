@@ -17,7 +17,7 @@ perc_excess_text <- paste0(last(excess_mortality$percent_excess),"% ",meer.minde
 ## Build main tweet
 tweet.main <- paste0("CBS heeft het aantal overlijdensgevallen bijgewerkt t/m week ",thisweek," van 2021. In week ",thisweek," overleden er ",last(excess_mortality$Totaal_Overleden)," mensen. Dat is ",perc_excess_text,"
 
-Een draad over de sterfte per week en sterfte door corona + sterfte door het zorginfarct.")
+Een draad over de sterfte per week en sterfte door corona.")
 
 posted_tweet <- post_tweet (
   tweet.main,
@@ -67,10 +67,10 @@ tweet.last_id <- posted_tweet$id_str
 ## Build excess mortality (historical) tweet
 excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
 
-tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " november"," - ",endday.week," december):
+tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " december"," - ",endday.week," december):
 
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
-2) Methode RIVM (",rivm.startday," november - ",rivm.endday," december): ",last(excess_mortality$excess_mortality_rivm),"
+2) Methode RIVM (",rivm.startday," december - ",rivm.endday," december): ",last(excess_mortality$excess_mortality_rivm),"
 
 (grafieken CBS / RIVM)
 ")
@@ -101,13 +101,13 @@ download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
 cbs_oversterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 7))[,1:10]
 unlink("cbs_deaths.xlsx")
 cbs_oversterfte <- cbs_oversterfte[8:nrow(cbs_oversterfte),]
-cbs_oversterfte <- cbs_oversterfte[-54,]
-cbs_oversterfte <- cbs_oversterfte[-c(106:109),]
+cbs_oversterfte <- cbs_oversterfte[-c(54,107),]
+cbs_oversterfte <- cbs_oversterfte[-c(158:163),]
 colnames(cbs_oversterfte) <- c("Periode","deaths_expected_cbs","verwacht_lb","Verwacht_ub","Verwacht_WLZ","verwacht_WLZ_lb","Verwacht_WLZ_ub",
                                "Verwacht_other","Verwacht_other_lb","Verwacht_other_ub")
 
 cbs_oversterfte$Year <- parse_number(cbs_oversterfte$Periode)
-cbs_oversterfte$Week <- c(1:53,1:52)
+cbs_oversterfte$Week <- c(1:53,1:52,1:52)
 
 download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
 wlz_sterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 6))[-c(1:6),c(1:2,5,10)]
@@ -144,7 +144,7 @@ tweet.wlz <- paste0("4/ Oversterfte Wlz en overige bevolking (CBS)
 
 De sterfte bij Wlz-gebruikers (mensen in zorginstellingen) is ",abs(last(table.wlz$excess_wlz_perc)),"% ",wlz.text," dan verwacht.
 
-Aflevering 45 van 'De stille ramp'.
+Aflevering 46 van 'De stille ramp'.
 
 De sterfte in de overige bevolking is ",abs(last(table.wlz$excess_other_perc)),"% ",other.text," dan verwacht.
 ")
@@ -210,8 +210,8 @@ tweet.last_id <- posted_tweet$id_str
 excess_mort_province <- read.csv("data-misc/excess_mortality/excess_mortality_provinces_clean.csv")
 
 excess_mort_province_filtered <- excess_mort_province %>%
-  filter(Week == thisweek) %>%
-  filter(Jaar == 2021)
+  dplyr::filter(Week == thisweek) %>%
+  dplyr::filter(Jaar == 2021)
 
 excess_province_long <- gather(excess_mort_province_filtered, "statnaam","excess_mortality",3:14)
 excess_province_long$excess_mortality <- round(excess_province_long$excess_mortality,0)
@@ -225,9 +225,7 @@ highest.province <- excess_province_long %>%
 
 tweet.provincie <- paste0("De relatieve oversterfte was afgelopen week het hoogste in ",highest.province[,"statnaam"],": ",high.prov.mort,"%.
 
-Dit is de hoogste oversterfte in " ,highest.province[,'statnaam']," sinds het begin van de crisis.
-
-De oversterfte in Zeeland (63%) was afgelopen week ook hoger dan tijdens de eerste golf.")
+Dit is de hoogste oversterfte in " ,highest.province[,'statnaam']," sinds het begin van de crisis en die komt in de buurt van de oversterfte in Noord-Brabant en Limburg tijdens de eerste golf.")
 
 posted_tweet <- post_tweet (
   tweet.provincie,
@@ -242,9 +240,9 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Conclusie tweet
 
-conclusie.tweet <- paste0("Conclusie: De sterfte van deze week is hoger dan de piek van de tweede golf en net zo hoog als de vierde week van de eerste golf.
-                          
-Relatief gezien (%) is de oversterfte (in de afgelopen vier weken) niet meer zo hoog geweest sinds de eerste golf.")
+conclusie.tweet <- paste0("Conclusie: De oversterfte is nog steeds op een zeer hoog niveau maar lijkt iets gedaald ten opzichte van vorige week.
+
+De hoge sterfte onder WLZ-gebruikers (voornamelijk onder verpleeghuisbewoners) stabiliseert terwijl die daalt in de overige bevolking.")
 
 posted_tweet <- post_tweet (
   conclusie.tweet,
@@ -255,36 +253,20 @@ posted_tweet <- post_tweet (
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
 
-## Verwachting
+## Verwachting - deel 2
 
-verwachting.tweet <- paste0("Interpretatie: de geschatte coronasterfte van week 48 is tussen de 60-95% van de totale oversterfte. Ik vermoed dat op dit moment zo'n 15-40% van de oversterfte wordt veroorzaakt door het zorginfarct. 
+verwachting.tweet_2 <- paste0("Het is lastig om te bepalen waar het nu heen gaat maar voorlopig is de verwachting dat de oversterfte wat zal dalen, in lijn met de dalende Deltagolf.
 
-Goed dat dit wordt onderzocht n.a.v. een aangenomen motie van @PieterOmtzigt.")
+In welke mate de boosters en/of de Omicron-variant hier op korte termijn veranderingen in zullen brengen is nog even afwachten.")
 
 posted_tweet <- post_tweet (
-  verwachting.tweet,
+  verwachting.tweet_2,
   token = token.mzelst,
-  in_reply_to_status_id = tweet.last_id,
-  media = "data-misc/excess_mortality/plots_weekly_update/motie_omtzigt.png",
+  in_reply_to_status_id = "1471759455876431874",
   auto_populate_reply_metadata = TRUE
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
-
-## Verwachting - deel 2
-
-#verwachting.tweet_2 <- paste0("Verwachting 2: Het is lastig bepalen waar het nu heen gaat maar  
-
-#")
-
-#posted_tweet <- post_tweet (
-#  verwachting.tweet_2,
-#  token = token.mzelst,
-#  in_reply_to_status_id = tweet.last_id,
-#  auto_populate_reply_metadata = TRUE
-#)
-#posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
-#tweet.last_id <- posted_tweet$id_str
 
 ## Disclaimer
 
