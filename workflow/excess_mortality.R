@@ -208,13 +208,13 @@ download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
 cbs_oversterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 7))[,1:10]
 unlink("cbs_deaths.xlsx")
 cbs_oversterfte <- cbs_oversterfte[8:nrow(cbs_oversterfte),]
-cbs_oversterfte <- cbs_oversterfte[-54,]
-cbs_oversterfte <- cbs_oversterfte[-c(106:109),]
+cbs_oversterfte <- cbs_oversterfte[-c(54,107),]
+cbs_oversterfte <- cbs_oversterfte[-c(158:163),]
 colnames(cbs_oversterfte) <- c("Periode","deaths_expected_cbs","verwacht_lb","Verwacht_ub","Verwacht_WLZ","verwacht_WLZ_lb","Verwacht_WLZ_ub",
                                "Verwacht_other","Verwacht_other_lb","Verwacht_other_ub")
 
 cbs_oversterfte$Year <- parse_number(cbs_oversterfte$Periode)
-cbs_oversterfte$Week <- c(1:53,1:52)
+cbs_oversterfte$Week <- c(1:53,1:52,1:52)
 
 cbs.death.statistics <- cbs_oversterfte[,c("deaths_expected_cbs","Week","Year")]
 cbs.death.statistics$deaths_expected_cbs <- parse_number(cbs.death.statistics$deaths_expected_cbs)
