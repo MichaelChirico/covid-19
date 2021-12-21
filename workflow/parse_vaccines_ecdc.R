@@ -2,6 +2,7 @@ vaccines <- fread("https://opendata.ecdc.europa.eu/covid19/vaccine_tracker/csv/d
 
 vaccines.nl <- vaccines %>%
   dplyr::filter(Region == "NL") %>%
+  dplyr::filter(TargetGroup == "ALL") %>%
   select(YearWeekISO,Vaccine,FirstDose, SecondDose,DoseAdditional1)
   
 vaccines.nl.long <- vaccines.nl %>%
@@ -24,5 +25,5 @@ vaccines.nl.long <- vaccines.nl.long %>%
 write.csv(vaccines.nl.long, file = "data-rivm/vaccines-ecdc/vaccines_administered_nl.csv",row.names=F)
 
 add(repo, path = "data-rivm/vaccines-ecdc/vaccines_administered_nl.csv")
-commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update vaccine data - ECDC 2/2"))
+commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update vaccine data - ECDC"))
 push(repo, credentials = git.auth)
