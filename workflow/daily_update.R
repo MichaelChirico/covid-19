@@ -1,5 +1,5 @@
-#time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
-time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
+time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
+#time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
 
 ## Put in double date breaker for NICE update
 repeat {
@@ -438,6 +438,7 @@ source("workflow/dashboards/heatmap-age-week.R")
 source("workflow/dashboards/age-distribution-date-NICE.R")
 source("workflow/dashboards/nice_bezetting_onder20.R")
 source("workflow/dashboards/ggd_tests_corrections.R")
+source("workflow/parse_vaccines_ecdc.R")
 source("workflow/estimate_R.R")
 #source("workflow/excess_mortality_cbsmodel_2021.R")
 source("workflow/parse_deaths_comparison_tracker.R")
