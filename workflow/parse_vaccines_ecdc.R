@@ -22,3 +22,7 @@ vaccines.nl.long <- vaccines.nl.long %>%
   select(week, year, vaccine, dose_number, total_administered)
 
 write.csv(vaccines.nl.long, file = "data-rivm/vaccines-ecdc/vaccines_administered_nl.csv",row.names=F)
+
+add(repo, path = "data-rivm/vaccines-ecdc/vaccines_administered_nl.csv")
+commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update vaccine data - ECDC 2/2"))
+push(repo, credentials = git.auth)
