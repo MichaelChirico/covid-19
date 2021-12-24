@@ -144,7 +144,7 @@ tweet.wlz <- paste0("4/ Oversterfte Wlz en overige bevolking (CBS)
 
 De sterfte bij Wlz-gebruikers (mensen in zorginstellingen) is ",abs(last(table.wlz$excess_wlz_perc)),"% ",wlz.text," dan verwacht.
 
-Aflevering 46 van 'De stille ramp'.
+Aflevering 47 van 'De stille ramp'.
 
 De sterfte in de overige bevolking is ",abs(last(table.wlz$excess_other_perc)),"% ",other.text," dan verwacht.
 ")
@@ -225,7 +225,7 @@ highest.province <- excess_province_long %>%
 
 tweet.provincie <- paste0("De relatieve oversterfte was afgelopen week het hoogste in ",highest.province[,"statnaam"],": ",high.prov.mort,"%.
 
-Dit is de hoogste oversterfte in " ,highest.province[,'statnaam']," sinds het begin van de crisis en die komt in de buurt van de oversterfte in Noord-Brabant en Limburg tijdens de eerste golf.")
+In Limburg begint de oversterfte nu te dalen (42%) terwijl de oversterfte in Flevoland nu al weken erg hoog is (61%)")
 
 posted_tweet <- post_tweet (
   tweet.provincie,
@@ -240,9 +240,9 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Conclusie tweet
 
-conclusie.tweet <- paste0("Conclusie: De oversterfte is nog steeds op een zeer hoog niveau maar lijkt iets gedaald ten opzichte van vorige week.
+conclusie.tweet <- paste0("Conclusie: De oversterfte is nog steeds op een hoog niveau maar lijkt iets gedaald ten opzichte van vorige week.
 
-De hoge sterfte onder WLZ-gebruikers (voornamelijk onder verpleeghuisbewoners) stabiliseert terwijl die daalt in de overige bevolking.")
+Meeste oversterfte nog wel te vinden bij 65+ en langdurige zorg gebruikers.")
 
 posted_tweet <- post_tweet (
   conclusie.tweet,
@@ -262,7 +262,7 @@ In welke mate de boosters en/of de Omicron-variant hier op korte termijn verande
 posted_tweet <- post_tweet (
   verwachting.tweet_2,
   token = token.mzelst,
-  in_reply_to_status_id = "1471759455876431874",
+  in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
@@ -270,18 +270,18 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Disclaimer
 
-disclaimer.tweet <- "Dit moet ik er blijkbaar elke keer weer bij zetten: ja, de vaccins werken goed tegen sterfte. Nee, ze zijn niet perfect en dus voorkomen ze niet alle sterfgevallen.
+#disclaimer.tweet <- "Dit moet ik er blijkbaar elke keer weer bij zetten: ja, de vaccins werken goed tegen sterfte. Nee, ze zijn niet perfect en dus voorkomen ze niet alle sterfgevallen.
 
-Maar met tienduizenden besmettingen per dag sterven er alsnog vele mensen, zelfs met een uitermate goed vaccin."
+#Maar met tienduizenden besmettingen per dag sterven er alsnog vele mensen, zelfs met een uitermate goed vaccin."
 
-posted_tweet <- post_tweet (
-  disclaimer.tweet,
-  token = token.mzelst,
-  in_reply_to_status_id = tweet.last_id,
-  auto_populate_reply_metadata = TRUE
-)
-posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
-tweet.last_id <- posted_tweet$id_str
+#posted_tweet <- post_tweet (
+#  disclaimer.tweet,
+#  token = token.mzelst,
+#  in_reply_to_status_id = tweet.last_id,
+#  auto_populate_reply_metadata = TRUE
+#)
+#posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+#tweet.last_id <- posted_tweet$id_str
 
 ## Eindnoot tweet
 
