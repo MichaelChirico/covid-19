@@ -129,7 +129,9 @@ IC_Aanwezig_Int <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Internationaal)),"
 #vaccins.geprikt <- format(last(vaccines.by_day$vaccines_administered_ggd+vaccines.by_day$vaccines_administered_estimated_hospital),decimal.mark = ",",big.mark =".",big.interval = 3)
 
 #### Build tweets ####
-tweet.main <- paste0("#COVID19NL #MerryChristmas
+tweet.main <- paste0("#COVID19NL
+
+Let op: Storing.
 
 Positief getest: ",format(last(all.data$new.infection),decimal.mark = ",",big.mark =".",big.interval = 3),"
 Totaal: ",format(last(all.data$cases),decimal.mark = ",",big.mark =".",big.interval = 3)," (+",format(last(all.data$net.infection),decimal.mark = ",",big.mark =".",big.interval = 3)," ivm ",last(all.data$corrections.cases)," corr.)
@@ -438,10 +440,10 @@ source("workflow/dashboards/heatmap-age-week.R")
 source("workflow/dashboards/age-distribution-date-NICE.R")
 source("workflow/dashboards/nice_bezetting_onder20.R")
 source("workflow/dashboards/ggd_tests_corrections.R")
-source("workflow/parse_vaccines_ecdc.R")
 source("workflow/estimate_R.R")
 #source("workflow/excess_mortality_cbsmodel_2021.R")
 source("workflow/parse_deaths_comparison_tracker.R")
+source("workflow/parse_vaccines_ecdc.R")
 ## Vaccine tweet for history ##
 #Vaccins geprikt: ",vaccins.geprikt,"
 #Vaccins geprikt (geschat): ",format(last(vaccines.by_day$vaccines_administered_estimated),decimal.mark = ",",big.mark =".",big.interval = 3),"
