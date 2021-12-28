@@ -2,7 +2,6 @@ vaccines <- fread("https://opendata.ecdc.europa.eu/covid19/vaccine_tracker/csv/d
 
 vaccines.nl <- vaccines %>%
   dplyr::filter(Region == "NL") %>%
-  dplyr::filter(TargetGroup == "ALL") %>%
   select(YearWeekISO,Vaccine,FirstDose, SecondDose,DoseAdditional1)
   
 vaccines.nl.long <- vaccines.nl %>%
