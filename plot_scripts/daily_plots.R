@@ -70,7 +70,7 @@ testplot <- testdata %>%
   geom_line(aes(y = values.infected_percentage, color = "Percentage positief per dag (GGD)"), lwd=1.2) +
   geom_line(aes(y = pos.rate.7d.avg, color = "Percentage positief - Zwevend 7-daags gemiddelde (GGD)"), lwd=1.2) +
   scale_x_date(breaks = "1 weeks") + 
-  scale_y_continuous(limits = c(0, 0.30), labels = scales::percent, breaks = seq(0,0.30,0.02)) +
+  scale_y_continuous(limits = c(0, 0.36), labels = scales::percent, breaks = seq(0,0.36,0.02)) +
   theme_bw() +
   theme(axis.title.x=element_blank(),
         axis.title.y=element_blank(),
