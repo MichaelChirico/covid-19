@@ -5,13 +5,13 @@
 ## Data for municipalities
 
 # Cumulative dataset 
-rivm.municipalities <- read.csv("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_cumulatief.csv", sep=";")
+rivm.municipalities <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_cumulatief.csv", sep=";")
 last_date <- as.Date(last(rivm.municipalities$Date_of_report))
 filename.municipality <- paste0("raw-data-archive/municipal-datasets/rivm_municipality_", last_date ,".csv") ## Filename for daily data municipalities
-write.csv(rivm.municipalities, file=filename.municipality,row.names = F)
+fwrite(rivm.municipalities, file=filename.municipality,row.names = F)
 
 filename.municipality.compressed <- paste0("data-rivm/municipal-datasets/rivm_municipality_", last_date ,".csv.gz") ## Filename for daily data municipalities
-write.csv(rivm.municipalities, file=gzfile(filename.municipality.compressed),row.names = F)
+fwrite(rivm.municipalities, file = filename.municipality.compressed)
 
 rm(rivm.municipalities, last_date, filename.municipality,filename.municipality.compressed)
 
