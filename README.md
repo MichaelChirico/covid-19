@@ -16,15 +16,15 @@ The graphs and data are licensed CC0. The original data is licensed under the 'P
 ## Datasets
 The datasets available in this repository are updated on a daily base. Availability depends on the publication by the respective sources (N.B. since July 1st, the epidemiological reports published by RIVM will be released on a *weekly* instead of daily basis). The project divides the datasets into four main categories:
 
-* [Daily municipal datasets](#daily_municipality_cumulative)
-* [Daily casus datasets](#daily_total_cumulative)
+* [Daily municipal datasets](data-rivm/municipal-datasets-per-day)
+* [Daily casus datasets](data-rivm/casus-datasets)
 * [Intensive care data](https://github.com/mzelst/covid-19/tree/master/data-nice)
-* [Data on daily corrections](#corrections)
+* [Data on daily corrections](corrections)
 
 
 ### NICE data
 
-This folder contains various raw datasets as well as compilations of those raw data from the NICE website. NICE is the national organization for IC data but collected COVID-19 data from clinical departments as well. Data is collected every day at 15:15 from [NICE](www.stichting-nice.nl).
+This folder contains various raw datasets as well as compilations of those raw data from the NICE website. NICE is the national organization for IC data but collected COVID-19 data from clinical departments as well. Data is collected every day at 14:00 from [NICE](www.stichting-nice.nl).
 
 * [Age-related data](data-nice/age)
 * [Data on amount of time in hospital](data-nice/treatment-time)
