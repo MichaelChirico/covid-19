@@ -7,12 +7,12 @@ require(readxl)
 
 source("data-misc/excess_mortality/parse_cbs_links.R")
 
-week.readfile <- isoweek(Sys.Date())-1
-
 table_mortality <- cbs_get_data("70895ned", Perioden = has_substring(c("2001","2002","2003","2004","2005","2006","2013","2014","2015","2016","2017","2018","2019","2020","2021")), Geslacht = has_substring("1100"))
 table_mortality$Year <- substr(table_mortality$Perioden, 1, 4)
 
 table_mortality$Week <- str_sub(table_mortality$Perioden, start = -2)
+
+week.readfile <- as.numeric(last(table_mortality$Week))
 
 table_mortality$LeeftijdOp31December <- factor(table_mortality$LeeftijdOp31December, levels = c(10000, 41700, 53950, 21700),
                                                labels = c("Totaal","0 tot 65", "65 tot 80", "80+"))
