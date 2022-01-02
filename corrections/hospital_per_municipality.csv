@@ -1,83 +1,54 @@
 "Date_of_statistics","Municipality_name","Security_region_name","hospital.today.mun","hospital.yesterday.mun","diff"
-2021-08-24,"Kerkrade","Limburg-Zuid",0,1,-1
-2021-10-12,"Brielle","Rotterdam-Rijnmond",0,1,-1
-2021-11-27,"Veldhoven","Brabant-Zuidoost",2,1,1
-2021-12-01,"","",10,11,-1
-2021-12-01,"Nieuwegein","Utrecht",3,2,1
-2021-12-07,"","",6,5,1
-2021-12-11,"Almere","Flevoland",0,1,-1
-2021-12-24,"Krimpen aan den IJssel","Rotterdam-Rijnmond",0,1,-1
-2021-12-27,"","",5,4,1
-2021-12-27,"Bunschoten","Utrecht",2,1,1
-2021-12-27,"Hoeksche Waard","Zuid-Holland-Zuid",4,3,1
-2021-12-27,"Rotterdam","Rotterdam-Rijnmond",13,12,1
-2021-12-27,"Tilburg","Midden- en West-Brabant",4,3,1
-2021-12-28,"Beuningen","Gelderland-Zuid",1,0,1
-2021-12-29,"Breda","Midden- en West-Brabant",2,1,1
-2021-12-29,"Bronckhorst","Noord- en Oost-Gelderland",2,1,1
-2021-12-29,"Enschede","Twente",2,1,1
-2021-12-29,"Het Hogeland","Groningen",1,0,1
-2021-12-29,"Lelystad","Flevoland",4,3,1
-2021-12-29,"Loon op Zand","Midden- en West-Brabant",2,0,2
-2021-12-29,"Nissewaard","Rotterdam-Rijnmond",2,1,1
-2021-12-29,"Oude IJsselstreek","Noord- en Oost-Gelderland",1,0,1
-2021-12-29,"Ridderkerk","Rotterdam-Rijnmond",1,0,1
-2021-12-29,"Rotterdam","Rotterdam-Rijnmond",9,8,1
-2021-12-29,"Tilburg","Midden- en West-Brabant",1,0,1
-2021-12-29,"Waalwijk","Midden- en West-Brabant",1,0,1
-2021-12-30,"","",5,2,3
-2021-12-30,"'s-Gravenhage","Haaglanden",4,2,2
-2021-12-30,"Almere","Flevoland",2,1,1
-2021-12-30,"Amsterdam","Amsterdam-Amstelland",2,0,2
-2021-12-30,"Apeldoorn","Noord- en Oost-Gelderland",2,0,2
-2021-12-30,"Bergen (NH.)","Noord-Holland-Noord",1,0,1
-2021-12-30,"Bodegraven-Reeuwijk","Hollands-Midden",2,1,1
-2021-12-30,"Breda","Midden- en West-Brabant",1,0,1
-2021-12-30,"Buren","Gelderland-Zuid",1,0,1
-2021-12-30,"Delft","Haaglanden",1,0,1
-2021-12-30,"Druten","Gelderland-Zuid",1,0,1
-2021-12-30,"Eindhoven","Brabant-Zuidoost",1,0,1
-2021-12-30,"Enschede","Twente",2,0,2
-2021-12-30,"Etten-Leur","Midden- en West-Brabant",1,0,1
-2021-12-30,"Gemert-Bakel","Brabant-Zuidoost",1,0,1
-2021-12-30,"Gorinchem","Zuid-Holland-Zuid",1,0,1
-2021-12-30,"Groningen","Groningen",1,0,1
-2021-12-30,"Halderberge","Midden- en West-Brabant",1,0,1
-2021-12-30,"Hilvarenbeek","Midden- en West-Brabant",1,0,1
-2021-12-30,"Hoeksche Waard","Zuid-Holland-Zuid",1,0,1
-2021-12-30,"Hulst","Zeeland",1,0,1
-2021-12-30,"Leeuwarden","Fryslân",1,0,1
-2021-12-30,"Lelystad","Flevoland",1,0,1
-2021-12-30,"Maasgouw","Limburg-Noord",1,0,1
-2021-12-30,"Medemblik","Noord-Holland-Noord",1,0,1
-2021-12-30,"Midden-Groningen","Groningen",2,0,2
-2021-12-30,"Neder-Betuwe","Gelderland-Zuid",1,0,1
-2021-12-30,"Nieuwegein","Utrecht",2,0,2
-2021-12-30,"Nijmegen","Gelderland-Zuid",1,0,1
-2021-12-30,"Nissewaard","Rotterdam-Rijnmond",2,0,2
-2021-12-30,"Nunspeet","Noord- en Oost-Gelderland",1,0,1
-2021-12-30,"Oldambt","Groningen",1,0,1
-2021-12-30,"Oldenzaal","Twente",1,0,1
-2021-12-30,"Oosterhout","Midden- en West-Brabant",1,0,1
-2021-12-30,"Pekela","Groningen",1,0,1
-2021-12-30,"Pijnacker-Nootdorp","Haaglanden",2,0,2
-2021-12-30,"Purmerend","Zaanstreek-Waterland",1,0,1
-2021-12-30,"Putten","Noord- en Oost-Gelderland",1,0,1
-2021-12-30,"Rotterdam","Rotterdam-Rijnmond",11,2,9
-2021-12-30,"Sittard-Geleen","Limburg-Zuid",1,0,1
-2021-12-30,"Sluis","Zeeland",1,0,1
-2021-12-30,"Soest","Utrecht",1,0,1
-2021-12-30,"Tilburg","Midden- en West-Brabant",1,0,1
-2021-12-30,"Utrecht","Utrecht",3,2,1
-2021-12-30,"Utrechtse Heuvelrug","Utrecht",1,0,1
-2021-12-30,"Veendam","Groningen",1,0,1
-2021-12-30,"Vijfheerenlanden","Utrecht",1,0,1
-2021-12-30,"Vlissingen","Zeeland",1,0,1
-2021-12-30,"Weert","Limburg-Noord",1,0,1
-2021-12-30,"West Betuwe","Gelderland-Zuid",2,0,2
-2021-12-30,"Woerden","Utrecht",1,0,1
-2021-12-30,"Wormerland","Zaanstreek-Waterland",1,0,1
-2021-12-30,"Zaanstad","Zaanstreek-Waterland",2,0,2
-2021-12-30,"Zoetermeer","Haaglanden",2,1,1
-2021-12-30,"Zutphen","Noord- en Oost-Gelderland",1,0,1
-2021-12-30,"Zwartewaterland","IJsselland",1,0,1
+2021-11-19,"Zwolle","IJsselland",2,3,-1
+2021-12-16,"Ooststellingwerf","Fryslân",2,3,-1
+2021-12-18,"","",3,4,-1
+2021-12-24,"Edam-Volendam","Zaanstreek-Waterland",2,1,1
+2021-12-27,"Súdwest-Fryslân","Fryslân",1,0,1
+2021-12-27,"Tilburg","Midden- en West-Brabant",5,4,1
+2021-12-28,"'s-Gravenhage","Haaglanden",3,2,1
+2021-12-28,"Langedijk","Noord-Holland-Noord",1,0,1
+2021-12-29,"Hengelo (O.)","Twente",1,0,1
+2021-12-29,"Hof van Twente","Twente",1,0,1
+2021-12-30,"'s-Gravenhage","Haaglanden",5,4,1
+2021-12-30,"Alkmaar","Noord-Holland-Noord",1,0,1
+2021-12-30,"Almelo","Twente",1,0,1
+2021-12-30,"Cuijk","Brabant-Noord",1,0,1
+2021-12-30,"De Fryske Marren","Fryslân",1,0,1
+2021-12-30,"Groningen","Groningen",2,1,1
+2021-12-30,"Helmond","Brabant-Zuidoost",1,0,1
+2021-12-30,"Laarbeek","Brabant-Zuidoost",1,0,1
+2021-12-30,"Pekela","Groningen",2,1,1
+2021-12-30,"Pijnacker-Nootdorp","Haaglanden",3,2,1
+2021-12-31,"","",1,0,1
+2021-12-31,"'s-Gravenhage","Haaglanden",7,3,4
+2021-12-31,"Aalten","Noord- en Oost-Gelderland",1,0,1
+2021-12-31,"Amsterdam","Amsterdam-Amstelland",5,3,2
+2021-12-31,"Beuningen","Gelderland-Zuid",1,0,1
+2021-12-31,"Castricum","Noord-Holland-Noord",1,0,1
+2021-12-31,"Dordrecht","Zuid-Holland-Zuid",1,0,1
+2021-12-31,"Edam-Volendam","Zaanstreek-Waterland",1,0,1
+2021-12-31,"Enschede","Twente",1,0,1
+2021-12-31,"Gouda","Hollands-Midden",2,1,1
+2021-12-31,"Hengelo (O.)","Twente",1,0,1
+2021-12-31,"Hoogeveen","Drenthe",1,0,1
+2021-12-31,"Kerkrade","Limburg-Zuid",1,0,1
+2021-12-31,"Lelystad","Flevoland",1,0,1
+2021-12-31,"Middelburg","Zeeland",1,0,1
+2021-12-31,"Nijmegen","Gelderland-Zuid",1,0,1
+2021-12-31,"Noord-Beveland","Zeeland",1,0,1
+2021-12-31,"Oldambt","Groningen",1,0,1
+2021-12-31,"Oost Gelre","Noord- en Oost-Gelderland",1,0,1
+2021-12-31,"Purmerend","Zaanstreek-Waterland",3,1,2
+2021-12-31,"Raalte","IJsselland",1,0,1
+2021-12-31,"Reimerswaal","Zeeland",1,0,1
+2021-12-31,"Someren","Brabant-Zuidoost",1,0,1
+2021-12-31,"Tilburg","Midden- en West-Brabant",4,0,4
+2021-12-31,"Utrecht","Utrecht",3,2,1
+2021-12-31,"Veendam","Groningen",1,0,1
+2021-12-31,"Venray","Limburg-Noord",1,0,1
+2021-12-31,"Voorst","Noord- en Oost-Gelderland",1,0,1
+2021-12-31,"Westerkwartier","Groningen",1,0,1
+2021-12-31,"Wierden","Twente",2,0,2
+2021-12-31,"Wormerland","Zaanstreek-Waterland",1,0,1
+2021-12-31,"Zoetermeer","Haaglanden",3,1,2
+2021-12-31,"Zwolle","IJsselland",1,0,1
