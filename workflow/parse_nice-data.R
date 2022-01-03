@@ -38,7 +38,7 @@ zkh_current <- rjson::fromJSON(file = "https://www.stichting-nice.nl/covid-19/pu
   rbindlist(fill = TRUE)
 
 # Intake per day of patients in hospital (non-IC) with suspected and/or proven covid-19
-zkh_new <- rjson::fromJSON(file = "https://www.stichting-nice.nl/covid-19/public/new-intake/",simplify = TRUE) %>%
+zkh_new <- rjson::fromJSON(file = "https://www.stichting-nice.nl/covid-19/public/zkh/new-intake/",simplify = TRUE) %>%
   map(as.data.table) %>%
   rbindlist(fill=TRUE) %>%
   slice(1,2,4) %>%
