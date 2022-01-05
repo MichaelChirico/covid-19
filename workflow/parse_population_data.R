@@ -1,7 +1,6 @@
 ## Parse municipalities population data
 require(geojsonio)
 ## Set month
-
 set.month <- paste0("2021MM",month(Sys.Date())-2)
 
 dat.mun <- cbs_get_data("37230ned",add_column_labels = FALSE,Perioden = has_substring(c(set.month)))
@@ -81,7 +80,7 @@ write.csv(pop.safetyregion, file = "misc/safetyregions-population.csv")
 
 
 ## Age population data
-pop.age <- cbs_get_data("83482NED",add_column_labels = FALSE,Perioden = has_substring(c("2021MM11")), 
+pop.age <- cbs_get_data("83482NED",add_column_labels = FALSE,Perioden = has_substring(c("2021MM12")), 
                         Migratieachtergrond = has_substring(c("T001040")),
                         Generatie = has_substring(c("T001040")),
                         Geslacht = has_substring(c("T001038")))
