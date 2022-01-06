@@ -131,6 +131,8 @@ IC_Aanwezig_Int <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Internationaal)),"
 #### Build tweets ####
 tweet.main <- paste0("#COVID19NL
 
+Let op: Storing.
+
 Positief getest: ",format(last(all.data$new.infection),decimal.mark = ",",big.mark =".",big.interval = 3),"
 Totaal: ",format(last(all.data$cases),decimal.mark = ",",big.mark =".",big.interval = 3)," (+",format(last(all.data$net.infection),decimal.mark = ",",big.mark =".",big.interval = 3)," ivm ",last(all.data$corrections.cases)," corr.)
 
@@ -157,6 +159,18 @@ posted_tweet <- post_tweet (
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.main.id <- posted_tweet$id_str
 tweet.last_id <- tweet.main.id
+
+## Storings tweet
+
+tweet.storing <- "Storing!
+
+Door een technische storing in de datastroom zijn de meldingen niet volledig doorgekomen naar het RIVM. De cijfers omtrent de meldingen die vandaag worden weergegeven zijn daarom mogelijk een onderrapportage van het werkelijke aantal meldingen."
+
+posted_tweet <- post_tweet (
+  tweet.storing,
+  token = token.mzelst,
+  in_reply_to_status_id = tweet.main.id,
+  media = "plots/storing.png") 
 
 ##### Generate municipality images ####
 source("workflow/parse_nice-municipalities-data.R")
@@ -438,6 +452,9 @@ source("workflow/dashboards/heatmap-age-week.R")
 source("workflow/dashboards/age-distribution-date-NICE.R")
 source("workflow/dashboards/nice_bezetting_onder20.R")
 source("workflow/dashboards/ggd_tests_corrections.R")
+## Download data coronadashboard ##
+filename.dashboard <- paste0("data-rivm/dashboard-data/data-coronadashboard_",Sys.Date(),".zip")
+download.file("https://coronadashboard.rijksoverheid.nl/json/latest-data.zip",filename.dashboard)
 source("workflow/estimate_R.R")
 #source("workflow/excess_mortality_cbsmodel_2021.R")
 source("workflow/parse_deaths_comparison_tracker.R")
