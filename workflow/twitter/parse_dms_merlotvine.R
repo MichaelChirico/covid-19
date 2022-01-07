@@ -38,7 +38,6 @@ names_merlot <- c("Nootje82154939"
 ,"VvdF020"
 ,"Meggy_Mae"
 ,"LukasTeijema"
-,"wierdduk"
 ,"splitvision"
 ,"MaralungaC"
 ,"TvandeIJsberg"
@@ -79,7 +78,6 @@ names_merlot <- c("Nootje82154939"
 ,"tralalalatideli"
 ,"anatwitje"
 ,"jos_wiel"
-,"DaTLS"
 ,"Linda_idd"
 ,"neskimo78"
 ,"Sequens347"
@@ -97,11 +95,10 @@ names_merlot <- c("Nootje82154939"
 
 source("workflow/twitter/token_merlotvine.R")
 
-message <- "Dagje eerder ivm Oud & Nieuw:
-Vanavond vanaf 19.00 weer een update van wetenschappelijk nieuws over Covid19/sarscov2.
-Na 19.15 alle artikelen onder deze link: https://twitter.com/search?lang=nl&q=%C3%9E%20(from%3Amerlotvine)%20until%3A2021-12-31%20since%3A2021-12-30&src=typed_query  Þ https://twitter.com/MerlotVine/status/1476553667763269636"
+message <- "Vanavond vanaf 19.00 weer een update van wetenschappelijk- en ander nieuws over Covid-19/SARS-CoV-2.
+Na 19.20 alle artikelen onder deze link: https://twitter.com/search?lang=nl&q=%C3%9E%20(from%3Amerlotvine)%20until%3A2022-01-08%20since%3A2022-01-07&src=typed_query Þ https://twitter.com/MerlotVine/status/1479445213936439298"
 
-for(i in 1:96){
+for(i in 1:94){
 post_message(message, names_merlot[i], token = token)
 }
 

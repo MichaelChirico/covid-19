@@ -2,7 +2,7 @@ source("workflow/twitter/token_mzelst.R")
 #source("workflow/excess_mortality_cbsmodel_2021.R")
 #source("workflow/excess_mortality.R")
 
-thisweek <- isoweek(Sys.Date())-1
+thisweek <- isoweek(Sys.Date())+51
 startday.week <- substr(Sys.Date()-11,9,10)
 endday.week <- substr(Sys.Date()-5,9,10)
 rivm.startday <- substr(Sys.Date()-15,9,10)
@@ -67,7 +67,7 @@ tweet.last_id <- posted_tweet$id_str
 ## Build excess mortality (historical) tweet
 excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
 
-tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " december"," - ",endday.week," december):
+tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " december"," - ",endday.week," januari):
 
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
 2) Methode RIVM (",rivm.startday," december - ",rivm.endday," december): ",last(excess_mortality$excess_mortality_rivm),"
