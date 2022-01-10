@@ -160,7 +160,7 @@ filename.ligduur.clinical <- paste0("data-nice/treatment-time/Clinical_Beds/nice
 write.csv(ligduur.clinical, file = filename.ligduur.clinical, row.names = F)
 
 rm("df","filename.daily.nice","filename.nice.perday","hospital.cumulative","ic.cumulative","ic.death_survive",
-   "ic.died_survivors","ic_current","ic_intake","ics.used","json_zkh_df","nice.dailydata","zkh_current","zkh_new","temp","myfiles",
+   "ic_current","ic_intake","ics.used","nice.dailydata","zkh_current","zkh_new","temp","myfiles",
    "nice_by_day", "ic.died.left","leeftijd.ic","leeftijd.klinisch","ligduur.clinical","ligduur.ic","zkh.died.left",
    "filename.IC","filename.IC.exit","filename.klinisch","filename.klinisch.exit","filename.ligduur.ic",
    "filename.ligduur.clinical")
