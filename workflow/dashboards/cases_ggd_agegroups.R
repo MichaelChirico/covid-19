@@ -31,6 +31,8 @@ ggd_data <- ggd_data %>%
 
 write.csv(ggd_data, file = "data-dashboards/cases_ggd_agegroups.csv", row.names = F)
 
+remove(list = ls())
+
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 

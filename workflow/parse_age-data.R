@@ -32,6 +32,8 @@ dat_leeftijd[last(nrow(dat_leeftijd)),13:22] <- c("Percentage")
 
 write.csv(dat_leeftijd, file = "data-dashboards/age-week.csv", row.names = F)
 
+remove(list = ls())
+
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 

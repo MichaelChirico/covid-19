@@ -146,6 +146,8 @@ df.hospital.new.corr.mun <- df.hospital.new.mun %>%
 
 write.csv(df.hospital.new.corr.mun, file = "corrections/hospital_per_municipality.csv", row.names = F)
 
+remove(list = ls())
+
 # Git
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
