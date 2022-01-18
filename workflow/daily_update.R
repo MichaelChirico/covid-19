@@ -1,5 +1,5 @@
-#time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
-time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
+time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
+#time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
 
 ## Put in double date breaker for NICE update
 repeat {
@@ -131,6 +131,8 @@ IC_Aanwezig_Int <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Internationaal)),"
 #### Build tweets ####
 tweet.main <- paste0("#COVID19NL
 
+Let op: Storing.
+
 Positief getest: ",format(last(all.data$new.infection),decimal.mark = ",",big.mark =".",big.interval = 3),"
 Totaal: ",format(last(all.data$cases),decimal.mark = ",",big.mark =".",big.interval = 3)," (+",format(last(all.data$net.infection),decimal.mark = ",",big.mark =".",big.interval = 3)," ivm ",last(all.data$corrections.cases)," corr.)
 
@@ -160,15 +162,15 @@ tweet.last_id <- tweet.main.id
 
 ## Storings tweet
 
-#tweet.storing <- "Storing van gisteren is opgelost!
-#
-#De technische storing in de datastroom van gisteren is opgelost. Deze storing heeft als gevolg dat de cijfers van vandaag nameldingen bevatten, hierdoor valt het aantal meldingen van vandaag hoger uit."
-#
-#posted_tweet <- post_tweet (
-#  tweet.storing,
-#  token = token.mzelst,
-#  in_reply_to_status_id = tweet.main.id,
-#  media = "plots/storing.png") 
+tweet.storing <- "Storing!
+
+Door een technische storing in de datastroom zijn de meldingen en de teststraten-data niet volledig doorgekomen naar het RIVM. De cijfers omtrent de meldingen en het aantal afgenomen testen die vandaag worden weergegeven zijn daarom mogelijk een onderrapportage."
+
+posted_tweet <- post_tweet (
+  tweet.storing,
+  token = token.mzelst,
+  in_reply_to_status_id = tweet.main.id,
+  media = "plots/storing.png") 
 
 ##### Generate municipality images ####
 source("workflow/parse_nice-municipalities-data.R")
