@@ -56,15 +56,11 @@ nice_by_day <- read.csv("data/nice_by_day.csv")
 ```
 
 **Samenvatting (op basis van GGD cijfers)**  
-Tot en met `r Sys.Date()` zijn er in Nederland in totaal `r last(all.data$cases)` COVID-19 patiënten gemeld aan het RIVM. Tot nu toe zijn `r last(all.data$hospitalization)` van de gemelde patiënten opgenomen in het ziekenhuis en `r last(all.data$deaths)` mensen overleden.
+Tot en met `r Sys.Date()` zijn er in Nederland in totaal `r last(all.data$cases)` COVID-19 patiënten gemeld aan het RIVM. Tot nu toe zijn er `r last(all.data$deaths)` mensen overleden.
 
 **Gegevens t. o. v. gisteren**  
 Positief getest: `r last(all.data$new.infection)`
 Totaal: `r last(all.data$cases)` (+ `r last(all.data$net.infection)` ivm `r last(all.data$corrections.cases)` corr.)
-
-Opgenomen: `r last(all.data$new.hospitals)`
-Totaal: `r last(all.data$hospitalization)` `r ifelse(last(all.data$net.hospitals)>=0," (+"," (-")` 
-`r abs(last(all.data$net.hospitals))` ivm `r last(all.data$corrections.hospitals)` corr.)
 
 Overleden: `r last(all.data$new.deaths)`
 Totaal: `r last(all.data$deaths)` `r ifelse(last(all.data$net.deaths)>=0," (+"," (-")`
@@ -202,13 +198,13 @@ dat.weekago$Province <- recode(dat.weekago$Province,"Friesland" = "FryslÃ¢n")
 dat.today[dat.today == "Unknown"] <- "Onbekend"
 dat.weekago[dat.weekago == "Unknown"] <- "Onbekend"
 
-hosp.today <- dat.today %>%
-  filter(Hospital_admission == "Yes")
+#hosp.today <- dat.today %>%
+#  filter(Hospital_admission == "Yes")
 death.today <- dat.today %>%
   filter(Deceased == "Yes")
 
-hosp.weekago <- dat.weekago %>%
-  filter(Hospital_admission == "Yes")
+#hosp.weekago <- dat.weekago %>%
+#  filter(Hospital_admission == "Yes")
 death.weekago <- dat.weekago %>%
   filter(Deceased == "Yes")
 
@@ -216,20 +212,20 @@ death.weekago <- dat.weekago %>%
 province.cases.today <- as.data.frame(table(dat.today$Province)) ## Cumulative cases per GGD
 province.cases.weekago <- as.data.frame(table(dat.weekago$Province)) ## Cumulative cases per GGD - week ago
 
-province.hosp.today <- as.data.frame(table(hosp.today$Province)) ## Cumulative cases per province
-province.hosp.weekago <- as.data.frame(table(hosp.weekago$Province)) ## Cumulative cases per province - week ago
+#province.hosp.today <- as.data.frame(table(hosp.today$Province)) ## Cumulative cases per province
+#province.hosp.weekago <- as.data.frame(table(hosp.weekago$Province)) ## Cumulative cases per province - week ago
 
 province.death.today <- as.data.frame(table(death.today$Province)) ## Cumulative cases per province
 province.death.weekago <- as.data.frame(table(death.weekago$Province)) ## Cumulative cases per province - week ago
 
-province_datalist <- list(province.cases.today,province.cases.weekago,province.hosp.today,province.hosp.weekago,province.death.today,province.death.weekago)
+province_datalist <- list(province.cases.today,province.cases.weekago,province.death.today,province.death.weekago)
 
 province.data <- Reduce(
   function(x, y, ...) merge(x, y, by="Var1", ...),
   province_datalist
 )
 
-colnames(province.data) <- c("statnaam","cases_today","cases_lastweek","hosp_today","hosp_lastweek","death_today","death_lastweek")
+colnames(province.data) <- c("statnaam","cases_today","cases_lastweek","death_today","death_lastweek")
 
 province.data <- province.data[order(province.data$statnaam),]
 province.data$ID <- seq.int(nrow(province.data))
@@ -238,25 +234,25 @@ province.population <- read.csv("misc/provinces-population.csv")
 province.data <- merge(province.data,province.population[,c("ID","population")],by = "ID", all=TRUE)
 
 province.data$cases.toename <- province.data$cases_today - province.data$cases_lastweek
-province.data$hosp.toename <- province.data$hosp_today - province.data$hosp_lastweek
+#province.data$hosp.toename <- province.data$hosp_today - province.data$hosp_lastweek
 province.data$death.toename <- province.data$death_today - province.data$death_lastweek
 
 province.data$`Cases /100000` <- round(province.data$cases.toename/province.data$population*100000,1)
-province.data$`Ziekenhuisopname /100000` <- round(province.data$hosp.toename/province.data$population*100000,1)
+#province.data$`Ziekenhuisopname /100000` <- round(province.data$hosp.toename/province.data$population*100000,1)
 province.data$`Overleden /100000` <- round(province.data$death.toename/province.data$population*100000,1)
 
 ```
 
 ```{r Provincie Table, message=FALSE, echo=FALSE, error=FALSE, eval=TRUE,warning=FALSE, tidy=TRUE}
 require(kableExtra)
-province.data.table <- province.data[,c(2,10,13,11,14,12,15)]
-colnames(province.data.table) <- c("Provincie","Totaal","/100000","Totaal","/100000","Totaal","/100000")
+province.data.table <- province.data[,c(2,8,10,9,11)]
+colnames(province.data.table) <- c("Provincie","Totaal","/100000","Totaal","/100000")
 
-footnote.provincie <- paste0("Aantal bij de GGD’en gemelde COVID-19 patiënten, in het ziekenhuis opgenomen COVID-19 patiënten en overleden COVID-19 patiënten per provincie van ",format((Sys.Date()-14),"%d")," ",format((Sys.Date()-14),"%B"), " t/m ",format((Sys.Date()),"%d")," ",format((Sys.Date()),"%B")," 10:00 uur, totaal en per 100.000 inwoners")
+footnote.provincie <- paste0("Aantal bij de GGD’en gemelde COVID-19 patiënten en overleden COVID-19 patiënten per provincie van ",format((Sys.Date()-14),"%d")," ",format((Sys.Date()-14),"%B"), " t/m ",format((Sys.Date()),"%d")," ",format((Sys.Date()),"%B")," 10:00 uur, totaal en per 100.000 inwoners")
 
 kable(province.data.table, "latex", booktabs = T, linesep="") %>%
 kable_styling() %>%
-add_header_above(c(" " = 1, "Besmettingen" = 2, "Ziekenhuisopnames" = 2, "Overleden" = 2)) %>%
+add_header_above(c(" " = 1, "Besmettingen" = 2, "Overleden" = 2)) %>%
   footnote(general = footnote.provincie, threeparttable = T)
 ``` 
 
@@ -270,14 +266,14 @@ setwd('../')
 ggd.cases.today <- as.data.frame(table(dat.today$Municipal_health_service)) ## Cumulative cases per GGD
 ggd.cases.weekago <- as.data.frame(table(dat.weekago$Municipal_health_service)) ## Cumulative cases per GGD - week ago
 
-ggd.hosp.today <- as.data.frame(table(hosp.today$Municipal_health_service)) ## Cumulative cases per GGD
-ggd.hosp.weekago <- as.data.frame(table(hosp.weekago$Municipal_health_service)) ## Cumulative cases per GGD - week ago
+#ggd.hosp.today <- as.data.frame(table(hosp.today$Municipal_health_service)) ## Cumulative cases per GGD
+#ggd.hosp.weekago <- as.data.frame(table(hosp.weekago$Municipal_health_service)) ## Cumulative cases per GGD - week ago
 
 ggd.death.today <- as.data.frame(table(death.today$Municipal_health_service)) ## Cumulative cases per GGD
 ggd.death.weekago <- as.data.frame(table(death.weekago$Municipal_health_service)) ## Cumulative cases per GGD - week ago
 
 
-ggd_datalist <- list(ggd.cases.today,ggd.cases.weekago,ggd.hosp.today,ggd.hosp.weekago,ggd.death.today,ggd.death.weekago)
+ggd_datalist <- list(ggd.cases.today,ggd.cases.weekago,ggd.death.today,ggd.death.weekago)
 
 
 ggd.data <- Reduce(
@@ -285,7 +281,7 @@ ggd.data <- Reduce(
   ggd_datalist
 )
 
-colnames(ggd.data) <- c("statnaam","cases_today","cases_lastweek","hosp_today","hosp_lastweek","death_today","death_lastweek")
+colnames(ggd.data) <- c("statnaam","cases_today","cases_lastweek","death_today","death_lastweek")
 
 ggd.data <- ggd.data[order(ggd.data$statnaam),]
 ggd.data$ID <- seq.int(nrow(ggd.data))
@@ -294,25 +290,25 @@ ggd.population <- read.csv("misc/ggds-population.csv")
 ggd.data <- merge(ggd.data,ggd.population[,c("ID","population")],by = "ID", all=TRUE)
 
 ggd.data$cases.toename <- ggd.data$cases_today - ggd.data$cases_lastweek
-ggd.data$hosp.toename <- ggd.data$hosp_today - ggd.data$hosp_lastweek
+#ggd.data$hosp.toename <- ggd.data$hosp_today - ggd.data$hosp_lastweek
 ggd.data$death.toename <- ggd.data$death_today - ggd.data$death_lastweek
 
 ggd.data$`Cases /100000` <- round(ggd.data$cases.toename/ggd.data$population*100000,1)
-ggd.data$`Ziekenhuisopname /100000` <- round(ggd.data$hosp.toename/ggd.data$population*100000,1)
+#ggd.data$`Ziekenhuisopname /100000` <- round(ggd.data$hosp.toename/ggd.data$population*100000,1)
 ggd.data$`Overleden /100000` <- round(ggd.data$death.toename/ggd.data$population*100000,1)
 
 ```
 
 ```{r GGD Table, message=FALSE, echo=FALSE, error=FALSE, eval=TRUE,warning=FALSE, tidy=TRUE}
 require(kableExtra)
-ggd.data.table <- ggd.data[,c(2,10,13,11,14,12,15)]
-colnames(ggd.data.table) <- c("GGD","Totaal","/100000","Totaal","/100000","Totaal","/100000")
+ggd.data.table <- ggd.data[,c(2,8,10,9,11)]
+colnames(ggd.data.table) <- c("GGD","Totaal","/100000","Totaal","/100000")
 
-footnote.ggd <- paste0("Aantal bij de GGD’en gemelde COVID-19 patiënten, in het ziekenhuis opgenomen COVID-19 patiënten en overleden COVID-19 patiënten per GGD van ",format((Sys.Date()-14),"%d")," ",format((Sys.Date()-14),"%B"), " t/m ",format((Sys.Date()),"%d")," ",format((Sys.Date()),"%B")," 10:00 uur, totaal en per 100.000 inwoners")
+footnote.ggd <- paste0("Aantal bij de GGD’en gemelde COVID-19 patiënten en overleden COVID-19 patiënten per GGD van ",format((Sys.Date()-14),"%d")," ",format((Sys.Date()-14),"%B"), " t/m ",format((Sys.Date()),"%d")," ",format((Sys.Date()),"%B")," 10:00 uur, totaal en per 100.000 inwoners")
 
 kable(ggd.data.table, "latex", booktabs = T, linesep="") %>%
 kable_styling(font_size = 10) %>%
-add_header_above(c(" " = 1, "Besmettingen" = 2, "Ziekenhuisopnames" = 2, "Overleden" = 2)) %>%
+add_header_above(c(" " = 1, "Besmettingen" = 2, "Overleden" = 2)) %>%
   footnote(general = footnote.ggd, threeparttable = T)
 ``` 
 
@@ -377,20 +373,20 @@ agegroup.cases.weekago <- as.data.frame(table(dat.weekago$Agegroup)) ## Cumulati
 agegroup.cases.today <- as.data.frame(table(dat.today$Agegroup)) ## Cumulative cases per age group
 agegroup.cases.weekago <- as.data.frame(table(dat.weekago$Agegroup)) ## Cumulative cases per age group - week ago
 
-agegroup.hosp.today <- as.data.frame(table(hosp.today$Agegroup)) ## Cumulative cases per age group
-agegroup.hosp.weekago <- as.data.frame(table(hosp.weekago$Agegroup)) ## Cumulative cases per age group - week ago
+#agegroup.hosp.today <- as.data.frame(table(hosp.today$Agegroup)) ## Cumulative cases per age group
+#agegroup.hosp.weekago <- as.data.frame(table(hosp.weekago$Agegroup)) ## Cumulative cases per age group - week ago
 
 agegroup.death.today <- as.data.frame(table(death.today$Agegroup)) ## Cumulative cases per age group
 agegroup.death.weekago <- as.data.frame(table(death.weekago$Agegroup)) ## Cumulative cases age group - week ago
 
-agegroup_datalist <- list(agegroup.cases.today,agegroup.cases.weekago,agegroup.hosp.today,agegroup.hosp.weekago,agegroup.death.today,agegroup.death.weekago)
+agegroup_datalist <- list(agegroup.cases.today,agegroup.cases.weekago,agegroup.death.today,agegroup.death.weekago)
 
 agegroup.data <- Reduce(
   function(x, y, ...) merge(x, y, by="Var1", all.x=T, ...),
   agegroup_datalist
 )
 
-colnames(agegroup.data) <- c("statnaam","cases_today","cases_lastweek","hosp_today","hosp_lastweek","death_today","death_lastweek")
+colnames(agegroup.data) <- c("statnaam","cases_today","cases_lastweek","death_today","death_lastweek")
 
 agegroup.data <- agegroup.data %>%
   #dplyr::filter(statnaam != "<50") %>%
@@ -401,11 +397,11 @@ agegroup.data <- agegroup.data[order(agegroup.data$statnaam),]
 agegroup.data$ID <- seq.int(nrow(agegroup.data))
 
 agegroup.data$cases.toename <- agegroup.data$cases_today - agegroup.data$cases_lastweek
-agegroup.data$hosp.toename <- agegroup.data$hosp_today - agegroup.data$hosp_lastweek
+#agegroup.data$hosp.toename <- agegroup.data$hosp_today - agegroup.data$hosp_lastweek
 agegroup.data$death.toename <- agegroup.data$death_today - agegroup.data$death_lastweek
 
 agegroup.data$cases.percentage <- round(agegroup.data$cases.toename/sum(agegroup.data$cases.toename, na.rm = T)*100,1)
-agegroup.data$hosp.percentage <- round(agegroup.data$hosp.toename/sum(agegroup.data$hosp.toename, na.rm = T)*100,1)
+#agegroup.data$hosp.percentage <- round(agegroup.data$hosp.toename/sum(agegroup.data$hosp.toename, na.rm = T)*100,1)
 agegroup.data$death.percentage <- round(agegroup.data$death.toename/sum(agegroup.data$death.toename, na.rm = T)*100,1)
 
 ```
@@ -413,16 +409,16 @@ agegroup.data$death.percentage <- round(agegroup.data$death.toename/sum(agegroup
 ```{r Leeftijd Table, message=FALSE, echo=FALSE, error=FALSE, eval=TRUE,warning=FALSE, tidy=TRUE}
 require(kableExtra)
 
-agegroup.data.table <- agegroup.data[,c(1,9,12,10,13,11,14)]
-colnames(agegroup.data.table) <- c("Leeftijdsgroep","Totaal","%","Totaal","%","Totaal","%")
+agegroup.data.table <- agegroup.data[,c(1,7,9,8,10)]
+colnames(agegroup.data.table) <- c("Leeftijdsgroep","Totaal","%","Totaal","%")
 
-footnote.leeftijd <- paste0("Leeftijdsverdeling van bij de GGD’en gemelde COVID-19 patiënten, in het ziekenhuis opgenomen COVID-19 patiënten en overleden COVID-19 patiënten van ",format((Sys.Date()-14),"%d")," ",format((Sys.Date()-14),"%B"), " t/m ",format((Sys.Date()),"%d")," ",format((Sys.Date()),"%B")," 10:00 uur.")
+footnote.leeftijd <- paste0("Leeftijdsverdeling van bij de GGD’en gemelde COVID-19 patiënten en overleden COVID-19 patiënten van ",format((Sys.Date()-14),"%d")," ",format((Sys.Date()-14),"%B"), " t/m ",format((Sys.Date()),"%d")," ",format((Sys.Date()),"%B")," 10:00 uur.")
 
 footnote.under50 <- "Overlijdensgevallen van patiënten jonger dan 50 jaar oud worden door het RIVM in de casusdata gegroepeerd in de categorie <50. Deze overlijdensgevallen zijn hier dus niet zichtbaar in deze leeftijdsgroepen maar alleen via de groep '<50'."
 
 kable(agegroup.data.table, "latex", booktabs = T, linesep="") %>%
 kable_styling(font_size = 11) %>%
-add_header_above(c(" " = 1, "Besmettingen" = 2, "Ziekenhuisopnames" = 2, "Overleden" = 2)) %>%
+add_header_above(c(" " = 1, "Besmettingen" = 2, "Overleden" = 2)) %>%
   footnote(number = c(footnote.leeftijd, footnote.under50),threeparttable = T)
 ``` 
 
@@ -437,20 +433,20 @@ sex.cases.weekago <- as.data.frame(table(dat.weekago$Sex)) ## Cumulative cases p
 sex.cases.today <- as.data.frame(table(dat.today$Sex)) ## Cumulative cases per age group
 sex.cases.weekago <- as.data.frame(table(dat.weekago$Sex)) ## Cumulative cases per age group - week ago
 
-sex.hosp.today <- as.data.frame(table(hosp.today$Sex)) ## Cumulative cases per age group
-sex.hosp.weekago <- as.data.frame(table(hosp.weekago$Sex)) ## Cumulative cases per age group - week ago
+#sex.hosp.today <- as.data.frame(table(hosp.today$Sex)) ## Cumulative cases per age group
+#sex.hosp.weekago <- as.data.frame(table(hosp.weekago$Sex)) ## Cumulative cases per age group - week ago
 
 sex.death.today <- as.data.frame(table(death.today$Sex)) ## Cumulative cases per age group
 sex.death.weekago <- as.data.frame(table(death.weekago$Sex)) ## Cumulative cases age group - week ago
 
-sex_datalist <- list(sex.cases.today,sex.cases.weekago,sex.hosp.today,sex.hosp.weekago,sex.death.today,sex.death.weekago)
+sex_datalist <- list(sex.cases.today,sex.cases.weekago,sex.death.today,sex.death.weekago)
 
 sex.data <- Reduce(
   function(x, y, ...) merge(x, y, by="Var1", all.x=T, ...),
   sex_datalist
 )
 
-colnames(sex.data) <- c("statnaam","cases_today","cases_lastweek","hosp_today","hosp_lastweek","death_today","death_lastweek")
+colnames(sex.data) <- c("statnaam","cases_today","cases_lastweek","death_today","death_lastweek")
 
 #sex.data <- sex.data %>%
 #  replace_na(list(cases_today = 0, cases_lastweek = 0, hosp_today = 0, hosp_lastweek = 0,death_today = 0, #death_lastweek = 0))
@@ -459,11 +455,11 @@ sex.data <- sex.data[order(sex.data$statnaam),]
 sex.data$ID <- seq.int(nrow(sex.data))
 
 sex.data$cases.toename <- sex.data$cases_today - sex.data$cases_lastweek
-sex.data$hosp.toename <- sex.data$hosp_today - sex.data$hosp_lastweek
+#sex.data$hosp.toename <- sex.data$hosp_today - sex.data$hosp_lastweek
 sex.data$death.toename <- sex.data$death_today - sex.data$death_lastweek
 
 sex.data$cases.percentage <- round(sex.data$cases.toename/sum(sex.data$cases.toename, na.rm = T)*100,1)
-sex.data$hosp.percentage <- round(sex.data$hosp.toename/sum(sex.data$hosp.toename, na.rm = T)*100,1)
+#sex.data$hosp.percentage <- round(sex.data$hosp.toename/sum(sex.data$hosp.toename, na.rm = T)*100,1)
 sex.data$death.percentage <- round(sex.data$death.toename/sum(sex.data$death.toename, na.rm = T)*100,1)
 
 ```
@@ -471,18 +467,18 @@ sex.data$death.percentage <- round(sex.data$death.toename/sum(sex.data$death.toe
 ```{r Geslacht Table, message=FALSE, echo=FALSE, error=FALSE, eval=TRUE,warning=FALSE, tidy=TRUE}
 require(kableExtra)
 
-sex.data.table <- sex.data[,c(1,9,12,10,13,11,14)]
-colnames(sex.data.table) <- c("Geslacht","Totaal","%","Totaal","%","Totaal","%")
+sex.data.table <- sex.data[,c(1,7,9,8,10)]
+colnames(sex.data.table) <- c("Geslacht","Totaal","%","Totaal","%")
 
 sex.data.table$Geslacht <- as.character(sex.data.table$Geslacht)
 sex.data.table[1,1] <- c("Vrouw")
 sex.data.table[2,1] <- c("Man")
 
-footnote.geslacht <- paste0("Man-vrouwverdeling van bij de GGD’en gemelde COVID-19 patiënten, in het ziekenhuis opgenomen COVID-19 patiënten en overleden COVID-19 patiënten van ",format((Sys.Date()-14),"%d")," ",format((Sys.Date()-14),"%B"), " t/m ",format((Sys.Date()),"%d")," ",format((Sys.Date()),"%B")," 10:00 uur.")
+footnote.geslacht <- paste0("Man-vrouwverdeling van bij de GGD’en gemelde COVID-19 patiënten en overleden COVID-19 patiënten van ",format((Sys.Date()-14),"%d")," ",format((Sys.Date()-14),"%B"), " t/m ",format((Sys.Date()),"%d")," ",format((Sys.Date()),"%B")," 10:00 uur.")
 
 kable(sex.data.table, "latex", booktabs = T, linesep="") %>%
 kable_styling(font_size = 11) %>%
-add_header_above(c(" " = 1, "Besmettingen" = 2, "Ziekenhuisopnames" = 2, "Overleden" = 2)) %>%
+add_header_above(c(" " = 1, "Besmettingen" = 2, "Overleden" = 2)) %>%
   footnote(general = footnote.geslacht, threeparttable = T)
 ``` 
 \newpage
