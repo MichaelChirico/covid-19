@@ -26,18 +26,18 @@ df.cases[paste0("diff",seq_along(dates.lead)+1,seq_along(dates.trail))] <- df.ca
 write.csv(df.cases, file = "corrections/cases_perday.csv", row.names = F)
 
 ## Hospital
-df.hospital <- df %>%
-  dplyr::filter(Hospital_admission == "Yes")
+#df.hospital <- df %>%
+#  dplyr::filter(Hospital_admission == "Yes")
 
-df.hospitals <- dcast.data.table(df.hospital, Date_statistics + date ~ value, fun.aggregate = sum)
+#df.hospitals <- dcast.data.table(df.hospital, Date_statistics + date ~ value, fun.aggregate = sum)
 
-hospitals.wide <- spread(df.hospitals, key = date, value = `1`)
-setDF(hospitals.wide)
+#hospitals.wide <- spread(df.hospitals, key = date, value = `1`)
+#setDF(hospitals.wide)
 
 # Calculate moving difference between cases per day
-hospitals.wide[paste0("diff",seq_along(dates.lead)+1,seq_along(dates.trail))] <- hospitals.wide[dates.lead] - hospitals.wide[dates.trail]
+#hospitals.wide[paste0("diff",seq_along(dates.lead)+1,seq_along(dates.trail))] <- hospitals.wide[dates.lead] - hospitals.wide[dates.trail]
 
-write.csv(hospitals.wide, file = "corrections/hospital_perday.csv", row.names = F)
+#write.csv(hospitals.wide, file = "corrections/hospital_perday.csv", row.names = F)
 
 
 ## Deaths
