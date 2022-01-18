@@ -1,5 +1,8 @@
 # Data municipalities per day
 rivm.mun.perday <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_per_dag.csv", sep=";")
+hospital.daily <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv")
+hospital.daily$Date_of_publication <- hospital.daily$Date_of_statistics
+rivm.mun.perday <- merge(rivm.mun.perday, hospital.daily[,c("Hospital_admission","Date_of_publication","Municipality_code","Security_region_code")], by = c("Date_of_publication","Municipality_code","Security_region_code"),all.x=T)
 
 # Verify that new data has been uploaded
 #condition <- Sys.Date()!=as.Date(last(rivm.mun.perday$Date_of_report))
