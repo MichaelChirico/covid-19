@@ -121,6 +121,10 @@ if (const.use_daily_dataset) {
   rm(temp)
 }
 
+mun.excluded <- c("GM0370","GM0398","GM0416","GM1685","GM0856","GM0756","GM1684","GM0786","GM0815","GM1702")
+
+dat <- filter(dat, !Municipality_code %in% mun.excluded)
+
 dat$date <- as.Date(dat$Date_of_report) ## character into Date class
 last_date <- as.Date(last(dat$Date_of_report))
 if(!exists("const.date")){ 

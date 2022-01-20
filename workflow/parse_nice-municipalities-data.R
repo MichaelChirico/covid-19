@@ -1,4 +1,4 @@
-const.regenerate <- FALSE; # Overwrite all historic values with the latest file
+const.regenerate <- TRUE; # Overwrite all historic values with the latest file
 const.download <- TRUE; # Download the latest csv
 const.filename <- "data/nice_by_municipality.csv" ## Filename for daily data municipalities
 
