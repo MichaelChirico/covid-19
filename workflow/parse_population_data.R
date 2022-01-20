@@ -12,14 +12,14 @@ dat.mun <- dat.mun %>%
   dplyr::filter(grepl("GM", statcode))
 
 gemeentegrenzen <- geojson_read("misc/maps/Gemeentegrenzen2021RD.geojson", what = "sp")
-gemeentes <- gemeentegrenzen@data[,c(2,4)]
+gemeentes <- gemeentegrenzen@data[,c("statcode","statnaam")]
 
 gemeente.stats <- merge(gemeentes, dat.mun, by = "statcode")
 colnames(gemeente.stats) <- c("Municipality_code","Municipality_name","population")
 write.csv(gemeente.stats, file = "misc/municipalities-population.csv")
 
 ## Parse GGD population data
-nl_dt <- fread("data-rivm/municipal-datasets-per-day/rivm_municipality_perday_2021-12-01.csv.gz")
+nl_dt <- fread("data-rivm/municipal-datasets-per-day/rivm_municipality_perday_2022-01-20.csv.gz")
 nl_dt <- aggregate(Deceased ~ Municipal_health_service + Municipality_code, data = nl_dt, sum)
 
 dat.mun <- cbs_get_data("37230ned",add_column_labels = FALSE,Perioden = has_substring(c(set.month)))
@@ -31,7 +31,7 @@ dat.mun <- dat.mun %>%
   dplyr::filter(grepl("GM", statcode))
 
 gemeentegrenzen <- geojson_read("misc/maps/Gemeentegrenzen2021RD.geojson", what = "sp")
-gemeentes <- gemeentegrenzen@data[,c(2,4)]
+gemeentes <- gemeentegrenzen@data[,c("statcode","statnaam")]
 
 gemeente.stats <- merge(gemeentes, dat.mun, by = "statcode")
 colnames(gemeente.stats) <- c("Municipality_code","Municipality_name","population")

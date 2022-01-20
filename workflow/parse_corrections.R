@@ -1,8 +1,6 @@
 temp = tail(list.files(path = "data-rivm/municipal-datasets-per-day/",pattern="*.csv", full.names = T),2)
-myfiles = lapply(temp, fread)
-
-dat.today <- setDT(as.data.frame(myfiles[2]))
-dat.yesterday <- setDT(as.data.frame(myfiles[1]))
+dat.today <- fread(temp[2])
+dat.yesterday <- fread(temp[1])
 
 # Positive tests
 cases.today <- dat.today[, .(cases.today=sum(Total_reported)), by=Date_of_publication]
@@ -47,12 +45,12 @@ filename <- paste0("corrections/corrections_per_day/corrections-",Sys.Date(),'.c
 write.csv(corrections.all, file = filename, row.names=F)
 
 temp = list.files(path = "corrections/corrections_per_day/",pattern="*.csv", full.names = T)
-myfiles = lapply(temp, read.csv)
-corrections.perday <- dplyr::bind_rows(myfiles)
-corrections.perday$positive_7daverage <- round(frollmean(corrections.perday[,"new.infection"],7),0) # Calculate 7-day average (based on newly reported infections, gross number)
-corrections.perday$positive_14d <- lag(corrections.perday$positive_7daverage,7)
-corrections.perday$growth_infections <- round(corrections.perday$positive_7daverage/corrections.perday$positive_14d*100,1)
+corrections.perday = rbindlist(lapply(temp, fread))
 
-write.csv(corrections.perday, file = "corrections/corrections_perday.csv", row.names = FALSE)
+corrections.perday[,positive_7daverage := round(frollmean(new.infection,7),0)
+                   ][,positive_14d := lag(positive_7daverage,7)
+                     ][,growth_infections := round(positive_7daverage/positive_14d*100,1)]
+
+fwrite(corrections.perday, file = "corrections/corrections_perday.csv", row.names = FALSE)
 
 rm(list=ls())
