@@ -1,10 +1,5 @@
 # Data municipalities per day
 rivm.mun.perday <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_per_dag.csv", sep=";")
-rivm.mun.perday <- aggregate(cbind(Total_reported, Deceased) ~ Date_of_publication + Municipality_code + Version + Date_of_report + 
-                         Municipality_name + Province + Security_region_code + Security_region_name + Municipal_health_service, data = rivm.mun.perday, FUN = sum)
-hospital.daily <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv")
-hospital.daily$Date_of_publication <- hospital.daily$Date_of_statistics
-rivm.mun.perday <- merge(rivm.mun.perday, hospital.daily[,c("Hospital_admission","Date_of_publication","Municipality_code","Security_region_code")], by = c("Date_of_publication","Municipality_code","Security_region_code"),all.x=T)
 
 # Verify that new data has been uploaded
 #condition <- Sys.Date()!=as.Date(last(rivm.mun.perday$Date_of_report))
@@ -20,25 +15,21 @@ fwrite(rivm.mun.perday, file=filename.mun.perday,row.names = F)
 filename.mun.perday.compressed <- paste0("data-rivm/municipal-datasets-per-day/rivm_municipality_perday_", last_date, ".csv.gz") ## Filename for daily data municipalities
 fwrite(rivm.mun.perday, file=filename.mun.perday.compressed,row.names = F)
 
-sum(rivm.mun.perday$Total_reported)
-
-
-
 rivm.mun.cum <- rivm.mun.perday %>%
   group_by(
     Municipality_code, 
     Security_region_code, 
-    #ROAZ_region, 
+    ROAZ_region, 
     Province
   ) %>%
   mutate(
     Total_reported_cum = cumsum(Total_reported),
     .after = Total_reported
   ) %>%
-  #mutate(
-  #  Hospital_admission_cum = cumsum(Hospital_admission),
-  #  .after = Hospital_admission
-  #) %>%
+  mutate(
+    Hospital_admission_cum = cumsum(Hospital_admission),
+    .after = Hospital_admission
+  ) %>%
   mutate(
     Deceased_cum = cumsum(Deceased),
     .after = Deceased
@@ -46,7 +37,7 @@ rivm.mun.cum <- rivm.mun.perday %>%
 fwrite(rivm.mun.cum, file = "data-rivm/COVID-19_aantallen_gemeente_per_dag.csv.gz", row.names = F)
 
 ## Parse RIVM Daily data
-rivm.dailydata <- data.frame(as.Date(Sys.Date()),sum(rivm.mun.cum$Total_reported),"NA",sum(rivm.mun.cum$Deceased)) ## Calculate totals for cases, hospitalizations, deaths
+rivm.dailydata <- data.frame(as.Date(Sys.Date()),sum(rivm.mun.cum$Total_reported),sum(rivm.mun.cum$Hospital_admission),sum(rivm.mun.cum$Deceased)) ## Calculate totals for cases, hospitalizations, deaths
 names(rivm.dailydata) <- c("date","cases","hospitalization","deaths")
 
 filename.daily <- paste0("data-rivm/data-per-day/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data

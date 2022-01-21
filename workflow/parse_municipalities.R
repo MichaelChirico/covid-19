@@ -17,7 +17,7 @@ rm(rivm.municipalities, last_date, filename.municipality,filename.municipality.c
 
 
 # const.date <- as.Date('2020-09-10') ## Change when you want to see a specific date
-const.use_daily_dataset <- TRUE # Use COVID-19_aantallen_gemeente_per_dag.csv instead of COVID-19_aantallen_gemeente_cumulatief.csv
+const.use_daily_dataset <- FALSE # Use COVID-19_aantallen_gemeente_per_dag.csv instead of COVID-19_aantallen_gemeente_cumulatief.csv
 const.use_hospital_dataset <- TRUE # Use the dedicated COVID-19_ziekenhuisopnames.csv instead of the combined set
 
 # set emoji's for unix and windows
@@ -45,32 +45,32 @@ if (.Platform$OS.type == "windows") {
 
 emoji.up_double = paste(emoji.up, emoji.up, sep="")
 emoji.down_double = paste(emoji.down, emoji.down, sep="")
-  
+
 
 # methods
 convert_to_trafficlight <- function(rel_increase) {
   trafficlight <- 
     ifelse( rel_increase >= 250, emoji.black,
-    ifelse( rel_increase >= 100, emoji.purple,
-    ifelse( rel_increase >= 35, emoji.red,
-    ifelse( rel_increase > 5,   emoji.orange,
-    ifelse( rel_increase > 0,   emoji.yellow,
-                                emoji.green
-    )))))
+            ifelse( rel_increase >= 100, emoji.purple,
+                    ifelse( rel_increase >= 35, emoji.red,
+                            ifelse( rel_increase > 5,   emoji.orange,
+                                    ifelse( rel_increase > 0,   emoji.yellow,
+                                            emoji.green
+                                    )))))
   return(trafficlight)
 }
 
 convert_to_hosp_trafficlight <- function(rel_increase_1w, rel_increase_2w) {
   trafficlight <- 
     ifelse( rel_increase_1w >= 27/10, emoji.black,
-    ifelse( rel_increase_2w >= 27/10*2, emoji.black,
-    ifelse( rel_increase_1w >= 16/10, emoji.purple,
-    ifelse( rel_increase_2w >= 16/10*2, emoji.purple,
-    ifelse( rel_increase_1w >= 4/10, emoji.red,
-    ifelse( rel_increase_2w >= 4/10*2, emoji.red,
-    ifelse( rel_increase_2w > 0,   emoji.orange,
-                                emoji.green
-  )))))))
+            ifelse( rel_increase_2w >= 27/10*2, emoji.black,
+                    ifelse( rel_increase_1w >= 16/10, emoji.purple,
+                            ifelse( rel_increase_2w >= 16/10*2, emoji.purple,
+                                    ifelse( rel_increase_1w >= 4/10, emoji.red,
+                                            ifelse( rel_increase_2w >= 4/10*2, emoji.red,
+                                                    ifelse( rel_increase_2w > 0,   emoji.orange,
+                                                            emoji.green
+                                                    )))))))
   return(trafficlight)
 }
 
@@ -87,11 +87,11 @@ calc_growth_increase <- function(increase_7d, increase_14d){
 increase_growth_to_arrows <- function(increase_growth, allow_double = TRUE) {
   arrows <- 
     ifelse( allow_double & increase_growth > 100, emoji.up_double,
-    ifelse( increase_growth >= 5, emoji.up,
-    ifelse( allow_double & increase_growth <= -50, emoji.down_double,
-    ifelse( increase_growth <= -5, emoji.down,
-                                     "-"
-  ))))
+            ifelse( increase_growth >= 5, emoji.up,
+                    ifelse( allow_double & increase_growth <= -50, emoji.down_double,
+                            ifelse( increase_growth <= -5, emoji.down,
+                                    "-"
+                            ))))
   return(arrows)
 }
 
@@ -120,10 +120,6 @@ if (const.use_daily_dataset) {
   dat <- read.csv(last(temp), fileEncoding = "UTF-8") ## Take last filename from the folder, load csv
   rm(temp)
 }
-
-mun.excluded <- c("GM0370","GM0398","GM0416","GM1685","GM0856","GM0756","GM1684","GM0786","GM0815","GM1702")
-
-dat <- filter(dat, !Municipality_code %in% mun.excluded)
 
 dat$date <- as.Date(dat$Date_of_report) ## character into Date class
 last_date <- as.Date(last(dat$Date_of_report))
@@ -179,12 +175,12 @@ rm(dat.eemsdelta.codes, dat.eemsdelta)
 dat <- dat %>%
   filter(Municipality_code != "") %>% # Filter observations without municipal name
   select(
-      Municipality_name, 
-      Municipality_code,
-      date, 
-      Total_reported,
-      Hospital_admission,
-      Deceased
+    Municipality_name, 
+    Municipality_code,
+    date, 
+    Total_reported,
+    Hospital_admission,
+    Deceased
   ) %>% 
   rbind(dat.total) %>%
   rbind(dat.unknown)
@@ -317,34 +313,34 @@ rm(dat.zeropoint)
 
 # Parse today lists
 dat.cases.today <-transmute(dat.cases,
-  municipality = Municipality_name,
-  Municipality_code = Municipality_code, 
-  date = const.date,
-  d0  = dat.cases[,ncol(dat.cases)-date_diff], # today
-  d1  = dat.cases[,ncol(dat.cases)-date_diff-1], # yesterday
-  d7  = dat.cases[,ncol(dat.cases)-date_diff-7], # last week
-  d8  = dat.cases[,ncol(dat.cases)-date_diff-8], # yesterday's last week
-  d14 = dat.cases[,ncol(dat.cases)-date_diff-14], # 2 weeks back
-  jan1 = dat.cases$`2021-01-01`, # Jan 1st, 2021
-  lowest_since_jan1 = dat.cases.lowest$`Total_reported`,
-  lowest_since_jan1_date = dat.cases.lowest$`date`,
-  current = d0-lowest_since_jan1,
-  increase_1d = d0-d1, # Calculate increase since last day
-  increase_7d = d0-d7, # Calculate increase in 7 days
-  increase_14d = d0-d14, # Calculate increase in 14 days
-  increase_growth = calc_growth_increase(increase_7d, increase_14d), # Compare growth of last 7 days vs 7 days before,
-  growth = increase_growth_to_arrows(increase_growth),
-  population,
-  rel_increase_1d = increase_1d / population * 100000,
-  rel_increase_7d = increase_7d / population * 100000,
-  rel_increase_14d = increase_14d / population * 100000,
-  color = convert_to_trafficlight(rel_increase_7d),
-  color_incl_new = ifelse(
-      ((d1 - d8) <= 0 & (d0 - d1) > 0)
-    | ((d0 - d7) <= 0 & (d0 - d1) > 0),  
-    emoji.new, color),
-  color_yesterday = convert_to_trafficlight( (d1 - d8)/ population * 100000),
-  color_lastweek = convert_to_trafficlight( (d7 - d14)/ population * 100000)
+                            municipality = Municipality_name,
+                            Municipality_code = Municipality_code, 
+                            date = const.date,
+                            d0  = dat.cases[,ncol(dat.cases)-date_diff], # today
+                            d1  = dat.cases[,ncol(dat.cases)-date_diff-1], # yesterday
+                            d7  = dat.cases[,ncol(dat.cases)-date_diff-7], # last week
+                            d8  = dat.cases[,ncol(dat.cases)-date_diff-8], # yesterday's last week
+                            d14 = dat.cases[,ncol(dat.cases)-date_diff-14], # 2 weeks back
+                            jan1 = dat.cases$`2021-01-01`, # Jan 1st, 2021
+                            lowest_since_jan1 = dat.cases.lowest$`Total_reported`,
+                            lowest_since_jan1_date = dat.cases.lowest$`date`,
+                            current = d0-lowest_since_jan1,
+                            increase_1d = d0-d1, # Calculate increase since last day
+                            increase_7d = d0-d7, # Calculate increase in 7 days
+                            increase_14d = d0-d14, # Calculate increase in 14 days
+                            increase_growth = calc_growth_increase(increase_7d, increase_14d), # Compare growth of last 7 days vs 7 days before,
+                            growth = increase_growth_to_arrows(increase_growth),
+                            population,
+                            rel_increase_1d = increase_1d / population * 100000,
+                            rel_increase_7d = increase_7d / population * 100000,
+                            rel_increase_14d = increase_14d / population * 100000,
+                            color = convert_to_trafficlight(rel_increase_7d),
+                            color_incl_new = ifelse(
+                              ((d1 - d8) <= 0 & (d0 - d1) > 0)
+                              | ((d0 - d7) <= 0 & (d0 - d1) > 0),  
+                              emoji.new, color),
+                            color_yesterday = convert_to_trafficlight( (d1 - d8)/ population * 100000),
+                            color_lastweek = convert_to_trafficlight( (d7 - d14)/ population * 100000)
 )
 
 dat.cases.today.simple <- dat.cases.today %>%
@@ -360,33 +356,33 @@ dat.cases.today.simple <- dat.cases.today %>%
   )
 
 dat.hosp.today <- transmute(dat.hosp,
-  municipality = Municipality_name,
-  Municipality_code = Municipality_code, 
-  date = const.date_hosp,
-  d0  = dat.hosp[,ncol(dat.hosp)-date_diff], # today
-  d1  = dat.hosp[,ncol(dat.hosp)-date_diff-1], # yesterday
-  d7  = dat.hosp[,ncol(dat.hosp)-date_diff-7], # last week
-  d8  = dat.hosp[,ncol(dat.hosp)-date_diff-8], # yesterday's last week
-  d14 = dat.hosp[,ncol(dat.hosp)-date_diff-14], # 2 weeks back
-  jan = dat.hosp$`2021-01-01`, # Jan 1st, 2021
-  lowest_since_jan1 = dat.hosp.lowest$`Hospital_admission`,
-  lowest_since_jan1_date = dat.hosp.lowest$`date`,
-  current = d0-lowest_since_jan1,
-  increase_1d = d0-d1, # Calculate increase since last day
-  increase_7d = d0-d7, # Calculate increase in 7 days
-  increase_14d = d0-d14, # Calculate increase in 14 days
-  increase_growth = calc_growth_increase(increase_7d, increase_14d), # Compare growth of last 7 days vs 7 days before,
-  growth = increase_growth_to_arrows(increase_growth, FALSE),
-  population,
-  rel_increase_1d = increase_1d / population * 100000,
-  rel_increase_7d = increase_7d / population * 100000,
-  rel_increase_14d = increase_14d / population * 100000,
-  color = convert_to_hosp_trafficlight(rel_increase_7d, rel_increase_14d),
-  color_incl_new = ifelse(
-    ((d1 - d8) <= 0 & (d0 - d1) > 0)
-    | ((d0 - d7) <= 0 & (d0 - d1) > 0)
-    | ((d1 - d14) <= 0 & (d0 - d1) > 0),  
-    emoji.new, color)
+                            municipality = Municipality_name,
+                            Municipality_code = Municipality_code, 
+                            date = const.date_hosp,
+                            d0  = dat.hosp[,ncol(dat.hosp)-date_diff], # today
+                            d1  = dat.hosp[,ncol(dat.hosp)-date_diff-1], # yesterday
+                            d7  = dat.hosp[,ncol(dat.hosp)-date_diff-7], # last week
+                            d8  = dat.hosp[,ncol(dat.hosp)-date_diff-8], # yesterday's last week
+                            d14 = dat.hosp[,ncol(dat.hosp)-date_diff-14], # 2 weeks back
+                            jan = dat.hosp$`2021-01-01`, # Jan 1st, 2021
+                            lowest_since_jan1 = dat.hosp.lowest$`Hospital_admission`,
+                            lowest_since_jan1_date = dat.hosp.lowest$`date`,
+                            current = d0-lowest_since_jan1,
+                            increase_1d = d0-d1, # Calculate increase since last day
+                            increase_7d = d0-d7, # Calculate increase in 7 days
+                            increase_14d = d0-d14, # Calculate increase in 14 days
+                            increase_growth = calc_growth_increase(increase_7d, increase_14d), # Compare growth of last 7 days vs 7 days before,
+                            growth = increase_growth_to_arrows(increase_growth, FALSE),
+                            population,
+                            rel_increase_1d = increase_1d / population * 100000,
+                            rel_increase_7d = increase_7d / population * 100000,
+                            rel_increase_14d = increase_14d / population * 100000,
+                            color = convert_to_hosp_trafficlight(rel_increase_7d, rel_increase_14d),
+                            color_incl_new = ifelse(
+                              ((d1 - d8) <= 0 & (d0 - d1) > 0)
+                              | ((d0 - d7) <= 0 & (d0 - d1) > 0)
+                              | ((d1 - d14) <= 0 & (d0 - d1) > 0),  
+                              emoji.new, color)
 )
 
 dat.hosp.today.simple <- dat.hosp.today %>%
@@ -402,27 +398,27 @@ dat.hosp.today.simple <- dat.hosp.today %>%
   )
 
 dat.deaths.today <- transmute(dat.deaths,
-  municipality = Municipality_name,
-  Municipality_code = Municipality_code, 
-  date = const.date,
-  d0 = dat.deaths[,ncol(dat.deaths)-date_diff], # today
-  d1 = dat.deaths[,ncol(dat.deaths)-date_diff-1], # yesterday
-  d7 = dat.deaths[,ncol(dat.deaths)-date_diff-7], # last week
-  d8 = dat.deaths[,ncol(dat.deaths)-date_diff-8], # yesterday's last week
-  d14 = dat.deaths[,ncol(dat.deaths)-date_diff-14], # 2 weeks back
-  jan1 = dat.deaths$`2021-01-01`, # Jan 1st, 2021
-  lowest_since_jan1 = dat.deaths.lowest$`Deceased`,
-  lowest_since_jan1_date = dat.deaths.lowest$`date`,
-  current = d0,
-  increase_1d = d0-d1, # Calculate increase since last day
-  increase_7d = d0-d7, # Calculate increase in 7 days
-  increase_14d = d0-d14, # Calculate increase in 14 days
-  increase_growth = calc_growth_increase(increase_7d, increase_14d), # Compare growth of last 7 days vs 7 days before,
-  growth = increase_growth_to_arrows(increase_growth, FALSE),
-  population,
-  rel_increase_1d = increase_1d / population * 100000,
-  rel_increase_7d = increase_7d / population * 100000,
-  rel_increase_14d = increase_14d / population * 100000
+                              municipality = Municipality_name,
+                              Municipality_code = Municipality_code, 
+                              date = const.date,
+                              d0 = dat.deaths[,ncol(dat.deaths)-date_diff], # today
+                              d1 = dat.deaths[,ncol(dat.deaths)-date_diff-1], # yesterday
+                              d7 = dat.deaths[,ncol(dat.deaths)-date_diff-7], # last week
+                              d8 = dat.deaths[,ncol(dat.deaths)-date_diff-8], # yesterday's last week
+                              d14 = dat.deaths[,ncol(dat.deaths)-date_diff-14], # 2 weeks back
+                              jan1 = dat.deaths$`2021-01-01`, # Jan 1st, 2021
+                              lowest_since_jan1 = dat.deaths.lowest$`Deceased`,
+                              lowest_since_jan1_date = dat.deaths.lowest$`date`,
+                              current = d0,
+                              increase_1d = d0-d1, # Calculate increase since last day
+                              increase_7d = d0-d7, # Calculate increase in 7 days
+                              increase_14d = d0-d14, # Calculate increase in 14 days
+                              increase_growth = calc_growth_increase(increase_7d, increase_14d), # Compare growth of last 7 days vs 7 days before,
+                              growth = increase_growth_to_arrows(increase_growth, FALSE),
+                              population,
+                              rel_increase_1d = increase_1d / population * 100000,
+                              rel_increase_7d = increase_7d / population * 100000,
+                              rel_increase_14d = increase_14d / population * 100000
 )
 
 dat.deaths.today.simple <- dat.deaths.today %>%
@@ -472,41 +468,41 @@ dat.cases.totals.color[is.na(dat.cases.totals.color)] <- 0
 rm(colors, dat.cases.totals.color_yesterday, dat.cases.totals.color_lastweek)
 
 dat.cases.totals.color <- mutate(dat.cases.totals.color,
-  increase_1d = d0-d1, # Calculate increase since last day
-  increase_7d = d0-d7, # Calculate increase in 7 days
+                                 increase_1d = d0-d1, # Calculate increase since last day
+                                 increase_7d = d0-d7, # Calculate increase in 7 days
 )
 
 dat.cases_per_death <-transmute(dat.cases,
-  municipality = Municipality_name,
-  Municipality_code = Municipality_code, 
-  date = const.date,
-  population = population,
-  cases_d0  = dat.cases[,ncol(dat.cases)-date_diff],
-  cases_d7 = dat.cases[,ncol(dat.cases)-date_diff-7],
-  cases_d14 = dat.cases[,ncol(dat.cases)-date_diff-14], 
-  rel_cases_7d = (cases_d0 - cases_d7) / population * 100000,
-  rel_cases_14d = (cases_d0 - cases_d14) / population * 100000,
-  rel_cases_total = cases_d0 / population * 100000,
-  color = convert_to_trafficlight(rel_cases_7d),
-  hosp_d0  = dat.hosp[,ncol(dat.hosp)-date_diff], 
-  hosp_d7  = dat.hosp[,ncol(dat.hosp)-date_diff-7], 
-  hosp_d14  = dat.hosp[,ncol(dat.hosp)-date_diff-14], 
-  rel_hosp_7d = (hosp_d0 - hosp_d7) / population * 100000,
-  rel_hosp_14d = (hosp_d0 - hosp_d14) / population * 100000,
-  rel_hosp_total = hosp_d0 / population * 100000,
-  color = convert_to_hosp_trafficlight(rel_hosp_7d, rel_hosp_14d),
-  deaths_d0  = dat.deaths[,ncol(dat.deaths)-date_diff],
-  deaths_d7  = dat.deaths[,ncol(dat.deaths)-date_diff-7],
-  deaths_d14  = dat.deaths[,ncol(dat.deaths)-date_diff-14],
-  rel_deaths_7d = (deaths_d0 - deaths_d7) / population * 100000,
-  rel_deaths_14d = (deaths_d0 - deaths_d14) / population * 100000,
-  rel_deaths_total = deaths_d0 / population * 100000,
-  perc_cases = cases_d0 / population * 100,
-  perc_hosp = hosp_d0 / population * 100,
-  perc_deaths = deaths_d0 / population * 100, 
-  perc_deaths_per_case = deaths_d0 / cases_d0 * 100
+                                municipality = Municipality_name,
+                                Municipality_code = Municipality_code, 
+                                date = const.date,
+                                population = population,
+                                cases_d0  = dat.cases[,ncol(dat.cases)-date_diff],
+                                cases_d7 = dat.cases[,ncol(dat.cases)-date_diff-7],
+                                cases_d14 = dat.cases[,ncol(dat.cases)-date_diff-14], 
+                                rel_cases_7d = (cases_d0 - cases_d7) / population * 100000,
+                                rel_cases_14d = (cases_d0 - cases_d14) / population * 100000,
+                                rel_cases_total = cases_d0 / population * 100000,
+                                color = convert_to_trafficlight(rel_cases_7d),
+                                hosp_d0  = dat.hosp[,ncol(dat.hosp)-date_diff], 
+                                hosp_d7  = dat.hosp[,ncol(dat.hosp)-date_diff-7], 
+                                hosp_d14  = dat.hosp[,ncol(dat.hosp)-date_diff-14], 
+                                rel_hosp_7d = (hosp_d0 - hosp_d7) / population * 100000,
+                                rel_hosp_14d = (hosp_d0 - hosp_d14) / population * 100000,
+                                rel_hosp_total = hosp_d0 / population * 100000,
+                                color = convert_to_hosp_trafficlight(rel_hosp_7d, rel_hosp_14d),
+                                deaths_d0  = dat.deaths[,ncol(dat.deaths)-date_diff],
+                                deaths_d7  = dat.deaths[,ncol(dat.deaths)-date_diff-7],
+                                deaths_d14  = dat.deaths[,ncol(dat.deaths)-date_diff-14],
+                                rel_deaths_7d = (deaths_d0 - deaths_d7) / population * 100000,
+                                rel_deaths_14d = (deaths_d0 - deaths_d14) / population * 100000,
+                                rel_deaths_total = deaths_d0 / population * 100000,
+                                perc_cases = cases_d0 / population * 100,
+                                perc_hosp = hosp_d0 / population * 100,
+                                perc_deaths = deaths_d0 / population * 100, 
+                                perc_deaths_per_case = deaths_d0 / cases_d0 * 100
 ) %>% mutate(across(where(is.numeric), round, 1))
-  
+
 
 # Write to csv
 write.csv(dat.cases_per_death,    file = "data/municipality-combined.csv",row.names = F, fileEncoding = "UTF-8")
