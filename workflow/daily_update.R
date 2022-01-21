@@ -164,13 +164,13 @@ tweet.last_id <- tweet.main.id
 
 tweet.storing <- "Storing!
 
-Het lukt momenteel niet om het hoog aantal meldingen wat binnenkomt vanuit de teststraten te verwerken in het systeem. De cijfers betreffen daarom in totaal over de afgelopen 3 dagen een onderrapportage van circa 27.000 meldingen. Er wordt hard gewerkt aan oplossingen."
+Het lukt momenteel niet om het hoog aantal meldingen wat binnenkomt vanuit de teststraten te verwerken in het systeem van de meldingsplichtige ziekten van de GGD en het doormelden aan het RIVM. De cijfers betreffen daarom in totaal over de afgelopen 4 dagen een onderrapportage van circa 30.000 meldingen."
 
 posted_tweet <- post_tweet (
   tweet.storing,
   token = token.mzelst,
   in_reply_to_status_id = tweet.main.id,
-  media = "plots/storing.png") 
+#  media = "plots/storing.png") 
 
 ##### Generate municipality images ####
 source("workflow/parse_nice-municipalities-data.R")
