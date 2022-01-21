@@ -15,20 +15,31 @@ fwrite(rivm.mun.perday, file=filename.mun.perday,row.names = F)
 filename.mun.perday.compressed <- paste0("data-rivm/municipal-datasets-per-day/rivm_municipality_perday_", last_date, ".csv.gz") ## Filename for daily data municipalities
 fwrite(rivm.mun.perday, file=filename.mun.perday.compressed,row.names = F)
 
+rivm.mun.perday$ROAZ_region <- NULL
+
 rivm.mun.cum <- rivm.mun.perday %>%
+  group_by(
+    Version,
+    Municipality_name,
+    Municipality_code, 
+    Security_region_code,
+    Security_region_name,
+    Municipal_health_service,
+    Province,
+    Date_of_publication,
+    Date_of_report) %>%
+  summarise(Total_reported = sum(Total_reported),
+            Deceased = sum(Deceased))
+
+rivm.mun.cum <- rivm.mun.cum %>%  
   group_by(
     Municipality_code, 
     Security_region_code, 
-    ROAZ_region, 
     Province
   ) %>%
   mutate(
     Total_reported_cum = cumsum(Total_reported),
     .after = Total_reported
-  ) %>%
-  mutate(
-    Hospital_admission_cum = cumsum(Hospital_admission),
-    .after = Hospital_admission
   ) %>%
   mutate(
     Deceased_cum = cumsum(Deceased),

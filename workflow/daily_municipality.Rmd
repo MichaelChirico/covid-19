@@ -18,7 +18,7 @@ require(xtable)
 require(shiny)
 require(metathis)
 
-const.toplist_minimum <- 100 
+const.toplist_minimum <- 250 
 const.hosp_toplist_minimum <- 2
 
 setwd('../')
@@ -192,7 +192,7 @@ dat.total[dat.total$municipality=="Netherlands", "municipality"] <- "Nederland"
 print_detailed(dat.total)
 rm(dat.total)
 
-# 142 / 352 gemeentes met nieuwe besmettingen (w: 299 )
+# 142 / 345 gemeentes met nieuwe besmettingen (w: 299 )
 # 127 Gemeente Onbekend (+2)
 
 int.count.municipality.today <- dat.cases %>%
@@ -209,7 +209,7 @@ unknown <- first(dat.unknown)
 
 cat(sprintf("
 
-%s / 352 gemeentes met nieuwe besmettingen (w: %s )   
+%s / 345 gemeentes met nieuwe besmettingen (w: %s )   
 %s Gemeente Onbekend %s (w:%s)",
   format_custom_number(int.count.municipality.today),
   format_custom_number(int.count.municipality.week),
@@ -229,7 +229,7 @@ dat.totals.color.printable <- transmute(dat.totals.color,
   color = color,
   text = sprintf(template, 
     d0, 
-    352, 
+    345, 
     ifelse(increase_1d == 0, str.none, sprintf(" %+d ", increase_1d)), 
     ifelse(increase_7d == 0, str.none, sprintf(" %+d ", increase_7d))
   )
@@ -246,7 +246,7 @@ rm(template, dat.totals.color.printable)
 template <- "%d / %d gemeentes"
 dat.totals.growth.printable <- transmute(dat.totals.growth,
   growth = ifelse( growth == "-", str.none, growth),
-  text = sprintf(template, d0, 352)
+  text = sprintf(template, d0, 345)
 )
 
 print_table(dat.totals.growth.printable, "lll")
@@ -393,7 +393,7 @@ unknown <- first(dat.unknown)
 
 cat(sprintf("
 
-%s / 352 gemeentes met nieuwe meldingen (w: %s )   
+%s / 345 gemeentes met nieuwe meldingen (w: %s )   
 %s Gemeente Onbekend %s (2w:%s)",
   format_custom_number(int.count.municipality.today),
   format_custom_number(int.count.municipality.week),
@@ -504,7 +504,7 @@ unknown <- first(dat.unknown)
 
 cat(sprintf("
 
-%s / 352 gemeentes met nieuwe meldingen (w: %s )   
+%s / 345 gemeentes met nieuwe meldingen (w: %s )   
 %s Gemeente Onbekend %s (2w:%s)",
   format_custom_number(int.count.municipality.today),
   format_custom_number(int.count.municipality.week),

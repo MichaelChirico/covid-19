@@ -128,6 +128,132 @@ if(!exists("const.date")){
 }
 const.date_hosp <- const.date
 
+## Filter Eemsdelta
+
+dat[dat$Municipality_code=="GM0164", "Municipality_name"] <- "Hengelo"
+dat.eemsdelta.codes <- c("GM0010", "GM0003", "GM0024", "GM1979")
+dat.eemsdelta <- dat %>%
+  filter(Municipality_code %in% dat.eemsdelta.codes) %>%
+  group_by(date) %>%
+  mutate(
+    Municipality_name = "Eemsdelta", 
+    Municipality_code = "GM1979",
+    Total_reported = sum(Total_reported),
+    Hospital_admission = sum(Hospital_admission),
+    Deceased = sum(Deceased),
+  )
+
+dat <- dat %>%
+  filter(!Municipality_code %in% dat.eemsdelta.codes) %>%
+  filter(Municipality_code != "GM0788") %>%
+  rbind(dat.eemsdelta)
+
+rm(dat.eemsdelta.codes, dat.eemsdelta)
+
+
+## Purmerend
+
+dat.purmerend.codes <- c("GM0370", "GM0439")
+dat.purmerend <- dat %>%
+  filter(Municipality_code %in% dat.purmerend.codes) %>%
+  group_by(date) %>%
+  mutate(
+    Municipality_name = "Purmerend", 
+    Municipality_code = "GM0439",
+    Total_reported = sum(Total_reported),
+    Hospital_admission = sum(Hospital_admission),
+    Deceased = sum(Deceased),
+  )
+
+dat <- dat %>%
+  filter(!Municipality_code %in% dat.purmerend.codes) %>%
+  filter(Municipality_code != "0370") %>%
+  rbind(dat.purmerend)
+rm(dat.purmerend.codes, dat.purmerend)
+
+# Filter Dijk en Waard
+
+dat.dijkenwaard.codes <- c("GM0398", "GM0416")
+dat.dijkenwaard <- dat %>%
+  filter(Municipality_code %in% dat.dijkenwaard.codes) %>%
+  group_by(date) %>%
+  mutate(
+    Municipality_name = "Dijk en Waard", 
+    Municipality_code = "GM1980",
+    Total_reported = sum(Total_reported),
+    Hospital_admission = sum(Hospital_admission),
+    Deceased = sum(Deceased),
+  )
+
+dat <- dat %>%
+  filter(!Municipality_code %in% dat.dijkenwaard.codes) %>%
+  filter(Municipality_code != "GM0398" | Municipality_code != "GM0416" ) %>%
+  rbind(dat.dijkenwaard)
+rm(dat.dijkenwaard.codes, dat.dijkenwaard)
+
+
+# Filter Maashorst
+
+dat.maashorst.codes <- c("GM1685", "GM0856")
+dat.maashorst <- dat %>%
+  filter(Municipality_code %in% dat.maashorst.codes) %>%
+  group_by(date) %>%
+  mutate(
+    Municipality_name = "Maashorst", 
+    Municipality_code = "GM1991",
+    Total_reported = sum(Total_reported),
+    Hospital_admission = sum(Hospital_admission),
+    Deceased = sum(Deceased),
+  )
+
+dat <- dat %>%
+  filter(!Municipality_code %in% dat.maashorst.codes) %>%
+  filter(Municipality_code != "GM1685") %>%
+  filter(Municipality_code != "GM0856") %>%
+  rbind(dat.maashorst)
+rm(dat.maashorst.codes, dat.maashorst)
+
+
+# Filter Land van Cuijk
+
+dat.landvancuijk.codes <- c("GM1685", "GM0856")
+dat.landvancuijk <- dat %>%
+  filter(Municipality_code %in% dat.landvancuijk.codes) %>%
+  group_by(date) %>%
+  mutate(
+    Municipality_name = "Land van Cuijk", 
+    Municipality_code = "GM1982",
+    Total_reported = sum(Total_reported),
+    Hospital_admission = sum(Hospital_admission),
+    Deceased = sum(Deceased),
+  )
+
+dat <- dat %>%
+  filter(!Municipality_code %in% dat.landvancuijk.codes) %>%
+  filter(Municipality_code != "GM0756") %>%
+  filter(Municipality_code != "GM1684") %>%
+  filter(Municipality_code != "GM0786") %>%
+  filter(Municipality_code != "GM0815") %>%
+  filter(Municipality_code != "GM1702") %>%
+  rbind(dat.landvancuijk)
+rm(dat.landvancuijk.codes, dat.landvancuijk)
+
+dat$Hospital_admission <- NULL
+
+## Add hospital admissions from NICE
+nice.hosp <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv")
+
+nice.hosp.cumsum <- nice.hosp %>%
+  group_by(
+    Municipality_code, 
+    Security_region_code) %>%
+  mutate(Hospital_admission = cumsum(Hospital_admission)) %>%
+  ungroup() %>%
+  select(Municipality_code,Municipality_name,Hospital_admission,Date_of_statistics) %>%
+  rename(date = Date_of_statistics)
+
+dat <- merge(dat,nice.hosp.cumsum,by=c("date","Municipality_code","Municipality_name"),all.x=T)
+
 dat.unknown <- dat %>%
   filter(Municipality_code == "")  %>%
   group_by(date) %>%
@@ -151,26 +277,6 @@ dat.total <- dat %>%
     .groups = 'drop_last'
   )
 
-# FIXME: Fix historic data
-dat[dat$Municipality_code=="GM0164", "Municipality_name"] <- "Hengelo"
-dat.eemsdelta.codes <- c("GM0010", "GM0003", "GM0024", "GM1979")
-dat.eemsdelta <- dat %>%
-  filter(Municipality_code %in% dat.eemsdelta.codes) %>%
-  group_by(date) %>%
-  mutate(
-    Municipality_name = "Eemsdelta", 
-    Municipality_code = "GM1979",
-    Total_reported = sum(Total_reported),
-    Hospital_admission = sum(Hospital_admission),
-    Deceased = sum(Deceased),
-  )
-
-dat <- dat %>%
-  filter(!Municipality_code %in% dat.eemsdelta.codes) %>%
-  filter(Municipality_code != "GM0788") %>%
-  rbind(dat.eemsdelta)
-
-rm(dat.eemsdelta.codes, dat.eemsdelta)
 
 dat <- dat %>%
   filter(Municipality_code != "") %>% # Filter observations without municipal name
