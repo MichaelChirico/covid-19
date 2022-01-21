@@ -1,480 +1,457 @@
 "Date_statistics","Municipal_health_service","cases.today","cases.yesterday","diff"
-2020-12-03,"GGD Regio Utrecht",553,552,1
-2020-12-17,"GGD Regio Utrecht",906,905,1
-2020-12-24,"GGD Regio Utrecht",645,646,-1
-2020-12-25,"GGD Regio Utrecht",549,548,1
-2020-12-28,"GGD Regio Utrecht",663,664,-1
-2021-01-13,"GGD West-Brabant",160,159,1
-2021-01-14,"GGD Flevoland",125,124,1
-2021-01-16,"GGD Hart voor Brabant",300,299,1
-2021-01-17,"GGD Drenthe",124,126,-2
-2021-01-17,"GGD Hart voor Brabant",316,315,1
-2021-01-18,"GGD Kennemerland",139,138,1
-2021-01-18,"GGD Zaanstreek/Waterland",154,153,1
-2021-02-17,"GGD Brabant-Zuidoost",303,304,-1
-2021-07-09,"GGD Regio Utrecht",968,967,1
-2021-07-10,"GGD Regio Utrecht",934,935,-1
-2021-08-29,"GGD Haaglanden",194,195,-1
-2021-09-05,"GGD Haaglanden",204,203,1
-2021-09-29,"GGD Regio Utrecht",166,167,-1
-2021-10-06,"GGD Regio Utrecht",209,208,1
-2021-10-08,"GGD Regio Utrecht",245,246,-1
-2021-10-16,"GGD Zeeland",96,95,1
-2021-10-18,"Dienst Gezondheid & Jeugd ZHZ",215,214,1
-2021-10-18,"GGD Regio Utrecht",465,464,1
-2021-10-19,"GGD Regio Utrecht",474,473,1
-2021-10-20,"Dienst Gezondheid & Jeugd ZHZ",258,257,1
-2021-10-20,"GGD Regio Utrecht",507,506,1
-2021-10-21,"Dienst Gezondheid & Jeugd ZHZ",223,222,1
-2021-10-21,"GGD Regio Utrecht",473,475,-2
-2021-10-22,"Dienst Gezondheid & Jeugd ZHZ",292,290,2
-2021-10-22,"GGD Regio Utrecht",425,427,-2
-2021-10-23,"Dienst Gezondheid & Jeugd ZHZ",272,269,3
-2021-10-23,"GGD Regio Utrecht",501,500,1
-2021-10-24,"Dienst Gezondheid & Jeugd ZHZ",269,276,-7
-2021-10-24,"GGD Regio Utrecht",506,503,3
-2021-10-25,"Dienst Gezondheid & Jeugd ZHZ",305,306,-1
-2021-10-25,"GGD Regio Utrecht",590,591,-1
-2021-10-26,"GGD Regio Utrecht",599,598,1
-2021-10-27,"GGD Regio Utrecht",628,629,-1
-2021-10-29,"GGD Regio Utrecht",681,682,-1
-2021-10-31,"GGD Regio Utrecht",653,652,1
-2021-11-01,"GGD Regio Utrecht",836,834,2
-2021-11-02,"GGD Regio Utrecht",782,781,1
-2021-11-04,"Dienst Gezondheid & Jeugd ZHZ",480,479,1
-2021-11-04,"GGD Regio Utrecht",867,868,-1
-2021-11-05,"GGD Limburg-Noord",546,541,5
-2021-11-06,"GGD Regio Utrecht",865,867,-2
-2021-11-07,"Dienst Gezondheid & Jeugd ZHZ",507,508,-1
-2021-11-07,"GGD Regio Utrecht",831,829,2
-2021-11-09,"GGD Regio Utrecht",497,499,-2
-2021-11-10,"GGD IJsselland",565,567,-2
-2021-11-11,"GGD IJsselland",501,502,-1
-2021-11-11,"GGD Regio Utrecht",1461,1460,1
-2021-11-12,"GGD Regio Utrecht",1568,1567,1
-2021-11-14,"GGD Gooi en Vechtstreek",310,311,-1
-2021-11-14,"GGD Regio Utrecht",1300,1301,-1
-2021-11-15,"GGD Haaglanden",1143,1142,1
-2021-11-15,"GGD IJsselland",718,719,-1
-2021-11-15,"GGD Regio Utrecht",1560,1561,-1
-2021-11-16,"GGD Hollands-Midden",958,959,-1
-2021-11-16,"GGD IJsselland",690,691,-1
-2021-11-16,"GGD Zeeland",544,543,1
-2021-11-17,"GGD Gelderland-Zuid",755,754,1
-2021-11-17,"GGD IJsselland",747,748,-1
-2021-11-18,"GGD Hollands-Noorden",871,870,1
-2021-11-18,"GGD IJsselland",606,607,-1
-2021-11-19,"GGD Regio Utrecht",1742,1741,1
-2021-11-19,"GGD Twente",860,859,1
-2021-11-20,"GGD IJsselland",601,600,1
-2021-11-21,"GGD Regio Utrecht",1619,1620,-1
-2021-11-21,"GGD Twente",780,779,1
-2021-11-22,"GGD IJsselland",717,718,-1
-2021-11-22,"GGD Twente",861,862,-1
-2021-11-23,"GGD IJsselland",595,597,-2
-2021-11-24,"GGD IJsselland",560,561,-1
-2021-11-25,"GGD IJsselland",549,550,-1
-2021-11-27,"GGD Hollands-Midden",909,910,-1
-2021-11-27,"GGD IJsselland",545,546,-1
-2021-11-29,"GGD Brabant-Zuidoost",952,951,1
-2021-11-30,"GGD IJsselland",556,557,-1
-2021-11-30,"GGD Regio Utrecht",1778,1777,1
-2021-11-30,"GGD Rotterdam-Rijnmond",1595,1593,2
-2021-12-01,"GGD Brabant-Zuidoost",967,968,-1
-2021-12-01,"GGD Hollands-Midden",881,880,1
-2021-12-01,"GGD Rotterdam-Rijnmond",1488,1487,1
-2021-12-02,"GGD Regio Utrecht",1897,1896,1
-2021-12-03,"GGD IJsselland",519,520,-1
-2021-12-03,"GGD Rotterdam-Rijnmond",1455,1453,2
-2021-12-06,"GGD Brabant-Zuidoost",832,831,1
-2021-12-06,"GGD Haaglanden",1015,1014,1
-2021-12-06,"GGD IJsselland",484,482,2
-2021-12-06,"GGD Regio Utrecht",1306,1305,1
-2021-12-07,"GGD Fryslân",716,717,-1
-2021-12-09,"GGD Haaglanden",1133,1132,1
-2021-12-09,"GGD IJsselland",410,409,1
-2021-12-09,"GGD Limburg-Noord",498,497,1
-2021-12-10,"GGD Limburg-Noord",421,420,1
-2021-12-11,"GGD IJsselland",397,398,-1
-2021-12-11,"GGD Limburg-Noord",394,392,2
-2021-12-12,"GGD IJsselland",443,444,-1
-2021-12-12,"GGD Limburg-Noord",432,431,1
-2021-12-13,"GGD IJsselland",480,483,-3
-2021-12-13,"GGD Limburg-Noord",480,478,2
-2021-12-14,"GGD Limburg-Noord",442,443,-1
-2021-12-15,"GGD IJsselland",446,447,-1
-2021-12-15,"GGD Limburg-Noord",378,381,-3
-2021-12-15,"GGD Regio Utrecht",955,954,1
-2021-12-17,"GGD Limburg-Noord",364,367,-3
-2021-12-18,"GGD IJsselland",322,321,1
-2021-12-18,"GGD Regio Utrecht",1512,1511,1
-2021-12-19,"GGD Haaglanden",761,758,3
-2021-12-19,"GGD Zuid-Limburg",398,399,-1
-2021-12-20,"GGD Amsterdam",997,995,2
-2021-12-20,"GGD Fryslân",487,486,1
-2021-12-20,"GGD Haaglanden",860,859,1
-2021-12-20,"GGD Regio Utrecht",985,983,2
-2021-12-21,"GGD Haaglanden",890,887,3
-2021-12-21,"GGD IJsselland",328,330,-2
-2021-12-21,"GGD Regio Utrecht",1055,1054,1
-2021-12-22,"GGD Fryslân",420,419,1
-2021-12-22,"GGD Haaglanden",806,803,3
-2021-12-22,"GGD Regio Utrecht",981,984,-3
-2021-12-23,"GGD Fryslân",418,420,-2
-2021-12-23,"GGD Noord- en Oost-Gelderland",514,513,1
-2021-12-23,"GGD Regio Utrecht",1023,1024,-1
-2021-12-23,"GGD Rotterdam-Rijnmond",1092,1091,1
-2021-12-24,"GGD Rotterdam-Rijnmond",1370,1369,1
-2021-12-24,"GGD West-Brabant",488,487,1
-2021-12-25,"GGD Brabant-Zuidoost",500,499,1
-2021-12-25,"GGD Rotterdam-Rijnmond",760,761,-1
-2021-12-26,"GGD Flevoland",366,365,1
-2021-12-26,"GGD IJsselland",318,317,1
-2021-12-26,"GGD Regio Utrecht",880,881,-1
-2021-12-26,"GGD Rotterdam-Rijnmond",724,723,1
-2021-12-26,"GGD Twente",427,428,-1
-2021-12-27,"GGD Amsterdam",1375,1374,1
-2021-12-27,"GGD Noord- en Oost-Gelderland",590,588,2
-2021-12-27,"GGD Rotterdam-Rijnmond",1273,1272,1
-2021-12-27,"GGD Twente",544,543,1
-2021-12-27,"Veiligheids- en Gezondheidsregio Gelderland-Midden",411,410,1
-2021-12-28,"GGD Hollands-Noorden",561,560,1
-2021-12-28,"GGD Regio Utrecht",816,815,1
-2021-12-29,"GGD Fryslân",558,557,1
-2021-12-29,"GGD Haaglanden",779,776,3
-2021-12-29,"GGD Hart voor Brabant",701,700,1
-2021-12-29,"GGD Regio Utrecht",913,912,1
-2021-12-29,"GGD Rotterdam-Rijnmond",1172,1173,-1
-2021-12-29,"GGD West-Brabant",641,640,1
-2021-12-30,"GGD Fryslân",468,469,-1
-2021-12-30,"GGD Haaglanden",975,970,5
-2021-12-30,"GGD Zaanstreek/Waterland",369,368,1
-2021-12-31,"GGD Amsterdam",1765,1764,1
-2021-12-31,"GGD Gelderland-Zuid",503,501,2
-2021-12-31,"GGD Haaglanden",1279,1278,1
-2021-12-31,"GGD IJsselland",377,376,1
-2021-12-31,"GGD Kennemerland",639,638,1
-2021-12-31,"GGD Regio Utrecht",1714,1711,3
-2021-12-31,"GGD Zaanstreek/Waterland",372,370,2
-2022-01-01,"GGD Amsterdam",1603,1605,-2
-2022-01-01,"GGD Haaglanden",1096,1095,1
-2022-01-01,"GGD Limburg-Noord",358,357,1
-2022-01-01,"GGD Regio Utrecht",1090,1092,-2
-2022-01-01,"GGD Zaanstreek/Waterland",416,410,6
-2022-01-02,"GGD Amsterdam",2128,2127,1
-2022-01-02,"GGD Gelderland-Zuid",767,766,1
-2022-01-02,"GGD Haaglanden",894,893,1
-2022-01-02,"GGD Limburg-Noord",281,282,-1
-2022-01-02,"GGD Regio Utrecht",1196,1195,1
-2022-01-02,"GGD Rotterdam-Rijnmond",856,855,1
-2022-01-02,"GGD Zaanstreek/Waterland",444,439,5
-2022-01-03,"GGD Amsterdam",2920,2917,3
-2022-01-03,"GGD Brabant-Zuidoost",1310,1306,4
-2022-01-03,"GGD Gelderland-Zuid",885,881,4
-2022-01-03,"GGD Haaglanden",1351,1350,1
-2022-01-03,"GGD IJsselland",775,776,-1
-2022-01-03,"GGD Kennemerland",1143,1142,1
-2022-01-03,"GGD Limburg-Noord",451,449,2
-2022-01-03,"GGD Noord- en Oost-Gelderland",1269,1268,1
-2022-01-03,"GGD Regio Utrecht",1404,1405,-1
-2022-01-03,"GGD Rotterdam-Rijnmond",2079,2077,2
-2022-01-03,"GGD Zaanstreek/Waterland",527,537,-10
-2022-01-04,"GGD Amsterdam",2579,2575,4
-2022-01-04,"GGD Brabant-Zuidoost",1446,1447,-1
-2022-01-04,"GGD Gelderland-Zuid",763,760,3
-2022-01-04,"GGD Haaglanden",1881,1882,-1
-2022-01-04,"GGD Hart voor Brabant",1772,1771,1
-2022-01-04,"GGD IJsselland",704,703,1
-2022-01-04,"GGD Kennemerland",1035,1034,1
-2022-01-04,"GGD Noord- en Oost-Gelderland",1061,1062,-1
-2022-01-04,"GGD Regio Utrecht",2702,2700,2
-2022-01-04,"GGD Rotterdam-Rijnmond",2894,2892,2
-2022-01-04,"GGD Twente",1168,1165,3
-2022-01-04,"GGD West-Brabant",1209,1208,1
-2022-01-05,"Dienst Gezondheid & Jeugd ZHZ",606,605,1
-2022-01-05,"GGD Gelderland-Zuid",890,886,4
-2022-01-05,"GGD Groningen",567,565,2
-2022-01-05,"GGD Haaglanden",1884,1883,1
-2022-01-05,"GGD Hart voor Brabant",1913,1912,1
-2022-01-05,"GGD Hollands-Midden",1294,1293,1
-2022-01-05,"GGD IJsselland",612,611,1
-2022-01-05,"GGD Kennemerland",1100,1101,-1
-2022-01-05,"GGD Limburg-Noord",519,520,-1
-2022-01-05,"GGD Noord- en Oost-Gelderland",996,995,1
-2022-01-05,"GGD Regio Utrecht",2515,2514,1
-2022-01-05,"GGD Rotterdam-Rijnmond",3011,3009,2
-2022-01-05,"GGD Twente",1238,1237,1
-2022-01-05,"GGD Zaanstreek/Waterland",922,924,-2
-2022-01-05,"GGD Zuid-Limburg",704,702,2
-2022-01-05,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1085,1084,1
-2022-01-06,"Dienst Gezondheid & Jeugd ZHZ",522,521,1
-2022-01-06,"GGD Amsterdam",2680,2679,1
-2022-01-06,"GGD Brabant-Zuidoost",1041,1034,7
-2022-01-06,"GGD Gelderland-Zuid",1038,1035,3
-2022-01-06,"GGD Groningen",693,692,1
-2022-01-06,"GGD Haaglanden",1966,1964,2
-2022-01-06,"GGD Hart voor Brabant",1891,1890,1
-2022-01-06,"GGD IJsselland",628,627,1
-2022-01-06,"GGD Kennemerland",1054,1053,1
-2022-01-06,"GGD Limburg-Noord",506,505,1
-2022-01-06,"GGD Noord- en Oost-Gelderland",939,938,1
-2022-01-06,"GGD Rotterdam-Rijnmond",2852,2851,1
-2022-01-06,"GGD Twente",1049,1050,-1
-2022-01-06,"GGD West-Brabant",1142,1140,2
-2022-01-06,"GGD Zuid-Limburg",641,639,2
-2022-01-07,"Dienst Gezondheid & Jeugd ZHZ",635,634,1
-2022-01-07,"GGD Amsterdam",3288,3284,4
-2022-01-07,"GGD Brabant-Zuidoost",1241,1235,6
-2022-01-07,"GGD Flevoland",713,711,2
-2022-01-07,"GGD Fryslân",767,766,1
-2022-01-07,"GGD Gelderland-Zuid",788,784,4
-2022-01-07,"GGD Groningen",891,889,2
-2022-01-07,"GGD Haaglanden",2178,2176,2
-2022-01-07,"GGD Hollands-Noorden",979,978,1
-2022-01-07,"GGD IJsselland",575,576,-1
-2022-01-07,"GGD Kennemerland",1078,1076,2
-2022-01-07,"GGD Limburg-Noord",602,601,1
-2022-01-07,"GGD Noord- en Oost-Gelderland",972,971,1
-2022-01-07,"GGD Rotterdam-Rijnmond",3035,3029,6
-2022-01-07,"GGD Twente",1063,1060,3
-2022-01-07,"GGD West-Brabant",935,934,1
-2022-01-07,"GGD Zeeland",465,463,2
-2022-01-07,"GGD Zuid-Limburg",536,535,1
-2022-01-07,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1052,1049,3
-2022-01-08,"Dienst Gezondheid & Jeugd ZHZ",554,555,-1
-2022-01-08,"GGD Amsterdam",3398,3392,6
-2022-01-08,"GGD Brabant-Zuidoost",1213,1204,9
-2022-01-08,"GGD Flevoland",597,595,2
-2022-01-08,"GGD Gelderland-Zuid",872,874,-2
-2022-01-08,"GGD Groningen",882,881,1
-2022-01-08,"GGD Haaglanden",1794,1792,2
-2022-01-08,"GGD Hollands-Midden",1388,1387,1
-2022-01-08,"GGD Hollands-Noorden",1067,1063,4
-2022-01-08,"GGD IJsselland",641,637,4
-2022-01-08,"GGD Limburg-Noord",501,499,2
-2022-01-08,"GGD Noord- en Oost-Gelderland",973,971,2
-2022-01-08,"GGD Rotterdam-Rijnmond",2437,2432,5
-2022-01-08,"GGD Twente",925,923,2
-2022-01-08,"GGD Zaanstreek/Waterland",767,765,2
-2022-01-09,"Dienst Gezondheid & Jeugd ZHZ",539,538,1
-2022-01-09,"GGD Amsterdam",4133,4126,7
-2022-01-09,"GGD Brabant-Zuidoost",1196,1210,-14
-2022-01-09,"GGD Drenthe",525,524,1
-2022-01-09,"GGD Gelderland-Zuid",901,903,-2
-2022-01-09,"GGD Groningen",829,825,4
-2022-01-09,"GGD Haaglanden",1568,1565,3
-2022-01-09,"GGD IJsselland",582,576,6
-2022-01-09,"GGD Kennemerland",1069,1065,4
-2022-01-09,"GGD Limburg-Noord",488,486,2
-2022-01-09,"GGD Noord- en Oost-Gelderland",1115,1114,1
-2022-01-09,"GGD Regio Utrecht",2594,2595,-1
-2022-01-09,"GGD Rotterdam-Rijnmond",1774,1767,7
-2022-01-09,"GGD Twente",925,923,2
-2022-01-09,"GGD West-Brabant",891,890,1
-2022-01-09,"GGD Zaanstreek/Waterland",898,893,5
-2022-01-09,"GGD Zeeland",536,534,2
-2022-01-09,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1106,1105,1
-2022-01-10,"Dienst Gezondheid & Jeugd ZHZ",529,525,4
-2022-01-10,"GGD Amsterdam",2775,2750,25
-2022-01-10,"GGD Brabant-Zuidoost",1410,1413,-3
-2022-01-10,"GGD Drenthe",501,500,1
-2022-01-10,"GGD Flevoland",827,821,6
-2022-01-10,"GGD Fryslân",837,836,1
-2022-01-10,"GGD Gelderland-Zuid",956,953,3
-2022-01-10,"GGD Gooi en Vechtstreek",444,441,3
-2022-01-10,"GGD Groningen",690,685,5
-2022-01-10,"GGD Haaglanden",2060,2043,17
-2022-01-10,"GGD Hart voor Brabant",2149,2145,4
-2022-01-10,"GGD Hollands-Noorden",1018,1013,5
-2022-01-10,"GGD IJsselland",801,796,5
-2022-01-10,"GGD Kennemerland",1222,1212,10
-2022-01-10,"GGD Limburg-Noord",556,541,15
-2022-01-10,"GGD Noord- en Oost-Gelderland",1158,1146,12
-2022-01-10,"GGD Regio Utrecht",2287,2285,2
-2022-01-10,"GGD Rotterdam-Rijnmond",2747,2710,37
-2022-01-10,"GGD Twente",1198,1194,4
-2022-01-10,"GGD Zaanstreek/Waterland",508,505,3
-2022-01-10,"GGD Zeeland",595,591,4
-2022-01-10,"GGD Zuid-Limburg",685,684,1
-2022-01-10,"Veiligheids- en Gezondheidsregio Gelderland-Midden",881,875,6
-2022-01-11,"Dienst Gezondheid & Jeugd ZHZ",582,576,6
-2022-01-11,"GGD Amsterdam",3311,3258,53
-2022-01-11,"GGD Brabant-Zuidoost",1161,1156,5
-2022-01-11,"GGD Drenthe",682,674,8
-2022-01-11,"GGD Flevoland",924,918,6
-2022-01-11,"GGD Fryslân",891,873,18
-2022-01-11,"GGD Gelderland-Zuid",925,923,2
-2022-01-11,"GGD Gooi en Vechtstreek",528,522,6
-2022-01-11,"GGD Groningen",948,936,12
-2022-01-11,"GGD Haaglanden",2656,2643,13
-2022-01-11,"GGD Hart voor Brabant",2002,1994,8
-2022-01-11,"GGD Hollands-Midden",1883,1879,4
-2022-01-11,"GGD Hollands-Noorden",1270,1265,5
-2022-01-11,"GGD IJsselland",1020,1005,15
-2022-01-11,"GGD Kennemerland",1241,1235,6
-2022-01-11,"GGD Limburg-Noord",712,687,25
-2022-01-11,"GGD Noord- en Oost-Gelderland",1156,1147,9
-2022-01-11,"GGD Regio Utrecht",2954,2950,4
-2022-01-11,"GGD Rotterdam-Rijnmond",3390,3341,49
-2022-01-11,"GGD Twente",1457,1445,12
-2022-01-11,"GGD West-Brabant",1491,1482,9
-2022-01-11,"GGD Zaanstreek/Waterland",908,897,11
-2022-01-11,"GGD Zeeland",621,620,1
-2022-01-11,"GGD Zuid-Limburg",668,660,8
-2022-01-11,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1065,1054,11
-2022-01-12,"Dienst Gezondheid & Jeugd ZHZ",506,502,4
-2022-01-12,"GGD Amsterdam",3071,3006,65
-2022-01-12,"GGD Brabant-Zuidoost",1185,1172,13
-2022-01-12,"GGD Drenthe",514,509,5
-2022-01-12,"GGD Flevoland",976,966,10
-2022-01-12,"GGD Fryslân",962,944,18
-2022-01-12,"GGD Gelderland-Zuid",855,833,22
-2022-01-12,"GGD Gooi en Vechtstreek",500,483,17
-2022-01-12,"GGD Groningen",795,786,9
-2022-01-12,"GGD Haaglanden",2504,2479,25
-2022-01-12,"GGD Hart voor Brabant",1941,1917,24
-2022-01-12,"GGD Hollands-Midden",1697,1695,2
-2022-01-12,"GGD Hollands-Noorden",1360,1350,10
-2022-01-12,"GGD IJsselland",710,667,43
-2022-01-12,"GGD Kennemerland",1181,1159,22
-2022-01-12,"GGD Limburg-Noord",653,644,9
-2022-01-12,"GGD Noord- en Oost-Gelderland",1072,1038,34
-2022-01-12,"GGD Regio Utrecht",3343,3335,8
-2022-01-12,"GGD Rotterdam-Rijnmond",3266,3214,52
-2022-01-12,"GGD Twente",1116,1091,25
-2022-01-12,"GGD West-Brabant",1460,1445,15
-2022-01-12,"GGD Zaanstreek/Waterland",805,781,24
-2022-01-12,"GGD Zeeland",544,532,12
-2022-01-12,"GGD Zuid-Limburg",662,649,13
-2022-01-12,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1168,1156,12
-2022-01-13,"Dienst Gezondheid & Jeugd ZHZ",975,939,36
-2022-01-13,"GGD Amsterdam",3165,3065,100
-2022-01-13,"GGD Brabant-Zuidoost",1533,1509,24
-2022-01-13,"GGD Drenthe",598,580,18
-2022-01-13,"GGD Flevoland",779,743,36
-2022-01-13,"GGD Fryslân",800,782,18
-2022-01-13,"GGD Gelderland-Zuid",838,798,40
-2022-01-13,"GGD Gooi en Vechtstreek",530,497,33
-2022-01-13,"GGD Groningen",861,826,35
-2022-01-13,"GGD Haaglanden",2398,2355,43
-2022-01-13,"GGD Hart voor Brabant",2399,2360,39
-2022-01-13,"GGD Hollands-Midden",1940,1927,13
-2022-01-13,"GGD Hollands-Noorden",1276,1231,45
-2022-01-13,"GGD IJsselland",721,676,45
-2022-01-13,"GGD Kennemerland",1382,1334,48
-2022-01-13,"GGD Limburg-Noord",726,704,22
-2022-01-13,"GGD Noord- en Oost-Gelderland",1058,985,73
-2022-01-13,"GGD Regio Utrecht",2839,2820,19
-2022-01-13,"GGD Rotterdam-Rijnmond",3264,3186,78
-2022-01-13,"GGD Twente",1163,1121,42
-2022-01-13,"GGD West-Brabant",1521,1487,34
-2022-01-13,"GGD Zaanstreek/Waterland",805,756,49
-2022-01-13,"GGD Zeeland",673,655,18
-2022-01-13,"GGD Zuid-Limburg",673,649,24
-2022-01-13,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1127,1090,37
-2022-01-14,"Dienst Gezondheid & Jeugd ZHZ",765,713,52
-2022-01-14,"GGD Amsterdam",2861,2711,150
-2022-01-14,"GGD Brabant-Zuidoost",1244,1163,81
-2022-01-14,"GGD Drenthe",604,527,77
-2022-01-14,"GGD Flevoland",547,477,70
-2022-01-14,"GGD Fryslân",735,674,61
-2022-01-14,"GGD Gelderland-Zuid",811,738,73
-2022-01-14,"GGD Gooi en Vechtstreek",451,396,55
-2022-01-14,"GGD Groningen",841,790,51
-2022-01-14,"GGD Haaglanden",2434,2369,65
-2022-01-14,"GGD Hart voor Brabant",2099,2015,84
-2022-01-14,"GGD Hollands-Midden",1720,1713,7
-2022-01-14,"GGD Hollands-Noorden",1196,1088,108
-2022-01-14,"GGD IJsselland",769,696,73
-2022-01-14,"GGD Kennemerland",1242,1153,89
-2022-01-14,"GGD Limburg-Noord",596,557,39
-2022-01-14,"GGD Noord- en Oost-Gelderland",921,774,147
-2022-01-14,"GGD Regio Utrecht",3084,3019,65
-2022-01-14,"GGD Rotterdam-Rijnmond",3016,2855,161
-2022-01-14,"GGD Twente",1123,1019,104
-2022-01-14,"GGD West-Brabant",1477,1403,74
-2022-01-14,"GGD Zaanstreek/Waterland",750,673,77
-2022-01-14,"GGD Zeeland",630,583,47
-2022-01-14,"GGD Zuid-Limburg",681,614,67
-2022-01-14,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1092,1010,82
-2022-01-15,"Dienst Gezondheid & Jeugd ZHZ",757,712,45
-2022-01-15,"GGD Amsterdam",3660,3483,177
-2022-01-15,"GGD Brabant-Zuidoost",1383,1274,109
-2022-01-15,"GGD Drenthe",558,404,154
-2022-01-15,"GGD Flevoland",471,391,80
-2022-01-15,"GGD Fryslân",696,640,56
-2022-01-15,"GGD Gelderland-Zuid",735,566,169
-2022-01-15,"GGD Gooi en Vechtstreek",448,390,58
-2022-01-15,"GGD Groningen",830,789,41
-2022-01-15,"GGD Haaglanden",2548,2430,118
-2022-01-15,"GGD Hart voor Brabant",2307,2230,77
-2022-01-15,"GGD Hollands-Midden",1764,1756,8
-2022-01-15,"GGD Hollands-Noorden",1159,968,191
-2022-01-15,"GGD IJsselland",611,460,151
-2022-01-15,"GGD Kennemerland",1271,1138,133
-2022-01-15,"GGD Limburg-Noord",734,634,100
-2022-01-15,"GGD Noord- en Oost-Gelderland",738,566,172
-2022-01-15,"GGD Regio Utrecht",3403,3318,85
-2022-01-15,"GGD Rotterdam-Rijnmond",3129,3012,117
-2022-01-15,"GGD Twente",877,702,175
-2022-01-15,"GGD West-Brabant",1478,1350,128
-2022-01-15,"GGD Zaanstreek/Waterland",767,693,74
-2022-01-15,"GGD Zeeland",550,479,71
-2022-01-15,"GGD Zuid-Limburg",547,431,116
-2022-01-15,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1113,638,475
-2022-01-16,"Dienst Gezondheid & Jeugd ZHZ",716,735,-19
-2022-01-16,"GGD Amsterdam",2881,2908,-27
-2022-01-16,"GGD Brabant-Zuidoost",1366,1544,-178
-2022-01-16,"GGD Drenthe",431,295,136
-2022-01-16,"GGD Flevoland",468,117,351
-2022-01-16,"GGD Fryslân",714,731,-17
-2022-01-16,"GGD Gelderland-Zuid",596,501,95
-2022-01-16,"GGD Gooi en Vechtstreek",414,242,172
-2022-01-16,"GGD Groningen",808,839,-31
-2022-01-16,"GGD Haaglanden",2064,2017,47
-2022-01-16,"GGD Hart voor Brabant",2915,2997,-82
-2022-01-16,"GGD Hollands-Midden",1718,1704,14
-2022-01-16,"GGD Hollands-Noorden",1090,437,653
-2022-01-16,"GGD IJsselland",542,539,3
-2022-01-16,"GGD Kennemerland",1081,974,107
-2022-01-16,"GGD Limburg-Noord",507,400,107
-2022-01-16,"GGD Noord- en Oost-Gelderland",891,1172,-281
-2022-01-16,"GGD Regio Utrecht",3256,3183,73
-2022-01-16,"GGD Rotterdam-Rijnmond",2169,2306,-137
-2022-01-16,"GGD Twente",569,429,140
-2022-01-16,"GGD West-Brabant",1019,944,75
-2022-01-16,"GGD Zaanstreek/Waterland",738,745,-7
-2022-01-16,"GGD Zeeland",452,433,19
-2022-01-16,"GGD Zuid-Limburg",479,293,186
-2022-01-16,"Veiligheids- en Gezondheidsregio Gelderland-Midden",613,235,378
-2022-01-17,"Dienst Gezondheid & Jeugd ZHZ",1165,499,666
-2022-01-17,"GGD Amsterdam",2989,934,2055
-2022-01-17,"GGD Brabant-Zuidoost",1948,221,1727
-2022-01-17,"GGD Drenthe",293,238,55
-2022-01-17,"GGD Flevoland",474,13,461
-2022-01-17,"GGD Fryslân",611,265,346
-2022-01-17,"GGD Gelderland-Zuid",906,452,454
-2022-01-17,"GGD Gooi en Vechtstreek",127,15,112
-2022-01-17,"GGD Groningen",780,480,300
-2022-01-17,"GGD Haaglanden",2500,1230,1270
-2022-01-17,"GGD Hart voor Brabant",3039,1575,1464
-2022-01-17,"GGD Hollands-Midden",2175,1015,1160
-2022-01-17,"GGD Hollands-Noorden",917,23,894
-2022-01-17,"GGD IJsselland",690,285,405
-2022-01-17,"GGD Kennemerland",1398,717,681
-2022-01-17,"GGD Limburg-Noord",323,106,217
-2022-01-17,"GGD Noord- en Oost-Gelderland",1434,212,1222
-2022-01-17,"GGD Regio Utrecht",3102,2533,569
-2022-01-17,"GGD Rotterdam-Rijnmond",3039,1233,1806
-2022-01-17,"GGD Twente",275,84,191
-2022-01-17,"GGD West-Brabant",1134,578,556
-2022-01-17,"GGD Zaanstreek/Waterland",716,218,498
-2022-01-17,"GGD Zeeland",627,52,575
-2022-01-17,"GGD Zuid-Limburg",594,307,287
-2022-01-17,"Veiligheids- en Gezondheidsregio Gelderland-Midden",280,145,135
-2022-01-18,"GGD Fryslân",410,1,409
-2022-01-18,"GGD Hollands-Midden",627,7,620
-2022-01-18,"GGD IJsselland",357,1,356
-2022-01-18,"GGD Kennemerland",426,1,425
-2022-01-18,"GGD Regio Utrecht",1559,3,1556
-2022-01-18,"GGD Zaanstreek/Waterland",801,5,796
+2020-11-01,"GGD Regio Utrecht",525,524,1
+2020-11-12,"GGD Regio Utrecht",424,426,-2
+2020-11-14,"GGD Regio Utrecht",397,395,2
+2020-12-03,"GGD Regio Utrecht",552,553,-1
+2021-01-04,"GGD Regio Utrecht",546,545,1
+2021-01-10,"GGD Rotterdam-Rijnmond",311,310,1
+2021-01-12,"GGD Regio Utrecht",401,400,1
+2021-01-14,"GGD Rotterdam-Rijnmond",329,328,1
+2021-01-15,"GGD Groningen",274,275,-1
+2021-01-16,"Dienst Gezondheid & Jeugd ZHZ",133,132,1
+2021-01-16,"GGD Groningen",154,155,-1
+2021-01-16,"GGD Noord- en Oost-Gelderland",216,215,1
+2021-01-17,"GGD Regio Utrecht",300,299,1
+2021-01-17,"GGD Zuid-Limburg",210,209,1
+2021-01-18,"GGD Drenthe",135,134,1
+2021-01-18,"GGD Twente",315,313,2
+2021-01-19,"GGD Zaanstreek/Waterland",148,147,1
+2021-02-07,"GGD Zuid-Limburg",106,105,1
+2021-07-07,"GGD Haaglanden",587,586,1
+2021-08-08,"GGD Regio Utrecht",135,134,1
+2021-09-03,"GGD Haaglanden",202,201,1
+2021-10-06,"GGD Regio Utrecht",210,209,1
+2021-10-08,"GGD Regio Utrecht",244,245,-1
+2021-10-14,"GGD Regio Utrecht",321,320,1
+2021-10-17,"GGD Regio Utrecht",322,321,1
+2021-10-18,"GGD Regio Utrecht",464,465,-1
+2021-10-20,"Dienst Gezondheid & Jeugd ZHZ",260,258,2
+2021-10-22,"Dienst Gezondheid & Jeugd ZHZ",295,292,3
+2021-10-23,"Dienst Gezondheid & Jeugd ZHZ",273,272,1
+2021-10-24,"Dienst Gezondheid & Jeugd ZHZ",266,269,-3
+2021-10-25,"Dienst Gezondheid & Jeugd ZHZ",302,305,-3
+2021-10-26,"GGD Regio Utrecht",600,599,1
+2021-10-28,"GGD Regio Utrecht",688,687,1
+2021-10-29,"GGD Regio Utrecht",679,681,-2
+2021-10-30,"GGD Regio Utrecht",626,625,1
+2021-10-31,"GGD Regio Utrecht",652,653,-1
+2021-11-01,"GGD Regio Utrecht",838,836,2
+2021-11-03,"GGD Regio Utrecht",947,946,1
+2021-11-04,"GGD Regio Utrecht",866,867,-1
+2021-11-05,"GGD Limburg-Noord",549,546,3
+2021-11-05,"GGD Regio Utrecht",938,940,-2
+2021-11-08,"GGD Haaglanden",936,935,1
+2021-11-09,"GGD Haaglanden",918,917,1
+2021-11-09,"GGD Regio Utrecht",496,497,-1
+2021-11-11,"GGD Haaglanden",799,798,1
+2021-11-11,"GGD Regio Utrecht",1462,1461,1
+2021-11-12,"GGD Haaglanden",906,905,1
+2021-11-12,"GGD Regio Utrecht",1566,1568,-2
+2021-11-13,"GGD Regio Utrecht",1234,1232,2
+2021-11-15,"GGD Regio Utrecht",1561,1560,1
+2021-11-17,"GGD Kennemerland",695,694,1
+2021-11-18,"GGD Regio Utrecht",1839,1838,1
+2021-11-19,"GGD Regio Utrecht",1745,1742,3
+2021-11-19,"GGD Rotterdam-Rijnmond",1666,1667,-1
+2021-11-20,"GGD Regio Utrecht",1729,1726,3
+2021-11-21,"GGD Regio Utrecht",1617,1619,-2
+2021-11-22,"GGD Haaglanden",1133,1132,1
+2021-11-22,"GGD Regio Utrecht",1723,1720,3
+2021-11-23,"GGD Regio Utrecht",1888,1889,-1
+2021-11-24,"GGD Haaglanden",1041,1038,3
+2021-11-25,"GGD Haaglanden",993,992,1
+2021-11-25,"GGD Regio Utrecht",1860,1859,1
+2021-11-25,"GGD Zuid-Limburg",1126,1125,1
+2021-11-26,"GGD Regio Utrecht",1695,1692,3
+2021-11-27,"GGD Fryslân",761,760,1
+2021-11-27,"GGD Hollands-Midden",908,909,-1
+2021-11-27,"GGD Regio Utrecht",1805,1806,-1
+2021-11-28,"GGD Haaglanden",1273,1272,1
+2021-11-28,"GGD Regio Utrecht",1716,1718,-2
+2021-11-29,"GGD Gooi en Vechtstreek",351,352,-1
+2021-11-29,"GGD Regio Utrecht",1352,1354,-2
+2021-11-30,"GGD Haaglanden",1117,1116,1
+2021-12-01,"GGD Hollands-Midden",882,881,1
+2021-12-01,"GGD Regio Utrecht",1811,1809,2
+2021-12-02,"GGD Regio Utrecht",1898,1897,1
+2021-12-02,"GGD Zaanstreek/Waterland",374,373,1
+2021-12-03,"GGD Regio Utrecht",2053,2051,2
+2021-12-03,"GGD Rotterdam-Rijnmond",1456,1455,1
+2021-12-04,"GGD Amsterdam",859,858,1
+2021-12-05,"GGD Amsterdam",851,850,1
+2021-12-05,"GGD Regio Utrecht",1456,1453,3
+2021-12-06,"GGD Regio Utrecht",1305,1306,-1
+2021-12-07,"GGD Regio Utrecht",1730,1731,-1
+2021-12-08,"GGD Rotterdam-Rijnmond",1341,1343,-2
+2021-12-09,"GGD Regio Utrecht",1821,1825,-4
+2021-12-09,"GGD Rotterdam-Rijnmond",1265,1264,1
+2021-12-10,"GGD Haaglanden",907,906,1
+2021-12-10,"GGD Hart voor Brabant",929,930,-1
+2021-12-10,"GGD Noord- en Oost-Gelderland",757,756,1
+2021-12-10,"GGD Regio Utrecht",1775,1773,2
+2021-12-12,"GGD Regio Utrecht",978,979,-1
+2021-12-14,"GGD Flevoland",369,368,1
+2021-12-14,"GGD Fryslân",683,682,1
+2021-12-14,"GGD Regio Utrecht",983,982,1
+2021-12-15,"GGD Regio Utrecht",956,955,1
+2021-12-15,"GGD Rotterdam-Rijnmond",1033,1032,1
+2021-12-16,"GGD Regio Utrecht",1116,1117,-1
+2021-12-17,"GGD Regio Utrecht",1398,1399,-1
+2021-12-18,"GGD Gooi en Vechtstreek",200,199,1
+2021-12-18,"GGD Hollands-Noorden",468,467,1
+2021-12-19,"GGD Regio Utrecht",1230,1232,-2
+2021-12-20,"GGD Regio Utrecht",986,985,1
+2021-12-20,"GGD Rotterdam-Rijnmond",1125,1126,-1
+2021-12-21,"GGD Regio Utrecht",1060,1055,5
+2021-12-21,"GGD Rotterdam-Rijnmond",1170,1171,-1
+2021-12-22,"GGD Regio Utrecht",983,981,2
+2021-12-22,"GGD Rotterdam-Rijnmond",1014,1013,1
+2021-12-23,"GGD Gooi en Vechtstreek",211,212,-1
+2021-12-24,"GGD Haaglanden",842,840,2
+2021-12-24,"GGD Regio Utrecht",1136,1131,5
+2021-12-24,"GGD Rotterdam-Rijnmond",1369,1370,-1
+2021-12-25,"GGD Regio Utrecht",1001,997,4
+2021-12-26,"GGD Flevoland",367,366,1
+2021-12-26,"GGD Regio Utrecht",879,880,-1
+2021-12-26,"GGD Zuid-Limburg",380,378,2
+2021-12-27,"GGD Brabant-Zuidoost",623,624,-1
+2021-12-27,"GGD Rotterdam-Rijnmond",1272,1273,-1
+2021-12-28,"GGD Regio Utrecht",817,816,1
+2021-12-29,"GGD Kennemerland",629,627,2
+2021-12-29,"GGD Regio Utrecht",909,913,-4
+2021-12-29,"GGD Twente",641,639,2
+2021-12-30,"GGD Haaglanden",979,975,4
+2021-12-30,"GGD Noord- en Oost-Gelderland",603,602,1
+2021-12-30,"GGD Regio Utrecht",1359,1352,7
+2021-12-30,"GGD Rotterdam-Rijnmond",1615,1621,-6
+2021-12-30,"GGD Zaanstreek/Waterland",371,369,2
+2021-12-30,"Veiligheids- en Gezondheidsregio Gelderland-Midden",459,458,1
+2021-12-31,"GGD Haaglanden",1281,1279,2
+2021-12-31,"GGD Noord- en Oost-Gelderland",602,601,1
+2021-12-31,"GGD Regio Utrecht",1709,1714,-5
+2022-01-01,"GGD Regio Utrecht",1097,1090,7
+2022-01-01,"GGD Rotterdam-Rijnmond",998,1000,-2
+2022-01-01,"GGD Zaanstreek/Waterland",417,416,1
+2022-01-02,"GGD Brabant-Zuidoost",725,724,1
+2022-01-02,"GGD Hart voor Brabant",1129,1126,3
+2022-01-02,"GGD Kennemerland",853,852,1
+2022-01-02,"GGD Regio Utrecht",1191,1196,-5
+2022-01-02,"GGD Rotterdam-Rijnmond",857,856,1
+2022-01-03,"GGD Amsterdam",2921,2920,1
+2022-01-03,"GGD Drenthe",667,666,1
+2022-01-03,"GGD Fryslân",545,544,1
+2022-01-03,"GGD Haaglanden",1354,1351,3
+2022-01-03,"GGD Hart voor Brabant",1643,1645,-2
+2022-01-03,"GGD Hollands-Noorden",859,858,1
+2022-01-03,"GGD Regio Utrecht",1410,1404,6
+2022-01-04,"GGD Brabant-Zuidoost",1448,1446,2
+2022-01-04,"GGD Drenthe",536,534,2
+2022-01-04,"GGD Haaglanden",1886,1881,5
+2022-01-04,"GGD Regio Utrecht",2703,2702,1
+2022-01-04,"GGD Rotterdam-Rijnmond",2895,2894,1
+2022-01-04,"GGD Zaanstreek/Waterland",674,675,-1
+2022-01-04,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1023,1022,1
+2022-01-05,"GGD Amsterdam",3328,3327,1
+2022-01-05,"GGD Drenthe",603,601,2
+2022-01-05,"GGD Fryslân",810,808,2
+2022-01-05,"GGD Haaglanden",1896,1884,12
+2022-01-05,"GGD Hart voor Brabant",1914,1913,1
+2022-01-05,"GGD Hollands-Noorden",856,854,2
+2022-01-05,"GGD Kennemerland",1102,1100,2
+2022-01-05,"GGD Regio Utrecht",2555,2515,40
+2022-01-05,"GGD Rotterdam-Rijnmond",3012,3011,1
+2022-01-05,"GGD Zaanstreek/Waterland",923,922,1
+2022-01-05,"GGD Zeeland",570,569,1
+2022-01-05,"GGD Zuid-Limburg",705,704,1
+2022-01-06,"Dienst Gezondheid & Jeugd ZHZ",523,522,1
+2022-01-06,"GGD Amsterdam",2684,2680,4
+2022-01-06,"GGD Drenthe",619,621,-2
+2022-01-06,"GGD Fryslân",956,955,1
+2022-01-06,"GGD Gelderland-Zuid",1039,1038,1
+2022-01-06,"GGD Groningen",694,693,1
+2022-01-06,"GGD Haaglanden",1976,1966,10
+2022-01-06,"GGD Hollands-Midden",1551,1550,1
+2022-01-06,"GGD Noord- en Oost-Gelderland",940,939,1
+2022-01-06,"GGD Regio Utrecht",2423,2404,19
+2022-01-06,"GGD Twente",1052,1049,3
+2022-01-06,"GGD Zaanstreek/Waterland",766,764,2
+2022-01-06,"Veiligheids- en Gezondheidsregio Gelderland-Midden",860,859,1
+2022-01-07,"GGD Amsterdam",3293,3288,5
+2022-01-07,"GGD Brabant-Zuidoost",1242,1241,1
+2022-01-07,"GGD Drenthe",623,626,-3
+2022-01-07,"GGD Flevoland",714,713,1
+2022-01-07,"GGD Fryslân",766,767,-1
+2022-01-07,"GGD Haaglanden",2188,2178,10
+2022-01-07,"GGD Hart voor Brabant",1754,1752,2
+2022-01-07,"GGD Noord- en Oost-Gelderland",973,972,1
+2022-01-07,"GGD Regio Utrecht",2378,2359,19
+2022-01-07,"GGD Rotterdam-Rijnmond",3036,3035,1
+2022-01-07,"GGD Zaanstreek/Waterland",890,889,1
+2022-01-07,"GGD Zeeland",464,465,-1
+2022-01-07,"GGD Zuid-Limburg",535,536,-1
+2022-01-07,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1055,1052,3
+2022-01-08,"Dienst Gezondheid & Jeugd ZHZ",555,554,1
+2022-01-08,"GGD Amsterdam",3400,3398,2
+2022-01-08,"GGD Brabant-Zuidoost",1216,1213,3
+2022-01-08,"GGD Flevoland",598,597,1
+2022-01-08,"GGD Groningen",884,882,2
+2022-01-08,"GGD Haaglanden",1795,1794,1
+2022-01-08,"GGD Hollands-Midden",1389,1388,1
+2022-01-08,"GGD Hollands-Noorden",1068,1067,1
+2022-01-08,"GGD Noord- en Oost-Gelderland",972,973,-1
+2022-01-08,"GGD Regio Utrecht",2311,2292,19
+2022-01-08,"GGD Rotterdam-Rijnmond",2450,2437,13
+2022-01-08,"GGD Twente",927,925,2
+2022-01-08,"GGD Zaanstreek/Waterland",769,767,2
+2022-01-08,"Veiligheids- en Gezondheidsregio Gelderland-Midden",941,939,2
+2022-01-09,"Dienst Gezondheid & Jeugd ZHZ",541,539,2
+2022-01-09,"GGD Amsterdam",4138,4133,5
+2022-01-09,"GGD Brabant-Zuidoost",1194,1196,-2
+2022-01-09,"GGD Flevoland",592,591,1
+2022-01-09,"GGD Gelderland-Zuid",905,901,4
+2022-01-09,"GGD Groningen",831,829,2
+2022-01-09,"GGD Haaglanden",1575,1568,7
+2022-01-09,"GGD Hart voor Brabant",1956,1953,3
+2022-01-09,"GGD Hollands-Midden",1339,1338,1
+2022-01-09,"GGD IJsselland",584,582,2
+2022-01-09,"GGD Kennemerland",1071,1069,2
+2022-01-09,"GGD Noord- en Oost-Gelderland",1116,1115,1
+2022-01-09,"GGD Regio Utrecht",2605,2594,11
+2022-01-09,"GGD Rotterdam-Rijnmond",1781,1774,7
+2022-01-09,"GGD Twente",924,925,-1
+2022-01-09,"GGD West-Brabant",893,891,2
+2022-01-09,"GGD Zaanstreek/Waterland",893,898,-5
+2022-01-09,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1108,1106,2
+2022-01-10,"Dienst Gezondheid & Jeugd ZHZ",531,529,2
+2022-01-10,"GGD Amsterdam",2788,2775,13
+2022-01-10,"GGD Brabant-Zuidoost",1409,1410,-1
+2022-01-10,"GGD Drenthe",502,501,1
+2022-01-10,"GGD Flevoland",830,827,3
+2022-01-10,"GGD Fryslân",838,837,1
+2022-01-10,"GGD Gelderland-Zuid",962,956,6
+2022-01-10,"GGD Gooi en Vechtstreek",446,444,2
+2022-01-10,"GGD Groningen",693,690,3
+2022-01-10,"GGD Haaglanden",2070,2060,10
+2022-01-10,"GGD Hart voor Brabant",2153,2149,4
+2022-01-10,"GGD Hollands-Midden",1580,1579,1
+2022-01-10,"GGD Hollands-Noorden",1022,1018,4
+2022-01-10,"GGD IJsselland",804,801,3
+2022-01-10,"GGD Kennemerland",1224,1222,2
+2022-01-10,"GGD Limburg-Noord",559,556,3
+2022-01-10,"GGD Noord- en Oost-Gelderland",1161,1158,3
+2022-01-10,"GGD Regio Utrecht",2310,2287,23
+2022-01-10,"GGD Rotterdam-Rijnmond",2761,2747,14
+2022-01-10,"GGD Twente",1203,1198,5
+2022-01-10,"GGD West-Brabant",1256,1254,2
+2022-01-10,"GGD Zeeland",596,595,1
+2022-01-10,"GGD Zuid-Limburg",691,685,6
+2022-01-10,"Veiligheids- en Gezondheidsregio Gelderland-Midden",883,881,2
+2022-01-11,"Dienst Gezondheid & Jeugd ZHZ",585,582,3
+2022-01-11,"GGD Amsterdam",3325,3311,14
+2022-01-11,"GGD Brabant-Zuidoost",1163,1161,2
+2022-01-11,"GGD Drenthe",687,682,5
+2022-01-11,"GGD Flevoland",930,924,6
+2022-01-11,"GGD Fryslân",892,891,1
+2022-01-11,"GGD Gelderland-Zuid",935,925,10
+2022-01-11,"GGD Gooi en Vechtstreek",529,528,1
+2022-01-11,"GGD Groningen",954,948,6
+2022-01-11,"GGD Haaglanden",2674,2656,18
+2022-01-11,"GGD Hart voor Brabant",2012,2002,10
+2022-01-11,"GGD Hollands-Midden",1884,1883,1
+2022-01-11,"GGD Hollands-Noorden",1271,1270,1
+2022-01-11,"GGD IJsselland",1023,1020,3
+2022-01-11,"GGD Kennemerland",1247,1241,6
+2022-01-11,"GGD Limburg-Noord",716,712,4
+2022-01-11,"GGD Noord- en Oost-Gelderland",1158,1156,2
+2022-01-11,"GGD Regio Utrecht",3009,2954,55
+2022-01-11,"GGD Rotterdam-Rijnmond",3404,3390,14
+2022-01-11,"GGD West-Brabant",1496,1491,5
+2022-01-11,"GGD Zaanstreek/Waterland",911,908,3
+2022-01-11,"GGD Zeeland",623,621,2
+2022-01-11,"GGD Zuid-Limburg",669,668,1
+2022-01-11,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1069,1065,4
+2022-01-12,"Dienst Gezondheid & Jeugd ZHZ",512,506,6
+2022-01-12,"GGD Amsterdam",3105,3071,34
+2022-01-12,"GGD Brabant-Zuidoost",1190,1185,5
+2022-01-12,"GGD Drenthe",515,514,1
+2022-01-12,"GGD Flevoland",983,976,7
+2022-01-12,"GGD Fryslân",968,962,6
+2022-01-12,"GGD Gelderland-Zuid",871,855,16
+2022-01-12,"GGD Gooi en Vechtstreek",504,500,4
+2022-01-12,"GGD Groningen",799,795,4
+2022-01-12,"GGD Haaglanden",2517,2504,13
+2022-01-12,"GGD Hart voor Brabant",1960,1941,19
+2022-01-12,"GGD Hollands-Midden",1700,1697,3
+2022-01-12,"GGD Hollands-Noorden",1370,1360,10
+2022-01-12,"GGD IJsselland",720,710,10
+2022-01-12,"GGD Kennemerland",1191,1181,10
+2022-01-12,"GGD Limburg-Noord",657,653,4
+2022-01-12,"GGD Noord- en Oost-Gelderland",1083,1072,11
+2022-01-12,"GGD Regio Utrecht",3382,3343,39
+2022-01-12,"GGD Rotterdam-Rijnmond",3307,3266,41
+2022-01-12,"GGD Twente",1126,1116,10
+2022-01-12,"GGD West-Brabant",1467,1460,7
+2022-01-12,"GGD Zaanstreek/Waterland",813,805,8
+2022-01-12,"GGD Zeeland",550,544,6
+2022-01-12,"GGD Zuid-Limburg",665,662,3
+2022-01-12,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1172,1168,4
+2022-01-13,"Dienst Gezondheid & Jeugd ZHZ",990,975,15
+2022-01-13,"GGD Amsterdam",3219,3165,54
+2022-01-13,"GGD Brabant-Zuidoost",1540,1533,7
+2022-01-13,"GGD Drenthe",607,598,9
+2022-01-13,"GGD Flevoland",806,779,27
+2022-01-13,"GGD Fryslân",812,800,12
+2022-01-13,"GGD Gelderland-Zuid",860,838,22
+2022-01-13,"GGD Gooi en Vechtstreek",542,530,12
+2022-01-13,"GGD Groningen",880,861,19
+2022-01-13,"GGD Haaglanden",2425,2398,27
+2022-01-13,"GGD Hart voor Brabant",2433,2399,34
+2022-01-13,"GGD Hollands-Midden",1942,1940,2
+2022-01-13,"GGD Hollands-Noorden",1310,1276,34
+2022-01-13,"GGD IJsselland",746,721,25
+2022-01-13,"GGD Kennemerland",1414,1382,32
+2022-01-13,"GGD Limburg-Noord",736,726,10
+2022-01-13,"GGD Noord- en Oost-Gelderland",1081,1058,23
+2022-01-13,"GGD Regio Utrecht",2895,2839,56
+2022-01-13,"GGD Rotterdam-Rijnmond",3339,3264,75
+2022-01-13,"GGD Twente",1179,1163,16
+2022-01-13,"GGD West-Brabant",1533,1521,12
+2022-01-13,"GGD Zaanstreek/Waterland",823,805,18
+2022-01-13,"GGD Zeeland",684,673,11
+2022-01-13,"GGD Zuid-Limburg",687,673,14
+2022-01-13,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1151,1127,24
+2022-01-14,"Dienst Gezondheid & Jeugd ZHZ",787,765,22
+2022-01-14,"GGD Amsterdam",2977,2861,116
+2022-01-14,"GGD Brabant-Zuidoost",1263,1244,19
+2022-01-14,"GGD Drenthe",630,604,26
+2022-01-14,"GGD Flevoland",696,547,149
+2022-01-14,"GGD Fryslân",762,735,27
+2022-01-14,"GGD Gelderland-Zuid",851,811,40
+2022-01-14,"GGD Gooi en Vechtstreek",492,451,41
+2022-01-14,"GGD Groningen",869,841,28
+2022-01-14,"GGD Haaglanden",2492,2434,58
+2022-01-14,"GGD Hart voor Brabant",2150,2099,51
+2022-01-14,"GGD Hollands-Midden",1725,1720,5
+2022-01-14,"GGD Hollands-Noorden",1243,1196,47
+2022-01-14,"GGD IJsselland",819,769,50
+2022-01-14,"GGD Kennemerland",1283,1242,41
+2022-01-14,"GGD Limburg-Noord",629,596,33
+2022-01-14,"GGD Noord- en Oost-Gelderland",983,921,62
+2022-01-14,"GGD Regio Utrecht",3146,3084,62
+2022-01-14,"GGD Rotterdam-Rijnmond",3109,3016,93
+2022-01-14,"GGD Twente",1173,1123,50
+2022-01-14,"GGD West-Brabant",1521,1477,44
+2022-01-14,"GGD Zaanstreek/Waterland",803,750,53
+2022-01-14,"GGD Zeeland",648,630,18
+2022-01-14,"GGD Zuid-Limburg",714,681,33
+2022-01-14,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1125,1092,33
+2022-01-15,"Dienst Gezondheid & Jeugd ZHZ",775,757,18
+2022-01-15,"GGD Amsterdam",3877,3660,217
+2022-01-15,"GGD Brabant-Zuidoost",1409,1383,26
+2022-01-15,"GGD Drenthe",617,558,59
+2022-01-15,"GGD Flevoland",595,471,124
+2022-01-15,"GGD Fryslân",760,696,64
+2022-01-15,"GGD Gelderland-Zuid",852,735,117
+2022-01-15,"GGD Gooi en Vechtstreek",510,448,62
+2022-01-15,"GGD Groningen",889,830,59
+2022-01-15,"GGD Haaglanden",2647,2548,99
+2022-01-15,"GGD Hart voor Brabant",2413,2307,106
+2022-01-15,"GGD Hollands-Midden",1779,1764,15
+2022-01-15,"GGD Hollands-Noorden",1264,1159,105
+2022-01-15,"GGD IJsselland",681,611,70
+2022-01-15,"GGD Kennemerland",1392,1271,121
+2022-01-15,"GGD Limburg-Noord",803,734,69
+2022-01-15,"GGD Noord- en Oost-Gelderland",857,738,119
+2022-01-15,"GGD Regio Utrecht",3448,3403,45
+2022-01-15,"GGD Rotterdam-Rijnmond",3252,3129,123
+2022-01-15,"GGD Twente",976,877,99
+2022-01-15,"GGD West-Brabant",1608,1478,130
+2022-01-15,"GGD Zaanstreek/Waterland",798,767,31
+2022-01-15,"GGD Zeeland",615,550,65
+2022-01-15,"GGD Zuid-Limburg",630,547,83
+2022-01-15,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1190,1113,77
+2022-01-16,"Dienst Gezondheid & Jeugd ZHZ",723,716,7
+2022-01-16,"GGD Amsterdam",3139,2881,258
+2022-01-16,"GGD Brabant-Zuidoost",1406,1366,40
+2022-01-16,"GGD Drenthe",539,431,108
+2022-01-16,"GGD Flevoland",605,468,137
+2022-01-16,"GGD Fryslân",787,714,73
+2022-01-16,"GGD Gelderland-Zuid",738,596,142
+2022-01-16,"GGD Gooi en Vechtstreek",469,414,55
+2022-01-16,"GGD Groningen",846,808,38
+2022-01-16,"GGD Haaglanden",2197,2064,133
+2022-01-16,"GGD Hart voor Brabant",2949,2915,34
+2022-01-16,"GGD Hollands-Midden",1733,1718,15
+2022-01-16,"GGD Hollands-Noorden",1334,1090,244
+2022-01-16,"GGD IJsselland",669,542,127
+2022-01-16,"GGD Kennemerland",1248,1081,167
+2022-01-16,"GGD Limburg-Noord",641,507,134
+2022-01-16,"GGD Noord- en Oost-Gelderland",1066,891,175
+2022-01-16,"GGD Regio Utrecht",3311,3256,55
+2022-01-16,"GGD Rotterdam-Rijnmond",2345,2169,176
+2022-01-16,"GGD Twente",801,569,232
+2022-01-16,"GGD West-Brabant",1163,1019,144
+2022-01-16,"GGD Zaanstreek/Waterland",765,738,27
+2022-01-16,"GGD Zeeland",564,452,112
+2022-01-16,"GGD Zuid-Limburg",616,479,137
+2022-01-16,"Veiligheids- en Gezondheidsregio Gelderland-Midden",993,613,380
+2022-01-17,"Dienst Gezondheid & Jeugd ZHZ",1142,1165,-23
+2022-01-17,"GGD Amsterdam",3163,2989,174
+2022-01-17,"GGD Brabant-Zuidoost",1962,1948,14
+2022-01-17,"GGD Drenthe",364,293,71
+2022-01-17,"GGD Flevoland",506,474,32
+2022-01-17,"GGD Fryslân",586,611,-25
+2022-01-17,"GGD Gelderland-Zuid",890,906,-16
+2022-01-17,"GGD Gooi en Vechtstreek",412,127,285
+2022-01-17,"GGD Groningen",825,780,45
+2022-01-17,"GGD Haaglanden",2593,2500,93
+2022-01-17,"GGD Hart voor Brabant",2888,3039,-151
+2022-01-17,"GGD Hollands-Midden",2264,2175,89
+2022-01-17,"GGD Hollands-Noorden",976,917,59
+2022-01-17,"GGD IJsselland",707,690,17
+2022-01-17,"GGD Kennemerland",1351,1398,-47
+2022-01-17,"GGD Limburg-Noord",567,323,244
+2022-01-17,"GGD Noord- en Oost-Gelderland",1443,1434,9
+2022-01-17,"GGD Regio Utrecht",3279,3102,177
+2022-01-17,"GGD Rotterdam-Rijnmond",3422,3039,383
+2022-01-17,"GGD Twente",909,275,634
+2022-01-17,"GGD West-Brabant",1229,1134,95
+2022-01-17,"GGD Zaanstreek/Waterland",782,716,66
+2022-01-17,"GGD Zeeland",700,627,73
+2022-01-17,"GGD Zuid-Limburg",776,594,182
+2022-01-17,"Veiligheids- en Gezondheidsregio Gelderland-Midden",626,280,346
+2022-01-18,"Dienst Gezondheid & Jeugd ZHZ",966,765,201
+2022-01-18,"GGD Amsterdam",2483,1132,1351
+2022-01-18,"GGD Brabant-Zuidoost",1090,318,772
+2022-01-18,"GGD Drenthe",423,325,98
+2022-01-18,"GGD Flevoland",139,66,73
+2022-01-18,"GGD Fryslân",997,410,587
+2022-01-18,"GGD Gelderland-Zuid",918,558,360
+2022-01-18,"GGD Gooi en Vechtstreek",218,69,149
+2022-01-18,"GGD Groningen",1099,125,974
+2022-01-18,"GGD Haaglanden",3021,1541,1480
+2022-01-18,"GGD Hart voor Brabant",2131,375,1756
+2022-01-18,"GGD Hollands-Midden",1877,627,1250
+2022-01-18,"GGD Hollands-Noorden",214,54,160
+2022-01-18,"GGD IJsselland",686,357,329
+2022-01-18,"GGD Kennemerland",1163,426,737
+2022-01-18,"GGD Limburg-Noord",197,7,190
+2022-01-18,"GGD Noord- en Oost-Gelderland",1459,116,1343
+2022-01-18,"GGD Regio Utrecht",3667,1559,2108
+2022-01-18,"GGD Rotterdam-Rijnmond",1660,622,1038
+2022-01-18,"GGD Twente",1566,80,1486
+2022-01-18,"GGD West-Brabant",1252,124,1128
+2022-01-18,"GGD Zaanstreek/Waterland",1191,801,390
+2022-01-18,"GGD Zeeland",1104,236,868
+2022-01-18,"GGD Zuid-Limburg",644,256,388
+2022-01-18,"Veiligheids- en Gezondheidsregio Gelderland-Midden",93,54,39
+2022-01-19,"Dienst Gezondheid & Jeugd ZHZ",170,2,168
+2022-01-19,"GGD Amsterdam",1111,7,1104
+2022-01-19,"GGD Brabant-Zuidoost",956,2,954
+2022-01-19,"GGD Drenthe",225,54,171
+2022-01-19,"GGD Gelderland-Zuid",373,4,369
+2022-01-19,"GGD Hollands-Midden",387,27,360
+2022-01-19,"GGD Hollands-Noorden",75,1,74
+2022-01-19,"GGD Kennemerland",343,19,324
+2022-01-19,"GGD Regio Utrecht",2729,1,2728
+2022-01-19,"GGD Zuid-Limburg",139,1,138
