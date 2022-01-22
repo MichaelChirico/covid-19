@@ -164,7 +164,7 @@ tweet.last_id <- tweet.main.id
 
 tweet.storing <- "Storing!
 
-Het lukt momenteel niet om het hoog aantal meldingen wat binnenkomt vanuit de teststraten te verwerken in het systeem van de GGD en het doormelden. De cijfers betreffen daarom in totaal over de afgelopen 4 dagen een onderrapportage van circa 30.000 meldingen."
+Het lukt momenteel niet om het hoog aantal meldingen wat binnenkomt vanuit de teststraten te verwerken in het systeem van de GGD en het doormelden. De cijfers betreffen daarom in totaal over de afgelopen 5 dagen een onderrapportage van circa 46.000 meldingen."
 
 posted_tweet <- post_tweet (
   tweet.storing,
@@ -205,13 +205,13 @@ tweet.municipality.date <- Sys.Date() %>%
 tweet.municipality.colors <- read.csv("data/municipality-totals-color.csv", fileEncoding = "UTF-8")
 tweet.municipality.cases <- "Geconstateerde besmettingen per gemeente %s
 
-%s %d / 352 gemeentes
+%s %d / 345 gemeentes
 
-%s %d / 352 gemeentes
+%s %d / 345 gemeentes
 
-%s %d / 352 gemeentes
+%s %d / 345 gemeentes
 
-%s %d / 352 gemeentes
+%s %d / 345 gemeentes
 
 Zie de eerste afbeelding voor een uitgebreide legenda
 

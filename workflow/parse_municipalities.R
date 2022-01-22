@@ -163,7 +163,8 @@ dat.purmerend <- dat %>%
     Total_reported = sum(Total_reported),
     Hospital_admission = sum(Hospital_admission),
     Deceased = sum(Deceased),
-  )
+  ) %>%
+  distinct()
 
 dat <- dat %>%
   filter(!Municipality_code %in% dat.purmerend.codes) %>%
@@ -183,7 +184,8 @@ dat.dijkenwaard <- dat %>%
     Total_reported = sum(Total_reported),
     Hospital_admission = sum(Hospital_admission),
     Deceased = sum(Deceased),
-  )
+  ) %>%
+  distinct()
 
 dat <- dat %>%
   filter(!Municipality_code %in% dat.dijkenwaard.codes) %>%
@@ -204,7 +206,8 @@ dat.maashorst <- dat %>%
     Total_reported = sum(Total_reported),
     Hospital_admission = sum(Hospital_admission),
     Deceased = sum(Deceased),
-  )
+  ) %>%
+  distinct()
 
 dat <- dat %>%
   filter(!Municipality_code %in% dat.maashorst.codes) %>%
@@ -216,7 +219,7 @@ rm(dat.maashorst.codes, dat.maashorst)
 
 # Filter Land van Cuijk
 
-dat.landvancuijk.codes <- c("GM1685", "GM0856")
+dat.landvancuijk.codes <- c("GM0756", "GM1684","GM0786","GM0815","GM1702")
 dat.landvancuijk <- dat %>%
   filter(Municipality_code %in% dat.landvancuijk.codes) %>%
   group_by(date) %>%
@@ -226,7 +229,8 @@ dat.landvancuijk <- dat %>%
     Total_reported = sum(Total_reported),
     Hospital_admission = sum(Hospital_admission),
     Deceased = sum(Deceased),
-  )
+  ) %>%
+  distinct()
 
 dat <- dat %>%
   filter(!Municipality_code %in% dat.landvancuijk.codes) %>%
@@ -242,6 +246,7 @@ dat$Hospital_admission <- NULL
 
 ## Add hospital admissions from NICE
 nice.hosp <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv")
+nice.hosp$date <- nice.hosp$Date_of_statistics+1
 
 nice.hosp.cumsum <- nice.hosp %>%
   group_by(
@@ -390,7 +395,9 @@ dat.zeropoint <- dat %>%
 
 dat.cases.lowest <- dat.zeropoint %>%
   slice(which.min(Total_reported)) %>%
-  arrange(match(Municipality_name, c("Total", "Nederland", "Netherlands")), Municipality_code)
+  arrange(match(Municipality_name, c("Total", "Nederland", "Netherlands")), Municipality_code) %>%
+  arrange(desc(date))
+  
 
 dat.hosp.lowest <- dat.zeropoint %>%
   slice(which.min(Hospital_admission)) %>%

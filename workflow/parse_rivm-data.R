@@ -48,7 +48,7 @@ rivm.mun.cum <- rivm.mun.cum %>%
 fwrite(rivm.mun.cum, file = "data-rivm/COVID-19_aantallen_gemeente_per_dag.csv.gz", row.names = F)
 
 ## Parse RIVM Daily data
-rivm.dailydata <- data.frame(as.Date(Sys.Date()),sum(rivm.mun.cum$Total_reported),sum(rivm.mun.cum$Hospital_admission),sum(rivm.mun.cum$Deceased)) ## Calculate totals for cases, hospitalizations, deaths
+rivm.dailydata <- data.frame(as.Date(Sys.Date()),sum(rivm.mun.cum$Total_reported),0,sum(rivm.mun.cum$Deceased)) ## Calculate totals for cases, hospitalizations, deaths
 names(rivm.dailydata) <- c("date","cases","hospitalization","deaths")
 
 filename.daily <- paste0("data-rivm/data-per-day/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data

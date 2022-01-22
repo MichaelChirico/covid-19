@@ -14,15 +14,15 @@ corrections.cases <- sum(df.cases.new$diff)
 net.infection <- new.infection+corrections.cases
 
 ## Hospitals
-hospital.today <- dat.today[, .(hospital.today=sum(Hospital_admission)), by=Date_of_publication]
-hospital.yesterday <- dat.yesterday[, .(hospital.yesterday=sum(Hospital_admission)), by=Date_of_publication]
+#hospital.today <- dat.today[, .(hospital.today=sum(Hospital_admission)), by=Date_of_publication]
+#hospital.yesterday <- dat.yesterday[, .(hospital.yesterday=sum(Hospital_admission)), by=Date_of_publication]
 
-df.hospital.new <- merge(hospital.today,hospital.yesterday,by="Date_of_publication")
-df.hospital.new$diff <- df.hospital.new$hospital.today - df.hospital.new$hospital.yesterday
+#df.hospital.new <- merge(hospital.today,hospital.yesterday,by="Date_of_publication")
+#df.hospital.new$diff <- df.hospital.new$hospital.today - df.hospital.new$hospital.yesterday
 
-new.hospitals <- last(hospital.today$hospital.today)
-corrections.hospitals <- sum(df.hospital.new$diff)
-net.hospitals <- new.hospitals + corrections.hospitals
+#new.hospitals <- last(hospital.today$hospital.today)
+#corrections.hospitals <- sum(df.hospital.new$diff)
+#net.hospitals <- new.hospitals + corrections.hospitals
 
 ## Deaths
 death.today <- dat.today[, .(death.today=sum(Deceased)), by=Date_of_publication]
@@ -36,8 +36,8 @@ corrections.deaths <- sum(df.death.new$diff)
 net.deaths <- new.deaths+corrections.deaths
 
 
-corrections.all <- as.data.frame(cbind(new.infection,corrections.cases, net.infection,new.hospitals,corrections.hospitals, 
-                                       net.hospitals,new.deaths,corrections.deaths,net.deaths))
+corrections.all <- as.data.frame(cbind(new.infection,corrections.cases, net.infection,0,0, 
+                                       0,new.deaths,corrections.deaths,net.deaths))
 
 corrections.all$date <- as.Date(Sys.Date())
 
