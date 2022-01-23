@@ -131,8 +131,6 @@ IC_Aanwezig_Int <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Internationaal)),"
 #### Build tweets ####
 tweet.main <- paste0("#COVID19NL
 
-Storing!
-
 Positief getest: ",format(last(all.data$new.infection),decimal.mark = ",",big.mark =".",big.interval = 3),"
 Totaal: ",format(last(all.data$cases),decimal.mark = ",",big.mark =".",big.interval = 3)," (+",format(last(all.data$net.infection),decimal.mark = ",",big.mark =".",big.interval = 3)," ivm ",last(all.data$corrections.cases)," corr.)
 
@@ -162,15 +160,15 @@ tweet.last_id <- tweet.main.id
 
 ## Storings tweet
 
-tweet.storing <- "Storing!
+#tweet.storing <- "Storing!
 
-Het lukt momenteel niet om het hoog aantal meldingen wat binnenkomt vanuit de teststraten te verwerken in het systeem van de GGD en het doormelden. De cijfers betreffen daarom in totaal over de afgelopen 5 dagen een onderrapportage van circa 46.000 meldingen."
+#Het lukt momenteel niet om het hoog aantal meldingen wat binnenkomt vanuit de teststraten te verwerken in het systeem van de GGD en het doormelden. De cijfers betreffen daarom in totaal over de afgelopen 5 dagen een onderrapportage van circa 46.000 meldingen."
 
-posted_tweet <- post_tweet (
-  tweet.storing,
-  token = token.mzelst,
-  in_reply_to_status_id = tweet.main.id,
-  media = "plots/storing.png") 
+#posted_tweet <- post_tweet (
+#  tweet.storing,
+#  token = token.mzelst,
+#  in_reply_to_status_id = tweet.main.id,
+#  media = "plots/storing.png") 
 
 ##### Generate municipality images ####
 source("workflow/parse_nice-municipalities-data.R")
@@ -428,7 +426,7 @@ tweet.report = "Wij maken ook een dagelijks epidemiologisch rapport (work in pro
 posted_tweet <- post_tweet (
   tweet.report,
   token = token.mzelst,
-  in_reply_to_status_id = tweet.last_id,
+  in_reply_to_status_id = "1484893364977872903",
   auto_populate_reply_metadata = TRUE
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
