@@ -426,7 +426,7 @@ tweet.report = "Wij maken ook een dagelijks epidemiologisch rapport (work in pro
 posted_tweet <- post_tweet (
   tweet.report,
   token = token.mzelst,
-  in_reply_to_status_id = "1484893364977872903",
+  in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
