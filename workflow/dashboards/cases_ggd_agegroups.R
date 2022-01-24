@@ -25,6 +25,7 @@ dat$weekyear <- ifelse(dat$week<10,
                           paste0(dat$year,"-",dat$week))
 
 dat.week.age <- dcast.data.table(dat, Agegroup +  weekyear ~ value, fun.aggregate = sum)
+colnames(dat.week.age) <- c("Agegroup","Week","Cases")
 write.csv(dat.week.age, file = "data-dashboards/cases_week_agegroups.csv",row.names=F)
 
 
