@@ -16,6 +16,18 @@ dat$Municipal_health_service <- recode(dat$Municipal_health_service, "GGD FryslÃ
                                        "GGD Noord en Oost Gelderland" = "GGD Noord- en Oost-Gelderland",
                                        "GGD Twente" = "GGD Regio Twente")
 
+dat <- setDT(dat)
+dat[, week := lubridate::isoweek(ymd(Date_statistics))
+    ][, year := lubridate::isoyear(ymd(Date_statistics))]
+
+dat$weekyear <- ifelse(dat$week<10,
+                          paste0(dat$year,"-",0,dat$week),
+                          paste0(dat$year,"-",dat$week))
+
+dat.week.age <- dcast.data.table(dat, Agegroup +  weekyear ~ value, fun.aggregate = sum)
+write.csv(dat.week.age, file = "data-dashboards/cases_week_agegroups.csv",row.names=F)
+
+
 ggd_data_long <- dcast.data.table(dat, Agegroup + Municipal_health_service + Date_statistics ~ value, fun.aggregate = sum)
 colnames(ggd_data_long) <- c("Leeftijd","statnaam","Datum","cases")
 

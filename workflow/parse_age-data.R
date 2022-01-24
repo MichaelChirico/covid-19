@@ -5,7 +5,13 @@ temp = list.files(path = "data-rivm/casus-datasets/",pattern="*.csv.gz", full.na
 dat <- fread(last(temp), )%>%
   dplyr::filter(Agegroup != "<50" & Agegroup != "Unknown")
 
-dat$week <- strftime(dat$Date_statistics, format = "%Y-%V")
+dat[, week := lubridate::isoweek(ymd(Date_statistics))
+    ][, year := lubridate::isoyear(ymd(Date_statistics))]
+
+dat$weekyear <- ifelse(dat$week<10,
+                       paste0(dat$year,"-",0,dat$week),
+                       paste0(dat$year,"-",dat$week))
+
 dat$value <- 1
 dat_tidy <- aggregate(dat$value, by = list(Leeftijd = dat$Agegroup, Week = dat$week), FUN = sum)
 
