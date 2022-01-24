@@ -13,7 +13,7 @@ dat$weekyear <- ifelse(dat$week<10,
                        paste0(dat$year,"-",dat$week))
 
 dat$value <- 1
-dat_tidy <- aggregate(dat$value, by = list(Leeftijd = dat$Agegroup, Week = dat$week), FUN = sum)
+dat_tidy <- aggregate(dat$value, by = list(Leeftijd = dat$Agegroup, Week = dat$weekyear), FUN = sum)
 
 #dat_tidy$Week <- as.numeric(dat_tidy$Week)
 colnames(dat_tidy) <- c("Leeftijd","Week","Besmettingen")

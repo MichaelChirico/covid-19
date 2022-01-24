@@ -50,6 +50,7 @@ git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 repo <- init()
 add(repo, path = "data-dashboards/cases_ggd_agegroups.csv")
-commit(repo, all = T, paste0("Update cases per ggd per agegroup ",Sys.Date()))
+add(repo, path = "data-dashboards/cases_week_agegroups.csv")
+commit(repo, all = T, paste0("Update cases per ggd/per week per agegroup ",Sys.Date()))
 push(repo, credentials = git.auth)
 
