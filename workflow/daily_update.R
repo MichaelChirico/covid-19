@@ -442,6 +442,7 @@ bot$sendMessage('Update voor Twitter is klaar')
 
 ## Workflows for databases
 rm(list=ls())
+tic()
 source("workflow/dashboards/cases_ggd_agegroups.R")
 source("workflow/dashboards/date_statistics_mutations.R")
 source("workflow/parse_age-data.R")
@@ -501,6 +502,6 @@ source("workflow/parse_vaccines_ecdc.R")
 #gm_auth("marinovanzelst@gmail.com")
 
 #gm_send_message(my_email_message)
-
+toc()
 remove(list = ls())
 source("workflow/twitter/token_mzelst.R")
