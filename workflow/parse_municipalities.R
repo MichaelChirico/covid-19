@@ -18,7 +18,7 @@ rm(rivm.municipalities, last_date, filename.municipality,filename.municipality.c
 
 # const.date <- as.Date('2020-09-10') ## Change when you want to see a specific date
 const.use_daily_dataset <- FALSE # Use COVID-19_aantallen_gemeente_per_dag.csv instead of COVID-19_aantallen_gemeente_cumulatief.csv
-const.use_hospital_dataset <- TRUE # Use the dedicated COVID-19_ziekenhuisopnames.csv instead of the combined set
+const.use_hospital_dataset <- FALSE # Use the dedicated COVID-19_ziekenhuisopnames.csv instead of the combined set
 
 # set emoji's for unix and windows
 emoji.up <- intToUtf8(0x279A)
@@ -246,7 +246,7 @@ dat$Hospital_admission <- NULL
 
 ## Add hospital admissions from NICE
 nice.hosp <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv")
-nice.hosp$date <- nice.hosp$Date_of_statistics+1
+
 
 nice.hosp.cumsum <- nice.hosp %>%
   group_by(
@@ -255,7 +255,11 @@ nice.hosp.cumsum <- nice.hosp %>%
   mutate(Hospital_admission = cumsum(Hospital_admission)) %>%
   ungroup() %>%
   select(Municipality_code,Municipality_name,Hospital_admission,Date_of_statistics) %>%
-  rename(date = Date_of_statistics)
+  rename(date = Date_of_statistics) %>%
+  mutate(Municipality_name = recode(Municipality_name, "Noardeast-FryslÃ¢n" = "Noardeast-Fryslân",
+                                    "SÃºdwest-FryslÃ¢n" = "Súdwest-Fryslân"))
+
+nice.hosp.cumsum$date <- nice.hosp.cumsum$date+1
 
 dat <- merge(dat,nice.hosp.cumsum,by=c("date","Municipality_code","Municipality_name"),all.x=T)
 

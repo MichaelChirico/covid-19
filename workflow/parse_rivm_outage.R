@@ -32,6 +32,6 @@ git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 ## Push to git
 repo <- init()
-add(repo, path = "*")
+add(repo, path = "data-misc/data_rivm_outages.csv")
 commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update RIVM data outage"))
 push(repo, credentials = git.auth)
