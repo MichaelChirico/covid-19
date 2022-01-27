@@ -18,7 +18,7 @@ rm(rivm.municipalities, last_date, filename.municipality,filename.municipality.c
 
 # const.date <- as.Date('2020-09-10') ## Change when you want to see a specific date
 const.use_daily_dataset <- FALSE # Use COVID-19_aantallen_gemeente_per_dag.csv instead of COVID-19_aantallen_gemeente_cumulatief.csv
-const.use_hospital_dataset <- FALSE # Use the dedicated COVID-19_ziekenhuisopnames.csv instead of the combined set
+const.use_hospital_dataset <- TRUE # Use the dedicated COVID-19_ziekenhuisopnames.csv instead of the combined set
 
 # set emoji's for unix and windows
 emoji.up <- intToUtf8(0x279A)
@@ -246,7 +246,7 @@ dat$Hospital_admission <- NULL
 
 ## Add hospital admissions from NICE
 nice.hosp <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv")
-nice.hosp.cumsum$date <- nice.hosp.cumsum$date+1
+nice.hosp$date <- nice.hosp$Date_of_statistics+1
 
 nice.hosp.cumsum <- nice.hosp %>%
   group_by(
@@ -471,6 +471,10 @@ dat.cases.today.simple <- dat.cases.today %>%
     increase_7d,
     growth,
   )
+
+if(!const.use_hospital_dataset){ 
+  const.date_hosp <- const.date_hosp - 1
+}
 
 dat.hosp.today <- transmute(dat.hosp,
                             municipality = Municipality_name,
