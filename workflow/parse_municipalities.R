@@ -246,7 +246,7 @@ dat$Hospital_admission <- NULL
 
 ## Add hospital admissions from NICE
 nice.hosp <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv")
-
+nice.hosp.cumsum$date <- nice.hosp.cumsum$date+1
 
 nice.hosp.cumsum <- nice.hosp %>%
   group_by(
@@ -259,7 +259,7 @@ nice.hosp.cumsum <- nice.hosp %>%
   mutate(Municipality_name = recode(Municipality_name, "Noardeast-FryslÃ¢n" = "Noardeast-Fryslân",
                                     "SÃºdwest-FryslÃ¢n" = "Súdwest-Fryslân"))
 
-nice.hosp.cumsum$date <- nice.hosp.cumsum$date+1
+
 
 dat <- merge(dat,nice.hosp.cumsum,by=c("date","Municipality_code","Municipality_name"),all.x=T)
 
