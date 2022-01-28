@@ -147,7 +147,6 @@ Huidig: ",Kliniek_Aanwezig,")
 
 Opgenomen op IC: ",IC_Nieuwe_Opnames,"
 Huidig IC Nederland: ",IC_Aanwezig,")
-Huidig IC Duitsland: ",IC_Aanwezig_Int,")
 
 Overleden: ",last(all.data$new.deaths),"
 Totaal: ",format(last(all.data$deaths),decimal.mark = ",",big.mark =".",big.interval = 3),"")
@@ -344,7 +343,7 @@ if (nice.date == Sys.Date()){
 GGD teststraat (",format(as.Date(Sys.Date()-2), "%d %b"),")
 Positief: ",last(tests$values.infected),"
 Aantal testen: ",last(tests$values.tested_total),"
-Percentage: ",round(last(tests$values.infected_percentage,1)),"
+Percentage: ",round(last(tests$values.infected_percentage),1),"%
   
 Patiënten Kliniek 
 Bevestigd: ",Verpleeg_Opname_Bevestigd,"
