@@ -130,7 +130,7 @@ IC_Nieuwe_Opnames <- ifelse(is.na(last(all.data$IC_Nieuwe_Opnames_COVID_Nederlan
 IC_Aanwezig <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Nederland)),"Onbekend",paste0(last(all.data$IC_Bedden_COVID_Nederland),sign.ic.lcps,LCPS_IC_Huidig_Toename))
 IC_Aanwezig_Int <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Internationaal)),"Onbekend",paste0(last(all.data$IC_Bedden_COVID_Internationaal),sign.ic.int.lcps,LCPS_IC_Int_Huidig_Toename))
 
-#source("workflow/parse_rivm_outage.R")
+source("workflow/parse_rivm_outage.R")
 
 #vaccins.geprikt <- format(last(vaccines.by_day$vaccines_administered_ggd+vaccines.by_day$vaccines_administered_estimated_hospital),decimal.mark = ",",big.mark =".",big.interval = 3)
 
@@ -166,15 +166,15 @@ tweet.last_id <- tweet.main.id
 
 ## Storings tweet
 
-#tweet.storing <- paste0("Storing!
+tweet.storing <- paste0("Storing!
 
-#Het lukt momenteel niet om het hoog aantal meldingen wat binnenkomt vanuit de teststraten te verwerken in het systeem van de GGD. De cijfers betreffen daarom in totaal over de afgelopen ",days.since," dagen een onderrapportage van circa ",infections.missing," meldingen.")
+Het lukt momenteel niet om het hoog aantal meldingen wat binnenkomt vanuit de teststraten te verwerken in het systeem van de GGD. De cijfers betreffen daarom in totaal over de afgelopen ",days.since," dagen een onderrapportage van circa ",infections.missing," meldingen.")
 
-#posted_tweet <- post_tweet (
-#  tweet.storing,
-#  token = token.mzelst,
-#  in_reply_to_status_id = tweet.main.id,
-#  media = "plots/dagelijkse_storing.png") 
+posted_tweet <- post_tweet (
+  tweet.storing,
+  token = token.mzelst,
+  in_reply_to_status_id = tweet.main.id,
+  media = "plots/dagelijkse_storing.png") 
 
 ##### Generate municipality images ####
 source("workflow/parse_nice-municipalities-data.R")
