@@ -312,6 +312,8 @@ dat.today = as.data.frame(lapply(tail(list.files(path = "data-nice/data-nice-jso
 nice.date <- as.Date(last(dat.today$date))
 today.date <- Sys.Date()
 
+tests <- read.csv("data-dashboards/percentage-positive-daily-national.csv")[,c("date","values.tested_total","values.infected","values.infected_percentage")]
+
 if (nice.date == Sys.Date()){
   ## Workflows for plots
   source("plot_scripts/daily_plots.R")
@@ -337,17 +339,20 @@ if (nice.date == Sys.Date()){
   
   # Tweet for hospital numbers - Data NICE ####
   
-  tweet.nice <- paste0("#COVID19NL ziekenhuis (data NICE):
+  tweet.nice <- paste0("#COVID19NL GGD en ziekenhuis (data NICE):
+
+GGD teststraat (",format(as.Date(Sys.Date()-2), "%d %b"),")
+Positief: ",last(tests$values.infected),"
+Aantal testen: ",last(tests$values.tested_total),"
+Percentage: ",round(last(tests$values.infected_percentage,1)),"
   
 Patiënten Kliniek 
 Bevestigd: ",Verpleeg_Opname_Bevestigd,"
-Verdacht: ",Verpleeg_Opname_Verdacht,"
 Huidig: ",last(dat.today$Hospital_Currently),sign.hosp.nice,Verpleeg_Huidig_Toename,")
 Totaal: ",last(dat.today$Hospital_Cumulative),"
 
 Patiënten IC
 Bevestigd: ",IC_Opname_Bevestigd,"
-Verdacht: ",IC_Opname_Verdacht,"
 Huidig: ",last(dat.today$IC_Current),sign.ic.nice,IC_Huidig_Toename,")
 Totaal: ",last(dat.today$IC_Cumulative))
   

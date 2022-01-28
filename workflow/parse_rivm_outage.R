@@ -1,4 +1,4 @@
-u <- "https://data.rivm.nl/covid-19/"
+u <- "https://www.rivm.nl/coronavirus-covid-19/actueel"
 
 webshot(u, cliprect = c(10, 50, 950, 300), file = "plots/dagelijkse_storing.png")
 
@@ -9,13 +9,13 @@ webpage.text <- webpage %>%
   html_text()
 
 
-webpage.text <- webpage.text[2]
+webpage.text <- webpage.text[4]
 webpage.text <- gsub('[.]', '', webpage.text)
 webpage.text.test <- parse_number(webpage.text)
 matches <- regmatches(webpage.text, gregexpr("[[:digit:]]+", webpage.text))
 
-days.since <- matches[[1]][4]
-infections.missing <- matches[[1]][5]
+days.since <- matches[[1]][2]
+infections.missing <- matches[[1]][2]
 dat.outage.today <- data.frame(as.Date(Sys.Date()),days.since,infections.missing)
 colnames(dat.outage.today) <- c("date","days_since","infections_missed")
 dat.outage.today$date <- as.Date(dat.outage.today$date)
@@ -33,5 +33,5 @@ git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 ## Push to git
 repo <- init()
 add(repo, path = "data-misc/data_rivm_outages.csv")
-commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update RIVM data outage"))
+commit(repo, all = T, paste0("[", last(dat.outage$date), "] Daily (automated) update RIVM data outage"))
 push(repo, credentials = git.auth)
