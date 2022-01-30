@@ -63,6 +63,8 @@ ggsave("plots/positieve_tests_per_dag.png",width=12, height = 8)
 
 testplot.subtitle <- paste0("Let op: percentage is bekend t/m ",Sys.Date()-2," \n\n Maandagen")
 
+y.limit.tests <- round(max(testdata$values.infected_percentage),1)+0.02
+
 # Plot for positive tests per day
 testplot <- testdata %>%
   filter(date > filter.date) %>%
@@ -70,7 +72,7 @@ testplot <- testdata %>%
   geom_line(aes(y = values.infected_percentage, color = "Percentage positief per dag (GGD)"), lwd=1.2) +
   geom_line(aes(y = pos.rate.7d.avg, color = "Percentage positief - Zwevend 7-daags gemiddelde (GGD)"), lwd=1.2) +
   scale_x_date(breaks = "1 weeks") + 
-  scale_y_continuous(limits = c(0, 0.56), labels = scales::percent, breaks = seq(0,0.56,0.02)) +
+  scale_y_continuous(limits = c(0, y.limit.tests), labels = scales::percent, breaks = seq(0,y.limit.tests,0.02)) +
   theme_bw() +
   theme(axis.title.x=element_blank(),
         axis.title.y=element_blank(),
