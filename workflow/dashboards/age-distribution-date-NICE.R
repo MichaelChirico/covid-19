@@ -267,11 +267,3 @@ df_nice_deaths <- df_nice_deaths %>%
   mutate(week = isoweek(Datum)) %>%
   mutate(year = isoyear(Datum))
 week_deaths_nice <- aggregate(Totaal ~ week + year, data = df_nice_deaths, FUN = sum)
-
-
-## Push to github
-add(repo, path = "*")
-commit(repo, all = T, paste0("Update NICE age-distribution in hospital ",Sys.Date()))
-push(repo, credentials = git.auth)
-
-rm(list=ls())
