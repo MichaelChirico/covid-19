@@ -130,8 +130,6 @@ IC_Nieuwe_Opnames <- ifelse(is.na(last(all.data$IC_Nieuwe_Opnames_COVID_Nederlan
 IC_Aanwezig <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Nederland)),"Onbekend",paste0(last(all.data$IC_Bedden_COVID_Nederland),sign.ic.lcps,LCPS_IC_Huidig_Toename))
 IC_Aanwezig_Int <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Internationaal)),"Onbekend",paste0(last(all.data$IC_Bedden_COVID_Internationaal),sign.ic.int.lcps,LCPS_IC_Int_Huidig_Toename))
 
-source("workflow/parse_rivm_outage.R")
-
 #vaccins.geprikt <- format(last(vaccines.by_day$vaccines_administered_ggd+vaccines.by_day$vaccines_administered_estimated_hospital),decimal.mark = ",",big.mark =".",big.interval = 3)
 
 #### Build tweets ####
@@ -164,6 +162,7 @@ tweet.main.id <- posted_tweet$id_str
 tweet.last_id <- tweet.main.id
 
 ## Storings tweet
+source("workflow/parse_rivm_outage.R")
 
 tweet.storing <- paste0("Storing!
 
