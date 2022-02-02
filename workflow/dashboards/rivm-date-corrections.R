@@ -1,16 +1,29 @@
 #### Corrections scripts
+temp = last(list.files(path = "data-rivm/casus-datasets/",pattern="*.csv.gz", full.names = T),2) ## Pull names of all available datafiles
+df.today <- fread(temp[2])
+df.yesterday <- fread(temp[1])
 
-temp = tail(list.files(path = "data-rivm/casus-datasets/",pattern="*.csv.gz", full.names = T),2)
-myfiles = lapply(temp, fread)
+df.today <- df.today %>%
+  mutate(value = 1) %>%
+  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS")))
 
-df <- map_dfr(myfiles, ~{
-  .x
-})
+df_date_long <- dcast.data.table(df.today, Date_statistics + date ~ value, fun.aggregate = sum)
+rm(df.today)
+gc()
 
-df$value <- 1
-df$date <- as.Date(parse_date_time(df$Date_file, "Ymd HMS"))
+df.yesterday <- df.yesterday %>%
+  mutate(value = 1) %>%
+  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS")))
 
-df.cases <- dcast.data.table(df, Date_statistics + date ~ value, fun.aggregate = sum)
+df_date_long.yesterday <- dcast.data.table(df.yesterday, Date_statistics + date ~ value, fun.aggregate = sum)
+rm(df.yesterday)
+gc()
+
+df.cases <- rbind(df_date_long, df_date_long.yesterday)
+
+
+
+
 df.cases <- spread(df.cases, key = date, value = `1`)
 
 col.start.diff <- ncol(df.cases)+1
@@ -41,12 +54,31 @@ write.csv(df.cases, file = "corrections/cases_perday.csv", row.names = F)
 
 
 ## Deaths
-df.death <- df %>%
-  dplyr::filter(Deceased == "Yes")
+df.today <- fread(temp[2])
+df.yesterday <- fread(temp[1])
 
-df.deaths <- dcast.data.table(df.death, Date_statistics + date ~ value, fun.aggregate = sum)
+df.today <- df.today %>%
+  dplyr::filter(Deceased == "Yes") %>%
+  mutate(value = 1) %>%
+  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS")))
 
-deaths.wide <- spread(df.deaths, key = date, value = `1`)
+df_date_long <- dcast.data.table(df.today, Date_statistics + date ~ value, fun.aggregate = sum, fill = 0)
+rm(df.today)
+gc()
+
+df.yesterday <- df.yesterday %>%
+  dplyr::filter(Deceased == "Yes") %>%
+  mutate(value = 1) %>%
+  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS")))
+
+df_date_long.yesterday <- dcast.data.table(df.yesterday, Date_statistics + date ~ value, fun.aggregate = sum, fill = 0)
+rm(df.yesterday)
+gc()
+
+df.deaths <- rbind(df_date_long, df_date_long.yesterday)
+colnames(df.deaths) <- c("Date_statistics","date","value")
+
+deaths.wide <- spread(df.deaths, key = date, value = value)
 setDF(deaths.wide)
 
 # Calculate moving difference between cases per day
@@ -55,11 +87,12 @@ deaths.wide[paste0("diff",seq_along(dates.lead)+1,seq_along(dates.trail))] <- de
 write.csv(deaths.wide, file = "corrections/deaths_perday.csv", row.names = F)
 
 ## Week of death - diff file
-dat.today <- as.data.frame(myfiles[2])
-dat.yesterday <- as.data.frame(myfiles[1])
+dat.today <- fread(temp[2])
+dat.yesterday <- fread(temp[1])
 
 dat.today$Week <- substr(dat.today$Week_of_death, 5, 6)
 dat.yesterday$Week <- substr(dat.yesterday$Week_of_death, 5, 6)
+gc()
 
 dat.today$Year <- substr(dat.today$Week_of_death, 1, 4)
 dat.yesterday$Year <- substr(dat.yesterday$Week_of_death, 1, 4)
@@ -75,9 +108,8 @@ df.weekdeath <- df.weekdeath[order(df.weekdeath$Year),]
 write.csv(df.weekdeath, file = "corrections/deaths_perweek.csv", row.names = F)
 
 ## Date of death - per GGD - diff file
-
-dat.today <- setDT(as.data.frame(myfiles[2]))
-dat.yesterday <- setDT(as.data.frame(myfiles[1]))
+dat.today <- fread(temp[2])
+dat.yesterday <- fread(temp[1])
 
 dat.today$death.today <- ifelse(dat.today$Deceased=="Yes",1,0)
 dat.yesterday$death.yesterday <- ifelse(dat.yesterday$Deceased=="Yes",1,0)
@@ -94,7 +126,6 @@ df.death.new.corr <- df.death.new %>%
 write.csv(df.death.new.corr, file = "corrections/deaths_perggd.csv", row.names = F)
 
 ## Date of cases - per GGD - diff file
-
 dat.today$cases.today <- 1
 dat.yesterday$cases.yesterday <- 1
 
@@ -147,7 +178,7 @@ df.hospital.new.corr.mun <- df.hospital.new.mun %>%
 write.csv(df.hospital.new.corr.mun, file = "corrections/hospital_per_municipality.csv", row.names = F)
 
 remove(list = ls())
-
+gc()
 # Git
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
