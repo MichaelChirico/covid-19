@@ -1,13 +1,25 @@
 temp = last(list.files(path = "data-rivm/casus-datasets/",pattern="*.csv.gz", full.names = T),2) ## Pull names of all available datafiles
-myfiles = lapply(temp, fread)
+df.today <- fread(temp[2])
+df.yesterday <- fread(temp[1])
 
-df <- map_dfr(myfiles, ~{
-  .x
-})
-df$value <- 1
-df$date <- as.Date(parse_date_time(df$Date_file, "Ymd HMS"))
+df.today <- df.today %>%
+  mutate(value = 1) %>%
+  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS")))
 
-df_date_long <- dcast.data.table(df, Date_statistics_type + Date_statistics + date ~ value, fun.aggregate = sum)
+df_date_long <- dcast.data.table(df.today, Date_statistics_type + Date_statistics + date ~ value, fun.aggregate = sum)
+rm(df.today)
+gc()
+
+df.yesterday <- df.yesterday %>%
+  mutate(value = 1) %>%
+  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS")))
+
+df_date_long.yesterday <- dcast.data.table(df.yesterday, Date_statistics_type + Date_statistics + date ~ value, fun.aggregate = sum)
+rm(df.yesterday)
+gc()
+
+df_date_long <- rbind(df_date_long, df_date_long.yesterday)
+
 colnames(df_date_long) <- c("Type_Datum","Datum","Dag","x")
 setorder(df_date_long, Dag ,Datum)
 
@@ -22,8 +34,7 @@ df.final <- spread(df_date_wide, key = Type_Datum, value = Verschil, fill = 0)
 colnames(df.final) <- c("Datum","DON_diff","DOO_diff","DPL_diff")
 df.final$Datum <- as.Date(df.final$Datum)
 
-temp = last(list.files(path = "data-rivm/casus-datasets/",pattern="*.csv", full.names = T)) ## Pull names of all available datafiles
-dat.today <- setDT(as.data.frame(myfiles[2]))
+dat.today <- fread(temp[2])
 dat.today$value <- 1
 
 date_type.df <- dcast.data.table(dat.today, Date_statistics + Date_statistics_type ~ value, fun.aggregate = sum)
