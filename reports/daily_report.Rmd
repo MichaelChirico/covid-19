@@ -1,5 +1,5 @@
 ---
-title             : "Epidemiologische situatie COVID-19 in Nederland - `r format((Sys.Date()),'%d')` `r format((Sys.Date()),'%B')` 2021"
+title             : "Epidemiologische situatie COVID-19 in Nederland - `r format((Sys.Date()),'%d')` `r format((Sys.Date()),'%B')` 2022"
 shorttitle        : "Dagelijkse rapportage"
 
 author: 
@@ -7,11 +7,11 @@ author:
     affiliation   : "1"
     corresponding : yes    # Define only one corresponding author
     address       : "twitter.com/mzelst"
-    email         : "j.m.vanzelst@uvt.nl"
+    email         : "marino.vanzelst@wur.nl"
 
 affiliation:
   - id            : "1"
-    institution   : "Vragen over deze rapportage kunnen verstuurd worden aan Marino van Zelst, twitter.com/mzelst. E-mail: j.m.vanzelst@uvt.nl"
+    institution   : "Vragen over deze rapportage kunnen verstuurd worden aan Marino van Zelst, twitter.com/mzelst. E-mail: marino.vanzelst@wur.nl"
 
 floatsintext      : no
 figurelist        : no

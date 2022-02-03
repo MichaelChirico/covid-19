@@ -503,7 +503,7 @@ source("workflow/parse_vaccines_ecdc.R")
 #  gm_to("j.m.vanzelst@uvt.nl") %>%
 #  gm_from("marinovanzelst@gm ail.com") %>%
 #  gm_subject(latest_msg) %>%
-#  gm_text_body(IC_message)
+#  gm_text_body(IC_message) 
 
 #gm_auth("marinovanzelst@gmail.com")
 
