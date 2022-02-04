@@ -1,20 +1,15 @@
-temp = tail(list.files(path = "data-rivm/nursing-homes-datasets/",pattern="*.csv.gz", full.names = T),1)
-nursing.homes <- fread(temp)
+nursing.homes = fread(tail(list.files(path = "data-rivm/nursing-homes-datasets/",pattern="*.csv.gz", full.names = T),1))
 
-nursing.homes$Date_of_statistic_reported <- as.Date(nursing.homes$Date_of_statistic_reported)
+nursing.homes.wide <- aggregate(cbind(Total_cases_reported, Total_deceased_reported) ~ Date_of_statistic_reported, data = nursing.homes, FUN = sum)
 
-nursing.homes.cases.wide <- aggregate(Total_cases_reported ~ Date_of_statistic_reported, data = nursing.homes, FUN = sum)
-nursing.homes.deaths.wide <- aggregate(Total_deceased_reported ~ Date_of_statistic_reported, data = nursing.homes, FUN = sum)
-
-nursing.homes.wide <- merge(nursing.homes.cases.wide,nursing.homes.deaths.wide, by = c("Date_of_statistic_reported"))
-
-nursing.homes.wide$cases_7daverage_nursinghomes <- round(frollmean(nursing.homes.wide[,"Total_cases_reported"],7),0)
-nursing.homes.wide$deceased_7daverage_nursinghomes <- round(frollmean(nursing.homes.wide[,"Total_deceased_reported"],7),0)
+nursing.homes.wide <- nursing.homes.wide %>%
+  mutate(cases_7daverage_nursinghomes = round(frollmean(Total_cases_reported,7),0)) %>%
+  mutate(deceased_7daverage_nursinghomes = round(frollmean(Total_deceased_reported,7),0))
 
 date.nursery.homes <- as.Date(Sys.Date())
 
 nursing.homes.plot <- nursing.homes.wide %>%
-  filter(Date_of_statistic_reported > "2020-01-01" & Date_of_statistic_reported < date.nursery.homes) %>%
+  dplyr::filter(Date_of_statistic_reported > "2020-01-01" & Date_of_statistic_reported < date.nursery.homes) %>%
   ggplot(aes(x = Date_of_statistic_reported, y = cases_7daverage_nursinghomes)) +
   geom_line(aes(y = deceased_7daverage_nursinghomes, color = "Sterfte per dag"), lwd=1.0) +
   geom_line(aes(y = cases_7daverage_nursinghomes, color = "Geconstateerde besmettingen"),lwd=1.0) +
@@ -34,27 +29,22 @@ nursing.homes.plot <- nursing.homes.wide %>%
 ggsave("plots/verpleeghuizen_bewoners.png",width=12, height = 8)
 
 
-
-
 ## Counts for nursing homes
 
 temp = tail(list.files(path = "data-rivm/nursing-homes-datasets/",pattern="*.csv.gz", full.names = T),2)
-myfiles = lapply(temp, fread)
-
-dat.today <- as.data.frame(myfiles[2])
-dat.yesterday <- as.data.frame(myfiles[1])
+dat.today <- fread(temp[2])
+dat.yesterday <- fread(temp[1])
 
 # Positive tests
 nursing.homes.infection <- sum(dat.today$Total_cases_reported) - sum(dat.yesterday$Total_cases_reported)
 nursing.homes.deaths <- sum(dat.today$Total_deceased_reported) - sum(dat.yesterday$Total_deceased_reported)
 
 locations <- aggregate(Total_infected_locations_reported ~ Date_of_statistic_reported, data = dat.today, FUN = sum)
-locations$Date_of_statistic_reported <- as.Date(locations$Date_of_statistic_reported)
 
 locations.today <- aggregate(Total_new_infected_locations_reported ~ Date_of_statistic_reported, data = dat.today, FUN = sum)
-locations.today$Date_of_statistic_reported <- as.Date(locations.today$Date_of_statistic_reported)
+
 locations.yesterday <- aggregate(Total_new_infected_locations_reported ~ Date_of_statistic_reported, data = dat.yesterday, FUN = sum)
-locations.yesterday$Date_of_statistic_reported <- as.Date(locations.yesterday$Date_of_statistic_reported)
+
 df.locations.new <- merge(locations.today,locations.yesterday,by="Date_of_statistic_reported", all.x=T)
 df.locations.new$diff <- df.locations.new$Total_new_infected_locations_reported.x - df.locations.new$Total_new_infected_locations_reported.y
 
@@ -94,15 +84,10 @@ write.csv(nursing.homes.all, file = paste0("data-rivm/nursing-homes-per-day/nurs
 
 ## Merge all daily files
 temp = list.files(path = "data-rivm/nursing-homes-per-day/",pattern="*.csv", full.names = T) ## Fetch all day files
-myfiles = lapply(temp, read.csv) ## Load all day files
+nursery_by_day <- rbindlist(lapply(temp,fread))
 
-nursery_by_day <- map_dfr(myfiles, ~{ ## Write dataframe of all day files
-  .x
-})
-
-nursery_by_day$date <- as.Date(nursery_by_day$date)
 nursery_by_day <- nursery_by_day[order(nursery_by_day$date),]
 colnames(nursery_by_day) <- c("infections.today.nursery","infections.total.nursery","deaths.today.nursery",
                               "deaths.total.nursery","mutations.locations.nursery","total.current.locations.nursery","date")
-write.csv(nursery_by_day, file = "data/nursery_by_day.csv",row.names = F) ## Write file with aggregate data per day
+fwrite(nursery_by_day, file = "data/nursery_by_day.csv") ## Write file with aggregate data per day
 

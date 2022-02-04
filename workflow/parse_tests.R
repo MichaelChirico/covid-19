@@ -1,12 +1,6 @@
-temp = tail(list.files(path = "data-rivm/tests/",pattern="*.csv.gz", full.names = T),1)
-tests <- fread(temp)
+tests <- fread(tail(list.files(path = "data-rivm/tests/",pattern="*.csv.gz", full.names = T),1))
+tests.df <- aggregate(cbind(Tested_with_result,Tested_positive) ~ Date_of_statistics, data = tests, FUN = sum)
 
-tests$Date_of_statistics <- as.Date(tests$Date_of_statistics)
-
-tests.wide <- aggregate(Tested_with_result ~ Date_of_statistics, data = tests, FUN = sum)
-tests.positive.wide <- aggregate(Tested_positive ~ Date_of_statistics, data = tests, FUN = sum)
-
-tests.df <- merge(tests.wide,tests.positive.wide, by = c("Date_of_statistics"))
 tests.df <- tests.df %>%
   mutate(pos.rate = Tested_positive/Tested_with_result*100) %>%
   mutate(tests_7davg = frollmean(Tested_with_result,7)) %>%
