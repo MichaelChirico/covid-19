@@ -121,7 +121,7 @@ df.death.new <- merge(death.today,death.yesterday,by=c("Date_statistics","Munici
 df.death.new$diff <- df.death.new$death.today-df.death.new$death.yesterday
 
 df.death.new.corr <- df.death.new %>%
-  filter(diff > 0 | diff < 0)
+  dplyr::filter(diff > 0 | diff < 0)
 
 write.csv(df.death.new.corr, file = "corrections/deaths_perggd.csv", row.names = F)
 
@@ -136,7 +136,7 @@ df.cases.new <- merge(cases.today,cases.yesterday,by=c("Date_statistics","Munici
 df.cases.new$diff <- df.cases.new$cases.today-df.cases.new$cases.yesterday
 
 df.cases.new.corr <- df.cases.new %>%
-  filter(diff > 0 | diff < 0)
+  dplyr::filter(diff > 0 | diff < 0)
 
 write.csv(df.cases.new.corr, file = "corrections/cases_perggd.csv", row.names = F)
 
@@ -155,7 +155,7 @@ df.cases.new.mun <- merge(cases.today.mun,cases.yesterday.mun,by=c("Date_of_publ
 df.cases.new.mun$diff <- df.cases.new.mun$cases.today.mun-df.cases.new.mun$cases.yesterday.mun
 
 df.cases.new.corr.mun <- df.cases.new.mun %>%
-  filter(diff > 0 | diff < 0)
+  dplyr::filter(diff > 0 | diff < 0)
 
 write.csv(df.cases.new.corr.mun, file = "corrections/cases_per_municipality.csv", row.names = F)
 
@@ -173,7 +173,7 @@ df.hospital.new.mun <- merge(hospital.today.mun,hospital.yesterday.mun,by=c("Dat
 df.hospital.new.mun$diff <- df.hospital.new.mun$hospital.today.mun-df.hospital.new.mun$hospital.yesterday.mun
 
 df.hospital.new.corr.mun <- df.hospital.new.mun %>%
-  filter(diff > 0 | diff < 0)
+  dplyr::filter(diff > 0 | diff < 0)
 
 write.csv(df.hospital.new.corr.mun, file = "corrections/hospital_per_municipality.csv", row.names = F)
 
