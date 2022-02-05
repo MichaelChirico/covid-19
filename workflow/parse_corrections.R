@@ -1,5 +1,5 @@
 temp = tail(list.files(path = "data-rivm/municipal-datasets-per-day/",pattern="*.csv", full.names = T),2)
-dat.today <- rivm.mun.perday
+dat.today <- fread(temp[2])
 dat.yesterday <- fread(temp[1])
 
 # Positive tests
