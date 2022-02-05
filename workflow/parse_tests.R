@@ -1,4 +1,3 @@
-tests <- fread(tail(list.files(path = "data-rivm/tests/",pattern="*.csv.gz", full.names = T),1))
 tests.df <- aggregate(cbind(Tested_with_result,Tested_positive) ~ Date_of_statistics, data = tests, FUN = sum)
 
 tests.df <- tests.df %>%

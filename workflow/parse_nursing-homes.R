@@ -1,5 +1,3 @@
-nursing.homes = fread(tail(list.files(path = "data-rivm/nursing-homes-datasets/",pattern="*.csv.gz", full.names = T),1))
-
 nursing.homes.wide <- aggregate(cbind(Total_cases_reported, Total_deceased_reported) ~ Date_of_statistic_reported, data = nursing.homes, FUN = sum)
 
 nursing.homes.wide <- nursing.homes.wide %>%
@@ -32,7 +30,7 @@ ggsave("plots/verpleeghuizen_bewoners.png",width=12, height = 8)
 ## Counts for nursing homes
 
 temp = tail(list.files(path = "data-rivm/nursing-homes-datasets/",pattern="*.csv.gz", full.names = T),2)
-dat.today <- fread(temp[2])
+dat.today <- nursing.homes
 dat.yesterday <- fread(temp[1])
 
 # Positive tests

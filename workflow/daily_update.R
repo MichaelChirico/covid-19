@@ -1,3 +1,5 @@
+memory.limit(size = 60000)
+
 time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
 #time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
 
@@ -74,7 +76,7 @@ pull(repo)
 
 #if (condition) {stop("The value is TRUE, so the script must end here")    
 #} else { 
-
+tic()
 # Parse RIVM, NICE and corrections data
 source("workflow/parse_rivm-data.R")
 source("workflow/parse_nursing-homes.R")
@@ -103,7 +105,7 @@ all.data <- Reduce(
 
 all.data$date <- as.Date(all.data$date)
 all.data <- all.data[order(all.data$date),]
-
+toc()
 write.csv(all.data, file = "data/all_data.csv",row.names = F)
 
 all.data <- read.csv("data/all_data.csv")
