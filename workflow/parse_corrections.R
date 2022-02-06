@@ -41,11 +41,13 @@ corrections.all <- as.data.frame(cbind(new.infection,corrections.cases, net.infe
 
 corrections.all$date <- as.Date(Sys.Date())
 
-filename <- paste0("corrections/corrections_per_day/corrections-",Sys.Date(),'.csv')
+filename <- paste0("corrections/corrections_per_day/corrections-",Sys.Date()-1,'.csv')
 write.csv(corrections.all, file = filename, row.names=F)
 
 temp = list.files(path = "corrections/corrections_per_day/",pattern="*.csv", full.names = T)
 corrections.perday = rbindlist(lapply(temp, fread))
+corrections.perday <- corrections.perday[order(corrections.perday$date),]
+
 
 corrections.perday[,positive_7daverage := round(frollmean(new.infection,7),0)
                    ][,positive_14d := lag(positive_7daverage,7)

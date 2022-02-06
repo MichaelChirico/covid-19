@@ -15,35 +15,19 @@ filename.mun.perday.compressed <- paste0("data-rivm/municipal-datasets-per-day/r
 fwrite(rivm.mun.perday, file=filename.mun.perday.compressed,row.names = F)
 
 rivm.mun.perday$ROAZ_region <- NULL
+rivm.mun.cum <- rivm.mun.perday[, lapply(.SD,sum), .SDcols = c("Total_reported","Deceased"),by = list(Version,
+                                                                                                      Municipality_name,
+                                                                                                      Municipality_code, 
+                                                                                                      Security_region_code,
+                                                                                                      Security_region_name,
+                                                                                                      Municipal_health_service,
+                                                                                                      Province,
+                                                                                                      Date_of_publication,
+                                                                                                      Date_of_report)
+][, Total_reported_cum := cumsum(Total_reported), by = list(Municipality_code,Security_region_code,Province)
+][, Deceased_cum := cumsum(Deceased), by = list(Municipality_code,Security_region_code,Province)
+]
 
-rivm.mun.cum <- rivm.mun.perday %>%
-  group_by(
-    Version,
-    Municipality_name,
-    Municipality_code, 
-    Security_region_code,
-    Security_region_name,
-    Municipal_health_service,
-    Province,
-    Date_of_publication,
-    Date_of_report) %>%
-  summarise(Total_reported = sum(Total_reported),
-            Deceased = sum(Deceased))
-
-rivm.mun.cum <- rivm.mun.cum %>%  
-  group_by(
-    Municipality_code, 
-    Security_region_code, 
-    Province
-  ) %>%
-  mutate(
-    Total_reported_cum = cumsum(Total_reported),
-    .after = Total_reported
-  ) %>%
-  mutate(
-    Deceased_cum = cumsum(Deceased),
-    .after = Deceased
-  )
 fwrite(rivm.mun.cum, file = "data-rivm/COVID-19_aantallen_gemeente_per_dag.csv.gz", row.names = F)
 
 ## Parse RIVM Daily data
@@ -68,29 +52,6 @@ rivm_by_day <- rivm_by_day %>%
 
 fwrite(rivm_by_day, file = "data/rivm_by_day.csv",row.names = F) ## Write file with aggregate data per day
 
-## Download data disabled people 
-disabled.people <- fread("https://data.rivm.nl/covid-19/COVID-19_gehandicaptenzorg.csv", sep = ";")
-filename.disabledpeople.raw  <- paste0("raw-data-archive/disabled-people-per-day/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data
-fwrite(disabled.people, file = filename.disabledpeople.raw,row.names = F) 
-
-filename.disabledpeople.compressed  <- paste0("data-rivm/disabled-people-per-day/rivm_daily_",Sys.Date(),".csv.gz") ## Filename for daily data
-fwrite(disabled.people, file = filename.disabledpeople.compressed,row.names = F) 
-
-## Download data 70+ living at home 
-living.home.70plus <- fread("https://data.rivm.nl/covid-19/COVID-19_thuiswonend_70plus.csv", sep = ";")
-filename.living.home.70plus.raw <- paste0("raw-data-archive/70plus-living-at-home-per-day/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data
-fwrite(living.home.70plus, file = filename.living.home.70plus.raw,row.names = F) 
-
-filename.living.home.70plus.compressed <- paste0("data-rivm/70plus-living-at-home-per-day/rivm_daily_",Sys.Date(),".csv.gz") ## Filename for daily data
-fwrite(living.home.70plus, file = filename.living.home.70plus.compressed,row.names = F) 
-
-## Download behavior
-behavior <- fread("https://data.rivm.nl/covid-19/COVID-19_gedrag.csv", sep = ";")
-filename.behavior.raw <- paste0("raw-data-archive/behavior/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data
-fwrite(behavior, file = filename.behavior.raw,row.names = F) 
-
-filename.behavior.compressed <- paste0("data-rivm/behavior/rivm_daily_",Sys.Date(),".csv.gz") ## Filename for daily data
-fwrite(behavior, file = filename.behavior.compressed,row.names = F) 
 
 ## Download nursing homes
 
@@ -110,41 +71,6 @@ fwrite(tests, file = filename.tests.raw,row.names = F)
 filename.tests.compressed <- paste0("data-rivm/tests/rivm_daily_",Sys.Date(),".csv.gz") ## Filename for daily data
 fwrite(tests, file = filename.tests.compressed,row.names = F)
 
-## Download IC data (NICE)
-
-ic.nice.data <- fread("https://data.rivm.nl/covid-19/COVID-19_ic_opnames.csv", sep = ";")
-filename.ic.nice <- paste0("data-rivm/ic-datasets/ic_daily_",last(ic.nice.data$Date_of_statistics),".csv") ## Filename for daily data
-fwrite(ic.nice.data, file = filename.ic.nice,row.names = F)
-
-## Download IC data stratified by age and week (NICE)
-
-ic.nice.age.data <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuis_ic_opnames_per_leeftijdsgroep.csv", sep = ";")
-filename.ic.age.nice <- paste0("data-rivm/ic-age-datasets/ic_daily_",last(ic.nice.age.data$Date_of_statistics),".csv") ## Filename for daily data
-fwrite(ic.nice.age.data, file = filename.ic.age.nice,row.names = F)
-
-## Download contact tracing data 
-
-settings <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_settings_per_dag.csv", sep = ";")
-filename.bco.settings <- paste0("data-rivm/bco-settings/bco_settings_daily_",last(settings$Date_of_publication),".csv") ## Filename for daily data
-fwrite(settings, file = filename.bco.settings,row.names = F)
-
-## Download vaccine rate per municipality
-
-vaccine.municipality <- fread("https://data.rivm.nl/data/covid-19/COVID-19_vaccinatiegraad_per_gemeente_per_week_leeftijd.csv")
-filename.vaccine.municipality <- paste0("data-rivm/vaccine-municipality/vaccine_municipality_weekly_",as.Date(last(vaccine.municipality$Date_of_report)),".csv") ## Filename for daily data
-fwrite(vaccine.municipality, file = filename.vaccine.municipality,row.names = F)
-
-## Download Infectieradar
-
-infectieradar <- fread("https://data.rivm.nl/covid-19/COVID-19_Infectieradar_symptomen_per_dag.csv")
-filename.infectieradar <- paste0("data-rivm/infectieradar/infectieradar_daily_",as.Date(last(infectieradar$Date_of_statistics)),".csv") ## Filename for daily data
-fwrite(infectieradar, file = filename.infectieradar,row.names = F)
-
-## Download variant data 
-
-variants <- fread("https://data.rivm.nl/covid-19/COVID-19_varianten.csv", sep = ";")
-filename.variants <- paste0("data-misc/variants-rivm/data-variants-rivm-open-data/variants_rivm_",ymd(last(variants$Date_of_statistics_week_start)),".csv") ## Filename for daily data
-fwrite(variants, file = filename.variants,row.names = F)
 
 #continue the script
 print("Script did NOT end!")   

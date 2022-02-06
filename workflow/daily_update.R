@@ -453,6 +453,7 @@ bot$sendMessage('Update voor Twitter is klaar')
 
 ## Workflows for databases
 rm(list=ls())
+source("workflow/parse_data_download_rivm.R")
 source("workflow/dashboards/cases_ggd_agegroups.R")
 source("workflow/dashboards/date_statistics_mutations.R")
 source("workflow/parse_age-data.R")
