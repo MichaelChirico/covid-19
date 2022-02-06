@@ -7,7 +7,7 @@ require(readxl)
 
 source("data-misc/excess_mortality/parse_cbs_links.R")
 
-table_mortality <- cbs_get_data("70895ned", Perioden = has_substring(c("2001","2002","2003","2004","2005","2006","2013","2014","2015","2016","2017","2018","2019","2020","2021")), Geslacht = has_substring("1100"))
+table_mortality <- cbs_get_data("70895ned", Perioden = has_substring(c("2001","2002","2003","2004","2005","2006","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022")), Geslacht = has_substring("1100"))
 table_mortality$Year <- substr(table_mortality$Perioden, 1, 4)
 
 table_mortality$Week <- str_sub(table_mortality$Perioden, start = -2)
@@ -17,7 +17,7 @@ week.readfile <- as.numeric(last(table_mortality$Week))
 table_mortality$LeeftijdOp31December <- factor(table_mortality$LeeftijdOp31December, levels = c(10000, 41700, 53950, 21700),
                                                labels = c("Totaal","0 tot 65", "65 tot 80", "80+"))
 
-bevolking <- cbs_get_data("37296ned", Perioden = has_substring(c("2001JJ00","2002JJ00","2003JJ00","2004JJ00","2005JJ00","2006JJ00","2013JJ00","2014JJ00","2015JJ00", "2016JJ00","2017JJ00","2018JJ00","2019JJ00","2020JJ00")))
+bevolking <- cbs_get_data("37296ned", Perioden = has_substring(c("2001JJ00","2002JJ00","2003JJ00","2004JJ00","2005JJ00","2006JJ00","2013JJ00","2014JJ00","2015JJ00", "2016JJ00","2017JJ00","2018JJ00","2019JJ00","2020JJ00","2021JJ00")))
 bevolking <- bevolking[,c("Perioden","TotaleBevolking_1", "JongerDan20Jaar_10","k_20Tot40Jaar_11","k_40Tot65Jaar_12","k_65Tot80Jaar_13","k_80JaarOfOuder_14")]
 colnames(bevolking) <- c("Jaar","Totaal","Jonger20","20tot40","40tot65","65tot80","80ouder")
 
@@ -25,23 +25,23 @@ bevolking$jonger65 <- bevolking$Jonger20 + bevolking$`20tot40` + bevolking$`40to
 bevolking <- bevolking[,c("Jaar","Totaal","jonger65","65tot80","80ouder")]
 
 
-## Get 2021 data
-bevolking2021 <- cbs_get_data("83482NED", Perioden = has_substring(c("2021MM01")),
+## Get 2022 data
+bevolking2022 <- cbs_get_data("83482NED", Perioden = has_substring(c("2022MM01")),
                                            Generatie = has_substring(c("T001040")),
                                            Migratieachtergrond = has_substring(c("T001040")),
                                            Geslacht = has_substring(c("T001038")), typed = T)
 
-bevolking2021 <- bevolking2021 %>%
-  filter(Leeftijd >= 70000 | Leeftijd == 22200)
+bevolking2022 <- bevolking2022 %>%
+  dplyr::filter(Leeftijd >= 70000 | Leeftijd == 22200)
 
-bevolking2021 <- data.frame(cbind(2021,
-                               sum(bevolking2021[1:21,"BevolkingOpDeEersteVanDeMaand_1"]),
-                               sum(bevolking2021[1:13,"BevolkingOpDeEersteVanDeMaand_1"]),
-                               sum(bevolking2021[14:16,"BevolkingOpDeEersteVanDeMaand_1"]),
-                               sum(bevolking2021[17:21,"BevolkingOpDeEersteVanDeMaand_1"])))
-colnames(bevolking2021) <- c("Jaar","Totaal","jonger65","65tot80","80ouder")
+bevolking2022 <- data.frame(cbind(2022,
+                               sum(bevolking2022[1:21,"BevolkingOpDeEersteVanDeMaand_1"]),
+                               sum(bevolking2022[1:13,"BevolkingOpDeEersteVanDeMaand_1"]),
+                               sum(bevolking2022[14:16,"BevolkingOpDeEersteVanDeMaand_1"]),
+                               sum(bevolking2022[17:21,"BevolkingOpDeEersteVanDeMaand_1"])))
+colnames(bevolking2022) <- c("Jaar","Totaal","jonger65","65tot80","80ouder")
 
-bevolking <- rbind(bevolking, bevolking2021)
+bevolking <- rbind(bevolking, bevolking2022)
 
 
 colnames(bevolking) <- c("Year","Totaal","0 tot 65","65 tot 80","80+")
@@ -61,35 +61,40 @@ table_mortality <- table_mortality[!table_mortality$Week == '00',]
 mortality_full <- merge(table_mortality, bevolking.long, by=c("Year","LeeftijdOp31December"), all.x=TRUE)
 
 # Reframe bevolking 2021 for merge
-bevolking2021 <- t(bevolking2021[1,2:5])
-bevolking2021 <- data.frame(bevolking2021,LeeftijdOp31December=c("Totaal","0 tot 65","65 tot 80","80+"), row.names = NULL)
-colnames(bevolking2021) <- c("Bevolking2021","LeeftijdOp31December")
+bevolking2022 <- t(bevolking2022[1,2:5])
+bevolking2022 <- data.frame(bevolking2022,LeeftijdOp31December=c("Totaal","0 tot 65","65 tot 80","80+"), row.names = NULL)
+colnames(bevolking2022) <- c("Bevolking2022","LeeftijdOp31December")
 
 
 #bevolking2021.test <- data.frame(Bevolking2020=c(14017269, 2618728, 838696, 17474693),
 #                          LeeftijdOp31December=c("0 tot 65","65 tot 80","80+","Totaal"))
 
-mortality_full <- merge(mortality_full, bevolking2021, by=c("LeeftijdOp31December"))
-mortality_full$Overledenen_1 <- mortality_full$Overledenen_1/mortality_full$Bevolking*mortality_full$Bevolking2021
+mortality_full <- merge(mortality_full, bevolking2022, by=c("LeeftijdOp31December"))
+mortality_full <- mortality_full %>%
+  mutate(Overledenen_1 = Overledenen_1/Bevolking*Bevolking2022)
 
 mortality_wide <- reshape2::dcast(mortality_full, LeeftijdOp31December + Week ~ Year, value.var = "Overledenen_1", sum)
-mortality_wide$`2021` <- na_if(mortality_wide$`2021`, 0)
+mortality_wide$`2022` <- na_if(mortality_wide$`2022`, 0)
 
-
+mortality_wide$Average20172021 <- rowMeans(mortality_wide[,c("2017","2018","2019","2020","2021")])
 mortality_wide$Average20162020 <- rowMeans(mortality_wide[,c("2016","2017","2018","2019","2020")])
 mortality_wide$Average20152019 <- rowMeans(mortality_wide[,c("2015","2016","2017","2018","2019")])
 
+mortality_wide$excess_death2022 <- round(mortality_wide$`2022` - mortality_wide$Average20152019,0)
 mortality_wide$excess_death2021 <- round(mortality_wide$`2021` - mortality_wide$Average20152019,0)
 mortality_wide$excess_death2020 <- round(mortality_wide$`2020` - mortality_wide$Average20152019,0)
 
 excess_deaths2020 <- aggregate(excess_death2020 ~ LeeftijdOp31December + Week, data = mortality_wide, FUN = sum)
 excess_deaths2021 <- aggregate(excess_death2021 ~ LeeftijdOp31December + Week, data = mortality_wide, FUN = sum)
+excess_deaths2022 <- aggregate(excess_death2022 ~ LeeftijdOp31December + Week, data = mortality_wide, FUN = sum)
 excess_deaths2020$Year <- 2020
 excess_deaths2021$Year <- 2021
+excess_deaths2022$Year <- 2022
 colnames(excess_deaths2020) <- c("LeeftijdOp31December","Week","excess_death","Year")
 colnames(excess_deaths2021) <- c("LeeftijdOp31December","Week","excess_death","Year")
+colnames(excess_deaths2022) <- c("LeeftijdOp31December","Week","excess_death","Year")
 
-excess_deaths <- rbind(excess_deaths2020, excess_deaths2021)
+excess_deaths <- rbind(excess_deaths2020, excess_deaths2021, excess_deaths2022)
 
 
 excess_deaths_wide <- spread(excess_deaths, key = LeeftijdOp31December, value = excess_death)
@@ -133,7 +138,13 @@ deaths_2021 <- mortality_wide %>%
   spread(LeeftijdOp31December, `2021`) %>%
   add_column(Year = 2021)
 
-deaths_2020 <- rbind(deaths_2020,deaths_2021)
+deaths_2022 <- mortality_wide %>%
+  select(LeeftijdOp31December,Week,`2022`) %>%
+  spread(LeeftijdOp31December, `2022`) %>%
+  add_column(Year = 2022)
+
+
+deaths_2020 <- rbind(deaths_2020,deaths_2021,deaths_2022)
 deaths_2020$Week <- as.numeric(deaths_2020$Week)
 
 deaths_weekly <- merge(deaths_2020, excess_deaths_wide, by = c("Week","Year"))
@@ -201,7 +212,7 @@ page <- data.frame(page)
 
 page$category <- grepl(".xlsx", page$page, fixed = TRUE)
 page <- page %>%
-  filter(category == "TRUE")
+  dplyr::filter(category == "TRUE")
 cbs_url <- page[1,1]
 
 download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
@@ -231,10 +242,11 @@ deaths_weekly <- deaths_weekly %>%
 write.csv(deaths_weekly, file = "data-misc/excess_mortality/excess_mortality.csv", row.names = F)
 
 cbp2 <- c("#009E73", "#87109A","#E6830C",
-          "#D96DEA", "#2231C5","#000000")
+          "#D96DEA", "#2231C5","#000000", "#009E74")
 
 mortality_wide <- mortality_wide %>%
-  filter(LeeftijdOp31December == "Totaal")
+  dplyr::filter(LeeftijdOp31December == "Totaal") %>%
+  dplyr::filter(Week != 52)
 
 
 mortality_wide %>%
@@ -245,6 +257,7 @@ mortality_wide %>%
   geom_line(aes(y = `2019`, color = "2019"), lwd=1.0, linetype = "dashed") +
   geom_line(aes(y = `2020`, color = "2020"), lwd=1.2) +
   geom_line(aes(y = `2021`, color = "2021"), lwd=1.2) +
+  geom_line(aes(y = `2022`, color = "2022"), lwd=1.2) +
   scale_y_continuous(limits = c(2000, 5500)) +
   theme_bw() +
   theme(axis.title.x=element_blank(),
