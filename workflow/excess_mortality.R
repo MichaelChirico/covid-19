@@ -7,7 +7,56 @@ require(readxl)
 
 source("data-misc/excess_mortality/parse_cbs_links.R")
 
-table_mortality <- cbs_get_data("70895ned", Perioden = has_substring(c("2001","2002","2003","2004","2005","2006","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022")), Geslacht = has_substring("1100"))
+table_mortality <- data.table(cbs_get_data("70895ned", 
+                                Geslacht = "1100",
+                                Perioden = has_substring("W") | has_substring("X")))
+
+## find number of days of each week
+week_labels <- data.frame(attributes(table_mortality$Perioden)$labels)
+week_labels$lbl <- row.names(week_labels)
+week_labels$w_length <- unlist(lapply(1:nrow(week_labels),
+                                      function(x) {
+                                        tmp <- gsub("[\\(\\)]", "",
+                                                    regmatches(week_labels$lbl[x],
+                                                               gregexpr("\\(.*?\\)", week_labels$lbl[x])
+                                                    )[[1]]
+                                        )
+                                        if (length(tmp) > 0) {
+                                          return(tmp)
+                                        } else {
+                                          return ('7 dagen')
+                                        }
+                                      }))
+week_labels <- as.data.table(week_labels)
+
+## add week length
+setkeyv(week_labels, names(week_labels)[1])
+setkey(table_mortality,Perioden)
+table_mortality[week_labels,
+                w_length := substr(i.w_length, 1, 1)
+][,
+  Perioden := gsub('X', 'W', Perioden)
+]
+
+table_mortality <- setorder(table_mortality, LeeftijdOp31December, Perioden)
+
+## move deaths from week 53 or 0 to week 52 or 1 depending on week length
+table_mortality[, ':=' (year = as.numeric(substr(Perioden, 1, 4)),
+                        week = as.numeric(substr(Perioden, 7, 8))
+)
+][,
+  ':=' (week_update1 = Overledenen_1 + shift(Overledenen_1),
+        week_update2 = Overledenen_1 + shift(Overledenen_1, -1)
+  )
+][week == 1 & w_length < 7,
+  Overledenen_1 := week_update1
+][week == 52 & w_length < 7,
+  Overledenen_1 := week_update2
+][,
+  ':=' (week_update1 = NULL, week_update2 = NULL)
+]
+
+
 table_mortality$Year <- substr(table_mortality$Perioden, 1, 4)
 
 table_mortality$Week <- str_sub(table_mortality$Perioden, start = -2)
@@ -53,7 +102,7 @@ bevolking.long <- gather(bevolking,"LeeftijdOp31December","Bevolking",2:5)
 
 
 ## Select weeks
-table_mortality <- subset(table_mortality, Week > 00 & Week != 53  & Week != '01')
+table_mortality <- subset(table_mortality, Week > 00 & Week != 53)
 table_mortality <- table_mortality[!table_mortality$Week == '00',]
 
 #& Week < weeknumber+2
@@ -171,8 +220,8 @@ df_cbsmodel <- df_cbsmodel %>%
   mutate(Oversterfte_DLModel_cumul_mid = round(Oversterfte_DLModel_cumul_mid,0)) %>%
   mutate(Oversterfte_DLModel_cumul_high = round(Oversterfte_DLModel_cumul_high,0))
 
-colnames(deaths_weekly) <- c("Week","Year","Totaal_Overleden","Overleden0_65","Overleden65_80","Overleden80+",
-                                  "Oversterfte_Totaal","Oversterfte0_65","Oversterfte65_80","Oversterfte80+",
+colnames(deaths_weekly) <- c("Week","Year","Overleden0_65","Overleden65_80","Overleden80+","Totaal_Overleden",
+                                  "Oversterfte0_65","Oversterfte65_80","Oversterfte80+","Oversterfte_Totaal",
                                   "Oversterfte_Totaal_Gecorrigeerd","covid_sterfgevallen")
 
 deaths_weekly <- merge(deaths_weekly, df_cbsmodel,by=c("Week","Year"),all.y=T)
@@ -242,21 +291,19 @@ deaths_weekly <- deaths_weekly %>%
 write.csv(deaths_weekly, file = "data-misc/excess_mortality/excess_mortality.csv", row.names = F)
 
 cbp2 <- c("#009E73", "#87109A","#E6830C",
-          "#D96DEA", "#2231C5","#000000", "#009E74")
+          "red", "#2231C5","#000000")
 
 mortality_wide <- mortality_wide %>%
-  dplyr::filter(LeeftijdOp31December == "Totaal") %>%
-  dplyr::filter(Week != 52)
+  dplyr::filter(LeeftijdOp31December == "Totaal")
 
 
 mortality_wide %>%
-  ggplot(aes(x=Week, y=`2016`, group = 1)) + 
-  geom_line(aes(y = `2016`, color = "2016"), lwd=1.0, linetype = "dashed") +
+  ggplot(aes(x=Week, y=`2017`, group = 1)) + 
   geom_line(aes(y = `2017`, color = "2017"), lwd=1.0, linetype = "dashed") +
   geom_line(aes(y = `2018`, color = "2018"), lwd=1.0, linetype = "dashed") +
   geom_line(aes(y = `2019`, color = "2019"), lwd=1.0, linetype = "dashed") +
-  geom_line(aes(y = `2020`, color = "2020"), lwd=1.2) +
-  geom_line(aes(y = `2021`, color = "2021"), lwd=1.2) +
+  geom_line(aes(y = `2020`, color = "2020"), lwd=1.0, linetype = "dashed") +
+  geom_line(aes(y = `2021`, color = "2021"), lwd=1.0, linetype = "dashed") +
   geom_line(aes(y = `2022`, color = "2022"), lwd=1.2) +
   scale_y_continuous(limits = c(2000, 5500)) +
   theme_bw() +
@@ -277,13 +324,13 @@ mortality_wide %>%
        caption = paste("Bron data: CBS  | Plot: @mzelst | ",Sys.Date())) + 
   ggtitle("Overledenen") + 
   scale_colour_manual(values=cbp2) +
-  annotate("text", x = 06, y = 4300, label = "Griepgolf (2018)", color="#E6830C") +
-  annotate("text", x = 14, y = 5200, label = "Eerste golf", color = "#2231C5") +
-  annotate("text", x = 32, y = 3400, label = "Hittegolf (2020)", color ="#2231C5") +
-  annotate("text", x = 44, y = 3300, label = "Tweede golf", color = "#2231C5") +
-  annotate("text", x = 14.5, y = 3400, label = "Derde golf", color = "#000000") +
-  annotate("text", x = 43, y = 4000, label = "Vijfde golf", color = "#000000")
-ggsave("data-misc/excess_mortality/plots_weekly_update/sterfte_perweek.png")
+  annotate("text", x = 9, y = 4300, label = "Griepgolf (2018)", color="#87109A") +
+  annotate("text", x = 14, y = 5300, label = "Eerste golf", color = "red") +
+  annotate("text", x = 32, y = 3400, label = "Hittegolf (2020)", color ="red") +
+  annotate("text", x = 44, y = 3300, label = "Tweede golf", color = "red") +
+  annotate("text", x = 14.5, y = 3400, label = "Derde golf", color = "#2231C5") +
+  annotate("text", x = 43, y = 4000, label = "Vijfde golf", color = "#2231C5")
+ggsave("data-misc/excess_mortality/plots_weekly_update/sterfte_perweek.png", width = 16, height = 8)
 
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])

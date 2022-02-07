@@ -10,8 +10,8 @@ urls$number <- gsub("[^0-9.]", "",  urls$urls)
 urls$number <- substr(urls$number, 3, 8)
 urls$category <- grepl("provincie", urls$urls, fixed = TRUE)
 urls <- urls %>%
-  filter(category == "TRUE") %>%
-  filter(number >= 0) %>%
+  dplyr::filter(category == "TRUE") %>%
+  dplyr::filter(number >= 0) %>%
   mutate(year = substr(number, 1, 4)) %>%
   mutate(week = substr(number, 5, 6)) %>%
   setorder(year, week)
