@@ -103,7 +103,6 @@ all.data <- Reduce(
   daily_datalist
 )
 
-toc()
 write.csv(all.data, file = "data/all_data.csv",row.names = F)
 
 #vaccines.by_day <- read.csv("data/vaccines_by_day.csv")

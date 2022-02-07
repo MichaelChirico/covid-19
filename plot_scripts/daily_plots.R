@@ -59,7 +59,7 @@ cases <- all.data %>%
   geom_vline(xintercept = as.Date(Sys.Date()+7-day.today), linetype = "dotted") +
   ggtitle("Meldingen van geconstateerde besmettingen")
 
-ggsave("plots/positieve_tests_per_dag.png",width=12, height = 8)
+ggsave("plots/positieve_tests_per_dag.png",cases,width=12, height = 8)
 
 testplot.subtitle <- paste0("Let op: percentage is bekend t/m ",Sys.Date()-2," \n\n Maandagen")
 
@@ -99,7 +99,7 @@ testplot <- testdata %>%
   geom_vline(xintercept = as.Date(Sys.Date()+7-day.today), linetype = "dotted") +
   ggtitle("Percentage positief per dag (GGD)")
 
-ggsave(testplot, "plots/percentage_positief_per_dag.png",width=12, height = 8)
+ggsave("plots/percentage_positief_per_dag.png",testplot,width=12, height = 8)
 
 # Plot for #patients in hospital per day
 aanwezig <- all.data %>%
