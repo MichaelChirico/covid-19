@@ -1,5 +1,4 @@
-temp = list.files(path = "data-rivm/casus-datasets/",pattern="*.csv.gz", full.names = T) ## Pull names of all available datafiles
-dat <- fread(last(temp), )
+dat = fread(last(list.files(path = "data-rivm/casus-datasets/",pattern="*.csv.gz", full.names = T),1)) ## Pull names of all available datafiles
 dat$value <- 1
 
 dat$Municipal_health_service <- recode(dat$Municipal_health_service, "GGD FryslÃ¢n" = "GGD Fryslân",
@@ -17,6 +16,7 @@ dat$Municipal_health_service <- recode(dat$Municipal_health_service, "GGD Frysl�
                                        "GGD Twente" = "GGD Regio Twente")
 
 dat <- setDT(dat)
+
 dat[, week := lubridate::isoweek(ymd(Date_statistics))
     ][, year := lubridate::isoyear(ymd(Date_statistics))]
 
