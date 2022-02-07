@@ -16,34 +16,19 @@ fwrite(rivm.mun.perday, file=filename.mun.perday.compressed,row.names = F)
 
 rivm.mun.perday$ROAZ_region <- NULL
 
-rivm.mun.cum <- rivm.mun.perday %>%
-  group_by(
-    Version,
-    Municipality_name,
-    Municipality_code, 
-    Security_region_code,
-    Security_region_name,
-    Municipal_health_service,
-    Province,
-    Date_of_publication,
-    Date_of_report) %>%
-  summarise(Total_reported = sum(Total_reported),
-            Deceased = sum(Deceased))
+rivm.mun.cum <- rivm.mun.perday[, lapply(.SD,sum), .SDcols = c("Total_reported","Deceased"),by = list(Version,
+                                                                                                      Municipality_name,
+                                                                                                      Municipality_code, 
+                                                                                                      Security_region_code,
+                                                                                                      Security_region_name,
+                                                                                                      Municipal_health_service,
+                                                                                                      Province,
+                                                                                                      Date_of_publication,
+                                                                                                      Date_of_report)
+][, Total_reported_cum := cumsum(Total_reported), by = list(Municipality_code,Security_region_code,Province)
+][, Deceased_cum := cumsum(Deceased), by = list(Municipality_code,Security_region_code,Province)
+]
 
-rivm.mun.cum <- rivm.mun.cum %>%  
-  group_by(
-    Municipality_code, 
-    Security_region_code, 
-    Province
-  ) %>%
-  mutate(
-    Total_reported_cum = cumsum(Total_reported),
-    .after = Total_reported
-  ) %>%
-  mutate(
-    Deceased_cum = cumsum(Deceased),
-    .after = Deceased
-  )
 fwrite(rivm.mun.cum, file = "data-rivm/COVID-19_aantallen_gemeente_per_dag.csv.gz", row.names = F)
 
 ## Parse RIVM Daily data
@@ -56,15 +41,9 @@ fwrite(rivm.dailydata, file = filename.daily,row.names = F) ## Write file with d
 temp = list.files(path = "data-rivm/data-per-day/",pattern="*.csv", full.names = T) ## Fetch all day files
 rivm_by_day = rbindlist(lapply(temp, fread)) ## Load all day files
 
-rivm_by_day$date <- as.Date(rivm_by_day$date)
-rivm_by_day <- rivm_by_day[order(rivm_by_day$date),]
-
-rivm_by_day <- rivm_by_day %>%
-  mutate(positivetests = c(0,diff(cases))) # Calculate number of positive tests per day
-
-rivm_by_day <- rivm_by_day %>%
-  mutate(hospital_intake_rivm = c(0,diff(hospitalization))) %>%
-  mutate(hospital_intake_rivm = replace(hospital_intake_rivm, hospital_intake_rivm<0, 0)) # Calculate number of hospitalizations per day
+rivm_by_day <- rivm_by_day[order(date),
+                           ][, positivetests := c(0,diff(cases))
+                             ][, hospital_intake_rivm := c(0,diff(hospitalization))]
 
 fwrite(rivm_by_day, file = "data/rivm_by_day.csv",row.names = F) ## Write file with aggregate data per day
 

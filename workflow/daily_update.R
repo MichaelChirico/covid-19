@@ -88,12 +88,12 @@ Sys.setlocale("LC_TIME", "nl_NL")
 
 ## Merge RIVM, NICE and corrections data
 
-rivm.by_day <- read.csv("data/rivm_by_day.csv")  
-nice.by_day <- read.csv("data-nice/nice-today.csv")
-lcps.by_day <- read.csv("data/lcps_by_day.csv")
-corr.by_day <- read.csv("corrections/corrections_perday.csv")
-nursery.by_day <- read.csv("data/nursery_by_day.csv")
-testrate.by_day <- read.csv("data-dashboards/percentage-positive-daily-national.csv")[,c("values.tested_total","values.infected","values.infected_percentage","date","pos.rate.3d.avg","pos.rate.7d.avg")]
+rivm.by_day <- fread("data/rivm_by_day.csv")  
+nice.by_day <- fread("data-nice/nice-today.csv")
+lcps.by_day <- fread("data/lcps_by_day.csv")
+corr.by_day <- fread("corrections/corrections_perday.csv")
+nursery.by_day <- fread("data/nursery_by_day.csv")
+testrate.by_day <- fread("data-dashboards/percentage-positive-daily-national.csv")[,c("values.tested_total","values.infected","values.infected_percentage","date","pos.rate.3d.avg","pos.rate.7d.avg")]
 #vaccines.by_day <- read.csv("data/vaccines_by_day.csv") , vaccines.by_day
 
 daily_datalist <- list(rivm.by_day,nice.by_day,corr.by_day,nursery.by_day, testrate.by_day,lcps.by_day)
@@ -103,12 +103,9 @@ all.data <- Reduce(
   daily_datalist
 )
 
-all.data$date <- as.Date(all.data$date)
-all.data <- all.data[order(all.data$date),]
 toc()
 write.csv(all.data, file = "data/all_data.csv",row.names = F)
 
-all.data <- read.csv("data/all_data.csv")
 #vaccines.by_day <- read.csv("data/vaccines_by_day.csv")
 
 # get tokens

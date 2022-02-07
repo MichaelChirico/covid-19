@@ -1,8 +1,7 @@
-nursing.homes.wide <- aggregate(cbind(Total_cases_reported, Total_deceased_reported) ~ Date_of_statistic_reported, data = nursing.homes, FUN = sum)
+nursing.homes.wide <- data.table(aggregate(cbind(Total_cases_reported, Total_deceased_reported) ~ Date_of_statistic_reported, data = nursing.homes, FUN = sum))
 
-nursing.homes.wide <- nursing.homes.wide %>%
-  mutate(cases_7daverage_nursinghomes = round(frollmean(Total_cases_reported,7),0)) %>%
-  mutate(deceased_7daverage_nursinghomes = round(frollmean(Total_deceased_reported,7),0))
+nursing.homes.wide[, cases_7daverage_nursinghomes := round(frollmean(Total_cases_reported,7),0)
+                   ][, deceased_7daverage_nursinghomes := round(frollmean(Total_deceased_reported,7),0)]
 
 date.nursery.homes <- as.Date(Sys.Date())
 

@@ -24,7 +24,7 @@ day.today <- wday(Sys.Date(), week_start = 2)
 
 # Plot for positive tests per day
 cases <- all.data %>%
-  filter(date > filter.date) %>%
+  dplyr::filter(date > filter.date) %>%
   ggplot(aes(x=date, y=new.infection)) + 
   geom_line(aes(y = net.infection, color = "Toename besmettingen per dag (incl. correcties)"), lwd=1.2) +
   geom_line(aes(y = positive_7daverage, color = "Voortschrijdend gemiddelde (7 dagen)"), lwd=1.2) +
@@ -63,11 +63,11 @@ ggsave("plots/positieve_tests_per_dag.png",width=12, height = 8)
 
 testplot.subtitle <- paste0("Let op: percentage is bekend t/m ",Sys.Date()-2," \n\n Maandagen")
 
-y.limit.tests <- round(max(testdata$values.infected_percentage),1)+0.02
+y.limit.tests <- round(max(testdata$values.infected_percentage),1)+0.03
 
 # Plot for positive tests per day
 testplot <- testdata %>%
-  filter(date > filter.date) %>%
+  dplyr::filter(date > filter.date) %>%
   ggplot(aes(x=date, y=values.infected_percentage)) + 
   geom_line(aes(y = values.infected_percentage, color = "Percentage positief per dag (GGD)"), lwd=1.2) +
   geom_line(aes(y = pos.rate.7d.avg, color = "Percentage positief - Zwevend 7-daags gemiddelde (GGD)"), lwd=1.2) +
@@ -99,7 +99,7 @@ testplot <- testdata %>%
   geom_vline(xintercept = as.Date(Sys.Date()+7-day.today), linetype = "dotted") +
   ggtitle("Percentage positief per dag (GGD)")
 
-ggsave("plots/percentage_positief_per_dag.png",width=12, height = 8)
+ggsave(testplot, "plots/percentage_positief_per_dag.png",width=12, height = 8)
 
 # Plot for #patients in hospital per day
 aanwezig <- all.data %>%
