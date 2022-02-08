@@ -1,4 +1,531 @@
 "Date_statistics","Municipal_health_service","death.today","death.yesterday","diff"
-2022-01-31,"GGD Kennemerland",1,0,1
-2022-01-31,"GGD Zuid-Limburg",1,0,1
-2022-02-03,"GGD Amsterdam",1,0,1
+2020-03-08,"GGD Hart voor Brabant",9,10,-1
+2020-03-09,"GGD Hart voor Brabant",13,12,1
+2020-03-11,"GGD Zuid-Limburg",4,5,-1
+2020-03-13,"GGD Zuid-Limburg",8,7,1
+2020-03-19,"GGD Brabant-Zuidoost",16,17,-1
+2020-03-20,"GGD Brabant-Zuidoost",12,11,1
+2020-03-23,"GGD Hart voor Brabant",41,42,-1
+2020-03-25,"GGD Hart voor Brabant",27,26,1
+2020-03-25,"GGD Noord- en Oost-Gelderland",4,5,-1
+2020-03-25,"GGD Rotterdam-Rijnmond",20,21,-1
+2020-03-26,"GGD Noord- en Oost-Gelderland",11,10,1
+2020-03-26,"GGD Rotterdam-Rijnmond",13,12,1
+2020-03-29,"GGD Hart voor Brabant",10,11,-1
+2020-03-30,"GGD Brabant-Zuidoost",13,14,-1
+2020-04-02,"GGD Brabant-Zuidoost",7,6,1
+2020-04-02,"GGD Hart voor Brabant",13,14,-1
+2020-04-03,"GGD Noord- en Oost-Gelderland",4,5,-1
+2020-04-04,"GGD Noord- en Oost-Gelderland",4,3,1
+2020-04-07,"GGD Drenthe",0,1,-1
+2020-04-08,"GGD Drenthe",1,0,1
+2020-04-08,"GGD Haaglanden",10,11,-1
+2020-04-09,"GGD Haaglanden",9,8,1
+2020-04-09,"GGD Noord- en Oost-Gelderland",8,11,-3
+2020-04-10,"GGD Noord- en Oost-Gelderland",14,11,3
+2020-04-14,"GGD Zuid-Limburg",12,13,-1
+2020-04-16,"GGD Zuid-Limburg",10,9,1
+2020-04-19,"GGD Hart voor Brabant",3,2,1
+2020-04-20,"GGD Hart voor Brabant",8,7,1
+2020-04-21,"GGD Drenthe",0,1,-1
+2020-04-22,"GGD Drenthe",1,0,1
+2020-04-25,"GGD Hart voor Brabant",1,3,-2
+2020-04-26,"GGD Hart voor Brabant",4,2,2
+2020-04-29,"GGD Hart voor Brabant",1,2,-1
+2020-05-08,"GGD Hart voor Brabant",5,4,1
+2020-09-21,"GGD Gelderland-Zuid",1,2,-1
+2020-09-22,"GGD Noord- en Oost-Gelderland",0,1,-1
+2020-09-24,"GGD Rotterdam-Rijnmond",1,2,-1
+2020-09-25,"GGD Noord- en Oost-Gelderland",1,0,1
+2020-09-27,"GGD Gelderland-Zuid",1,0,1
+2020-09-29,"GGD Rotterdam-Rijnmond",7,8,-1
+2020-09-30,"GGD Rotterdam-Rijnmond",1,2,-1
+2020-10-01,"GGD Rotterdam-Rijnmond",3,4,-1
+2020-10-01,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1,2,-1
+2020-10-02,"GGD Rotterdam-Rijnmond",3,4,-1
+2020-10-02,"Veiligheids- en Gezondheidsregio Gelderland-Midden",2,1,1
+2020-10-03,"GGD Rotterdam-Rijnmond",12,13,-1
+2020-10-04,"GGD Rotterdam-Rijnmond",7,6,1
+2020-10-04,"GGD West-Brabant",2,4,-2
+2020-10-05,"GGD Rotterdam-Rijnmond",10,11,-1
+2020-10-05,"GGD West-Brabant",2,0,2
+2020-10-06,"GGD Rotterdam-Rijnmond",10,11,-1
+2020-10-06,"GGD Twente",0,1,-1
+2020-10-08,"GGD Rotterdam-Rijnmond",9,8,1
+2020-10-09,"GGD Rotterdam-Rijnmond",6,8,-2
+2020-10-10,"GGD Rotterdam-Rijnmond",5,6,-1
+2020-10-11,"GGD Rotterdam-Rijnmond",8,7,1
+2020-10-12,"GGD Hart voor Brabant",10,11,-1
+2020-10-12,"GGD Rotterdam-Rijnmond",9,10,-1
+2020-10-13,"GGD Hart voor Brabant",2,1,1
+2020-10-13,"GGD Rotterdam-Rijnmond",9,10,-1
+2020-10-14,"GGD Rotterdam-Rijnmond",12,16,-4
+2020-10-14,"GGD Twente",3,5,-2
+2020-10-15,"GGD Twente",2,0,2
+2020-10-16,"GGD Twente",1,2,-1
+2020-10-16,"GGD West-Brabant",3,4,-1
+2020-10-17,"GGD Twente",1,3,-2
+2020-10-17,"GGD West-Brabant",3,2,1
+2020-10-18,"GGD Rotterdam-Rijnmond",9,8,1
+2020-10-18,"GGD Twente",9,7,2
+2020-10-18,"GGD West-Brabant",3,4,-1
+2020-10-19,"GGD Rotterdam-Rijnmond",15,14,1
+2020-10-19,"GGD Twente",5,4,1
+2020-10-20,"GGD Gelderland-Zuid",1,3,-2
+2020-10-20,"GGD Kennemerland",0,1,-1
+2020-10-20,"GGD Rotterdam-Rijnmond",19,17,2
+2020-10-20,"GGD West-Brabant",4,3,1
+2020-10-21,"GGD Hollands-Noorden",2,3,-1
+2020-10-21,"GGD Noord- en Oost-Gelderland",1,2,-1
+2020-10-21,"GGD Rotterdam-Rijnmond",17,15,2
+2020-10-21,"GGD Twente",2,5,-3
+2020-10-22,"GGD Gelderland-Zuid",2,4,-2
+2020-10-22,"GGD Kennemerland",3,2,1
+2020-10-22,"GGD Noord- en Oost-Gelderland",3,2,1
+2020-10-22,"GGD Rotterdam-Rijnmond",13,11,2
+2020-10-22,"GGD Twente",8,7,1
+2020-10-22,"Veiligheids- en Gezondheidsregio Gelderland-Midden",2,3,-1
+2020-10-23,"GGD Gelderland-Zuid",5,3,2
+2020-10-23,"GGD Gooi en Vechtstreek",0,1,-1
+2020-10-23,"GGD Rotterdam-Rijnmond",15,16,-1
+2020-10-23,"GGD Twente",4,5,-1
+2020-10-23,"GGD Zaanstreek/Waterland",1,2,-1
+2020-10-23,"Veiligheids- en Gezondheidsregio Gelderland-Midden",5,4,1
+2020-10-24,"GGD Gooi en Vechtstreek",4,3,1
+2020-10-24,"GGD Hollands-Noorden",1,0,1
+2020-10-24,"GGD Rotterdam-Rijnmond",11,10,1
+2020-10-24,"GGD Twente",4,2,2
+2020-10-24,"GGD West-Brabant",3,4,-1
+2020-10-24,"GGD Zaanstreek/Waterland",3,2,1
+2020-10-25,"GGD Gelderland-Zuid",4,5,-1
+2020-10-25,"GGD Rotterdam-Rijnmond",13,12,1
+2020-10-26,"GGD Gelderland-Zuid",7,4,3
+2020-10-26,"GGD Rotterdam-Rijnmond",24,25,-1
+2020-10-26,"GGD Twente",5,6,-1
+2020-10-26,"GGD West-Brabant",10,9,1
+2020-10-27,"GGD Haaglanden",7,8,-1
+2020-10-27,"GGD Hollands-Midden",4,5,-1
+2020-10-27,"GGD Rotterdam-Rijnmond",17,19,-2
+2020-10-27,"GGD Twente",1,3,-2
+2020-10-27,"GGD West-Brabant",4,5,-1
+2020-10-27,"Veiligheids- en Gezondheidsregio Gelderland-Midden",3,4,-1
+2020-10-28,"GGD Brabant-Zuidoost",3,4,-1
+2020-10-28,"GGD Gelderland-Zuid",2,3,-1
+2020-10-28,"GGD Haaglanden",5,4,1
+2020-10-28,"GGD Hollands-Midden",1,3,-2
+2020-10-28,"GGD Rotterdam-Rijnmond",10,11,-1
+2020-10-28,"GGD Twente",4,1,3
+2020-10-28,"Veiligheids- en Gezondheidsregio Gelderland-Midden",4,3,1
+2020-10-29,"GGD Hollands-Midden",6,3,3
+2020-10-30,"GGD Gelderland-Zuid",5,6,-1
+2020-10-30,"GGD Rotterdam-Rijnmond",12,8,4
+2020-10-30,"GGD Twente",5,4,1
+2020-10-30,"Veiligheids- en Gezondheidsregio Gelderland-Midden",4,5,-1
+2020-10-31,"GGD Rotterdam-Rijnmond",12,13,-1
+2020-10-31,"Veiligheids- en Gezondheidsregio Gelderland-Midden",2,1,1
+2020-11-01,"GGD Limburg-Noord",0,2,-2
+2020-11-01,"GGD Rotterdam-Rijnmond",12,10,2
+2020-11-01,"GGD Zaanstreek/Waterland",3,4,-1
+2020-11-02,"GGD Rotterdam-Rijnmond",17,16,1
+2020-11-02,"GGD Twente",5,6,-1
+2020-11-02,"GGD West-Brabant",2,1,1
+2020-11-02,"GGD Zaanstreek/Waterland",3,2,1
+2020-11-03,"GGD IJsselland",6,7,-1
+2020-11-03,"GGD Twente",3,2,1
+2020-11-03,"GGD West-Brabant",7,6,1
+2020-11-03,"GGD Zuid-Limburg",1,2,-1
+2020-11-04,"GGD IJsselland",1,0,1
+2020-11-04,"GGD Rotterdam-Rijnmond",2,4,-2
+2020-11-05,"GGD Gelderland-Zuid",6,5,1
+2020-11-05,"GGD Gooi en Vechtstreek",3,4,-1
+2020-11-05,"GGD Zaanstreek/Waterland",0,1,-1
+2020-11-05,"GGD Zeeland",1,2,-1
+2020-11-06,"GGD Gelderland-Zuid",4,3,1
+2020-11-06,"GGD Gooi en Vechtstreek",3,2,1
+2020-11-06,"GGD Rotterdam-Rijnmond",9,5,4
+2020-11-06,"GGD Zaanstreek/Waterland",1,0,1
+2020-11-06,"GGD Zeeland",2,1,1
+2020-11-07,"GGD Rotterdam-Rijnmond",5,7,-2
+2020-11-08,"GGD Rotterdam-Rijnmond",3,2,1
+2020-11-08,"GGD Twente",4,3,1
+2020-11-08,"GGD Zuid-Limburg",2,1,1
+2020-11-09,"GGD Limburg-Noord",4,3,1
+2020-11-09,"GGD Rotterdam-Rijnmond",10,12,-2
+2020-11-10,"GGD Rotterdam-Rijnmond",8,6,2
+2020-11-10,"GGD West-Brabant",3,4,-1
+2020-11-11,"GGD Brabant-Zuidoost",3,2,1
+2020-11-11,"GGD Limburg-Noord",3,5,-2
+2020-11-11,"GGD Rotterdam-Rijnmond",4,3,1
+2020-11-12,"GGD Rotterdam-Rijnmond",9,10,-1
+2020-11-13,"GGD Limburg-Noord",4,3,1
+2020-11-13,"GGD Rotterdam-Rijnmond",10,9,1
+2020-11-16,"GGD Gelderland-Zuid",1,2,-1
+2020-11-17,"GGD Gelderland-Zuid",3,2,1
+2020-11-17,"GGD Limburg-Noord",2,0,2
+2020-11-17,"GGD Rotterdam-Rijnmond",9,8,1
+2020-11-19,"GGD Noord- en Oost-Gelderland",1,2,-1
+2020-11-19,"GGD Rotterdam-Rijnmond",2,3,-1
+2020-11-20,"GGD Noord- en Oost-Gelderland",5,4,1
+2020-11-20,"GGD Rotterdam-Rijnmond",6,7,-1
+2020-11-21,"GGD Noord- en Oost-Gelderland",0,1,-1
+2020-11-21,"GGD Rotterdam-Rijnmond",3,2,1
+2020-11-22,"GGD Rotterdam-Rijnmond",6,7,-1
+2020-11-22,"GGD West-Brabant",1,2,-1
+2020-11-23,"GGD Noord- en Oost-Gelderland",1,2,-1
+2020-11-24,"GGD Limburg-Noord",2,5,-3
+2020-11-24,"GGD Noord- en Oost-Gelderland",4,2,2
+2020-11-24,"GGD Rotterdam-Rijnmond",6,8,-2
+2020-11-24,"GGD Zuid-Limburg",3,4,-1
+2020-11-25,"GGD Limburg-Noord",3,1,2
+2020-11-25,"GGD Rotterdam-Rijnmond",6,7,-1
+2020-11-25,"GGD West-Brabant",6,5,1
+2020-11-26,"GGD Limburg-Noord",1,2,-1
+2020-11-26,"GGD Rotterdam-Rijnmond",3,2,1
+2020-11-27,"GGD Limburg-Noord",0,1,-1
+2020-11-27,"GGD Rotterdam-Rijnmond",2,1,1
+2020-11-28,"GGD Gooi en Vechtstreek",1,2,-1
+2020-11-28,"GGD Limburg-Noord",4,1,3
+2020-11-28,"GGD Zaanstreek/Waterland",1,2,-1
+2020-11-29,"GGD Gooi en Vechtstreek",3,2,1
+2020-11-30,"GGD Zaanstreek/Waterland",3,2,1
+2020-12-01,"GGD Limburg-Noord",1,2,-1
+2020-12-01,"GGD Rotterdam-Rijnmond",6,8,-2
+2020-12-02,"GGD Rotterdam-Rijnmond",14,12,2
+2020-12-02,"GGD West-Brabant",3,4,-1
+2020-12-03,"GGD Hollands-Noorden",1,2,-1
+2020-12-03,"GGD Rotterdam-Rijnmond",9,8,1
+2020-12-04,"GGD Hollands-Noorden",2,1,1
+2020-12-04,"GGD Rotterdam-Rijnmond",7,8,-1
+2020-12-05,"GGD Limburg-Noord",0,1,-1
+2020-12-05,"GGD Noord- en Oost-Gelderland",4,5,-1
+2020-12-05,"GGD Rotterdam-Rijnmond",7,6,1
+2020-12-05,"GGD West-Brabant",2,1,1
+2020-12-06,"GGD Noord- en Oost-Gelderland",4,3,1
+2020-12-06,"GGD West-Brabant",3,4,-1
+2020-12-08,"GGD Hollands-Noorden",2,3,-1
+2020-12-08,"GGD Limburg-Noord",4,3,1
+2020-12-08,"GGD West-Brabant",4,3,1
+2020-12-09,"GGD Hollands-Midden",9,10,-1
+2020-12-09,"GGD Hollands-Noorden",2,1,1
+2020-12-09,"GGD Rotterdam-Rijnmond",9,10,-1
+2020-12-10,"GGD Hollands-Midden",11,10,1
+2020-12-10,"GGD Limburg-Noord",0,2,-2
+2020-12-11,"GGD Gelderland-Zuid",6,7,-1
+2020-12-11,"GGD Hollands-Midden",4,5,-1
+2020-12-11,"GGD Limburg-Noord",4,2,2
+2020-12-11,"GGD Rotterdam-Rijnmond",9,6,3
+2020-12-11,"GGD West-Brabant",5,6,-1
+2020-12-11,"GGD Zuid-Limburg",5,7,-2
+2020-12-12,"GGD Gelderland-Zuid",4,3,1
+2020-12-12,"GGD Limburg-Noord",1,0,1
+2020-12-12,"GGD West-Brabant",4,5,-1
+2020-12-12,"GGD Zaanstreek/Waterland",1,2,-1
+2020-12-12,"GGD Zuid-Limburg",3,2,1
+2020-12-13,"GGD Drenthe",1,2,-1
+2020-12-13,"GGD West-Brabant",3,1,2
+2020-12-13,"GGD Zeeland",0,1,-1
+2020-12-13,"GGD Zuid-Limburg",4,3,1
+2020-12-14,"GGD Drenthe",1,0,1
+2020-12-14,"GGD Hollands-Noorden",3,4,-1
+2020-12-14,"GGD Limburg-Noord",2,3,-1
+2020-12-14,"GGD Rotterdam-Rijnmond",16,17,-1
+2020-12-14,"GGD Zaanstreek/Waterland",2,1,1
+2020-12-15,"GGD Kennemerland",4,5,-1
+2020-12-15,"GGD Limburg-Noord",7,9,-2
+2020-12-16,"GGD Hollands-Midden",5,4,1
+2020-12-16,"GGD Hollands-Noorden",4,3,1
+2020-12-16,"GGD Kennemerland",8,7,1
+2020-12-16,"GGD Limburg-Noord",12,13,-1
+2020-12-16,"GGD Rotterdam-Rijnmond",6,5,1
+2020-12-16,"GGD Zuid-Limburg",7,8,-1
+2020-12-17,"GGD Drenthe",1,2,-1
+2020-12-17,"GGD Noord- en Oost-Gelderland",4,5,-1
+2020-12-17,"GGD Rotterdam-Rijnmond",13,14,-1
+2020-12-17,"GGD Zuid-Limburg",3,2,1
+2020-12-17,"Veiligheids- en Gezondheidsregio Gelderland-Midden",8,9,-1
+2020-12-18,"GGD Drenthe",2,1,1
+2020-12-18,"GGD Limburg-Noord",3,4,-1
+2020-12-18,"GGD Noord- en Oost-Gelderland",12,11,1
+2020-12-18,"GGD Zeeland",3,2,1
+2020-12-19,"GGD Limburg-Noord",5,3,2
+2020-12-19,"GGD Zuid-Limburg",5,6,-1
+2020-12-19,"Veiligheids- en Gezondheidsregio Gelderland-Midden",6,5,1
+2020-12-20,"GGD Limburg-Noord",7,5,2
+2020-12-20,"GGD Rotterdam-Rijnmond",11,10,1
+2020-12-20,"GGD Twente",5,6,-1
+2020-12-21,"GGD IJsselland",1,2,-1
+2020-12-21,"GGD Noord- en Oost-Gelderland",4,5,-1
+2020-12-21,"GGD Rotterdam-Rijnmond",5,6,-1
+2020-12-21,"GGD Twente",11,10,1
+2020-12-21,"GGD Zuid-Limburg",7,6,1
+2020-12-22,"GGD IJsselland",3,5,-2
+2020-12-22,"GGD Noord- en Oost-Gelderland",4,3,1
+2020-12-22,"GGD Rotterdam-Rijnmond",6,7,-1
+2020-12-22,"GGD Twente",9,10,-1
+2020-12-22,"GGD West-Brabant",0,1,-1
+2020-12-22,"GGD Zaanstreek/Waterland",1,2,-1
+2020-12-22,"GGD Zuid-Limburg",8,10,-2
+2020-12-23,"GGD IJsselland",2,5,-3
+2020-12-23,"GGD Noord- en Oost-Gelderland",13,14,-1
+2020-12-23,"GGD Rotterdam-Rijnmond",3,2,1
+2020-12-23,"GGD West-Brabant",1,0,1
+2020-12-23,"GGD Zuid-Limburg",11,12,-1
+2020-12-24,"GGD IJsselland",8,2,6
+2020-12-24,"GGD Limburg-Noord",4,3,1
+2020-12-24,"GGD Noord- en Oost-Gelderland",5,6,-1
+2020-12-24,"GGD Rotterdam-Rijnmond",7,8,-1
+2020-12-24,"GGD Zuid-Limburg",2,1,1
+2020-12-25,"GGD Noord- en Oost-Gelderland",4,3,1
+2020-12-25,"GGD Rotterdam-Rijnmond",10,8,2
+2020-12-25,"GGD Twente",5,6,-1
+2020-12-25,"GGD Zuid-Limburg",6,4,2
+2020-12-26,"GGD Drenthe",8,10,-2
+2020-12-26,"GGD Limburg-Noord",0,2,-2
+2020-12-26,"GGD Noord- en Oost-Gelderland",2,3,-1
+2020-12-26,"GGD Twente",10,9,1
+2020-12-27,"GGD Drenthe",4,3,1
+2020-12-27,"GGD Hollands-Noorden",4,5,-1
+2020-12-27,"GGD Noord- en Oost-Gelderland",10,9,1
+2020-12-27,"GGD Rotterdam-Rijnmond",3,4,-1
+2020-12-28,"GGD Hollands-Noorden",3,2,1
+2020-12-28,"GGD Limburg-Noord",8,6,2
+2020-12-28,"GGD Rotterdam-Rijnmond",7,9,-2
+2020-12-28,"GGD Twente",7,8,-1
+2020-12-28,"GGD Zaanstreek/Waterland",1,0,1
+2020-12-29,"GGD Drenthe",5,6,-1
+2020-12-29,"GGD Hollands-Noorden",4,5,-1
+2020-12-29,"GGD Rotterdam-Rijnmond",6,5,1
+2020-12-29,"GGD Twente",7,6,1
+2020-12-30,"GGD Drenthe",7,6,1
+2020-12-30,"GGD Hollands-Noorden",5,4,1
+2020-12-30,"GGD Limburg-Noord",1,2,-1
+2020-12-30,"GGD Rotterdam-Rijnmond",3,2,1
+2020-12-30,"GGD Zuid-Limburg",3,4,-1
+2020-12-31,"GGD Brabant-Zuidoost",5,6,-1
+2020-12-31,"GGD Hollands-Noorden",1,2,-1
+2020-12-31,"GGD Kennemerland",1,2,-1
+2020-12-31,"GGD Limburg-Noord",2,1,1
+2020-12-31,"GGD Rotterdam-Rijnmond",10,9,1
+2020-12-31,"GGD West-Brabant",1,2,-1
+2021-01-01,"GGD Drenthe",2,3,-1
+2021-01-01,"GGD West-Brabant",1,0,1
+2021-01-01,"GGD Zuid-Limburg",6,5,1
+2021-01-02,"GGD Drenthe",5,3,2
+2021-01-02,"GGD Hart voor Brabant",3,4,-1
+2021-01-02,"GGD Hollands-Midden",4,5,-1
+2021-01-02,"GGD Hollands-Noorden",5,4,1
+2021-01-02,"GGD Noord- en Oost-Gelderland",2,3,-1
+2021-01-03,"GGD Haaglanden",3,4,-1
+2021-01-03,"GGD Hollands-Noorden",0,1,-1
+2021-01-03,"GGD Noord- en Oost-Gelderland",6,5,1
+2021-01-03,"GGD Rotterdam-Rijnmond",7,9,-2
+2021-01-04,"GGD Drenthe",3,4,-1
+2021-01-04,"GGD Haaglanden",9,8,1
+2021-01-04,"GGD Hart voor Brabant",6,5,1
+2021-01-04,"GGD Hollands-Noorden",5,4,1
+2021-01-04,"GGD Noord- en Oost-Gelderland",4,6,-2
+2021-01-04,"GGD Zuid-Limburg",8,9,-1
+2021-01-05,"GGD Drenthe",6,5,1
+2021-01-05,"GGD Haaglanden",9,10,-1
+2021-01-05,"GGD Hollands-Midden",9,8,1
+2021-01-05,"GGD Noord- en Oost-Gelderland",5,4,1
+2021-01-05,"GGD Rotterdam-Rijnmond",13,11,2
+2021-01-05,"GGD Zuid-Limburg",9,10,-1
+2021-01-06,"GGD Haaglanden",6,5,1
+2021-01-06,"GGD Rotterdam-Rijnmond",6,7,-1
+2021-01-06,"GGD Zuid-Limburg",8,7,1
+2021-01-07,"GGD Limburg-Noord",1,2,-1
+2021-01-07,"GGD Rotterdam-Rijnmond",8,9,-1
+2021-01-07,"GGD Zuid-Limburg",3,2,1
+2021-01-08,"GGD Limburg-Noord",5,4,1
+2021-01-08,"GGD West-Brabant",0,1,-1
+2021-01-09,"GGD Noord- en Oost-Gelderland",6,4,2
+2021-01-09,"GGD West-Brabant",2,1,1
+2021-01-10,"GGD Rotterdam-Rijnmond",8,7,1
+2021-01-11,"GGD Brabant-Zuidoost",4,5,-1
+2021-01-12,"GGD Limburg-Noord",7,8,-1
+2021-01-12,"GGD Rotterdam-Rijnmond",10,11,-1
+2021-01-13,"GGD Brabant-Zuidoost",2,4,-2
+2021-01-13,"GGD Limburg-Noord",3,2,1
+2021-01-13,"GGD Rotterdam-Rijnmond",9,7,2
+2021-01-14,"GGD Brabant-Zuidoost",4,2,2
+2021-01-14,"GGD Twente",2,1,1
+2021-01-15,"GGD Limburg-Noord",6,7,-1
+2021-01-15,"GGD Noord- en Oost-Gelderland",2,4,-2
+2021-01-16,"GGD Limburg-Noord",2,1,1
+2021-01-16,"GGD Noord- en Oost-Gelderland",5,3,2
+2021-01-19,"GGD Brabant-Zuidoost",4,5,-1
+2021-01-19,"GGD IJsselland",0,1,-1
+2021-01-20,"GGD Brabant-Zuidoost",7,6,1
+2021-01-20,"GGD Drenthe",2,3,-1
+2021-01-20,"GGD IJsselland",3,2,1
+2021-01-20,"GGD Twente",3,4,-1
+2021-01-21,"GGD Drenthe",2,1,1
+2021-01-21,"GGD Kennemerland",1,0,1
+2021-01-22,"GGD Drenthe",1,2,-1
+2021-01-24,"GGD Drenthe",2,1,1
+2021-01-24,"GGD Zuid-Limburg",2,3,-1
+2021-01-26,"GGD Zuid-Limburg",4,3,1
+2021-01-29,"GGD Brabant-Zuidoost",1,2,-1
+2021-01-29,"GGD Noord- en Oost-Gelderland",3,4,-1
+2021-01-29,"GGD Zuid-Limburg",8,7,1
+2021-01-30,"Dienst Gezondheid & Jeugd ZHZ",1,2,-1
+2021-01-30,"GGD Noord- en Oost-Gelderland",1,0,1
+2021-01-31,"GGD Drenthe",2,4,-2
+2021-02-01,"Dienst Gezondheid & Jeugd ZHZ",6,5,1
+2021-02-01,"GGD Brabant-Zuidoost",6,5,1
+2021-02-01,"GGD Drenthe",5,3,2
+2021-02-01,"GGD Twente",3,2,1
+2021-02-02,"GGD Drenthe",5,6,-1
+2021-02-02,"GGD Noord- en Oost-Gelderland",2,3,-1
+2021-02-03,"GGD Drenthe",6,5,1
+2021-02-03,"GGD Noord- en Oost-Gelderland",4,3,1
+2021-02-06,"GGD Hollands-Noorden",0,4,-4
+2021-02-06,"GGD Noord- en Oost-Gelderland",2,3,-1
+2021-02-07,"GGD Haaglanden",2,3,-1
+2021-02-07,"GGD Hollands-Noorden",6,2,4
+2021-02-07,"GGD Noord- en Oost-Gelderland",1,0,1
+2021-02-08,"GGD Haaglanden",4,3,1
+2021-02-10,"GGD Zaanstreek/Waterland",2,3,-1
+2021-02-11,"GGD Drenthe",2,3,-1
+2021-02-11,"GGD Zaanstreek/Waterland",2,1,1
+2021-02-12,"GGD Drenthe",2,1,1
+2021-03-05,"GGD Brabant-Zuidoost",0,1,-1
+2021-03-07,"GGD Brabant-Zuidoost",2,1,1
+2021-04-06,"GGD Zeeland",0,1,-1
+2021-04-07,"GGD Zeeland",1,0,1
+2021-04-08,"GGD Limburg-Noord",0,1,-1
+2021-04-09,"GGD Noord- en Oost-Gelderland",2,3,-1
+2021-04-10,"GGD Noord- en Oost-Gelderland",1,0,1
+2021-04-12,"GGD Limburg-Noord",1,0,1
+2021-04-20,"GGD Brabant-Zuidoost",1,2,-1
+2021-04-22,"GGD Brabant-Zuidoost",1,0,1
+2021-04-23,"GGD Hollands-Noorden",2,3,-1
+2021-04-24,"GGD Hollands-Noorden",1,0,1
+2021-05-03,"GGD Brabant-Zuidoost",0,1,-1
+2021-05-04,"GGD Brabant-Zuidoost",2,1,1
+2021-05-06,"GGD Brabant-Zuidoost",1,2,-1
+2021-05-07,"GGD Brabant-Zuidoost",2,1,1
+2021-05-14,"GGD Brabant-Zuidoost",0,1,-1
+2021-05-15,"GGD Brabant-Zuidoost",1,0,1
+2021-05-17,"GGD Noord- en Oost-Gelderland",0,1,-1
+2021-05-18,"GGD Noord- en Oost-Gelderland",1,0,1
+2021-05-20,"GGD Noord- en Oost-Gelderland",0,1,-1
+2021-05-21,"GGD Noord- en Oost-Gelderland",1,0,1
+2021-05-24,"GGD Brabant-Zuidoost",2,0,2
+2021-06-04,"GGD Brabant-Zuidoost",0,1,-1
+2021-06-05,"GGD Brabant-Zuidoost",1,0,1
+2021-07-20,"GGD Zeeland",0,1,-1
+2021-07-21,"GGD Zeeland",1,0,1
+2021-07-22,"GGD Brabant-Zuidoost",0,1,-1
+2021-07-23,"GGD Brabant-Zuidoost",1,0,1
+2021-08-30,"GGD Brabant-Zuidoost",0,1,-1
+2021-08-31,"GGD Brabant-Zuidoost",2,1,1
+2021-09-02,"GGD Brabant-Zuidoost",0,1,-1
+2021-09-03,"GGD Brabant-Zuidoost",1,0,1
+2021-09-06,"GGD Drenthe",0,1,-1
+2021-09-07,"GGD Drenthe",1,0,1
+2021-10-13,"GGD Brabant-Zuidoost",2,3,-1
+2021-10-14,"GGD Brabant-Zuidoost",1,0,1
+2021-10-14,"GGD Noord- en Oost-Gelderland",3,4,-1
+2021-10-21,"GGD Drenthe",0,1,-1
+2021-10-21,"GGD Noord- en Oost-Gelderland",2,1,1
+2021-10-22,"GGD Drenthe",2,1,1
+2021-10-26,"GGD Drenthe",0,1,-1
+2021-10-26,"GGD Noord- en Oost-Gelderland",3,4,-1
+2021-10-27,"GGD Drenthe",2,3,-1
+2021-10-28,"GGD Drenthe",2,0,2
+2021-10-30,"GGD Noord- en Oost-Gelderland",7,6,1
+2021-11-02,"GGD Noord- en Oost-Gelderland",1,2,-1
+2021-11-03,"GGD Noord- en Oost-Gelderland",2,1,1
+2021-11-04,"GGD Zuid-Limburg",3,4,-1
+2021-11-05,"GGD Zuid-Limburg",7,6,1
+2021-11-07,"GGD Gooi en Vechtstreek",0,1,-1
+2021-11-08,"GGD Brabant-Zuidoost",1,2,-1
+2021-11-08,"Veiligheids- en Gezondheidsregio Gelderland-Midden",4,5,-1
+2021-11-09,"GGD Brabant-Zuidoost",1,0,1
+2021-11-09,"GGD Gooi en Vechtstreek",2,1,1
+2021-11-10,"GGD Brabant-Zuidoost",1,2,-1
+2021-11-10,"GGD Zuid-Limburg",7,8,-1
+2021-11-10,"Veiligheids- en Gezondheidsregio Gelderland-Midden",5,4,1
+2021-11-11,"GGD Brabant-Zuidoost",3,4,-1
+2021-11-11,"GGD Zuid-Limburg",6,5,1
+2021-11-12,"GGD Brabant-Zuidoost",5,4,1
+2021-11-12,"GGD Flevoland",2,3,-1
+2021-11-12,"GGD Gooi en Vechtstreek",0,1,-1
+2021-11-15,"GGD Flevoland",2,1,1
+2021-11-16,"GGD Gooi en Vechtstreek",1,0,1
+2021-11-17,"GGD Gooi en Vechtstreek",0,1,-1
+2021-11-18,"GGD Gooi en Vechtstreek",1,2,-1
+2021-11-19,"GGD Gooi en Vechtstreek",1,0,1
+2021-11-20,"GGD Brabant-Zuidoost",3,4,-1
+2021-11-20,"GGD Gooi en Vechtstreek",0,1,-1
+2021-11-21,"GGD Brabant-Zuidoost",2,1,1
+2021-11-21,"GGD Gooi en Vechtstreek",1,0,1
+2021-11-21,"GGD Zuid-Limburg",2,3,-1
+2021-11-22,"GGD Brabant-Zuidoost",0,2,-2
+2021-11-23,"GGD Brabant-Zuidoost",6,7,-1
+2021-11-23,"GGD Zuid-Limburg",5,4,1
+2021-11-24,"GGD Brabant-Zuidoost",2,3,-1
+2021-11-25,"GGD Brabant-Zuidoost",0,2,-2
+2021-11-26,"GGD Brabant-Zuidoost",7,3,4
+2021-11-26,"GGD Gooi en Vechtstreek",5,4,1
+2021-11-26,"GGD Rotterdam-Rijnmond",6,7,-1
+2021-11-27,"GGD Noord- en Oost-Gelderland",2,3,-1
+2021-11-28,"GGD Brabant-Zuidoost",0,1,-1
+2021-11-29,"GGD Brabant-Zuidoost",4,5,-1
+2021-11-30,"GGD Brabant-Zuidoost",2,1,1
+2021-11-30,"GGD West-Brabant",4,5,-1
+2021-12-01,"GGD Brabant-Zuidoost",2,3,-1
+2021-12-02,"GGD Brabant-Zuidoost",1,2,-1
+2021-12-02,"GGD West-Brabant",3,2,1
+2021-12-03,"GGD Rotterdam-Rijnmond",3,2,1
+2021-12-04,"GGD Brabant-Zuidoost",5,3,2
+2021-12-05,"GGD Limburg-Noord",0,1,-1
+2021-12-05,"GGD Noord- en Oost-Gelderland",4,3,1
+2021-12-06,"GGD Noord- en Oost-Gelderland",5,6,-1
+2021-12-07,"GGD Limburg-Noord",2,1,1
+2021-12-09,"GGD Brabant-Zuidoost",0,2,-2
+2021-12-10,"GGD Brabant-Zuidoost",3,2,1
+2021-12-10,"GGD Gooi en Vechtstreek",0,1,-1
+2021-12-11,"GGD Brabant-Zuidoost",3,2,1
+2021-12-11,"GGD Gooi en Vechtstreek",1,0,1
+2021-12-13,"GGD Brabant-Zuidoost",2,1,1
+2021-12-15,"GGD Gooi en Vechtstreek",0,1,-1
+2021-12-15,"GGD Haaglanden",3,4,-1
+2021-12-15,"GGD Limburg-Noord",1,2,-1
+2021-12-16,"GGD Flevoland",1,2,-1
+2021-12-17,"GGD Brabant-Zuidoost",1,2,-1
+2021-12-17,"GGD Limburg-Noord",1,0,1
+2021-12-18,"GGD Brabant-Zuidoost",2,1,1
+2021-12-19,"GGD Brabant-Zuidoost",4,2,2
+2021-12-19,"GGD Flevoland",1,0,1
+2021-12-20,"GGD Gooi en Vechtstreek",1,0,1
+2021-12-22,"GGD Hart voor Brabant",0,1,-1
+2021-12-23,"GGD Hart voor Brabant",2,1,1
+2021-12-23,"GGD Noord- en Oost-Gelderland",2,1,1
+2021-12-24,"GGD Brabant-Zuidoost",1,0,1
+2021-12-24,"GGD Limburg-Noord",0,1,-1
+2021-12-25,"GGD Limburg-Noord",1,0,1
+2022-01-01,"GGD Flevoland",0,1,-1
+2022-01-02,"GGD Flevoland",1,0,1
+2022-01-08,"GGD Gooi en Vechtstreek",0,1,-1
+2022-01-10,"GGD Gooi en Vechtstreek",1,0,1
+2022-01-11,"GGD Gooi en Vechtstreek",0,1,-1
+2022-01-13,"GGD Gooi en Vechtstreek",1,0,1
+2022-01-13,"GGD Regio Utrecht",0,1,-1
+2022-01-20,"GGD Amsterdam",2,3,-1
+2022-01-20,"GGD Haaglanden",1,3,-2
+2022-01-21,"GGD Amsterdam",1,0,1
+2022-01-23,"GGD Hollands-Midden",0,1,-1
+2022-01-24,"GGD Haaglanden",0,1,-1
+2022-01-25,"GGD Kennemerland",1,0,1
+2022-01-27,"GGD Flevoland",0,1,-1
+2022-01-28,"GGD Flevoland",1,0,1
+2022-01-28,"GGD Zaanstreek/Waterland",1,0,1
+2022-01-30,"GGD Kennemerland",1,0,1
+2022-01-30,"Veiligheids- en Gezondheidsregio Gelderland-Midden",0,1,-1
+2022-01-31,"GGD Hart voor Brabant",1,0,1
+2022-02-02,"GGD Haaglanden",1,0,1
+2022-02-02,"GGD Twente",1,0,1
+2022-02-04,"GGD Zaanstreek/Waterland",1,0,1
