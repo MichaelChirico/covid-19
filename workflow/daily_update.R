@@ -133,6 +133,8 @@ IC_Aanwezig_Int <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Internationaal)),"
 #### Build tweets ####
 tweet.main <- paste0("#COVID19NL
 
+Let op: administratieve inhaalslag (!)
+
 Positief getest: ",format(last(all.data$new.infection),decimal.mark = ",",big.mark =".",big.interval = 3),"
 Totaal: ",format(last(all.data$cases),decimal.mark = ",",big.mark =".",big.interval = 3)," (+",format(last(all.data$net.infection),decimal.mark = ",",big.mark =".",big.interval = 3)," ivm ",last(all.data$corrections.cases)," corr.)
 
@@ -150,6 +152,11 @@ Totaal: ",format(last(all.data$deaths),decimal.mark = ",",big.mark =".",big.inte
 tweet.main
 send_webhook_message(tweet.main)
 
+bot <- TGBot$new(token = bot_token('RBot'))
+bot$set_default_chat_id(user_id('me'))
+bot$sendMessage('Data is binnen!')
+
+
 posted_tweet <- post_tweet (
   tweet.main,
   token = token.mzelst,
@@ -160,11 +167,11 @@ tweet.main.id <- posted_tweet$id_str
 tweet.last_id <- tweet.main.id
 
 ## Storings tweet
-source("workflow/parse_rivm_outage.R")
+#source("workflow/parse_rivm_outage.R")
 
-tweet.storing <- paste0("Storing!
+tweet.storing <- paste0("Administratieve inhaalslag (!)
 
-Het lukt momenteel niet om het hoog aantal meldingen wat binnenkomt vanuit de teststraten te verwerken in het systeem van de GGD. De cijfers betreffen daarom in totaal over de afgelopen ",days.since," dagen een onderrapportage van circa ",infections.missing," meldingen.")
+Vanaf vandaag gaan de nieuwe en de eerdere, nog niet aan het RIVM gemelde, positieve testen, rechtstreeks vanuit de teststraten naar het RIVM. Door deze inhaalslag meldt het RIVM vandaag een extra hoog aantal positieve testen.")
 
 posted_tweet <- post_tweet (
   tweet.storing,
