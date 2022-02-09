@@ -40,9 +40,10 @@ dat.today$value <- 1
 date_type.df <- dcast.data.table(dat.today, Date_statistics + Date_statistics_type ~ value, fun.aggregate = sum)
 date_type_wide <- spread(date_type.df, key = Date_statistics_type, value = `1`, fill = 0)
 date_type_wide$Datum <- as.Date(date_type_wide$Date_statistics)
-date_type_wide <- date_type_wide[,c("DON","DOO","DPL","Datum")]
+date_type_wide <- date_type_wide[,c("Date_statistics","DOO","DPL","Datum")]
 
 dat_wide <- merge(date_type_wide, df.final, by = "Datum")
+dat_wide <- dat_wide[,-c("Date_statistics")]
 
 write.csv(dat_wide, file = "data-dashboards/date_statistics_mutations.csv")
 repo <- init()
