@@ -1,7 +1,7 @@
 memory.limit(size = 60000)
 
-time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
-#time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
+#time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
+time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
 
 ## Put in double date breaker for NICE update
 repeat {
@@ -16,10 +16,10 @@ repeat {
 pull(repo)
 
 # Generate Banner
-source("workflow/generate_banner.R")
-source("workflow/parse_nice-data.R")
-source("workflow/dashboards/age-distribution-date-NICE.R")
-source("workflow/dashboards/nice_bezetting_onder20.R")
+#source("workflow/generate_banner.R")
+#source("workflow/parse_nice-data.R")
+#source("workflow/dashboards/age-distribution-date-NICE.R")
+#source("workflow/dashboards/nice_bezetting_onder20.R")
 
 ## Put in double date breaker for LCPS update
 repeat {
@@ -133,8 +133,6 @@ IC_Aanwezig_Int <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Internationaal)),"
 #### Build tweets ####
 tweet.main <- paste0("#COVID19NL
 
-Let op: administratieve inhaalslag (!)
-
 Positief getest: ",format(last(all.data$new.infection),decimal.mark = ",",big.mark =".",big.interval = 3),"
 Totaal: ",format(last(all.data$cases),decimal.mark = ",",big.mark =".",big.interval = 3)," (+",format(last(all.data$net.infection),decimal.mark = ",",big.mark =".",big.interval = 3)," ivm ",last(all.data$corrections.cases)," corr.)
 
@@ -165,19 +163,6 @@ posted_tweet <- post_tweet (
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.main.id <- posted_tweet$id_str
 tweet.last_id <- tweet.main.id
-
-## Storings tweet
-#source("workflow/parse_rivm_outage.R")
-
-tweet.storing <- paste0("Administratieve inhaalslag (!)
-
-Vanaf vandaag gaan de nieuwe en de eerdere, nog niet aan het RIVM gemelde, positieve testen, rechtstreeks vanuit de teststraten naar het RIVM. Door deze inhaalslag meldt het RIVM vandaag een extra hoog aantal positieve testen.")
-
-posted_tweet <- post_tweet (
-  tweet.storing,
-  token = token.mzelst,
-  in_reply_to_status_id = tweet.main.id,
-  media = "plots/dagelijkse_storing.png") 
 
 ##### Generate municipality images ####
 source("workflow/parse_nice-municipalities-data.R")

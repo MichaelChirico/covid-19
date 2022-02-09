@@ -128,8 +128,7 @@ ggsave("plots/overview_aanwezig_zkh.png", width = 12, height=8)
 # Plot for #patients intake per day
 opnames <- all.data %>%
   filter(date > filter.date) %>%
-  ggplot(aes(x=date, y=new.hospitals, group = 1)) + 
-  geom_line(aes(y = hospital_intake_rivm, color = "Opname op verpleegafdeling (GGDs)"), lwd=1.2) +
+  ggplot(aes(x=date, group = 1)) + 
   geom_line(aes(y = Kliniek_Nieuwe_Opnames_COVID_Nederland, color = "Opname op verpleegafdeling (LCPS)"), lwd=1.2, position = position_nudge(x=-1)) +
   geom_line(aes(y = Hospital_Intake, color = "Opname op verpleegafdeling (NICE)"), lwd=1.2, na.rm = TRUE) +
   geom_line(aes(y = IC_Intake, color = "Opname op IC (NICE)"), lwd=1.2, na.rm = TRUE) +
