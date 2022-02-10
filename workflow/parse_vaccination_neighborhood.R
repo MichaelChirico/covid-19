@@ -2,20 +2,16 @@ temp = list.files(path = "data-rivm/vaccine-neighborhood/",pattern="*.csv.gz", f
 
 vaxx.wijk <- fread(last(temp))
 
-vaxx.wijk <- fread("data-rivm/vaccine-neighborhood/")
-
-
 vaxx.wijk <- vaxx.wijk %>%
   filter(Region_code != "") %>% # Filter observations without municipal name
   select(
     Region_name, 
     Region_code,
     Date_of_statistics, 
-    Populatie,
+    Populatie_merged,
     Coverage_primary_partly,
     Coverage_primary_completed
   )
-
 
 vaxx.wijk.partial <- vaxx.wijk %>%
   select(
@@ -23,7 +19,7 @@ vaxx.wijk.partial <- vaxx.wijk %>%
     Region_code,
     Date_of_statistics,
     Coverage_primary_partly,
-    Populatie
+    Populatie_merged
   ) %>%
   mutate(Coverage_primary_partly = parse_number(Coverage_primary_partly))
 
@@ -33,11 +29,9 @@ vaxx.wijk.completed <- vaxx.wijk %>%
     Region_code,
     Date_of_statistics,
     Coverage_primary_completed,
-    Populatie
+    Populatie_merged
   ) %>%
   mutate(Coverage_primary_completed = parse_number(Coverage_primary_completed))
-  )
-
 
 vaxx.wijk.partial <- vaxx.wijk.partial %>%
   distinct() %>%
