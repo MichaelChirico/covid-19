@@ -31,7 +31,7 @@ df_date_wide$Verschil <- df_date_wide[,ncol(df_date_wide)] - df_date_wide[,ncol(
 df_date_wide <- df_date_wide[,c("Datum","Verschil","Type_Datum")]
 
 df.final <- spread(df_date_wide, key = Type_Datum, value = Verschil, fill = 0)
-colnames(df.final) <- c("Datum","DON_diff","DOO_diff","DPL_diff")
+colnames(df.final) <- c("Datum","DOO_diff","DPL_diff")
 df.final$Datum <- as.Date(df.final$Datum)
 
 dat.today <- fread(temp[2])
