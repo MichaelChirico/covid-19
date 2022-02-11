@@ -65,6 +65,17 @@ colnames(excess_dlm) <- c("Week","Year","total_covid_mortality")
 deaths_total <- merge(deaths_total,excess_dlm,by=c("Week","Year"), all.x=T)
 
 ## Deaths WLZ vs. other / CBS
+cbs_url <- "https://www.cbs.nl/-/media/_excel/2022/05/doodsoorzaken-2020september-2021.xlsx"
+
+
+download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
+cbs_oversterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 4))
+unlink("cbs_deaths.xlsx")
+cbs_oversterfte <- cbs_oversterfte[5:nrow(cbs_oversterfte),c(1:2,4:5)]
+colnames(cbs_oversterfte) <- c("Year","Week","other_deaths_perc","wlz_deaths_perc")
+cbs_oversterfte <- mutate_all(cbs_oversterfte, function(x) parse_number(as.character(x)))
+
+
 
 u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/44/in-2e-kwartaal-2021-minder-mensen-overleden-aan-covid-19-dan-in-1e-kwartaal"
 webpage.cbs <- read_html(u.cbs)
@@ -85,7 +96,7 @@ page <- data.frame(page)
 
 page$category <- grepl(".xlsx", page$page, fixed = TRUE)
 page <- page %>%
-  filter(category == "TRUE")
+  dplyr::filter(category == "TRUE")
 cbs_url <- page[1,1]
 
 download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")

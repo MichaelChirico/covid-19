@@ -243,8 +243,6 @@ cbs.death.statistics$Year <- parse_number(cbs.death.statistics$Year)
 
 deaths_weekly <- merge(deaths_weekly, cbs.death.statistics, by = c("Week","Year"), all.x=T)
 
-str(deaths_weekly)
-
 deaths_weekly <- deaths_weekly %>%
   mutate(Totaal_Overleden = round(Totaal_Overleden,0)) %>%
   mutate(Overleden0_65 = round(Overleden0_65,0)) %>%
@@ -302,8 +300,8 @@ mortality_wide %>%
   geom_line(aes(y = `2017`, color = "2017"), lwd=1.0, linetype = "dashed") +
   geom_line(aes(y = `2018`, color = "2018"), lwd=1.0, linetype = "dashed") +
   geom_line(aes(y = `2019`, color = "2019"), lwd=1.0, linetype = "dashed") +
-  geom_line(aes(y = `2020`, color = "2020"), lwd=1.0, linetype = "dashed") +
-  geom_line(aes(y = `2021`, color = "2021"), lwd=1.0, linetype = "dashed") +
+  geom_line(aes(y = `2020`, color = "2020"), lwd=1.0) +
+  geom_line(aes(y = `2021`, color = "2021"), lwd=1.0) +
   geom_line(aes(y = `2022`, color = "2022"), lwd=1.2) +
   scale_y_continuous(limits = c(2000, 5500)) +
   theme_bw() +
