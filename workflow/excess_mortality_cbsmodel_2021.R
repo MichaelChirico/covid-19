@@ -453,8 +453,8 @@ totals2021 <- beta_long[year == 2020 & week %in% seq(1, 52),
 totals <- rbind(totals2021, totals2022)
 
 
-
-u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/44/in-2e-kwartaal-2021-minder-mensen-overleden-aan-covid-19-dan-in-1e-kwartaal"
+u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2022/05/in-3e-kwartaal-2021-overleden-953-mensen-aan-covid-19"
+#u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/44/in-2e-kwartaal-2021-minder-mensen-overleden-aan-covid-19-dan-in-1e-kwartaal"
 webpage.cbs <- read_html(u.cbs)
 
 cbs.death.statistics <- as.data.frame(html_table(webpage.cbs)[[3]])
@@ -467,6 +467,9 @@ colnames(cbs.death.statistics) <- c("week","year","covid_deaths")
 totals2020 <- cbs.death.statistics
 totals2020 <- totals2020[10:(nrow(totals2020)-1),]
 totals2020$year <- parse_number(totals2020$year)
+totals2020 <- na.omit(totals2020)
+
+
 
 totals2020 <- totals2020 %>%
   mutate(deaths_mid_cumsum = cumsum(covid_deaths))
@@ -691,7 +694,11 @@ ggsave('plots/2021_fig4.2.1.png', fig4.2.1_plot, width = 12, height = 8)
 #  ylab('Totale oversterfte') + 
 #  theme_bw()
 #ggsave('plots/2021_fig4.2.2.png')
+git.credentials <- read_lines("git_auth.txt")
+git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
+## Push to git
+repo <- init()
 add(repo, path = "*")
 commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update DLM mortality analyses"))
 push(repo, credentials = git.auth)
