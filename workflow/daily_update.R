@@ -17,9 +17,9 @@ pull(repo)
 
 # Generate Banner
 source("workflow/generate_banner.R")
-#source("workflow/parse_nice-data.R")
-#source("workflow/dashboards/age-distribution-date-NICE.R")
-#source("workflow/dashboards/nice_bezetting_onder20.R")
+source("workflow/parse_nice-data.R")
+source("workflow/dashboards/age-distribution-date-NICE.R")
+source("workflow/dashboards/nice_bezetting_onder20.R")
 
 ## Put in double date breaker for LCPS update
 repeat {
