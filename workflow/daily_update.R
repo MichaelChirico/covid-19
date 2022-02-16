@@ -38,7 +38,7 @@ source("workflow/parse_lcps-data.R")
 ## Put in double date breaker for RIVM update
 repeat {
   Sys.sleep(2)
-  time.start <- ymd_hms(paste0(Sys.Date()," 15:16:00"))
+  time.start <- ymd_hms(paste0(Sys.Date()," 15:18:00"))
   time.now <- ymd_hms(Sys.time())
   
   if (time.start < time.now){
