@@ -183,7 +183,7 @@ push(repo, credentials = git.auth)
 bot <- TGBot$new(token = bot_token('RBot'))
 bot$set_default_chat_id(user_id('me'))
 bot$sendMessage('Gemeente update klaar')
-
+tweet.main.id <- "1493954818263629825"
 ########
 # Municipality tweet - cases
 ########
