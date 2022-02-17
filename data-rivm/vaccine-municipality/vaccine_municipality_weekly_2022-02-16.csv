@@ -1025,6 +1025,15 @@ Version,Date_of_report,Date_of_statistics,Region_level,Region_code,Region_name,B
 2,2022-02-16T10:30:00Z,2022-02-07,Gemeente,GM1979,Eemsdelta,<=2009,84,83,12+
 2,2022-02-16T10:30:00Z,2022-02-07,Gemeente,GM1979,Eemsdelta,<2004,85,83,18+
 2,2022-02-16T10:30:00Z,2022-02-07,Gemeente,GM1979,Eemsdelta,2004-2009,73,71,12-17
+2,2022-02-16T10:30:00Z,2022-02-07,Gemeente,GM1980,Dijk en Waard,<=2009,83,81,12+
+2,2022-02-16T10:30:00Z,2022-02-07,Gemeente,GM1980,Dijk en Waard,<2004,84,82,18+
+2,2022-02-16T10:30:00Z,2022-02-07,Gemeente,GM1980,Dijk en Waard,2004-2009,68,67,12-17
+2,2022-02-16T10:30:00Z,2022-02-07,Gemeente,GM1982,Land van Cuijk,<=2009,90,89,12+
+2,2022-02-16T10:30:00Z,2022-02-07,Gemeente,GM1982,Land van Cuijk,<2004,91,90,18+
+2,2022-02-16T10:30:00Z,2022-02-07,Gemeente,GM1982,Land van Cuijk,2004-2009,83,81,12-17
+2,2022-02-16T10:30:00Z,2022-02-07,Gemeente,GM1991,Maashorst,<=2009,89,87,12+
+2,2022-02-16T10:30:00Z,2022-02-07,Gemeente,GM1991,Maashorst,<2004,89,88,18+
+2,2022-02-16T10:30:00Z,2022-02-07,Gemeente,GM1991,Maashorst,2004-2009,78,77,12-17
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR01,Groningen,<=2009,85,84,12+
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR01,Groningen,<2004,86,84,18+
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR01,Groningen,2004-2009,75,73,12-17
@@ -1052,9 +1061,9 @@ Version,Date_of_report,Date_of_statistics,Region_level,Region_code,Region_name,B
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR09,Utrecht,<=2009,85,84,12+
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR09,Utrecht,<2004,86,86,18+
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR09,Utrecht,2004-2009,71,70,12-17
-2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR10,Noord-Holland-Noord,<=2009,>=95,94,12+
-2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR10,Noord-Holland-Noord,<2004,>=95,>=95,18+
-2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR10,Noord-Holland-Noord,2004-2009,82,81,12-17
+2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR10,Noord-Holland-Noord,<=2009,83,82,12+
+2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR10,Noord-Holland-Noord,<2004,84,83,18+
+2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR10,Noord-Holland-Noord,2004-2009,70,69,12-17
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR11,Zaanstreek-Waterland,<=2009,81,80,12+
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR11,Zaanstreek-Waterland,<2004,82,81,18+
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR11,Zaanstreek-Waterland,2004-2009,64,63,12-17
@@ -1085,9 +1094,9 @@ Version,Date_of_report,Date_of_statistics,Region_level,Region_code,Region_name,B
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR20,Midden- en West-Brabant,<=2009,86,85,12+
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR20,Midden- en West-Brabant,<2004,87,86,18+
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR20,Midden- en West-Brabant,2004-2009,74,73,12-17
-2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR21,Brabant-Noord,<=2009,>=95,>=95,12+
-2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR21,Brabant-Noord,<2004,>=95,>=95,18+
-2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR21,Brabant-Noord,2004-2009,>=95,>=95,12-17
+2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR21,Brabant-Noord,<=2009,89,87,12+
+2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR21,Brabant-Noord,<2004,89,88,18+
+2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR21,Brabant-Noord,2004-2009,80,78,12-17
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR22,Brabant-Zuidoost,<=2009,86,85,12+
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR22,Brabant-Zuidoost,<2004,87,86,18+
 2,2022-02-16T10:30:00Z,2022-02-07,Veiligheidsregio,VR22,Brabant-Zuidoost,2004-2009,75,74,12-17
