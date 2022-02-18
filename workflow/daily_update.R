@@ -1,7 +1,7 @@
 memory.limit(size = 60000)
 
-#time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
-time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
+time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
+#time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
 
 ## Put in double date breaker for NICE update
 repeat {
@@ -183,7 +183,6 @@ push(repo, credentials = git.auth)
 bot <- TGBot$new(token = bot_token('RBot'))
 bot$set_default_chat_id(user_id('me'))
 bot$sendMessage('Gemeente update klaar')
-tweet.main.id <- "1493954818263629825"
 ########
 # Municipality tweet - cases
 ########
@@ -424,7 +423,7 @@ tweet.report = "Wij maken ook een dagelijks epidemiologisch rapport (work in pro
 posted_tweet <- post_tweet (
   tweet.report,
   token = token.mzelst,
-  in_reply_to_status_id = tweet.last_id,
+  in_reply_to_status_id = "1494318855946080258",
   auto_populate_reply_metadata = TRUE
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
