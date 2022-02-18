@@ -202,15 +202,11 @@ deaths_weekly <- merge(deaths_2020, excess_deaths_wide, by = c("Week","Year"))
 
 week.now <- week(Sys.Date())-2 ## Which week?
 
-excess_cbsmodel <- read.csv("data-misc/excess_mortality/excess_mortality_dlm_2021.csv")
+df_cbsmodel <- read.csv("data-misc/excess_mortality/excess_mortality_dlm_2021.csv")[,c(2:10)]
 
-df_cbsmodel <- excess_cbsmodel[which(excess_cbsmodel$model=="Dynamisch"),c("week","deaths_week_low",
-                                                                           "deaths_week_mid","deaths_week_high","deaths_low_cumsum",
-                                                                           "deaths_mid_cumsum","deaths_high_cumsum","year")]
-
-colnames(df_cbsmodel) <- c("Week","DLModel_lowerbound95","DLModel_week_estimate",
-                           "DLModel_upperbound95","Oversterfte_DLModel_cumul_low","Oversterfte_DLModel_cumul_mid",
-                           "Oversterfte_DLModel_cumul_high","Year")
+colnames(df_cbsmodel) <- c("Week","Year","DLModel_week_estimate","DLModel_upperbound95","DLModel_lowerbound95",
+                           "Oversterfte_DLModel_cumul_low","Oversterfte_DLModel_cumul_mid",
+                           "Oversterfte_DLModel_cumul_high","weekyear")
 
 df_cbsmodel <- df_cbsmodel %>%
   mutate(DLModel_lowerbound95 = round(DLModel_lowerbound95,0)) %>%
