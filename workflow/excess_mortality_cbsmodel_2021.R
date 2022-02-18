@@ -451,73 +451,48 @@ totals2021 <- beta_long[year == 2020 & week %in% seq(1, 52),
 ][, year := 2021]
 
 totals <- rbind(totals2021, totals2022)
-
-
-u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2022/05/in-3e-kwartaal-2021-overleden-953-mensen-aan-covid-19"
-#u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/44/in-2e-kwartaal-2021-minder-mensen-overleden-aan-covid-19-dan-in-1e-kwartaal"
-webpage.cbs <- read_html(u.cbs)
-
-cbs.death.statistics <- as.data.frame(html_table(webpage.cbs)[[3]])
-colnames(cbs.death.statistics) <- c("Year","Week","Mortality_without_covid_CBS","Covid_deaths_CBS_death_statistics")
-cbs.death.statistics$Mortality_without_covid_CBS <- as.numeric(cbs.death.statistics$Mortality_without_covid_CBS)
-cbs.death.statistics$Covid_deaths_CBS_death_statistics <- as.numeric(cbs.death.statistics$Covid_deaths_CBS_death_statistics)
-cbs.death.statistics <- cbs.death.statistics[,c("Week","Year","Covid_deaths_CBS_death_statistics")]
-colnames(cbs.death.statistics) <- c("week","year","covid_deaths")
-
-totals2020 <- cbs.death.statistics
-totals2020 <- totals2020[10:(nrow(totals2020)-1),]
-totals2020$year <- parse_number(totals2020$year)
-totals2020 <- na.omit(totals2020)
-
-
-
-totals2020 <- totals2020 %>%
-  mutate(deaths_mid_cumsum = cumsum(covid_deaths))
-
-totals2020$model <- "Dynamisch"
-totals2020$Laag <- totals2020$deaths_mid_cumsum
-totals2020$Gemiddeld <- totals2020$deaths_mid_cumsum
-totals2020$Hoog <- totals2020$deaths_mid_cumsum
-totals2020 <- totals2020[,c("model","week","Laag","Gemiddeld","Hoog","year")]
-totals2020 <- totals2020 %>%
-  arrange(model) %>%
-  mutate(deaths_week_mid = c(0,diff(Gemiddeld))) %>%
-  mutate(deaths_week_low = c(0,diff(Laag))) %>%
-  mutate(deaths_week_high = c(0,diff(Hoog)))
-
-totals <- totals[model == 'Dynamisch']
-#totals$year <- 2021
-
-
+totals$model <- NULL
 
 totals <- totals %>%
-  arrange(model) %>%
   mutate(deaths_week_mid = c(0,diff(Gemiddeld))) %>%
   mutate(deaths_week_low = c(0,diff(Laag))) %>%
   mutate(deaths_week_high = c(0,diff(Hoog)))
 
-start.week.2021 <- as.numeric(last(totals2020$week))+1
+totals[1,"deaths_week_mid"] <- totals[1,"Gemiddeld"]
+totals[1,"deaths_week_low"] <- totals[1,"Laag"]
+totals[1,"deaths_week_high"] <- totals[1,"Hoog"]
+totals[53,"deaths_week_mid"] <- totals[53,"Gemiddeld"]
+totals[53,"deaths_week_low"] <- totals[53,"Laag"]
+totals[53,"deaths_week_high"] <- totals[53,"Hoog"]
 
-totals <- totals[start.week.2021:nrow(totals),]
+totals <- totals %>%
+  select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
 
-totals <- rbind(totals2020,totals)
 
-totals[97,"deaths_week_mid"] <- totals[97,"Gemiddeld"]
-totals[97,"deaths_week_low"] <- totals[97,"Laag"]
-totals[97,"deaths_week_high"] <- totals[97,"Hoog"]
+u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/05/doodsoorzaken-2020september-2021.xlsx"
+#webpage.cbs <- read_html(u.cbs)
 
-#totals[45,"deaths_week_mid"] <- totals[45,"Gemiddeld"]
-#totals[45,"deaths_week_low"] <- totals[45,"Laag"]
-#totals[45,"deaths_week_high"] <- totals[45,"Hoog"]
+download.file(u.cbs,destfile = "cbs_deaths.xlsx", mode = "wb")
+cbs.death.statistics <- data.table(read_excel("cbs_deaths.xlsx",sheet = 2)[5:57,c(1,5,8)])
+unlink("cbs_deaths.xlsx")
+colnames(cbs.death.statistics) <- c("week","Covid_2020","Covid_2021")
+cbs.death.statistics <- gather(cbs.death.statistics,key = "year",value = "covid_deaths",-week)
+cbs.death.statistics <- cbs.death.statistics %>%
+  mutate_all(parse_number) %>%
+  na.omit() %>%
+  mutate(deaths_week_mid = covid_deaths) %>%
+  mutate(deaths_week_high = covid_deaths) %>%
+  mutate(deaths_week_low = covid_deaths) %>%
+  relocate(year, .after = deaths_week_low) %>%
+  select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
 
+totals <- subset(totals, !(week <= last(cbs.death.statistics$week) & year == last(cbs.death.statistics$year)))
+totals <- rbind(cbs.death.statistics, totals)
 
 totals <- totals %>%
   mutate(deaths_low_cumsum = cumsum(deaths_week_low)) %>%
   mutate(deaths_mid_cumsum = cumsum(deaths_week_mid)) %>%
-  mutate(deaths_high_cumsum = cumsum(deaths_week_high)) %>%
-  select(-c(Laag, Gemiddeld, Hoog))
-
-totals$week <- as.numeric(totals$week)
+  mutate(deaths_high_cumsum = cumsum(deaths_week_high))
 
 totals$weekyear <- ifelse(totals$week<10,
                           paste0(totals$year,"-",0,totals$week),
@@ -665,7 +640,7 @@ fig4.2.1_plot <- totals %>%
   dplyr::filter(year >= 2021) %>%
   ggplot(aes(factor(weekyear), deaths_week_mid)) + 
   geom_col(size = 4, position = 'dodge') + 
-  geom_errorbar(aes(min = deaths_week_low, ymax = deaths_week_high, col = ifelse(model == 'CBS', NA, 'red')), alpha = 0.4) +
+  geom_errorbar(aes(min = deaths_week_low, ymax = deaths_week_high), alpha = 0.4) +
   scale_colour_manual(values = c('red', NA)) +
   guides(colour = F) + 
   ylab('Oversterfte') +
@@ -677,7 +652,7 @@ fig4.2.1_plot <- totals %>%
   ggtitle("Sterfte door corona (2021 & 2022)")
 
 
-ggsave('plots/2021_fig4.2.1.png', fig4.2.1_plot, width = 12, height = 8)
+ggsave('plots/2021_fig4.2.1.png', fig4.2.1_plot, width = 16, height = 8)
 
 ## figure 4.2.2
 #fig4.2.2_dt <- melt(totals[week == week.now][,-'week'], id.vars = 'model')
