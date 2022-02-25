@@ -549,7 +549,7 @@ ggplot(fig2.1_dt, aes(factor(weekyear), cbs_deaths, group = 1)) +
   xlab('Week') +
   ylab('') + 
   theme_bw() + 
-  theme(axis.text.x = element_text(angle =))
+  theme(axis.text.x = element_text(angle =90))
 ggsave('plots/2021_fig2.1.png')
 
 
