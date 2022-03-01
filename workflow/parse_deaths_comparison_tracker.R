@@ -77,15 +77,6 @@ cbs_oversterfte <- mutate_all(cbs_oversterfte, function(x) parse_number(as.chara
 
 
 
-u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/44/in-2e-kwartaal-2021-minder-mensen-overleden-aan-covid-19-dan-in-1e-kwartaal"
-webpage.cbs <- read_html(u.cbs)
-
-cbs.death.statistics <- as.data.frame(html_table(webpage.cbs)[[2]])
-colnames(cbs.death.statistics) <- c("Year","Week","wlz_deaths_perc","other_deaths_perc")
-cbs.death.statistics <- mutate_all(cbs.death.statistics, function(x) parse_number(as.character(x)))
-cbs.death.statistics <- cbs.death.statistics %>%
-  mutate(wlz_deaths_perc = wlz_deaths_perc/100) %>%
-  mutate(other_deaths_perc = other_deaths_perc/100)
 
 urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
 
@@ -110,8 +101,9 @@ cbs_sterfte <- cbs_sterfte[6:nrow(cbs_sterfte),]
 
 ## Select indices ##
 test <- row_count(cbs_sterfte, count = NA)
-rows.2020 <- which(test$rowcount == 4)[2]
-rows.2021 <- which(test$rowcount == 4)[1]
+rows.2020 <- which(test$rowcount == 4)[3]
+rows.2021 <- which(test$rowcount == 4)[2]
+rows.2022 <- which(test$rowcount == 4)[1]
 
 wlz_sterfte.2020 <- cbs_sterfte[(rows.2021+2):(rows.2020-1),]
 colnames(wlz_sterfte.2020) <- c("Type","Jaar","Week","WLZ_gebruikers")
@@ -124,8 +116,7 @@ wlz_sterfte.2020$Type <- "WLZ"
 wlz_sterfte.2020$Jaar <- 2020
 
 
-
-wlz_sterfte.2021 <- cbs_sterfte[1:rows.2021-1]
+wlz_sterfte.2021 <- cbs_sterfte[(rows.2022+2):rows.2021-1]
 colnames(wlz_sterfte.2021) <- c("Type","Jaar","Week","WLZ_gebruikers")
 
 wlz_sterfte.2021 <- wlz_sterfte.2021 %>%
@@ -135,13 +126,28 @@ wlz_sterfte.2021 <- wlz_sterfte.2021 %>%
 wlz_sterfte.2021$Type <- "WLZ"
 wlz_sterfte.2021$Jaar <- 2021
 
-wlz_sterfte <- rbind(wlz_sterfte.2020,wlz_sterfte.2021)
+
+## Sterfte WLZ 2022
+wlz_sterfte.2022 <- cbs_sterfte[1:rows.2022-1]
+colnames(wlz_sterfte.2022) <- c("Type","Jaar","Week","WLZ_gebruikers")
+
+wlz_sterfte.2022 <- wlz_sterfte.2022 %>%
+  mutate(Week = parse_number(Week)) %>%
+  mutate(WLZ_gebruikers = parse_number(WLZ_gebruikers))
+
+wlz_sterfte.2022$Type <- "WLZ"
+wlz_sterfte.2022$Jaar <- 2022
+
+
+wlz_sterfte <- rbind(wlz_sterfte.2020,wlz_sterfte.2021,wlz_sterfte.2022)
 
 
 ## Parse 'other' mortality data ##
+rows.2020 <- which(test$rowcount == 4)[3]
+rows.2021 <- which(test$rowcount == 4)[2]
+rows.2022 <- which(test$rowcount == 4)[1]
 
-rows.2020 <- which(test$rowcount == 4)[2]
-rows.2021 <- which(test$rowcount == 4)[1]
+rows.2021.other <- which(test$rowcount == 4)[3]
 rows.2021.other <- which(test$rowcount == 4)[3]
 rows.2020.other <- which(test$rowcount == 4)[4]
 
