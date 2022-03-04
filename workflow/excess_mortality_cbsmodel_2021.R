@@ -32,6 +32,7 @@ library(knitr)
 library(gridExtra)
 library(readxl)
 require(rvest)
+require(git2r)
 ## for reproducibility
 set.seed(123)
 
