@@ -1,141 +1,120 @@
 "Date_of_statistics","Municipality_name","Security_region_name","hospital.today.mun","hospital.yesterday.mun","diff"
-2021-11-24,"Bernheze","Brabant-Noord",2,1,1
-2022-01-14,"Oldenzaal","Twente",1,0,1
-2022-02-04,"Meierijstad","Brabant-Noord",2,1,1
-2022-02-15,"Noordwijk","Hollands-Midden",1,0,1
-2022-02-16,"Utrecht","Utrecht",7,6,1
-2022-02-17,"Hengelo","Twente",3,2,1
-2022-02-21,"Dordrecht","Zuid-Holland-Zuid",3,2,1
-2022-02-21,"Pekela","Groningen",2,1,1
-2022-02-22,"Amsterdam","Amsterdam-Amstelland",4,3,1
-2022-02-23,"Almere","Flevoland",4,3,1
-2022-02-23,"Eemsdelta","Groningen",2,1,1
-2022-02-23,"Eindhoven","Brabant-Zuidoost",4,3,1
-2022-02-24,"","",4,3,1
-2022-02-24,"Den Helder","Noord-Holland-Noord",2,1,1
-2022-02-24,"Oosterhout","Midden- en West-Brabant",3,2,1
-2022-02-24,"Zutphen","Noord- en Oost-Gelderland",1,0,1
-2022-02-26,"'s-Gravenhage","Haaglanden",4,3,1
-2022-02-26,"Amersfoort","Utrecht",1,0,1
-2022-02-27,"Heerlen","Limburg-Zuid",2,1,1
-2022-02-27,"Katwijk","Hollands-Midden",1,0,1
-2022-02-27,"Oss","Brabant-Noord",2,0,2
-2022-02-28,"","",4,3,1
-2022-02-28,"Barneveld","Gelderland-Midden",2,1,1
-2022-02-28,"Ermelo","Noord- en Oost-Gelderland",1,0,1
-2022-02-28,"Groningen","Groningen",4,3,1
-2022-02-28,"Leidschendam-Voorburg","Haaglanden",1,0,1
-2022-02-28,"Noordwijk","Hollands-Midden",2,1,1
-2022-02-28,"Nunspeet","Noord- en Oost-Gelderland",2,1,1
-2022-02-28,"Soest","Utrecht",1,0,1
-2022-02-28,"Stichtse Vecht","Utrecht",2,1,1
-2022-02-28,"Tiel","Gelderland-Zuid",2,1,1
-2022-03-01,"Amersfoort","Utrecht",2,0,2
-2022-03-01,"Apeldoorn","Noord- en Oost-Gelderland",4,0,4
-2022-03-01,"Barneveld","Gelderland-Midden",1,0,1
-2022-03-01,"Beesel","Limburg-Noord",2,1,1
-2022-03-01,"Bergen (L.)","Limburg-Noord",1,0,1
-2022-03-01,"Bergen op Zoom","Midden- en West-Brabant",1,0,1
-2022-03-01,"Borger-Odoorn","Drenthe",1,0,1
-2022-03-01,"Breda","Midden- en West-Brabant",2,1,1
-2022-03-01,"Coevorden","Drenthe",3,2,1
-2022-03-01,"Doesburg","Gelderland-Midden",2,1,1
-2022-03-01,"Dordrecht","Zuid-Holland-Zuid",2,1,1
-2022-03-01,"Ede","Gelderland-Midden",1,0,1
-2022-03-01,"Gennep","Limburg-Noord",1,0,1
-2022-03-01,"Harderwijk","Noord- en Oost-Gelderland",1,0,1
-2022-03-01,"Heiloo","Noord-Holland-Noord",1,0,1
-2022-03-01,"Hoogeveen","Drenthe",3,1,2
-2022-03-01,"Horst aan de Maas","Limburg-Noord",1,0,1
-2022-03-01,"Houten","Utrecht",1,0,1
-2022-03-01,"Middelburg","Zeeland",1,0,1
-2022-03-01,"Midden-Groningen","Groningen",1,0,1
-2022-03-01,"Neder-Betuwe","Gelderland-Zuid",1,0,1
-2022-03-01,"Noordwijk","Hollands-Midden",1,0,1
-2022-03-01,"Peel en Maas","Limburg-Noord",1,0,1
-2022-03-01,"Rucphen","Midden- en West-Brabant",1,0,1
-2022-03-01,"Schagen","Noord-Holland-Noord",2,1,1
-2022-03-01,"Sittard-Geleen","Limburg-Zuid",4,3,1
-2022-03-01,"Soest","Utrecht",2,1,1
-2022-03-01,"Tytsjerksteradiel","Fryslân",2,0,2
-2022-03-01,"Waadhoeke","Fryslân",2,0,2
-2022-03-01,"Weststellingwerf","Fryslân",1,0,1
-2022-03-01,"Woensdrecht","Midden- en West-Brabant",1,0,1
-2022-03-01,"Zeewolde","Flevoland",1,0,1
-2022-03-01,"Zwijndrecht","Zuid-Holland-Zuid",2,0,2
-2022-03-02,"","",1,0,1
-2022-03-02,"Aalsmeer","Amsterdam-Amstelland",1,0,1
-2022-03-02,"Alkmaar","Noord-Holland-Noord",2,0,2
-2022-03-02,"Amersfoort","Utrecht",1,0,1
-2022-03-02,"Amsterdam","Amsterdam-Amstelland",4,0,4
-2022-03-02,"Apeldoorn","Noord- en Oost-Gelderland",3,0,3
-2022-03-02,"Arnhem","Gelderland-Midden",1,0,1
-2022-03-02,"Assen","Drenthe",1,0,1
-2022-03-02,"Beesel","Limburg-Noord",1,0,1
-2022-03-02,"Bergen op Zoom","Midden- en West-Brabant",1,0,1
-2022-03-02,"Berkelland","Noord- en Oost-Gelderland",1,0,1
-2022-03-02,"Bernheze","Brabant-Noord",1,0,1
-2022-03-02,"Breda","Midden- en West-Brabant",2,0,2
-2022-03-02,"Buren","Gelderland-Zuid",2,1,1
-2022-03-02,"Culemborg","Gelderland-Zuid",2,1,1
-2022-03-02,"De Ronde Venen","Utrecht",2,0,2
-2022-03-02,"Delft","Haaglanden",4,2,2
-2022-03-02,"Diemen","Amsterdam-Amstelland",1,0,1
-2022-03-02,"Dijk en Waard","Noord-Holland-Noord",1,0,1
-2022-03-02,"Doetinchem","Noord- en Oost-Gelderland",1,0,1
-2022-03-02,"Dordrecht","Zuid-Holland-Zuid",2,0,2
-2022-03-02,"Edam-Volendam","Zaanstreek-Waterland",1,0,1
-2022-03-02,"Eemsdelta","Groningen",2,1,1
-2022-03-02,"Eijsden-Margraten","Limburg-Zuid",2,1,1
-2022-03-02,"Eindhoven","Brabant-Zuidoost",1,0,1
-2022-03-02,"Emmen","Drenthe",1,0,1
-2022-03-02,"Enkhuizen","Noord-Holland-Noord",1,0,1
-2022-03-02,"Geldrop-Mierlo","Brabant-Zuidoost",1,0,1
-2022-03-02,"Gilze en Rijen","Midden- en West-Brabant",1,0,1
-2022-03-02,"Gooise Meren","Gooi en Vechtstreek",2,0,2
-2022-03-02,"Groningen","Groningen",1,0,1
-2022-03-02,"Haarlemmermeer","Kennemerland",1,0,1
-2022-03-02,"Harderwijk","Noord- en Oost-Gelderland",2,0,2
-2022-03-02,"Heerlen","Limburg-Zuid",3,1,2
-2022-03-02,"Hellevoetsluis","Rotterdam-Rijnmond",1,0,1
-2022-03-02,"Hilversum","Gooi en Vechtstreek",1,0,1
-2022-03-02,"Hoeksche Waard","Zuid-Holland-Zuid",1,0,1
-2022-03-02,"Hoorn","Noord-Holland-Noord",2,0,2
-2022-03-02,"Huizen","Gooi en Vechtstreek",1,0,1
-2022-03-02,"Land van Cuijk","Brabant-Noord",1,0,1
-2022-03-02,"Leiden","Hollands-Midden",1,0,1
-2022-03-02,"Leudal","Limburg-Noord",1,0,1
-2022-03-02,"Lopik","Utrecht",1,0,1
-2022-03-02,"Maassluis","Rotterdam-Rijnmond",1,0,1
-2022-03-02,"Maastricht","Limburg-Zuid",2,0,2
-2022-03-02,"Midden-Delfland","Haaglanden",1,0,1
-2022-03-02,"Nieuwkoop","Hollands-Midden",1,0,1
-2022-03-02,"Nijmegen","Gelderland-Zuid",3,1,2
-2022-03-02,"Noardeast-Fryslân","Fryslân",2,1,1
-2022-03-02,"Oisterwijk","Midden- en West-Brabant",1,0,1
-2022-03-02,"Olst-Wijhe","IJsselland",1,0,1
-2022-03-02,"Peel en Maas","Limburg-Noord",1,0,1
-2022-03-02,"Putten","Noord- en Oost-Gelderland",1,0,1
-2022-03-02,"Raalte","IJsselland",1,0,1
-2022-03-02,"Rotterdam","Rotterdam-Rijnmond",8,4,4
-2022-03-02,"Schiedam","Rotterdam-Rijnmond",1,0,1
-2022-03-02,"Sint-Michielsgestel","Brabant-Noord",1,0,1
-2022-03-02,"Sliedrecht","Zuid-Holland-Zuid",1,0,1
-2022-03-02,"Smallingerland","Fryslân",1,0,1
-2022-03-02,"Staphorst","IJsselland",1,0,1
-2022-03-02,"Súdwest-Fryslân","Fryslân",5,4,1
-2022-03-02,"Tholen","Zeeland",2,0,2
-2022-03-02,"Tiel","Gelderland-Zuid",1,0,1
-2022-03-02,"Tytsjerksteradiel","Fryslân",3,1,2
-2022-03-02,"Utrecht","Utrecht",2,1,1
-2022-03-02,"Utrechtse Heuvelrug","Utrecht",1,0,1
-2022-03-02,"Venray","Limburg-Noord",1,0,1
-2022-03-02,"Voerendaal","Limburg-Zuid",2,0,2
-2022-03-02,"Wassenaar","Haaglanden",1,0,1
-2022-03-02,"Weesp","Gooi en Vechtstreek",1,0,1
-2022-03-02,"West Betuwe","Gelderland-Zuid",1,0,1
-2022-03-02,"West Maas en Waal","Gelderland-Zuid",1,0,1
-2022-03-02,"Weststellingwerf","Fryslân",1,0,1
-2022-03-02,"Wijchen","Gelderland-Zuid",2,1,1
-2022-03-02,"Zoetermeer","Haaglanden",1,0,1
-2022-03-02,"Zwolle","IJsselland",4,2,2
+2021-12-25,"","",3,4,-1
+2022-01-27,"Zwijndrecht","Zuid-Holland-Zuid",1,0,1
+2022-02-03,"Ridderkerk","Rotterdam-Rijnmond",2,1,1
+2022-02-18,"Eindhoven","Brabant-Zuidoost",3,2,1
+2022-02-19,"Breda","Midden- en West-Brabant",5,4,1
+2022-02-20,"Dijk en Waard","Noord-Holland-Noord",1,0,1
+2022-02-21,"Alkmaar","Noord-Holland-Noord",3,2,1
+2022-02-23,"Amsterdam","Amsterdam-Amstelland",9,8,1
+2022-02-24,"Woerden","Utrecht",1,0,1
+2022-02-25,"Putten","Noord- en Oost-Gelderland",2,1,1
+2022-02-26,"Vijfheerenlanden","Utrecht",1,0,1
+2022-02-27,"'s-Gravenhage","Haaglanden",4,3,1
+2022-02-27,"'s-Hertogenbosch","Brabant-Noord",1,0,1
+2022-02-27,"Zaanstad","Zaanstreek-Waterland",2,1,1
+2022-02-28,"Assen","Drenthe",1,0,1
+2022-02-28,"Gemert-Bakel","Brabant-Zuidoost",1,0,1
+2022-02-28,"Rijssen-Holten","Twente",1,0,1
+2022-03-01,"'s-Gravenhage","Haaglanden",7,3,4
+2022-03-01,"'s-Hertogenbosch","Brabant-Noord",1,0,1
+2022-03-01,"Breda","Midden- en West-Brabant",3,2,1
+2022-03-01,"Dongen","Midden- en West-Brabant",1,0,1
+2022-03-01,"Heusden","Brabant-Noord",1,0,1
+2022-03-01,"Nissewaard","Rotterdam-Rijnmond",1,0,1
+2022-03-01,"Sint-Michielsgestel","Brabant-Noord",2,0,2
+2022-03-01,"Urk","Flevoland",0,1,-1
+2022-03-01,"Utrecht","Utrecht",3,2,1
+2022-03-01,"Zoetermeer","Haaglanden",2,1,1
+2022-03-02,"'s-Gravenhage","Haaglanden",4,0,4
+2022-03-02,"'s-Hertogenbosch","Brabant-Noord",2,0,2
+2022-03-02,"Almelo","Twente",1,0,1
+2022-03-02,"Amsterdam","Amsterdam-Amstelland",5,4,1
+2022-03-02,"Barendrecht","Rotterdam-Rijnmond",3,0,3
+2022-03-02,"Bergen (L.)","Limburg-Noord",1,0,1
+2022-03-02,"Boxtel","Brabant-Noord",1,0,1
+2022-03-02,"Breda","Midden- en West-Brabant",3,2,1
+2022-03-02,"De Bilt","Utrecht",1,0,1
+2022-03-02,"Echt-Susteren","Limburg-Noord",1,0,1
+2022-03-02,"Ede","Gelderland-Midden",1,0,1
+2022-03-02,"Harderwijk","Noord- en Oost-Gelderland",1,2,-1
+2022-03-02,"Harlingen","Fryslân",2,0,2
+2022-03-02,"Hengelo","Twente",1,0,1
+2022-03-02,"Heusden","Brabant-Noord",1,0,1
+2022-03-02,"Hilversum","Gooi en Vechtstreek",2,1,1
+2022-03-02,"IJsselstein","Utrecht",1,0,1
+2022-03-02,"Leudal","Limburg-Noord",3,1,2
+2022-03-02,"Meierijstad","Brabant-Noord",1,0,1
+2022-03-02,"Middelburg","Zeeland",1,0,1
+2022-03-02,"Nissewaard","Rotterdam-Rijnmond",1,0,1
+2022-03-02,"Nunspeet","Noord- en Oost-Gelderland",1,0,1
+2022-03-02,"Oss","Brabant-Noord",1,0,1
+2022-03-02,"Putten","Noord- en Oost-Gelderland",2,1,1
+2022-03-02,"Rijswijk","Haaglanden",1,0,1
+2022-03-02,"Roermond","Limburg-Noord",1,0,1
+2022-03-02,"Utrecht","Utrecht",3,2,1
+2022-03-02,"Waalwijk","Midden- en West-Brabant",1,0,1
+2022-03-02,"Zeewolde","Flevoland",1,0,1
+2022-03-03,"","",7,2,5
+2022-03-03,"'s-Gravenhage","Haaglanden",2,0,2
+2022-03-03,"'s-Hertogenbosch","Brabant-Noord",2,0,2
+2022-03-03,"Achtkarspelen","Fryslân",1,0,1
+2022-03-03,"Almelo","Twente",1,0,1
+2022-03-03,"Amsterdam","Amsterdam-Amstelland",3,1,2
+2022-03-03,"Assen","Drenthe",1,0,1
+2022-03-03,"Bloemendaal","Kennemerland",1,0,1
+2022-03-03,"Breda","Midden- en West-Brabant",1,0,1
+2022-03-03,"Cranendonck","Brabant-Zuidoost",1,0,1
+2022-03-03,"Den Helder","Noord-Holland-Noord",1,0,1
+2022-03-03,"Deventer","IJsselland",2,1,1
+2022-03-03,"Dordrecht","Zuid-Holland-Zuid",4,0,4
+2022-03-03,"Edam-Volendam","Zaanstreek-Waterland",1,0,1
+2022-03-03,"Eersel","Brabant-Zuidoost",1,0,1
+2022-03-03,"Enkhuizen","Noord-Holland-Noord",1,0,1
+2022-03-03,"Enschede","Twente",2,1,1
+2022-03-03,"Ermelo","Noord- en Oost-Gelderland",1,0,1
+2022-03-03,"Geertruidenberg","Midden- en West-Brabant",1,0,1
+2022-03-03,"Gilze en Rijen","Midden- en West-Brabant",1,0,1
+2022-03-03,"Goirle","Midden- en West-Brabant",2,0,2
+2022-03-03,"Gorinchem","Zuid-Holland-Zuid",1,0,1
+2022-03-03,"Gouda","Hollands-Midden",2,1,1
+2022-03-03,"Groningen","Groningen",1,0,1
+2022-03-03,"Harderwijk","Noord- en Oost-Gelderland",1,0,1
+2022-03-03,"Helmond","Brabant-Zuidoost",2,0,2
+2022-03-03,"Hengelo","Twente",1,0,1
+2022-03-03,"Het Hogeland","Groningen",1,0,1
+2022-03-03,"Hoorn","Noord-Holland-Noord",2,0,2
+2022-03-03,"Kampen","IJsselland",3,1,2
+2022-03-03,"Kapelle","Zeeland",1,0,1
+2022-03-03,"Krimpenerwaard","Hollands-Midden",1,0,1
+2022-03-03,"Leeuwarden","Fryslân",1,0,1
+2022-03-03,"Leiden","Hollands-Midden",1,0,1
+2022-03-03,"Leudal","Limburg-Noord",1,0,1
+2022-03-03,"Medemblik","Noord-Holland-Noord",1,0,1
+2022-03-03,"Middelburg","Zeeland",1,0,1
+2022-03-03,"Molenlanden","Zuid-Holland-Zuid",1,0,1
+2022-03-03,"Montferland","Noord- en Oost-Gelderland",1,0,1
+2022-03-03,"Nijkerk","Gelderland-Midden",1,0,1
+2022-03-03,"Noordenveld","Drenthe",1,0,1
+2022-03-03,"Noordoostpolder","Flevoland",1,0,1
+2022-03-03,"Nunspeet","Noord- en Oost-Gelderland",0,1,-1
+2022-03-03,"Ooststellingwerf","Fryslân",1,0,1
+2022-03-03,"Oss","Brabant-Noord",1,0,1
+2022-03-03,"Papendrecht","Zuid-Holland-Zuid",1,0,1
+2022-03-03,"Purmerend","Zaanstreek-Waterland",1,0,1
+2022-03-03,"Rijswijk","Haaglanden",1,0,1
+2022-03-03,"Roermond","Limburg-Noord",2,0,2
+2022-03-03,"Smallingerland","Fryslân",1,0,1
+2022-03-03,"Tilburg","Midden- en West-Brabant",2,0,2
+2022-03-03,"Tytsjerksteradiel","Fryslân",1,0,1
+2022-03-03,"Utrecht","Utrecht",2,0,2
+2022-03-03,"Utrechtse Heuvelrug","Utrecht",1,0,1
+2022-03-03,"Venlo","Limburg-Noord",1,0,1
+2022-03-03,"Vijfheerenlanden","Utrecht",2,0,2
+2022-03-03,"Wageningen","Gelderland-Midden",2,0,2
+2022-03-03,"Westvoorne","Rotterdam-Rijnmond",1,0,1
+2022-03-03,"Winterswijk","Noord- en Oost-Gelderland",1,0,1
+2022-03-03,"Zaanstad","Zaanstreek-Waterland",1,0,1
+2022-03-03,"Zaltbommel","Gelderland-Zuid",1,0,1
+2022-03-03,"Zoetermeer","Haaglanden",1,0,1
+2022-03-03,"Zwolle","IJsselland",2,0,2
