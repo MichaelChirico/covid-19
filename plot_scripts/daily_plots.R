@@ -9,7 +9,8 @@ testdata$date <- as.Date(testdata$date)
 testdata$values.infected_percentage <- testdata$values.infected_percentage/100
 testdata$pos.rate.7d.avg <- testdata$pos.rate.7d.avg/100
 
-filter.date <- Sys.Date()-56 # Set filter date for last 4 weeks
+filter.date <- Sys.Date()-56 # Set filter date for last 8 weeks
+filter.date.cases <- Sys.Date()-21
 
 all.data[211,27] <- 12
 all.data[212,27] <- 10
@@ -24,7 +25,7 @@ day.today <- wday(Sys.Date(), week_start = 2)
 
 # Plot for positive tests per day
 cases <- all.data %>%
-  dplyr::filter(date > filter.date) %>%
+  dplyr::filter(date > filter.date.cases) %>%
   ggplot(aes(x=date, y=new.infection)) + 
   geom_line(aes(y = net.infection, color = "Toename besmettingen per dag (incl. correcties)"), lwd=1.2) +
   geom_line(aes(y = positive_7daverage, color = "Voortschrijdend gemiddelde (7 dagen)"), lwd=1.2) +
