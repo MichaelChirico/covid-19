@@ -16,7 +16,7 @@ dat.today <- read.csv(temp)
 date.today <- as.Date(Sys.Date())
 
 test.df <- dat.today %>%
-  filter(Date_of_statistic_reported == date.today) %>%
+  dplyr::filter(Date_of_statistic_reported == date.today) %>%
   select(Security_region_code, Security_region_name,Total_infected_locations_reported) %>%
   mutate(statcode = Security_region_code)
 test.df <- test.df[-26,]

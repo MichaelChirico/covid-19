@@ -52,7 +52,7 @@ locations <- merge(locations, locations.today, by = "Date_of_statistic_reported"
 ## Plot locaties
 
 locations %>%
-  filter(Date_of_statistic_reported > "2020-01-01" & Date_of_statistic_reported <= date.nursery.homes) %>%
+  dplyr::filter(Date_of_statistic_reported > "2020-01-01" & Date_of_statistic_reported <= date.nursery.homes) %>%
   ggplot(aes(x = Date_of_statistic_reported, y = Total_infected_locations_reported, group = 1)) +
   geom_line(aes(y = Total_infected_locations_reported, color = "Aantal locaties"), lwd=1.5) +
   scale_y_continuous(expand = c(0, 50), limits = c(0, NA)) +

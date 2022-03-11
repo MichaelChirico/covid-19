@@ -3,7 +3,7 @@ temp = list.files(path = "data-rivm/vaccine-neighborhood/",pattern="*.csv.gz", f
 vaxx.wijk <- fread(last(temp))
 
 vaxx.wijk <- vaxx.wijk %>%
-  filter(Region_code != "") %>% # Filter observations without municipal name
+  dplyr::filter(Region_code != "") %>% # Filter observations without municipal name
   select(
     Region_name, 
     Region_code,

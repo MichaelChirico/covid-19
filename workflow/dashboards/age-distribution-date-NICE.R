@@ -70,7 +70,7 @@ write.csv(nice_by_day_wide, file = "data-nice/age/leeftijdsverdeling_datum_Klini
 
 dat <- read.csv("data-nice/age/leeftijdsverdeling_datum_Klinisch_IC_long.csv")
 dat <- dat %>%
-  filter(Type == "Klinisch")
+  dplyr::filter(Type == "Klinisch")
 dat$below70 <- rowSums(dat[,3:13])
 dat <- dat[,c(1:2,14:19)]
 colnames(dat) <- c("Datum","Type","age70_74","age75_79","age80_84","age85_89","age90","age_below70")
@@ -120,7 +120,7 @@ ggsave("plots/leeftijd_opnames_kliniek_ouderen.png",width=12, height = 10)
 
 dat <- read.csv("data-nice/age/leeftijdsverdeling_datum_Klinisch_IC_long.csv")
 dat <- dat %>%
-  filter(Type == "Klinisch")
+  dplyr::filter(Type == "Klinisch")
 dat <- dat[,c(1:13)]
 colnames(dat) <- c("Datum","Type","age20","age20_24","age25_29","age30_34","age35_39","age40_44","age45_49","age50_54",
                    "age55_59","age60_64","age65_69")
@@ -259,7 +259,7 @@ nice_by_day_overleden <- rbind(Klinisch_overleden, IC_overleden)
 write.csv(nice_by_day_overleden, file = "data-nice/age/leeftijdsverdeling_datum_Klinisch_IC_long_Overleden.csv", row.names = F)
 
 df_nice_deaths <- nice_by_day_overleden %>%
-  filter(Datum >= "2020-11-04")
+  dplyr::filter(Datum >= "2020-11-04")
 
 df_nice_deaths <- aggregate(Totaal ~ Datum, data = df_nice_deaths, FUN = sum)
 df_nice_deaths <- df_nice_deaths %>%

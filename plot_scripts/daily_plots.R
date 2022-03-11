@@ -104,7 +104,7 @@ ggsave("plots/percentage_positief_per_dag.png",testplot,width=12, height = 8)
 
 # Plot for #patients in hospital per day
 aanwezig <- all.data %>%
-  filter(date > filter.date) %>%
+  dplyr::filter(date > filter.date) %>%
   ggplot(aes(x=date, y=Hospital_Currently)) + 
   geom_line(aes(y = Hospital_Currently, color = "Aanwezig op verpleegafdeling (NICE)"), lwd=1.2) +
   geom_line(aes(y = IC_Current, color = "Aanwezig op IC (NICE)"), lwd=1.2) +
@@ -128,7 +128,7 @@ ggsave("plots/overview_aanwezig_zkh.png", width = 12, height=8)
 
 # Plot for #patients intake per day
 opnames <- all.data %>%
-  filter(date > filter.date) %>%
+  dplyr::filter(date > filter.date) %>%
   ggplot(aes(x=date, group = 1)) + 
   geom_line(aes(y = Kliniek_Nieuwe_Opnames_COVID_Nederland, color = "Opname op verpleegafdeling (LCPS)"), lwd=1.2, position = position_nudge(x=-1)) +
   geom_line(aes(y = Hospital_Intake, color = "Opname op verpleegafdeling (NICE)"), lwd=1.2, na.rm = TRUE) +

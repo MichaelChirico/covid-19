@@ -13,7 +13,7 @@ covid.incidence$dates <- as.Date(covid.incidence$dates)
 covid.incidence$I <- as.numeric(covid.incidence$I)
 
 covid.incidence <- covid.incidence %>%
-  filter(dates > "2021-01-01")
+  dplyr::filter(dates > "2021-01-01")
 
 #config <- make_config(list(mean_si = 4.0, std_mean_si = 0.3,
 #                           min_mean_si = 3.5, max_mean_si = 4.5,
@@ -67,7 +67,7 @@ covid.r$diff <- round(covid.r$R_lagged-covid.r$Rt_avg,2)
 R_last_estimate <- round(covid.r[nrow(covid.r)-11,"R_lagged"],2)
 
 covid.r %>%
-  filter(dates < Sys.Date()-13) %>%
+  dplyr::filter(dates < Sys.Date()-13) %>%
   ggplot(aes(x=dates, y=Rt_avg)) + 
   geom_line(aes(y = Rt_avg, color = "R - RIVM"), lwd=0.8) +
   geom_line(aes(y = R_lagged, color = "R - Marino"), lwd=1.2) +

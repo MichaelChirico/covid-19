@@ -133,7 +133,7 @@ const.date_hosp <- const.date
 dat[dat$Municipality_code=="GM0164", "Municipality_name"] <- "Hengelo"
 dat.eemsdelta.codes <- c("GM0010", "GM0003", "GM0024", "GM1979")
 dat.eemsdelta <- dat %>%
-  filter(Municipality_code %in% dat.eemsdelta.codes) %>%
+  dplyr::filter(Municipality_code %in% dat.eemsdelta.codes) %>%
   group_by(date) %>%
   mutate(
     Municipality_name = "Eemsdelta", 
@@ -144,8 +144,8 @@ dat.eemsdelta <- dat %>%
   )
 
 dat <- dat %>%
-  filter(!Municipality_code %in% dat.eemsdelta.codes) %>%
-  filter(Municipality_code != "GM0788") %>%
+  dplyr::filter(!Municipality_code %in% dat.eemsdelta.codes) %>%
+  dplyr::filter(Municipality_code != "GM0788") %>%
   rbind(dat.eemsdelta)
 
 rm(dat.eemsdelta.codes, dat.eemsdelta)
@@ -155,7 +155,7 @@ rm(dat.eemsdelta.codes, dat.eemsdelta)
 
 dat.purmerend.codes <- c("GM0370", "GM0439")
 dat.purmerend <- dat %>%
-  filter(Municipality_code %in% dat.purmerend.codes) %>%
+  dplyr::filter(Municipality_code %in% dat.purmerend.codes) %>%
   group_by(date) %>%
   mutate(
     Municipality_name = "Purmerend", 
@@ -167,8 +167,8 @@ dat.purmerend <- dat %>%
   distinct()
 
 dat <- dat %>%
-  filter(!Municipality_code %in% dat.purmerend.codes) %>%
-  filter(Municipality_code != "0370") %>%
+  dplyr::filter(!Municipality_code %in% dat.purmerend.codes) %>%
+  dplyr::filter(Municipality_code != "0370") %>%
   rbind(dat.purmerend)
 rm(dat.purmerend.codes, dat.purmerend)
 
@@ -176,7 +176,7 @@ rm(dat.purmerend.codes, dat.purmerend)
 
 dat.dijkenwaard.codes <- c("GM0398", "GM0416")
 dat.dijkenwaard <- dat %>%
-  filter(Municipality_code %in% dat.dijkenwaard.codes) %>%
+  dplyr::filter(Municipality_code %in% dat.dijkenwaard.codes) %>%
   group_by(date) %>%
   mutate(
     Municipality_name = "Dijk en Waard", 
@@ -188,8 +188,8 @@ dat.dijkenwaard <- dat %>%
   distinct()
 
 dat <- dat %>%
-  filter(!Municipality_code %in% dat.dijkenwaard.codes) %>%
-  filter(Municipality_code != "GM0398" | Municipality_code != "GM0416" ) %>%
+  dplyr::filter(!Municipality_code %in% dat.dijkenwaard.codes) %>%
+  dplyr::filter(Municipality_code != "GM0398" | Municipality_code != "GM0416" ) %>%
   rbind(dat.dijkenwaard)
 rm(dat.dijkenwaard.codes, dat.dijkenwaard)
 
@@ -198,7 +198,7 @@ rm(dat.dijkenwaard.codes, dat.dijkenwaard)
 
 dat.maashorst.codes <- c("GM1685", "GM0856")
 dat.maashorst <- dat %>%
-  filter(Municipality_code %in% dat.maashorst.codes) %>%
+  dplyr::filter(Municipality_code %in% dat.maashorst.codes) %>%
   group_by(date) %>%
   mutate(
     Municipality_name = "Maashorst", 
@@ -210,9 +210,9 @@ dat.maashorst <- dat %>%
   distinct()
 
 dat <- dat %>%
-  filter(!Municipality_code %in% dat.maashorst.codes) %>%
-  filter(Municipality_code != "GM1685") %>%
-  filter(Municipality_code != "GM0856") %>%
+  dplyr::filter(!Municipality_code %in% dat.maashorst.codes) %>%
+  dplyr::filter(Municipality_code != "GM1685") %>%
+  dplyr::filter(Municipality_code != "GM0856") %>%
   rbind(dat.maashorst)
 rm(dat.maashorst.codes, dat.maashorst)
 
@@ -221,7 +221,7 @@ rm(dat.maashorst.codes, dat.maashorst)
 
 dat.landvancuijk.codes <- c("GM0756", "GM1684","GM0786","GM0815","GM1702")
 dat.landvancuijk <- dat %>%
-  filter(Municipality_code %in% dat.landvancuijk.codes) %>%
+  dplyr::filter(Municipality_code %in% dat.landvancuijk.codes) %>%
   group_by(date) %>%
   mutate(
     Municipality_name = "Land van Cuijk", 
@@ -233,12 +233,12 @@ dat.landvancuijk <- dat %>%
   distinct()
 
 dat <- dat %>%
-  filter(!Municipality_code %in% dat.landvancuijk.codes) %>%
-  filter(Municipality_code != "GM0756") %>%
-  filter(Municipality_code != "GM1684") %>%
-  filter(Municipality_code != "GM0786") %>%
-  filter(Municipality_code != "GM0815") %>%
-  filter(Municipality_code != "GM1702") %>%
+  dplyr::filter(!Municipality_code %in% dat.landvancuijk.codes) %>%
+  dplyr::filter(Municipality_code != "GM0756") %>%
+  dplyr::filter(Municipality_code != "GM1684") %>%
+  dplyr::filter(Municipality_code != "GM0786") %>%
+  dplyr::filter(Municipality_code != "GM0815") %>%
+  dplyr::filter(Municipality_code != "GM1702") %>%
   rbind(dat.landvancuijk)
 rm(dat.landvancuijk.codes, dat.landvancuijk)
 
@@ -264,7 +264,7 @@ nice.hosp.cumsum <- nice.hosp %>%
 dat <- merge(dat,nice.hosp.cumsum,by=c("date","Municipality_code","Municipality_name"),all.x=T)
 
 dat.unknown <- dat %>%
-  filter(Municipality_code == "")  %>%
+  dplyr::filter(Municipality_code == "")  %>%
   group_by(date) %>%
   summarise(
     Municipality_name = 'Unknown',
@@ -288,7 +288,7 @@ dat.total <- dat %>%
 
 
 dat <- dat %>%
-  filter(Municipality_code != "") %>% # Filter observations without municipal name
+  dplyr::filter(Municipality_code != "") %>% # Filter observations without municipal name
   select(
     Municipality_name, 
     Municipality_code,
@@ -394,7 +394,7 @@ write.csv(dat.deaths, file = "data/municipality-deaths.csv",
 
 # Calculate zero point
 dat.zeropoint <- dat %>%
-  filter(date >= as.Date('2021-01-01')) %>%
+  dplyr::filter(date >= as.Date('2021-01-01')) %>%
   group_by(Municipality_name)
 
 dat.cases.lowest <- dat.zeropoint %>%
@@ -417,7 +417,7 @@ if (const.use_hospital_dataset){
   dat.hosp.lowest$date <- as.Date(dat.hosp.lowest$date)
   dat.hosp.lowest <- dat.hosp.lowest %>%
     group_by(Municipality_name) %>%
-    filter(date >= as.Date('2021-01-01')) %>%
+    dplyr::filter(date >= as.Date('2021-01-01')) %>%
     slice(which.min(Hospital_admission)) %>%
     arrange(match(Municipality_name, c("Total", "Nederland", "Netherlands")), Municipality_code)
 }
@@ -461,7 +461,7 @@ dat.cases.today <-transmute(dat.cases,
 )
 
 dat.cases.today.simple <- dat.cases.today %>%
-  filter(Municipality_code != "") %>%
+  dplyr::filter(Municipality_code != "") %>%
   arrange(municipality) %>%
   select(
     current,
@@ -507,7 +507,7 @@ dat.hosp.today <- transmute(dat.hosp,
 )
 
 dat.hosp.today.simple <- dat.hosp.today %>%
-  filter(Municipality_code != "") %>%
+  dplyr::filter(Municipality_code != "") %>%
   arrange(municipality) %>%
   select(
     current,
@@ -543,7 +543,7 @@ dat.deaths.today <- transmute(dat.deaths,
 )
 
 dat.deaths.today.simple <- dat.deaths.today %>%
-  filter(Municipality_code != "") %>%
+  dplyr::filter(Municipality_code != "") %>%
   arrange(municipality) %>%
   select(
     current,
@@ -556,24 +556,24 @@ dat.deaths.today.simple <- dat.deaths.today %>%
 
 # Calculate totals
 dat.cases.totals.growth <- dat.cases.today %>%
-  filter(Municipality_code != "") %>%
+  dplyr::filter(Municipality_code != "") %>%
   group_by(growth) %>%
   summarise(d0 = n(), .groups = 'drop_last') %>%
   arrange(match(growth, c(emoji.up_double, emoji.up, "-", emoji.down, emoji.down_double)))
 
 dat.cases.totals.color <- dat.cases.today %>%
-  filter(Municipality_code != "") %>%
+  dplyr::filter(Municipality_code != "") %>%
   group_by(color) %>%
   summarise(d0 = n(), .groups = 'drop_last')
 
 dat.cases.totals.color_yesterday <- dat.cases.today %>%
-  filter(Municipality_code != "") %>%
+  dplyr::filter(Municipality_code != "") %>%
   group_by(color_yesterday) %>%
   summarise(d1 = n(), .groups = 'drop_last') %>%
   rename(color = color_yesterday)
 
 dat.cases.totals.color_lastweek <- dat.cases.today %>%
-  filter(Municipality_code != "") %>%
+  dplyr::filter(Municipality_code != "") %>%
   group_by(color_lastweek) %>%
   summarise(d7 = n(), .groups = 'drop_last') %>%
   rename(color = color_lastweek)

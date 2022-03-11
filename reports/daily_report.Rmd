@@ -91,7 +91,7 @@ filter.date <- Sys.Date()-28 # Set filter date for last 4 weeks
 
 # Plot for positive tests per day
 all.data %>%
-  filter(date > filter.date) %>%
+  dplyr::filter(date > filter.date) %>%
   ggplot(aes(x=date, y=new.infection)) + 
   geom_line(aes(y = net.infection, color = "Toename besmettingen per dag (incl. correcties)"), lwd=1.2) +
   geom_line(aes(y = positive_7daverage, color = "Voortschrijdend gemiddelde (7 dagen)"), lwd=1.2) +
@@ -202,12 +202,12 @@ dat.weekago[dat.weekago == "Unknown"] <- "Onbekend"
 #hosp.today <- dat.today %>%
 #  filter(Hospital_admission == "Yes")
 death.today <- dat.today %>%
-  filter(Deceased == "Yes")
+  dplyr::filter(Deceased == "Yes")
 
 #hosp.weekago <- dat.weekago %>%
 #  filter(Hospital_admission == "Yes")
 death.weekago <- dat.weekago %>%
-  filter(Deceased == "Yes")
+  dplyr::filter(Deceased == "Yes")
 
 
 province.cases.today <- as.data.frame(table(dat.today$Province)) ## Cumulative cases per GGD

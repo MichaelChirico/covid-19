@@ -186,7 +186,7 @@ Deze trends zijn berekend op het gemiddelde van de laatste
 
 # +527	🟧	Nederland	20.332	( w: +3.539 )	⬇️
 dat.total <- dat.cases %>%
-  filter( municipality == "Netherlands" )
+  dplyr::filter( municipality == "Netherlands" )
 dat.total[dat.total$municipality=="Netherlands", "municipality"] <- "Nederland"
 
 print_detailed(dat.total)
@@ -196,15 +196,15 @@ rm(dat.total)
 # 127 Gemeente Onbekend (+2)
 
 int.count.municipality.today <- dat.cases %>%
-  filter(Municipality_code != "" & increase_1d > 0) %>%
+  dplyr::filter(Municipality_code != "" & increase_1d > 0) %>%
   nrow()
 
 int.count.municipality.week <- dat.cases %>%
-  filter(Municipality_code != "" & increase_7d > 0) %>%
+  dplyr::filter(Municipality_code != "" & increase_7d > 0) %>%
   nrow()
 
 dat.unknown <- dat.cases %>%
-  filter( municipality == "Unknown" )
+  dplyr::filter( municipality == "Unknown" )
 unknown <- first(dat.unknown)
 
 cat(sprintf("
@@ -258,7 +258,7 @@ rm(template, dat.totals.growth.printable)
 #### Hoogste daling van laatste 7 dagen
 ```{r echo = FALSE, results = "asis"}
 dat.success <- dat.cases %>%
-  filter( population > 25000 ) %>%
+  dplyr::filter( population > 25000 ) %>%
   arrange(increase_growth, desc(current)) %>%
   head(1)
 
@@ -269,7 +269,7 @@ rm(dat.success)
 #### Hoogste stijging per inwoner van vandaag
 ```{r echo = FALSE, results = "asis"}
 dat.example <- dat.cases %>%
-  filter( population > 25000 ) %>%
+  dplyr::filter( population > 25000 ) %>%
   arrange(desc(rel_increase_1d), current) %>%
   head(1)
 
@@ -296,7 +296,7 @@ print_table(dat.cases.today.top10, "cclrll", "")
 #### Hoogste absolute toenames van vandaag
 ```{r echo = FALSE, results = "asis"}
 dat.cases.today.highest <- dat.cases %>%
-  filter( 
+  dplyr::filter( 
     Municipality_code != ""
       & (increase_1d >= const.toplist_minimum
          | (increase_1d > 0 & increase_1d < const.toplist_minimum & color_incl_new %in% c(intToUtf8(0x1F4A5), "&#128165;"))
@@ -323,7 +323,7 @@ knitr::asis_output(htmltools::htmlPreserve("
 ```{r echo = FALSE, results = "asis"}
 
 dat.cases.today.all <- dat.cases %>%
-  filter(Municipality_code != "")
+  dplyr::filter(Municipality_code != "")
 
 print_municipality_data(slice(dat.cases.today.all,(0:115)))
 
@@ -371,7 +371,7 @@ Deze trends zijn berekend op het gemiddelde van de laatste
 # 274	COVID-19 opnames (+5) ( w: +44 ⬇️ )
 
 dat.total <- dat.hosp %>%
-  filter( municipality == "Netherlands" )
+  dplyr::filter( municipality == "Netherlands" )
 dat.total[dat.total$municipality=="Netherlands", "municipality"] <- "Nederland"
 
 print_detailed(dat.total, TRUE, TRUE)
@@ -380,15 +380,15 @@ rm(dat.total)
 
 ```{r echo = FALSE, results = "asis"}
 int.count.municipality.today <- dat.hosp %>%
-  filter(Municipality_code != "" & increase_1d > 0) %>%
+  dplyr::filter(Municipality_code != "" & increase_1d > 0) %>%
   nrow()
 
 int.count.municipality.week <- dat.hosp %>%
-  filter(Municipality_code != "" & increase_7d > 0) %>%
+  dplyr::filter(Municipality_code != "" & increase_7d > 0) %>%
   nrow()
 
 dat.unknown <- dat.hosp %>%
-  filter( municipality == "Unknown" )
+  dplyr::filter( municipality == "Unknown" )
 unknown <- first(dat.unknown)
 
 cat(sprintf("
@@ -409,7 +409,7 @@ rm(int.count.municipality.today, int.count.municipality.week, dat.unknown, unkno
 ```{r echo = FALSE, results = "asis"}
 dat.hosp.today.top10 <- dat.hosp %>%
   arrange(desc(rel_increase_14d), current) %>%
-  filter(increase_14d >= 3) %>%
+  dplyr::filter(increase_14d >= 3) %>%
   head(20) %>%
   transmute(
     color = color_incl_new,
@@ -424,7 +424,7 @@ print_table(dat.hosp.today.top10, "cclrl", "")
 #### Absolute toenames van vandaag
 ```{r echo = FALSE, results = "asis"}
 dat.hosp.today.highest <- dat.hosp %>%
-  filter( 
+  dplyr::filter( 
     Municipality_code != "" & increase_1d >= const.hosp_toplist_minimum
   ) %>%
   arrange(desc(increase_1d), current)
@@ -446,7 +446,7 @@ knitr::asis_output(htmltools::htmlPreserve("
 ```{r echo = FALSE, results = "asis"}
 
 dat.hosp.today.all <- dat.hosp %>%
-  filter(Municipality_code != "")
+  dplyr::filter(Municipality_code != "")
 
 print_municipality_data(slice(dat.hosp.today.all,(0:115)), "", TRUE, TRUE)
 
@@ -481,7 +481,7 @@ knitr::asis_output(htmltools::htmlPreserve("
 # 6.243 COVID-19 overlijdens (+2) ( w: +19 ⬇️ )
 
 dat.total <- dat.deaths %>%
-  filter( municipality == "Netherlands" )
+  dplyr::filter( municipality == "Netherlands" )
 dat.total[dat.total$municipality=="Netherlands", "municipality"] <- "COVID-19 overlijdens"
 
 print_detailed(dat.total, FALSE, TRUE, TRUE)
@@ -491,15 +491,15 @@ rm(dat.total)
 
 ```{r echo = FALSE, results = "asis"}
 int.count.municipality.today <- dat.deaths %>%
-  filter(Municipality_code != "" & increase_1d > 0) %>%
+  dplyr::filter(Municipality_code != "" & increase_1d > 0) %>%
   nrow()
 
 int.count.municipality.week <- dat.deaths %>%
-  filter(Municipality_code != "" & increase_7d > 0) %>%
+  dplyr::filter(Municipality_code != "" & increase_7d > 0) %>%
   nrow()
 
 dat.unknown <- dat.deaths %>%
-  filter( municipality == "Unknown" )
+  dplyr::filter( municipality == "Unknown" )
 unknown <- first(dat.unknown)
 
 cat(sprintf("
@@ -520,7 +520,7 @@ rm(int.count.municipality.today, int.count.municipality.week, dat.unknown, unkno
 ```{r echo = FALSE, results = "asis"}
 dat.deaths.today.top10 <- dat.deaths %>%
   arrange(desc(rel_increase_14d), current) %>%
-  filter(increase_14d >= 2) %>%
+  dplyr::filter(increase_14d >= 2) %>%
   head(20) %>%
   transmute(
     municipality = sprintf('<span class="municipality">%s</span><hr/>', municipality),
@@ -535,7 +535,7 @@ print_table(dat.deaths.today.top10, "llrl", "")
 
 ```{r echo = FALSE, results = "asis"}
 dat.deaths.today.highest <- dat.deaths %>%
-  filter( 
+  dplyr::filter( 
     Municipality_code != "" & increase_1d != 0
   ) %>%
   arrange(desc(increase_1d), current)
@@ -558,7 +558,7 @@ knitr::asis_output(htmltools::htmlPreserve("
 ```{r echo = FALSE, results = "asis"}
 
 dat.deaths.today.all <- dat.deaths %>%
-  filter(Municipality_code != "")
+  dplyr::filter(Municipality_code != "")
 
 print_municipality_data(slice(dat.deaths.today.all,(0:115)), "", FALSE, TRUE)
 

@@ -12,7 +12,7 @@ tests_agg_day <- tests_agg_day %>%
   mutate(diff_tests = Tested_with_result - lag(Tested_with_result))
 
 tests.corr <- tests_agg_day %>%
-  filter(diff_tests > 0 | diff_tests < 0)
+  dplyr::filter(diff_tests > 0 | diff_tests < 0)
 
 
 pos_tests_agg_day <- aggregate(Tested_positive ~ Date_of_statistics + Date_of_report, data = tests_per_day, FUN = sum)
@@ -22,7 +22,7 @@ pos_tests_agg_day <- pos_tests_agg_day %>%
   mutate(diff_pos_tests = Tested_positive - lag(Tested_positive))
 
 tests_pos.corr <- pos_tests_agg_day %>%
-  filter(diff_pos_tests > 0 | diff_pos_tests < 0)
+  dplyr::filter(diff_pos_tests > 0 | diff_pos_tests < 0)
 
 tests.ggd <- merge(tests_pos.corr, tests.corr, by = c("Date_of_statistics","Date_of_report"), all = T)
 
