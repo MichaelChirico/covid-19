@@ -1,3 +1,25 @@
+repeat {
+  Sys.sleep(3)
+  rivm.mun.perday <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_per_dag.csv", sep=";")
+  
+  rivm.mun.perday <- rivm.mun.perday %>%
+    mutate(
+      date = as.Date(Date_of_publication, tryFormats = c('%d-%m-%Y')),
+      .before = Date_of_publication
+    ) %>%
+    mutate(
+      Date_of_publication = NULL
+    )
+  
+  date.check.update <- last(rivm.mun.perday$date)
+  if (date.check.update == as.Date(Sys.Date())){
+    message <- "GO GO GO GO GO"
+    break
+  }
+}
+
+
+
 rivm.mun.perday <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_per_dag.csv", sep=";")
 
 # Verify that new data has been uploaded
