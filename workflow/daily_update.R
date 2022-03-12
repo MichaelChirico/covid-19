@@ -38,30 +38,10 @@ source("workflow/parse_lcps-data.R")
 ## Put in double date breaker for RIVM update
 repeat {
   Sys.sleep(2)
-  time.start <- ymd_hms(paste0(Sys.Date()," 15:15:30"))
+  time.start <- ymd_hms(paste0(Sys.Date()," 15:15:10"))
   time.now <- ymd_hms(Sys.time())
   
   if (time.start < time.now){
-    message <- "GO GO GO GO GO"
-    break
-  }
-}
-
-repeat {
-  Sys.sleep(3)
-  date.check <- fread("https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen.csv")
-  
-  date.check <- date.check %>%
-    mutate(
-      date = as.Date(Date_of_report, tryFormats = c('%d-%m-%Y')),
-      .before = Date_of_report
-    ) %>%
-    mutate(
-      Date_of_report = NULL
-    )
-  
-  date.check.update <- last(date.check$date)
-  if (date.check.update == as.Date(Sys.Date())){
     message <- "GO GO GO GO GO"
     break
   }
@@ -104,8 +84,6 @@ all.data <- Reduce(
 )
 
 write.csv(all.data, file = "data/all_data.csv",row.names = F)
-
-#vaccines.by_day <- read.csv("data/vaccines_by_day.csv")
 
 # get tokens
 source("workflow/twitter/token_mzelst.R")
