@@ -1,21 +1,3 @@
-repeat {
-  Sys.sleep(1)
-  rivm.mun.perday <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_per_dag.csv", sep=";")
-  
-  rivm.mun.perday <- rivm.mun.perday %>%
-    mutate(
-      Date_of_report = as.Date(Date_of_report, tryFormats = c('%d-%m-%Y'))
-    )
-  
-  date.check.update.cases <- last(rivm.mun.perday$Date_of_report)
-  if (date.check.update.cases == as.Date(Sys.Date())){
-    message <- "GO GO GO GO GO"
-    break
-  }
-}
-
-
-
 rivm.mun.perday <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_per_dag.csv", sep=";")
 
 # Verify that new data has been uploaded
@@ -60,58 +42,30 @@ temp = list.files(path = "data-rivm/data-per-day/",pattern="*.csv", full.names =
 rivm_by_day = rbindlist(lapply(temp, fread)) ## Load all day files
 
 rivm_by_day <- rivm_by_day[order(date),
-                           ][, positivetests := c(0,diff(cases))
-                             ][, hospital_intake_rivm := c(0,diff(hospitalization))]
+][, positivetests := c(0,diff(cases))
+][, hospital_intake_rivm := c(0,diff(hospitalization))]
 
 fwrite(rivm_by_day, file = "data/rivm_by_day.csv",row.names = F) ## Write file with aggregate data per day
 
+
+## Download nursing homes
+
+nursing.homes <- fread("https://data.rivm.nl/covid-19/COVID-19_verpleeghuizen.csv", sep = ";")
+filename.nursinghomes.raw <- paste0("raw-data-archive/nursing-home-datasets/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data
+fwrite(nursing.homes, file = filename.nursinghomes.raw,row.names = F)
+
+filename.nursinghomes.compressed <- paste0("data-rivm/nursing-homes-datasets/rivm_daily_",Sys.Date(),".csv.gz") ## Filename for daily data
+fwrite(nursing.homes, file = filename.nursinghomes.compressed,row.names = F)
+
 ## Download tests
 
-repeat {
-  Sys.sleep(1)
-  tests <- fread("https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen.csv")
-  
-  tests <- tests %>%
-    mutate(
-      Date_of_report = as.Date(Date_of_report, tryFormats = c('%d-%m-%Y'))
-    )
-  
-  date.check.update.tests <- last(tests$Date_of_report)
-  if (date.check.update.tests == as.Date(Sys.Date())){
-    message <- "GO GO GO GO GO"
-    break
-  }
-}
-
+tests <- fread("https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen.csv", sep = ";")
 filename.tests.raw <- paste0("raw-data-archive/tests/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data
 fwrite(tests, file = filename.tests.raw,row.names = F)
 
 filename.tests.compressed <- paste0("data-rivm/tests/rivm_daily_",Sys.Date(),".csv.gz") ## Filename for daily data
 fwrite(tests, file = filename.tests.compressed,row.names = F)
 
-## Download nursing homes
-
-repeat {
-  Sys.sleep(1)
-  nursing.homes <- fread("https://data.rivm.nl/covid-19/COVID-19_verpleeghuizen.csv")
-  
-  nursing.homes <- nursing.homes %>%
-    mutate(
-      Date_of_report = as.Date(Date_of_report, tryFormats = c('%d-%m-%Y'))
-    )
-  
-  date.check.update.nursing.homes <- last(nursing.homes$Date_of_report)
-  if (date.check.update.nursing.homes == as.Date(Sys.Date())){
-    message <- "GO GO GO GO GO"
-    break
-  }
-}
-
-filename.nursinghomes.raw <- paste0("raw-data-archive/nursing-home-datasets/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data
-fwrite(nursing.homes, file = filename.nursinghomes.raw,row.names = F)
-
-filename.nursinghomes.compressed <- paste0("data-rivm/nursing-homes-datasets/rivm_daily_",Sys.Date(),".csv.gz") ## Filename for daily data
-fwrite(nursing.homes, file = filename.nursinghomes.compressed,row.names = F)
 
 #continue the script
 print("Script did NOT end!")   
