@@ -265,7 +265,7 @@ covid_filt <- dlmFilter(window(cbs_deaths_ts, start = start_yr), covid_dlm)
 covid_smooth <- dlmSmooth(covid_filt)
 
 ## draw samples from the posterior
-covid_bs <- replicate(10000, dlmBSample(covid_filt))
+covid_bs <- replicate(1000, dlmBSample(covid_filt))
 
 ## static regression model
 
@@ -300,7 +300,7 @@ covid_filt_s <- dlmFilter(window(cbs_deaths_ts, start = start_yr), covid_dlm_s)
 covid_smooth_s <- dlmSmooth(covid_filt_s)
 
 ## draw samples from the posterior
-covid_bs_s <- replicate(10000, dlmBSample(covid_filt_s))
+covid_bs_s <- replicate(1000, dlmBSample(covid_filt_s))
 
 ## intervention model
 
@@ -341,7 +341,7 @@ covid_filt_d <- dlmFilter(window(cbs_deaths_ts, start = start_yr), covid_dlm_d)
 covid_smooth_d <- dlmSmooth(covid_filt_d)
 
 ## draw samples from the posterior
-covid_bs_d <- replicate(10000, dlmBSample(covid_filt_d))
+covid_bs_d <- replicate(1000, dlmBSample(covid_filt_d))
 
 ##
 ##  Massage output data
@@ -471,6 +471,7 @@ totals <- totals %>%
 
 
 u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/05/doodsoorzaken-2020september-2021.xlsx"
+u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/11/doodsoorzaken.xlsx"
 #webpage.cbs <- read_html(u.cbs)
 
 download.file(u.cbs,destfile = "cbs_deaths.xlsx", mode = "wb")
