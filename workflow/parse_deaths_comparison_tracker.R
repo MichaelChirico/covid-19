@@ -81,6 +81,7 @@ cbs_oversterfte[45:nrow(cbs_oversterfte),"Year"] <- 2021
 cbs.death.statistics <- cbs_oversterfte
 
 
+
 urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
 
 cbs_url <- last(urls)
@@ -96,9 +97,22 @@ cbs_url <- page[1,1]
 download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
 
 #### Parse WLZ mortality data ####
+urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
 
-cbs_sterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 5))[,1:4]
-unlink("cbs_deaths.xlsx")
+cbs_url <- last(urls)
+page <- read_html(cbs_url[1,1])
+page <- page %>% html_nodes("a") %>% html_attr('href')
+page <- data.frame(page)
+
+page$category <- grepl(".xlsx", page$page, fixed = TRUE)
+page <- page %>%
+  dplyr::filter(category == "TRUE")
+cbs_url <- page[1,1]
+
+download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
+
+
+cbs_sterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 6))[,c(1,2,5,10)]
 cbs_sterfte <- cbs_sterfte[6:nrow(cbs_sterfte),]
 #cbs_sterfte <- cbs_sterfte[c(1:4)]
 
@@ -108,92 +122,48 @@ rows.2020 <- which(test$rowcount == 4)[3]
 rows.2021 <- which(test$rowcount == 4)[2]
 rows.2022 <- which(test$rowcount == 4)[1]
 
-wlz_sterfte.2020 <- cbs_sterfte[(rows.2021+2):(rows.2020-1),]
-colnames(wlz_sterfte.2020) <- c("Type","Jaar","Week","WLZ_gebruikers")
+sterfte.2022 <- cbs_sterfte[(rows.2022+1):(rows.2021-1),]
+sterfte.2022 <- sterfte.2022[-((rows.2021-4):(rows.2021-3)),]
+colnames(sterfte.2022) <- c("Jaar","Week","Sterfte_Wlz","Sterfte_Other")
+sterfte.2022 <- sterfte.2022 %>%
+  mutate(Week = (1:nrow(sterfte.2022))) %>%
+  mutate(Jaar = 2022)
+setDF(sterfte.2022)
 
-wlz_sterfte.2020 <- wlz_sterfte.2020 %>%
+sterfte.2021 <- cbs_sterfte[(rows.2021+1):(rows.2020-1),]
+colnames(sterfte.2021) <- c("Jaar","Week","Sterfte_Wlz","Sterfte_Other")
+sterfte.2021 <- sterfte.2021 %>%
   mutate(Week = parse_number(Week)) %>%
-  mutate(WLZ_gebruikers = parse_number(WLZ_gebruikers))
+  mutate(Jaar = 2021)
+setDF(sterfte.2021)
 
-wlz_sterfte.2020$Type <- "WLZ"
-wlz_sterfte.2020$Jaar <- 2020
-
-
-wlz_sterfte.2021 <- cbs_sterfte[(rows.2022+2):rows.2021-1]
-colnames(wlz_sterfte.2021) <- c("Type","Jaar","Week","WLZ_gebruikers")
-
-wlz_sterfte.2021 <- wlz_sterfte.2021 %>%
+sterfte.2020 <- cbs_sterfte[(rows.2020+2):(nrow(cbs_sterfte)-7),]
+colnames(sterfte.2020) <- c("Jaar","Week","Sterfte_Wlz","Sterfte_Other")
+sterfte.2020 <- sterfte.2020 %>%
   mutate(Week = parse_number(Week)) %>%
-  mutate(WLZ_gebruikers = parse_number(WLZ_gebruikers))
+  mutate(Jaar = 2020)
+setDF(sterfte.2020)
+sterfte.2020["Week"][sterfte.2020["Week"] == 533] <- 53
 
-wlz_sterfte.2021$Type <- "WLZ"
-wlz_sterfte.2021$Jaar <- 2021
-
-## Sterfte WLZ 2022
-wlz_sterfte.2022 <- cbs_sterfte[1:rows.2022-1]
-colnames(wlz_sterfte.2022) <- c("Type","Jaar","Week","WLZ_gebruikers")
-
-wlz_sterfte.2022 <- wlz_sterfte.2022 %>%
-  mutate(Week = parse_number(Week)) %>%
-  mutate(WLZ_gebruikers = parse_number(WLZ_gebruikers))
-
-wlz_sterfte.2022$Type <- "WLZ"
-wlz_sterfte.2022$Jaar <- 2022
-
-
-wlz_sterfte <- rbind(wlz_sterfte.2020,wlz_sterfte.2021,wlz_sterfte.2022)
-
-
-## Parse 'other' mortality data ##
-rows.2022.other <- which(test$rowcount == 4)[6]
-rows.2021.other <- which(test$rowcount == 4)[5]
-rows.2020.other <- which(test$rowcount == 4)[4]
-rows.2019.other <- which(test$rowcount == 4)[3]
-
-
-other_sterfte.2022 <- cbs_sterfte[(rows.2019.other+1):(rows.2020.other-1),]
-other_sterfte.2021 <- cbs_sterfte[(rows.2020.other+1):(rows.2021.other-1),]
-other_sterfte.2020 <- cbs_sterfte[(rows.2021.other+2):(rows.2022.other-1),]
-
-
-colnames(other_sterfte.2020) <- c("Type","Jaar","Week","Overige_bevolking")
-
-other_sterfte.2020 <- other_sterfte.2020 %>%
-  mutate(Week = parse_number(Week)) %>%
-  mutate(Overige_bevolking = parse_number(Overige_bevolking))
-
-other_sterfte.2020$Type <- "Overige_bevolking"
-other_sterfte.2020$Jaar <- 2020
-
-
-colnames(other_sterfte.2021) <- c("Type","Jaar","Week","Overige_bevolking")
-
-other_sterfte.2021 <- other_sterfte.2021 %>%
-  mutate(Week = parse_number(Week)) %>%
-  mutate(Overige_bevolking = parse_number(Overige_bevolking))
-
-other_sterfte.2021$Type <- "Overige_bevolking"
-other_sterfte.2021$Jaar <- 2021
-
-## Sterfte other 2022
-colnames(other_sterfte.2022) <- c("Type","Jaar","Week","Overige_bevolking")
-
-other_sterfte.2022 <- other_sterfte.2022 %>%
-  mutate(Week = parse_number(Week)) %>%
-  mutate(Overige_bevolking = parse_number(Overige_bevolking))
-
-other_sterfte.2022$Type <- "Overige_bevolking"
-other_sterfte.2022$Jaar <- 2022
+sterfte_wlz_other <- rbind(sterfte.2020,sterfte.2021,sterfte.2022)
 
 
 
 
+#### Sterfte verwacht ####
+cbs_sterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 7))[8:166,c(1,5,8)]
+colnames(cbs_sterfte) <- c("week_year","wlz_verwacht","other_verwacht")
+unlink("cbs_deaths.xlsx")
 
-other_sterfte <- rbind(other_sterfte.2020,other_sterfte.2021,other_sterfte.2022)
+cbs_sterfte$Jaar <- parse_number(substr(cbs_sterfte$week_year, 1, 4))
+cbs_sterfte$Week <- parse_number(substr(cbs_sterfte$week_year, 11, 12))
+cbs_sterfte$wlz_verwacht <- parse_number(cbs_sterfte$wlz_verwacht)
+cbs_sterfte$other_verwacht <- parse_number(cbs_sterfte$other_verwacht)
+setDF(cbs_sterfte)
 
-cbs.death.statistics.week <- merge(wlz_sterfte[,c("Week","Jaar","WLZ_gebruikers")],other_sterfte[,c("Week","Jaar","Overige_bevolking")],by=c("Week","Jaar"))
-####
-
+cbs.death.statistics.week <- merge(sterfte_wlz_other, cbs_sterfte,by=c("Week","Jaar"))
+cbs.death.statistics.week <- cbs.death.statistics.week %>%
+  select(Week, Jaar, Sterfte_Wlz, Sterfte_Other)
 
 #### Merge CBS mortality data ####
 
