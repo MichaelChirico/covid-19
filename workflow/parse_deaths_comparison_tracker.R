@@ -229,7 +229,8 @@ deaths_total <- deaths_total %>%
   mutate(cbs_rivm_factor = round(total_covid_mortality/deaths_rivm,2)) %>%
   mutate(factor_wlz = round(wlz_covid/deaths_nursing,2)) %>%
   mutate(factor_other = round(other_covid/deaths_nonnursing_RIVM,2)) %>%
-  mutate(deviation_estim = round((deaths_estimate_3-total_covid_mortality)/total_covid_mortality*100,0))
+  mutate(deviation_estim = round((deaths_estimate_3-total_covid_mortality)/total_covid_mortality*100,0)) %>%
+  mutate(average_covid_mortality = (total_covid_mortality + deaths_estimate_3)/2)
 
 write.csv(deaths_total, file = "corrections/death_week_comparisons.csv", row.names = F)
 
@@ -308,8 +309,6 @@ plot <- deaths_total %>%
 plot + scale_colour_manual(values = cols)
 ggsave("plots/sterfte_per_week_30K_percentage.png", width = 12, height=8)
 
-
-
 ## Percentages
 
 deaths_total <- deaths_total[-c(nrow(deaths_total)),]
@@ -320,13 +319,13 @@ plot <- deaths_total %>%
   geom_line(aes(y = deaths_nursing, color = "Verpleeghuis"), lwd=1.2) +
   geom_line(aes(y = deaths_nice, color = "Ziekenhuis"), lwd=1.2) +
   geom_line(aes(y = deaths_rivm, color = "Totaal (RIVM)"), lwd=1.2) +
-  geom_line(aes(y = deaths_estimate_3, color = "Totaal (Schatting)"), lwd=1.2) +
+  geom_line(aes(y = average_covid_mortality, color = "Totaal (Schatting)"), lwd=1.2) +
   scale_y_continuous(expand = c(0, 0), limits = c(0, 1200), n.breaks = 10) +
   theme_classic()+
   xlab("")+
   ylab("")+
   labs(title = "Sterfte per groep",
-       subtitle = "Sterfte per week",
+       subtitle = "Geschatte sterfte is een mix van meerdere methoden",
        caption = paste("Bron: CBS/RIVM/NICE | Plot: @mzelst  | ",Sys.Date())) +
   theme(
     legend.title = element_blank(),  ## legend title
@@ -361,9 +360,11 @@ cbs.filter$cumulative_deaths <- cumsum(cbs.filter$deaths_estimate_3) + cbs.death
 deaths_total <- merge(deaths_total, cbs.filter[,c("Week","Year","cumulative_deaths")], by = c("Week","Year"),all.x=T)
 setorder(deaths_total, Year, Week)
 
+
+
 write.csv(deaths_total, file = "corrections/death_week_comparisons.csv", row.names = F)
 
-rm(deaths_total, plot, cols, cbs.deaths, cbs.death.statistics,webpage.cbs, u.cbs)
+rm(plot, cols, cbs.deaths, cbs.death.statistics,webpage.cbs, u.cbs)
 
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
