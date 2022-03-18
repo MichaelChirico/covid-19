@@ -103,7 +103,7 @@ yesterday.weekdeath <- count(dat.yesterday, Week,Year)
 df.weekdeath <- merge(today.weekdeath,yesterday.weekdeath,by=c("Week","Year"),all.X=T)
 df.weekdeath$diff <- df.weekdeath$n.x - df.weekdeath$n.y
 colnames(df.weekdeath) <- c("Week","Year","weekdeath_today","weekdeath_yesterday","diff")
-df.weekdeath <- df.weekdeath[1:(nrow(df.weekdeath)-1),]
+df.weekdeath <- df.weekdeath[2:(nrow(df.weekdeath)),]
 df.weekdeath <- df.weekdeath[order(df.weekdeath$Year),]
 write.csv(df.weekdeath, file = "corrections/deaths_perweek.csv", row.names = F)
 

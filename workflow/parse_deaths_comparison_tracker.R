@@ -65,17 +65,20 @@ colnames(excess_dlm) <- c("Week","Year","total_covid_mortality")
 deaths_total <- merge(deaths_total,excess_dlm,by=c("Week","Year"), all.x=T)
 
 ## Deaths WLZ vs. other / CBS
-cbs_url <- "https://www.cbs.nl/-/media/_excel/2022/05/doodsoorzaken-2020september-2021.xlsx"
+cbs_url <- "https://www.cbs.nl/-/media/_excel/2022/11/doodsoorzaken.xlsx"
 
 
 download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
 cbs_oversterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 4))
 unlink("cbs_deaths.xlsx")
-cbs_oversterfte <- cbs_oversterfte[5:nrow(cbs_oversterfte),c(1:2,4:5)]
+cbs_oversterfte <- cbs_oversterfte[5:(nrow(cbs_oversterfte)-5),c(1:2,4:5)]
 colnames(cbs_oversterfte) <- c("Year","Week","other_deaths_perc","wlz_deaths_perc")
 cbs_oversterfte <- mutate_all(cbs_oversterfte, function(x) parse_number(as.character(x)))
+cbs_oversterfte <- cbs_oversterfte[complete.cases(cbs_oversterfte$wlz_deaths_perc)]
 
-
+cbs_oversterfte[1:44,"Year"] <- 2020
+cbs_oversterfte[45:nrow(cbs_oversterfte),"Year"] <- 2021
+cbs.death.statistics <- cbs_oversterfte
 
 
 urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
@@ -126,7 +129,6 @@ wlz_sterfte.2021 <- wlz_sterfte.2021 %>%
 wlz_sterfte.2021$Type <- "WLZ"
 wlz_sterfte.2021$Jaar <- 2021
 
-
 ## Sterfte WLZ 2022
 wlz_sterfte.2022 <- cbs_sterfte[1:rows.2022-1]
 colnames(wlz_sterfte.2022) <- c("Type","Jaar","Week","WLZ_gebruikers")
@@ -143,16 +145,15 @@ wlz_sterfte <- rbind(wlz_sterfte.2020,wlz_sterfte.2021,wlz_sterfte.2022)
 
 
 ## Parse 'other' mortality data ##
-rows.2020 <- which(test$rowcount == 4)[3]
-rows.2021 <- which(test$rowcount == 4)[2]
-rows.2022 <- which(test$rowcount == 4)[1]
-
-rows.2021.other <- which(test$rowcount == 4)[3]
-rows.2021.other <- which(test$rowcount == 4)[3]
+rows.2022.other <- which(test$rowcount == 4)[6]
+rows.2021.other <- which(test$rowcount == 4)[5]
 rows.2020.other <- which(test$rowcount == 4)[4]
+rows.2019.other <- which(test$rowcount == 4)[3]
 
-other_sterfte.2021 <- cbs_sterfte[(rows.2020+1):(rows.2021.other-1),]
-other_sterfte.2020 <- cbs_sterfte[(rows.2021.other+2):(rows.2020.other-1),]
+
+other_sterfte.2022 <- cbs_sterfte[(rows.2019.other+1):(rows.2020.other-1),]
+other_sterfte.2021 <- cbs_sterfte[(rows.2020.other+1):(rows.2021.other-1),]
+other_sterfte.2020 <- cbs_sterfte[(rows.2021.other+2):(rows.2022.other-1),]
 
 
 colnames(other_sterfte.2020) <- c("Type","Jaar","Week","Overige_bevolking")
@@ -174,7 +175,21 @@ other_sterfte.2021 <- other_sterfte.2021 %>%
 other_sterfte.2021$Type <- "Overige_bevolking"
 other_sterfte.2021$Jaar <- 2021
 
-other_sterfte <- rbind(other_sterfte.2020,other_sterfte.2021)
+## Sterfte other 2022
+colnames(other_sterfte.2022) <- c("Type","Jaar","Week","Overige_bevolking")
+
+other_sterfte.2022 <- other_sterfte.2022 %>%
+  mutate(Week = parse_number(Week)) %>%
+  mutate(Overige_bevolking = parse_number(Overige_bevolking))
+
+other_sterfte.2022$Type <- "Overige_bevolking"
+other_sterfte.2022$Jaar <- 2022
+
+
+
+
+
+other_sterfte <- rbind(other_sterfte.2020,other_sterfte.2021,other_sterfte.2022)
 
 cbs.death.statistics.week <- merge(wlz_sterfte[,c("Week","Jaar","WLZ_gebruikers")],other_sterfte[,c("Week","Jaar","Overige_bevolking")],by=c("Week","Jaar"))
 ####
@@ -184,6 +199,7 @@ cbs.death.statistics.week <- merge(wlz_sterfte[,c("Week","Jaar","WLZ_gebruikers"
 
 colnames(cbs.death.statistics.week) <- c("Week","Year","wlz_deaths","other_deaths")
 cbs.death.statistics.week <- data.frame(cbs.death.statistics.week)
+cbs.death.statistics.week["Week"][cbs.death.statistics.week["Week"] == 532] <- 53
 
 cbs.df <- merge(cbs.death.statistics,cbs.death.statistics.week, by = c("Week","Year"))
 cbs.df <- cbs.df %>%
@@ -191,7 +207,7 @@ cbs.df <- cbs.df %>%
   mutate(other_covid = round(other_deaths*other_deaths_perc,0)) %>%
   select(Year, Week, wlz_covid, other_covid) %>%
   arrange(Year, Week)
-rm(cbs.death.statistics, cbs.death.statistics.week, webpage.cbs, webpage.cbs.week, u.cbs, u.cbs.week,urls)
+rm(cbs.death.statistics, cbs.death.statistics.week,urls)
 
 deaths_total <- merge(deaths_total,cbs.df,by=c("Week","Year"), all.x=T)
 
@@ -227,7 +243,7 @@ cols <- c("#009E73", "#87109A","#E6830C","#D96DEA", "#2231C5","#000000")
 
 
 plot <- deaths_total %>%
-  filter(week_year <= "2021-25") %>%
+  dplyr::filter(week_year <= "2021-47") %>%
   ggplot(aes(x=factor(week_year), y=deaths_rivm, group = 1)) + 
   geom_line(aes(y = deaths_rivm, color = "RIVM"), lwd=1.2) +
   geom_line(aes(y = total_covid_mortality, color = "CBS"), lwd=1.2) +
@@ -259,8 +275,8 @@ ggsave("plots/sterfte_per_week_30K.png", width = 12, height=8)
 ## Percentages
 
 plot <- deaths_total %>%
-  filter(week_year >= "2020-39") %>%
-  filter(week_year <= "2021-25") %>%
+  dplyr::filter(week_year >= "2020-39") %>%
+  dplyr::filter(week_year <= "2021-47") %>%
   ggplot(aes(x=factor(week_year), y=deaths_wlz_perc, group = 1)) + 
   geom_line(aes(y = deaths_wlz_perc, color = "Verpleeghuis"), lwd=1.2) +
   geom_line(aes(y = deaths_home_perc, color = "Thuis"), lwd=1.2) +
@@ -299,7 +315,7 @@ ggsave("plots/sterfte_per_week_30K_percentage.png", width = 12, height=8)
 deaths_total <- deaths_total[-c(nrow(deaths_total)),]
 
 plot <- deaths_total %>%
-  filter(week_year >= "2020-39") %>%
+  dplyr::filter(week_year >= "2020-39") %>%
   ggplot(aes(x=factor(week_year), y=deaths_nursing, group = 1)) + 
   geom_line(aes(y = deaths_nursing, color = "Verpleeghuis"), lwd=1.2) +
   geom_line(aes(y = deaths_nice, color = "Ziekenhuis"), lwd=1.2) +
@@ -334,21 +350,20 @@ ggsave("plots/sterfte_per_week_30K_totalen.png", width = 12, height=8)
 
 
 ##cbs.deaths
-u.cbs <- "https://www.cbs.nl/nl-nl/nieuws/2021/44/in-2e-kwartaal-2021-minder-mensen-overleden-aan-covid-19-dan-in-1e-kwartaal"
-webpage.cbs <- read_html(u.cbs)
+total.covid.mortality.cbs <- deaths_total %>%
+  dplyr::filter(week_year <= "2021-47")
+cbs.deaths <- sum(total.covid.mortality.cbs$total_covid_mortality,na.rm=T)
 
-cbs.death.statistics <- as.data.frame(html_table(webpage.cbs)[[3]])
-cbs.deaths <- sum(as.numeric(cbs.death.statistics[1:(nrow(cbs.death.statistics)-1),"COVID-19"]),na.rm=T)
 
 cbs.filter <- deaths_total %>%
-  filter(Year == 2021 & Week >= 26)
+  dplyr::filter(week_year > "2021-47")
 cbs.filter$cumulative_deaths <- cumsum(cbs.filter$deaths_estimate_3) + cbs.deaths
 deaths_total <- merge(deaths_total, cbs.filter[,c("Week","Year","cumulative_deaths")], by = c("Week","Year"),all.x=T)
 setorder(deaths_total, Year, Week)
 
 write.csv(deaths_total, file = "corrections/death_week_comparisons.csv", row.names = F)
 
-rm(deaths_total, plot, cols, dat, cbs.deaths, cbs.death.statistics,webpage.cbs, u.cbs)
+rm(deaths_total, plot, cols, cbs.deaths, cbs.death.statistics,webpage.cbs, u.cbs)
 
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
