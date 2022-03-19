@@ -449,7 +449,7 @@ filename.dashboard <- paste0("data-rivm/dashboard-data/data-coronadashboard_",Sy
 download.file("https://coronadashboard.rijksoverheid.nl/json/latest-data.zip",filename.dashboard)
 source("workflow/estimate_R.R")
 #source("workflow/excess_mortality_cbsmodel_2021.R")
-#source("workflow/parse_deaths_comparison_tracker.R")
+source("workflow/parse_deaths_comparison_tracker.R")
 source("workflow/parse_vaccines_ecdc.R")
 source("workflow/parse_vaccination_neighborhood.R")
 ## Vaccine tweet for history ##
