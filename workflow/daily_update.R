@@ -291,6 +291,7 @@ tweet.last_id <- posted_tweet$id_str
 rm(tweet.municipality.deaths, tweet.municipality.date, posted_tweet)
 
 # Verify whether NICE update ran correctly
+source("plot_scripts/reden_opname.R")
 
 dat.today = as.data.frame(lapply(tail(list.files(path = "data-nice/data-nice-json/",pattern="*.csv", full.names = T),1),read.csv))
 nice.date <- as.Date(last(dat.today$date))
@@ -347,7 +348,7 @@ Totaal: ",last(dat.today$IC_Cumulative))
     media = c("plots/positieve_tests_per_dag.png",
               "plots/percentage_positief_per_dag.png",
               "plots/overview_aanwezig_zkh.png",
-              "plots/overview_opnames_zkh.png"),
+              "plots/reden_van_opname.png"),
     in_reply_to_status_id = tweet.main.id,
     auto_populate_reply_metadata = TRUE
   )
