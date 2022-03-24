@@ -289,15 +289,6 @@ dat <- dat %>%
   rbind(dat.weesp)
 rm(dat.weesp.codes, dat.weesp)
 
-
-
-
-
-
-
-
-
-
 dat.unknown <- dat %>%
   dplyr::filter(Municipality_code == "")  %>%
   group_by(date) %>%
@@ -580,9 +571,6 @@ dat.hosp.all <- dat.hosp.all %>%
   mutate(Municipality_name = recode(Municipality_name, "Noardeast-FryslÃ¢n" = "Noardeast-Fryslân",
                                     "SÃºdwest-FryslÃ¢n" = "Súdwest-Fryslân"))
 dat.hosp.all <- merge(dat.hosp.all,dat.pop, by = c("Municipality_code"), all.x=T)
-
-
-dat.hosp.all <- dat.hosp.all[-139,]
 
 dat.hosp.lowest <- dat.hosp.lowest %>%
   rename(lowest_since_jan1 = Hospital_admission) %>%
