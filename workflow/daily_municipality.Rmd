@@ -19,7 +19,7 @@ require(shiny)
 require(metathis)
 
 const.toplist_minimum <- 200 
-const.hosp_toplist_minimum <- 1
+const.hosp_toplist_minimum <- 3
 
 setwd('../')
 
