@@ -18,7 +18,7 @@ rm(rivm.municipalities, last_date, filename.municipality,filename.municipality.c
 
 # const.date <- as.Date('2020-09-10') ## Change when you want to see a specific date
 const.use_daily_dataset <- FALSE # Use COVID-19_aantallen_gemeente_per_dag.csv instead of COVID-19_aantallen_gemeente_cumulatief.csv
-const.use_hospital_dataset <- TRUE # Use the dedicated COVID-19_ziekenhuisopnames.csv instead of the combined set
+const.use_hospital_dataset <- FALSE # Use the dedicated COVID-19_ziekenhuisopnames.csv instead of the combined set
 
 # set emoji's for unix and windows
 emoji.up <- intToUtf8(0x279A)
@@ -127,6 +127,31 @@ if(!exists("const.date")){
   const.date <- last_date
 }
 const.date_hosp <- const.date
+
+
+
+## Add hospital admissions from NICE
+nice.hosp <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv")
+nice.hosp$date <- nice.hosp$Date_of_statistics+1
+
+nice.hosp.cumsum <- nice.hosp %>%
+  group_by(
+    Municipality_code, 
+    Security_region_code) %>%
+  mutate(Hospital_admission = cumsum(Hospital_admission)) %>%
+  ungroup() %>%
+  select(Municipality_code,Municipality_name,Hospital_admission,Date_of_statistics) %>%
+  rename(date = Date_of_statistics) %>%
+  mutate(Municipality_name = recode(Municipality_name, "Noardeast-FryslÃ¢n" = "Noardeast-Fryslân",
+                                    "SÃºdwest-FryslÃ¢n" = "Súdwest-Fryslân")) %>%
+  mutate(date = date + 1)
+
+dat <- dat %>%
+  mutate(Hospital_admission = NULL) %>%
+  mutate(Municipality_name = recode(Municipality_name, "Noardeast-FryslÃ¢n" = "Noardeast-Fryslân",
+                                    "SÃºdwest-FryslÃ¢n" = "Súdwest-Fryslân"))
+
+dat <- merge(dat,nice.hosp.cumsum,by=c("date","Municipality_code","Municipality_name"),all.x=T)
 
 ## Filter Eemsdelta
 
@@ -242,26 +267,36 @@ dat <- dat %>%
   rbind(dat.landvancuijk)
 rm(dat.landvancuijk.codes, dat.landvancuijk)
 
-dat$Hospital_admission <- NULL
 
-## Add hospital admissions from NICE
-nice.hosp <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv")
-nice.hosp$date <- nice.hosp$Date_of_statistics+1
+## Amsterdam - Weesp
 
-nice.hosp.cumsum <- nice.hosp %>%
-  group_by(
-    Municipality_code, 
-    Security_region_code) %>%
-  mutate(Hospital_admission = cumsum(Hospital_admission)) %>%
-  ungroup() %>%
-  select(Municipality_code,Municipality_name,Hospital_admission,Date_of_statistics) %>%
-  rename(date = Date_of_statistics) %>%
-  mutate(Municipality_name = recode(Municipality_name, "Noardeast-FryslÃ¢n" = "Noardeast-Fryslân",
-                                    "SÃºdwest-FryslÃ¢n" = "Súdwest-Fryslân"))
+dat.weesp.codes <- c("GM0457", "GM0363")
+dat.weesp <- dat %>%
+  dplyr::filter(Municipality_code %in% dat.weesp.codes) %>%
+  group_by(date) %>%
+  mutate(
+    Municipality_name = "Amsterdam", 
+    Municipality_code = "GM0363",
+    Total_reported = sum(Total_reported),
+    Hospital_admission = sum(Hospital_admission),
+    Deceased = sum(Deceased),
+  ) %>%
+  distinct()
+
+dat <- dat %>%
+  dplyr::filter(!Municipality_code %in% dat.weesp.codes) %>%
+  dplyr::filter(Municipality_code != "0457") %>%
+  rbind(dat.weesp)
+rm(dat.weesp.codes, dat.weesp)
 
 
 
-dat <- merge(dat,nice.hosp.cumsum,by=c("date","Municipality_code","Municipality_name"),all.x=T)
+
+
+
+
+
+
 
 dat.unknown <- dat %>%
   dplyr::filter(Municipality_code == "")  %>%
@@ -270,22 +305,22 @@ dat.unknown <- dat %>%
     Municipality_name = 'Unknown',
     Municipality_code = '',
     Total_reported = sum(Total_reported),
-    Hospital_admission = sum(Hospital_admission),
+    Hospital_admission = sum(Hospital_admission,na.rm=T),
     Deceased = sum(Deceased),
     .groups = 'drop_last'
   )
 
 dat.total <- dat %>%
+  dplyr::filter(Municipality_name != "") %>%
   group_by(date) %>%
   summarise(
     Municipality_name = 'Netherlands',
     Municipality_code = '',
     Total_reported = sum(Total_reported),
-    Hospital_admission = sum(Hospital_admission),
+    Hospital_admission = sum(Hospital_admission,na.rm=T),
     Deceased = sum(Deceased),
-    .groups = 'drop_last'
+    #.groups = 'drop_last'
   )
-
 
 dat <- dat %>%
   dplyr::filter(Municipality_code != "") %>% # Filter observations without municipal name
@@ -373,7 +408,7 @@ if (const.use_hospital_dataset) {
 }
 
 # Add population
-dat.pop <- read.csv("misc/municipalities-population.csv",
+dat.pop <- read.csv("https://raw.githubusercontent.com/mzelst/covid-19/master/misc/municipalities-population.csv",
                     encoding = "UTF-8") %>%
   select(Municipality_code, population)
 
@@ -401,7 +436,7 @@ dat.cases.lowest <- dat.zeropoint %>%
   slice(which.min(Total_reported)) %>%
   arrange(match(Municipality_name, c("Total", "Nederland", "Netherlands")), Municipality_code) %>%
   arrange(desc(date))
-  
+
 
 dat.hosp.lowest <- dat.zeropoint %>%
   slice(which.min(Hospital_admission)) %>%
@@ -472,39 +507,111 @@ dat.cases.today.simple <- dat.cases.today %>%
     growth,
   )
 
-if(!const.use_hospital_dataset){ 
-  const.date_hosp <- const.date_hosp - 1
-}
+temp = list.files(path = "data-rivm/municipal-hospital-datasets/",pattern="*.csv.gz", full.names = T) ## Pull names of all available datafiles
 
-dat.hosp.today <- transmute(dat.hosp,
-                            municipality = Municipality_name,
-                            Municipality_code = Municipality_code, 
-                            date = const.date_hosp,
-                            d0  = dat.hosp[,ncol(dat.hosp)-date_diff], # today
-                            d1  = dat.hosp[,ncol(dat.hosp)-date_diff-1], # yesterday
-                            d7  = dat.hosp[,ncol(dat.hosp)-date_diff-7], # last week
-                            d8  = dat.hosp[,ncol(dat.hosp)-date_diff-8], # yesterday's last week
-                            d14 = dat.hosp[,ncol(dat.hosp)-date_diff-14], # 2 weeks back
-                            jan = dat.hosp$`2021-01-01`, # Jan 1st, 2021
-                            lowest_since_jan1 = dat.hosp.lowest$`Hospital_admission`,
-                            lowest_since_jan1_date = dat.hosp.lowest$`date`,
-                            current = d0-lowest_since_jan1,
-                            increase_1d = d0-d1, # Calculate increase since last day
-                            increase_7d = d0-d7, # Calculate increase in 7 days
-                            increase_14d = d0-d14, # Calculate increase in 14 days
-                            increase_growth = calc_growth_increase(increase_7d, increase_14d), # Compare growth of last 7 days vs 7 days before,
-                            growth = increase_growth_to_arrows(increase_growth, FALSE),
-                            population,
-                            rel_increase_1d = increase_1d / population * 100000,
-                            rel_increase_7d = increase_7d / population * 100000,
-                            rel_increase_14d = increase_14d / population * 100000,
-                            color = convert_to_hosp_trafficlight(rel_increase_7d, rel_increase_14d),
-                            color_incl_new = ifelse(
-                              ((d1 - d8) <= 0 & (d0 - d1) > 0)
-                              | ((d0 - d7) <= 0 & (d0 - d1) > 0)
-                              | ((d1 - d14) <= 0 & (d0 - d1) > 0),  
-                              emoji.new, color)
+dat.hosp.d0 <- fread(temp[length(temp)])
+dat.hosp.d1 <- fread(temp[length(temp)-1])
+dat.hosp.d7 <- fread(temp[length(temp)-7])
+dat.hosp.d8 <- fread(temp[length(temp)-8])
+dat.hosp.d14 <- fread(temp[length(temp)-14])
+
+last.date.hosp <- last(dat.hosp.d0$Date_of_statistics)
+
+dat.hosp.d0 <- dat.hosp.d0 %>%
+  group_by(Municipality_name) %>%
+  arrange(Date_of_statistics) %>%
+  mutate(d0 = cumsum(Hospital_admission)) %>%
+  dplyr::filter(Date_of_statistics == last.date.hosp) %>%
+  select(Municipality_name, Municipality_code, d0) %>%
+  mutate(Municipality_name = replace(Municipality_name, Municipality_name == "","Unknown")) %>%
+  mutate(date = last.date.hosp)
+dat.hosp.d0 <- rbind(dat.hosp.d0, data.frame("Municipality_name" = "Netherlands","Municipality_code" = "", "d0" = sum(dat.hosp.d0$d0), "date" = last.date.hosp))
+
+dat.hosp.d1 <- dat.hosp.d1 %>%
+  group_by(Municipality_name) %>%
+  arrange(Date_of_statistics) %>%
+  mutate(d1 = cumsum(Hospital_admission)) %>%
+  dplyr::filter(Date_of_statistics == last.date.hosp-1) %>%
+  select(Municipality_name, Municipality_code, d1) %>%
+  mutate(Municipality_name = replace(Municipality_name, Municipality_name == "","Unknown")) %>%
+  mutate(date = last.date.hosp)
+dat.hosp.d1 <- rbind(dat.hosp.d1, data.frame("Municipality_name" = "Netherlands","Municipality_code" = "", "d1" = sum(dat.hosp.d1$d1), "date" = last.date.hosp))
+
+dat.hosp.d7 <- dat.hosp.d7 %>%
+  group_by(Municipality_name) %>%
+  arrange(Date_of_statistics) %>%
+  mutate(d7 = cumsum(Hospital_admission)) %>%
+  dplyr::filter(Date_of_statistics == last.date.hosp-7) %>%
+  select(Municipality_name, Municipality_code, d7) %>%
+  mutate(Municipality_name = replace(Municipality_name, Municipality_name == "","Unknown")) %>%
+  mutate(date = last.date.hosp)
+dat.hosp.d7 <- rbind(dat.hosp.d7, data.frame("Municipality_name" = "Netherlands","Municipality_code" = "", "d7" = sum(dat.hosp.d7$d7), "date" = last.date.hosp))
+
+dat.hosp.d8 <- dat.hosp.d8 %>%
+  group_by(Municipality_name) %>%
+  arrange(Date_of_statistics) %>%
+  mutate(d8 = cumsum(Hospital_admission)) %>%
+  dplyr::filter(Date_of_statistics == last.date.hosp-8) %>%
+  select(Municipality_name, Municipality_code, d8) %>%
+  mutate(Municipality_name = replace(Municipality_name, Municipality_name == "","Unknown")) %>%
+  mutate(date = last.date.hosp)
+dat.hosp.d8 <- rbind(dat.hosp.d8, data.frame("Municipality_name" = "Netherlands","Municipality_code" = "", "d8" = sum(dat.hosp.d8$d8), "date" = last.date.hosp))
+
+
+dat.hosp.d14 <- dat.hosp.d14 %>%
+  group_by(Municipality_name) %>%
+  arrange(Date_of_statistics) %>%
+  mutate(d14 = cumsum(Hospital_admission)) %>%
+  dplyr::filter(Date_of_statistics == last.date.hosp-14) %>%
+  select(Municipality_name, Municipality_code, d14) %>%
+  mutate(Municipality_name = replace(Municipality_name, Municipality_name == "","Unknown")) %>%
+  mutate(date = last.date.hosp) 
+dat.hosp.d14 <- rbind(dat.hosp.d14, data.frame("Municipality_name" = "Netherlands","Municipality_code" = "", "d14" = sum(dat.hosp.d14$d14), "date" = last.date.hosp))
+
+
+daily_datalist_hosp <- list(dat.hosp.d0,dat.hosp.d1,dat.hosp.d7,dat.hosp.d8,dat.hosp.d14)
+
+dat.hosp.all <- Reduce(
+  function(x, y, ...) merge(x, y, by=c("date","Municipality_name","Municipality_code"),all.x = TRUE, ...),
+  daily_datalist_hosp
 )
+
+dat.hosp.all <- dat.hosp.all %>%
+  mutate(Municipality_name = recode(Municipality_name, "Noardeast-FryslÃ¢n" = "Noardeast-Fryslân",
+                                    "SÃºdwest-FryslÃ¢n" = "Súdwest-Fryslân"))
+dat.hosp.all <- merge(dat.hosp.all,dat.pop, by = c("Municipality_code"), all.x=T)
+
+
+dat.hosp.all <- dat.hosp.all[-139,]
+
+dat.hosp.lowest <- dat.hosp.lowest %>%
+  rename(lowest_since_jan1 = Hospital_admission) %>%
+  rename(lowest_since_jan1_date = date) %>%
+  select(Municipality_name, lowest_since_jan1, lowest_since_jan1_date)
+
+
+dat.hosp.all <- merge(dat.hosp.all, dat.hosp.lowest, by = c("Municipality_name"), all.x=T)
+
+dat.hosp.today <- dat.hosp.all %>%
+  rename(municipality = Municipality_name) %>%
+  mutate(date = date + 1) %>%
+  mutate(jan = lowest_since_jan1) %>%
+  mutate(current = d0-lowest_since_jan1) %>%
+  mutate(increase_1d = d0 - d1) %>%
+  mutate(increase_7d = d0 - d7) %>%
+  mutate(increase_14d = d0- d14) %>%
+  mutate(increase_growth = calc_growth_increase(increase_7d, increase_14d)) %>%
+  mutate(growth = increase_growth_to_arrows(increase_growth, FALSE)) %>%
+  mutate(rel_increase_1d = increase_1d / population * 100000) %>%
+  mutate(rel_increase_7d = increase_7d / population * 100000) %>%
+  mutate(rel_increase_14d = increase_14d / population * 100000) %>%
+  mutate(color = convert_to_hosp_trafficlight(rel_increase_7d, rel_increase_14d)) %>%
+  mutate(color_incl_new = ifelse(
+    ((d1 - d8) <= 0 & (d0 - d1) > 0)
+    | ((d0 - d7) <= 0 & (d0 - d1) > 0)
+    | ((d1 - d14) <= 0 & (d0 - d1) > 0),  
+    emoji.new, color))
+
 
 dat.hosp.today.simple <- dat.hosp.today %>%
   dplyr::filter(Municipality_code != "") %>%
