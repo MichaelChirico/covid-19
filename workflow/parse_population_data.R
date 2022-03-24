@@ -1,9 +1,9 @@
 ## Parse municipalities population data
 require(geojsonio)
 ## Set month
-set.month <- paste0("2021MM",month(Sys.Date())-2)
+set.month <- paste0("2022MM","0",month(Sys.Date())-2)
 
-dat.mun <- cbs_get_data("37230ned",add_column_labels = FALSE,Perioden = has_substring(c(set.month)))
+dat.mun <- cbs_get_data("37230ned",add_column_labels = FALSE,Perioden = has_substring(c("2022MM01")))
 dat.mun <- dat.mun[,c("RegioS","BevolkingAanHetEindeVanDePeriode_15")]
 colnames(dat.mun) <- c("statcode","populatie")
 
@@ -11,12 +11,14 @@ dat.mun <- dat.mun %>%
   dplyr::filter(!is.na(populatie)) %>%
   dplyr::filter(grepl("GM", statcode))
 
-gemeentegrenzen <- geojson_read("misc/maps/Gemeentegrenzen2021RD.geojson", what = "sp")
+gemeentegrenzen <- geojson_read("misc/maps/Gemeentegrenzen2022_RD.geojson", what = "sp")
+colnames(gemeentegrenzen@data) <- c("statcode","statnaam","populatie")
+
 gemeentes <- gemeentegrenzen@data[,c("statcode","statnaam")]
 
 gemeente.stats <- merge(gemeentes, dat.mun, by = "statcode")
 colnames(gemeente.stats) <- c("Municipality_code","Municipality_name","population")
-write.csv(gemeente.stats, file = "misc/municipalities-population.csv")
+write.csv(gemeente.stats, file = "misc/municipalities-population.csv", row.names=F)
 
 ## Parse GGD population data
 nl_dt <- fread("data-rivm/municipal-datasets-per-day/rivm_municipality_perday_2022-01-20.csv.gz")
@@ -30,7 +32,8 @@ dat.mun <- dat.mun %>%
   dplyr::filter(!is.na(populatie)) %>%
   dplyr::filter(grepl("GM", statcode))
 
-gemeentegrenzen <- geojson_read("misc/maps/Gemeentegrenzen2021RD.geojson", what = "sp")
+gemeentegrenzen <- geojson_read("misc/maps/Gemeentegrenzen2022_RD.geojson", what = "sp")
+colnames(gemeentegrenzen@data) <- c("statcode","statnaam","populatie")
 gemeentes <- gemeentegrenzen@data[,c("statcode","statnaam")]
 
 gemeente.stats <- merge(gemeentes, dat.mun, by = "statcode")
