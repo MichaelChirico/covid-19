@@ -193,13 +193,13 @@ tweet.municipality.date <- Sys.Date() %>%
 tweet.municipality.colors <- read.csv("data/municipality-totals-color.csv", fileEncoding = "UTF-8")
 tweet.municipality.cases <- "Geconstateerde besmettingen per gemeente %s
 
-%s %d / 345 gemeentes
+%s %d / 344 gemeentes
 
-%s %d / 345 gemeentes
+%s %d / 344 gemeentes
 
-%s %d / 345 gemeentes
+%s %d / 344 gemeentes
 
-%s %d / 345 gemeentes
+%s %d / 344 gemeentes
 
 Zie de eerste afbeelding voor een uitgebreide legenda
 
