@@ -73,6 +73,8 @@ tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",sta
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
 2) Methode RIVM (",rivm.startday," maart - ",rivm.endday," maart): ",round(last(excess_mortality$excess_mortality_rivm)),"
 
+Bij de leeftijdsgroep 65-80 is de sterfte significant boven de verwachte sterfte.
+
 (grafieken CBS / RIVM)
 ")
 
@@ -161,11 +163,11 @@ cbs_sterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 7))[8:166,c(1,5,
 colnames(cbs_sterfte) <- c("week_year","wlz_verwacht","other_verwacht")
 unlink("cbs_deaths.xlsx")
 
-cbs_sterfte$Jaar <- parse_number(substr(cbs_sterfte$week_year, 1, 4))
-cbs_sterfte$Week <- parse_number(substr(cbs_sterfte$week_year, 11, 12))
-cbs_sterfte$wlz_verwacht <- parse_number(cbs_sterfte$wlz_verwacht)
-cbs_sterfte$other_verwacht <- parse_number(cbs_sterfte$other_verwacht)
-setDF(cbs_sterfte)
+cbs_sterfte <- cbs_sterfte %>%
+  mutate(Jaar = parse_number(substr(week_year, 1, 4))) %>%
+  mutate(Week = parse_number(substr(week_year, 11, 12))) %>%
+  mutate(week_year = NULL) %>%
+  mutate_all(function(x) parse_number(as.character(x)))
 
 cbs_deaths <- merge(sterfte_wlz_other, cbs_sterfte,by=c("Week","Jaar"))
 wlz.table <- cbs_deaths %>%
@@ -178,6 +180,8 @@ excess_other_perc <- round(last(wlz.table$Sterfte_Other)/last(wlz.table$other_ve
 
 wlz.text <- ifelse(excess_wlz_perc<0,"minder","meer")
 other.text <- ifelse(excess_other_perc<0,"minder","meer")
+
+source("data-misc/excess_mortality/plots_weekly_update/plots_excess_mortality_wlz_age.R")
 
 tweet.wlz <- paste0("4/ Oversterfte Wlz en overige bevolking (CBS)
 
