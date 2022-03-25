@@ -173,6 +173,8 @@ cbs.death.statistics.week["Week"][cbs.death.statistics.week["Week"] == 532] <- 5
 
 cbs.df <- merge(cbs.death.statistics,cbs.death.statistics.week, by = c("Week","Year"))
 cbs.df <- cbs.df %>%
+  mutate(wlz_deaths = parse_number(wlz_deaths)) %>%
+  mutate(other_deaths = parse_number(other_deaths)) %>%
   mutate(wlz_covid = round(wlz_deaths*wlz_deaths_perc,0)) %>%
   mutate(other_covid = round(other_deaths*other_deaths_perc,0)) %>%
   select(Year, Week, wlz_covid, other_covid) %>%
@@ -340,5 +342,5 @@ git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 repo <- init()
 add(repo, path = "*")
-commit(repo, all = T, paste0("[", Sys.Date(), "] Update death comparison tracker for Twitter thread"))
+commit(repo, all = T, paste0("[", Sys.Date(), "] Update death comparison tracker for Twitter thread (Friday update - part 2)"))
 push(repo, credentials = git.auth)
