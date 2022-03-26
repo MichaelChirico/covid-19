@@ -9,7 +9,7 @@ zkh_new <- rjson::fromJSON(file = "https://www.stichting-nice.nl/covid-19/public
   rename(date = V1,new_hosp_proven = V2, new_hosp_suspected = V3) %>%
   mutate(week = isoweek(date)) %>%
   mutate(year = isoyear(date))
-  
+
 zkh_new <- aggregate(new_hosp_proven ~ week + year, data = zkh_new, FUN = sum)  
 setDT(zkh_new)
 
@@ -53,20 +53,20 @@ plot.reason.hospital <- nice.reason.intake.long %>%
   theme_bw() + 
   #scale_x_date(date_breaks = "1 month", date_labels = "%Y-%m") + 
   theme(#axis.title.x=element_blank(),
-        #axis.title.y=element_blank(),
-        axis.text.x.bottom = element_text(size=10),
-        axis.text.y = element_text(size=10),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        plot.title = element_text(hjust = 0.5, size = 16),
-        plot.subtitle = element_text(hjust = 0.5, size = 10),
-        plot.title.position = "plot",
-        plot.caption = element_text(size = 6),
-        legend.direction = "horizontal",
-        legend.title = element_blank(),
-        legend.position = "bottom",
-        legend.text = element_text(size=10, color = "black"),
-        legend.margin = margin(2,2,2,2)) +
+    #axis.title.y=element_blank(),
+    axis.text.x.bottom = element_text(size=10),
+    axis.text.y = element_text(size=10),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(hjust = 0.5, size = 16),
+    plot.subtitle = element_text(hjust = 0.5, size = 10),
+    plot.title.position = "plot",
+    plot.caption = element_text(size = 6),
+    legend.direction = "horizontal",
+    legend.title = element_blank(),
+    legend.position = "bottom",
+    legend.text = element_text(size=10, color = "black"),
+    legend.margin = margin(2,2,2,2)) +
   labs(x = "Week",
        y = "Aantal opnames",
        caption = "") +
@@ -154,14 +154,14 @@ plot.reason.ic <- nice.reason.intake.ic.long %>%
 
 
 reason.figure <- ggarrange(plot.reason.hospital,plot.reason.ic, labels = c("Kliniek","IC"),
-          ncol = 2, nrow = 1, common.legend = TRUE, legend = "bottom", label.x = c(0.4,0.5),label.y = c(0.98), font.label = list(size = 16))
+                           ncol = 2, nrow = 1, common.legend = TRUE, legend = "bottom", label.x = c(0.4,0.5),label.y = c(0.98), font.label = list(size = 20))
 
+reason.figure
 
+#explainer.bottom <- expression(atop(
+#  scriptstyle("Percentage is relatieve aandeel per \n opnamereden voor die week \n Let op: De data van de laatste twee weken zijn nog niet compleet")))
 
-explainer.bottom <- expression(atop(
-                         scriptstyle("\nPercentage is relatieve aandeel per opnamereden voor die week \n Let op: De data van de laatste twee weken zijn nog niet compleet")))
-
-reason.intake.figure <- annotate_figure(reason.figure, top=text_grob(title, size = 14))
+reason.intake.figure <- annotate_figure(reason.figure, top=text_grob("Reden van opname", size = 18, face = "bold"))#, bottom = text_grob(explainer.bottom,size = 16, hjust = 1.8))
 reason.intake.figure
 ggsave(reason.intake.figure, file ="plots/reden_van_opname.png",width = 12, height = 8)
 
