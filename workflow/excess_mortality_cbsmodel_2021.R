@@ -470,8 +470,7 @@ totals <- totals %>%
   select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
 
 
-u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/11/doodsoorzaken.xlsx"
-#webpage.cbs <- read_html(u.cbs)
+u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/13/doodsoorzaken-2020-december-2021.xlsx"
 
 download.file(u.cbs,destfile = "cbs_deaths.xlsx", mode = "wb")
 cbs.death.statistics <- data.table(read_excel("cbs_deaths.xlsx",sheet = 2)[5:57,c(1,5,8)])
@@ -533,7 +532,7 @@ fig2.1_dt$weekyear <- ifelse(fig2.1_dt$week<10,
 write.csv(fig2.1_dt,file = "workflow/excess_mortality/output/2021_fig2.1_dt.csv")
 
 ## create plot
-ggplot(fig2.1_dt, aes(factor(weekyear), cbs_deaths, group = 1)) +
+fig2.1_plot <- ggplot(fig2.1_dt, aes(factor(weekyear), cbs_deaths, group = 1)) +
   geom_ribbon(aes(ymin = 0, ymax = as.numeric(cbs_deaths) - covid_sterfte),
               fill = 'grey50', alpha = 0.4
   ) +
@@ -551,7 +550,7 @@ ggplot(fig2.1_dt, aes(factor(weekyear), cbs_deaths, group = 1)) +
   ylab('') + 
   theme_bw() + 
   theme(axis.text.x = element_text(angle =90))
-ggsave('plots/2021_fig2.1.png')
+ggsave(fig2.1_plot, file = 'plots/2021_fig2.1.png', width = 16, height = 8)
 
 
 ## Figure 2.2
