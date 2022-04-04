@@ -3,7 +3,7 @@ require(geojsonio)
 ## Set month
 set.month <- paste0("2022MM","0",month(Sys.Date())-2)
 
-dat.mun <- cbs_get_data("37230ned",add_column_labels = FALSE,Perioden = has_substring(c("2022MM01")))
+dat.mun <- cbs_get_data("37230ned",add_column_labels = FALSE,Perioden = has_substring(c(set.month)))
 dat.mun <- dat.mun[,c("RegioS","BevolkingAanHetEindeVanDePeriode_15")]
 colnames(dat.mun) <- c("statcode","populatie")
 
@@ -71,9 +71,9 @@ df$ID <- seq(1,12)
 write.csv(df, file = "misc/provinces-population.csv")
 
 ## Parse safety region data
-
-dat.safetyregion <- cbs_get_data("84929NED",add_column_labels = FALSE)[,c("Code_1","Naam_2","Code_14","Naam_15","Code_26","Naam_27","Code_44","Naam_45","Inwonertal_52")]
-pop.safetyregion <- aggregate(Inwonertal_52 ~ Code_44 + Naam_45, data = dat.safetyregion, FUN = sum)
+str(dat.safetyregion)
+dat.safetyregion <- cbs_get_data("85067NED",add_column_labels = FALSE)[,c("Code_1","Naam_2","Code_14","Naam_15","Code_26","Naam_27","Code_46","Naam_47","Inwonertal_54")]
+pop.safetyregion <- aggregate(Inwonertal_54 ~ Code_46 + Naam_47, data = dat.safetyregion, FUN = sum)
 colnames(pop.safetyregion) <- c("Security_region_code","Security_region_name","population")
 
 pop.safetyregion$Security_region_name <- trimws(pop.safetyregion$Security_region_name)
@@ -81,16 +81,15 @@ pop.safetyregion$Security_region_code <- trimws(pop.safetyregion$Security_region
 
 write.csv(pop.safetyregion, file = "misc/safetyregions-population.csv")
 
-
 ## Age population data
-pop.age <- cbs_get_data("83482NED",add_column_labels = FALSE,Perioden = has_substring(c("2021MM12")), 
+pop.age <- cbs_get_data("83482NED",add_column_labels = FALSE,Perioden = has_substring(c("2022MM03")), 
                         Migratieachtergrond = has_substring(c("T001040")),
                         Generatie = has_substring(c("T001040")),
                         Geslacht = has_substring(c("T001038")))
 
 
 #leeftijdopbouw per gemeente ophalen
-pop.age <- cbs_get_data("03759ned", Perioden = has_substring(c("2021JJ00")),RegioS = has_substring(c("GM")) ,Geslacht = has_substring(c("T001038")),
+pop.age <- cbs_get_data("03759ned", Perioden = has_substring(c("2022JJ00")),RegioS = has_substring(c("GM")) ,Geslacht = has_substring(c("T001038")),
                                   BurgerlijkeStaat = has_substring(c("T001019")))
 
 #Totalen eruit filteren + CBScode omzetten naar leeftijd

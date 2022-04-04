@@ -1,345 +1,345 @@
-Municipality_code,Municipality_name,population
-GM0014,Groningen,234649
-GM0034,Almere,218096
-GM0037,Stadskanaal,31928
-GM0047,Veendam,27441
-GM0050,Zeewolde,23417
-GM0059,Achtkarspelen,27938
-GM0060,Ameland,3743
-GM0072,Harlingen,15903
-GM0074,Heerenveen,51136
-GM0080,Leeuwarden,125542
-GM0085,Ooststellingwerf,25687
-GM0086,Opsterland,29787
-GM0088,Schiermonnikoog,943
-GM0090,Smallingerland,55863
-GM0093,Terschelling,4934
-GM0096,Vlieland,1197
-GM0098,Weststellingwerf,26280
-GM0106,Assen,69042
-GM0109,Coevorden,35466
-GM0114,Emmen,107902
-GM0118,Hoogeveen,55927
-GM0119,Meppel,34779
-GM0141,Almelo,73175
-GM0147,Borne,24061
-GM0148,Dalfsen,29171
-GM0150,Deventer,101440
-GM0153,Enschede,160383
-GM0158,Haaksbergen,24278
-GM0160,Hardenberg,61841
-GM0163,Hellendoorn,35987
-GM0164,Hengelo,81463
-GM0166,Kampen,54846
-GM0168,Losser,23106
-GM0171,Noordoostpolder,48119
-GM0173,Oldenzaal,31788
-GM0175,Ommen,18450
-GM0177,Raalte,38141
-GM0180,Staphorst,17276
-GM0183,Tubbergen,21367
-GM0184,Urk,21467
-GM0189,Wierden,24677
-GM0193,Zwolle,130872
-GM0197,Aalten,27105
-GM0200,Apeldoorn,165648
-GM0202,Arnhem,164096
-GM0203,Barneveld,60617
-GM0209,Beuningen,26244
-GM0213,Brummen,20873
-GM0214,Buren,27225
-GM0216,Culemborg,29348
-GM0221,Doesburg,11039
-GM0222,Doetinchem,58552
-GM0225,Druten,19209
-GM0226,Duiven,24958
-GM0228,Ede,120037
-GM0230,Elburg,23746
-GM0232,Epe,33246
-GM0233,Ermelo,27270
-GM0243,Harderwijk,48839
-GM0244,Hattem,12304
-GM0246,Heerde,19010
-GM0252,Heumen,17021
-GM0262,Lochem,34096
-GM0263,Maasdriel,25531
-GM0267,Nijkerk,44360
-GM0268,Nijmegen,179073
-GM0269,Oldebroek,23933
-GM0273,Putten,24602
-GM0274,Renkum,31322
-GM0275,Rheden,43476
-GM0277,Rozendaal,1753
-GM0279,Scherpenzeel,10308
-GM0281,Tiel,42291
-GM0285,Voorst,24991
-GM0289,Wageningen,39923
-GM0293,Westervoort,14943
-GM0294,Winterswijk,29166
-GM0296,Wijchen,41319
-GM0297,Zaltbommel,29982
-GM0299,Zevenaar,44689
-GM0301,Zutphen,48299
-GM0302,Nunspeet,28209
-GM0303,Dronten,42936
-GM0307,Amersfoort,158712
-GM0308,Baarn,24870
-GM0310,De Bilt,43506
-GM0312,Bunnik,15649
-GM0313,Bunschoten,22321
-GM0317,Eemnes,9460
-GM0321,Houten,50301
-GM0327,Leusden,30712
-GM0331,Lopik,14517
-GM0335,Montfoort,13817
-GM0339,Renswoude,5642
-GM0340,Rhenen,20264
-GM0342,Soest,47126
-GM0344,Utrecht,361924
-GM0345,Veenendaal,67748
-GM0351,Woudenberg,13901
-GM0352,Wijk bij Duurstede,23917
-GM0353,IJsselstein,33436
-GM0355,Zeist,66046
-GM0356,Nieuwegein,64534
-GM0358,Aalsmeer,32480
-GM0361,Alkmaar,110785
-GM0362,Amstelveen,92351
-GM0363,Amsterdam,905234
-GM0373,Bergen (NH.),29741
-GM0375,Beverwijk,42077
-GM0376,Blaricum,12391
-GM0377,Bloemendaal,23701
-GM0383,Castricum,36294
-GM0384,Diemen,31762
-GM0385,Edam-Volendam,36445
-GM0388,Enkhuizen,18631
-GM0392,Haarlem,162914
-GM0394,Haarlemmermeer,159346
-GM0396,Heemskerk,39143
-GM0397,Heemstede,27563
-GM0399,Heiloo,24410
-GM0400,Den Helder,56348
-GM0402,Hilversum,91799
-GM0405,Hoorn,74331
-GM0406,Huizen,40945
-GM0415,Landsmeer,11555
-GM0417,Laren,11563
-GM0420,Medemblik,45437
-GM0431,Oostzaan,9664
-GM0432,Opmeer,12088
-GM0437,Ouder-Amstel,14208
-GM0439,Purmerend,92412
-GM0441,Schagen,46834
-GM0448,Texel,13687
-GM0450,Uitgeest,13556
-GM0451,Uithoorn,31007
-GM0453,Velsen,68507
-GM0473,Zandvoort,17142
-GM0479,Zaanstad,157215
-GM0482,Alblasserdam,20129
-GM0484,Alphen aan den Rijn,112913
-GM0489,Barendrecht,48674
-GM0498,Drechterland,19993
-GM0501,Brielle,17750
-GM0502,Capelle aan den IJssel,67255
-GM0503,Delft,104468
-GM0505,Dordrecht,119576
-GM0512,Gorinchem,37635
-GM0513,Gouda,74165
-GM0518,'s-Gravenhage,552995
-GM0523,Hardinxveld-Giessendam,18510
-GM0530,Hellevoetsluis,40596
-GM0531,Hendrik-Ido-Ambacht,31720
-GM0532,Stede Broec,21944
-GM0534,Hillegom,22307
-GM0537,Katwijk,66081
-GM0542,Krimpen aan den IJssel,29425
-GM0546,Leiden,125167
-GM0547,Leiderdorp,27477
-GM0553,Lisse,23000
-GM0556,Maassluis,34328
-GM0569,Nieuwkoop,29297
-GM0575,Noordwijk,44358
-GM0579,Oegstgeest,25485
-GM0589,Oudewater,10178
-GM0590,Papendrecht,32174
-GM0597,Ridderkerk,47071
-GM0599,Rotterdam,656050
-GM0603,Rijswijk,57096
-GM0606,Schiedam,79745
-GM0610,Sliedrecht,25926
-GM0613,Albrandswaard,25913
-GM0614,Westvoorne,14939
-GM0622,Vlaardingen,74118
-GM0626,Voorschoten,25569
-GM0627,Waddinxveen,31382
-GM0629,Wassenaar,27215
-GM0632,Woerden,52918
-GM0637,Zoetermeer,125867
-GM0638,Zoeterwoude,9322
-GM0642,Zwijndrecht,44741
-GM0654,Borsele,22840
-GM0664,Goes,38998
-GM0668,West Maas en Waal,19674
-GM0677,Hulst,27523
-GM0678,Kapelle,13011
-GM0687,Middelburg,49214
-GM0703,Reimerswaal,22909
-GM0715,Terneuzen,54555
-GM0716,Tholen,26425
-GM0717,Veere,21838
-GM0718,Vlissingen,44534
-GM0736,De Ronde Venen,45026
-GM0737,Tytsjerksteradiel,32322
-GM0743,Asten,17076
-GM0744,Baarle-Nassau,6943
-GM0748,Bergen op Zoom,67938
-GM0753,Best,30648
-GM0755,Boekel,11053
-GM0757,Boxtel,33088
-GM0758,Breda,184716
-GM0762,Deurne,32604
-GM0765,Pekela,12186
-GM0766,Dongen,26515
-GM0770,Eersel,19843
-GM0772,Eindhoven,238478
-GM0777,Etten-Leur,44124
-GM0779,Geertruidenberg,21951
-GM0784,Gilze en Rijen,26509
-GM0785,Goirle,24003
-GM0794,Helmond,93525
-GM0796,'s-Hertogenbosch,156599
-GM0797,Heusden,45559
-GM0798,Hilvarenbeek,15821
-GM0809,Loon op Zand,23794
-GM0820,"Nuenen, Gerwen en Nederwetten",23814
-GM0823,Oirschot,19076
-GM0824,Oisterwijk,32549
-GM0826,Oosterhout,56596
-GM0828,Oss,93401
-GM0840,Rucphen,23333
-GM0845,Sint-Michielsgestel,29703
-GM0847,Someren,19709
-GM0848,Son en Breugel,17773
-GM0851,Steenbergen,24336
-GM0852,Waterland,17308
-GM0855,Tilburg,224702
-GM0858,Valkenswaard,31251
-GM0861,Veldhoven,45839
-GM0865,Vught,31828
-GM0866,Waalre,17677
-GM0867,Waalwijk,49325
-GM0873,Woensdrecht,22097
-GM0879,Zundert,22210
-GM0880,Wormerland,16403
-GM0882,Landgraaf,37066
-GM0888,Beek,15790
-GM0889,Beesel,13403
-GM0893,Bergen (L.),13085
-GM0899,Brunssum,27691
-GM0907,Gennep,17221
-GM0917,Heerlen,86874
-GM0928,Kerkrade,45233
-GM0935,Maastricht,120837
-GM0938,Meerssen,18556
-GM0944,Mook en Middelaar,7984
-GM0946,Nederweert,17320
-GM0957,Roermond,59142
-GM0965,Simpelveld,10441
-GM0971,Stein,24806
-GM0981,Vaals,10113
-GM0983,Venlo,102176
-GM0984,Venray,43997
-GM0986,Voerendaal,12408
-GM0988,Weert,50362
-GM0994,Valkenburg aan de Geul,16159
-GM0995,Lelystad,81208
-GM1507,Horst aan de Maas,43054
-GM1509,Oude IJsselstreek,39365
-GM1525,Teylingen,37941
-GM1581,Utrechtse Heuvelrug,50016
-GM1586,Oost Gelre,29622
-GM1598,Koggenland,23010
-GM1621,Lansingerland,64129
-GM1640,Leudal,35948
-GM1641,Maasgouw,24036
-GM1652,Gemert-Bakel,31078
-GM1655,Halderberge,30771
-GM1658,Heeze-Leende,16496
-GM1659,Laarbeek,22954
-GM1667,Reusel-De Mierden,13282
-GM1669,Roerdalen,20553
-GM1674,Roosendaal,77182
-GM1676,Schouwen-Duiveland,34148
-GM1680,Aa en Hunze,25562
-GM1681,Borger-Odoorn,25679
-GM1690,De Wolden,24498
-GM1695,Noord-Beveland,7673
-GM1696,Wijdemeren,24491
-GM1699,Noordenveld,31295
-GM1700,Twenterand,33708
-GM1701,Westerveld,19844
-GM1705,Lingewaard,46988
-GM1706,Cranendonck,20671
-GM1708,Steenwijkerland,44767
-GM1709,Moerdijk,37298
-GM1711,Echt-Susteren,31727
-GM1714,Sluis,23147
-GM1719,Drimmelen,27537
-GM1721,Bernheze,31763
-GM1723,Alphen-Chaam,10442
-GM1724,Bergeijk,18877
-GM1728,Bladel,20707
-GM1729,Gulpen-Wittem,14162
-GM1730,Tynaarlo,34256
-GM1731,Midden-Drenthe,33677
-GM1734,Overbetuwe,48274
-GM1735,Hof van Twente,35078
-GM1740,Neder-Betuwe,25061
-GM1742,Rijssen-Holten,38230
-GM1771,Geldrop-Mierlo,40163
-GM1773,Olst-Wijhe,18535
-GM1774,Dinkelland,26595
-GM1783,Westland,112559
-GM1842,Midden-Delfland,19465
-GM1859,Berkelland,43825
-GM1876,Bronckhorst,36073
-GM1883,Sittard-Geleen,91760
-GM1884,Kaag en Braassem,27931
-GM1891,Dantumadiel,18965
-GM1892,Zuidplas,45835
-GM1894,Peel en Maas,44381
-GM1895,Oldambt,38528
-GM1896,Zwartewaterland,23042
-GM1900,Súdwest-Fryslân,90331
-GM1901,Bodegraven-Reeuwijk,35765
-GM1903,Eijsden-Margraten,25855
-GM1904,Stichtse Vecht,65235
-GM1911,Hollands Kroon,48731
-GM1916,Leidschendam-Voorburg,76642
-GM1924,Goeree-Overflakkee,51054
-GM1926,Pijnacker-Nootdorp,56652
-GM1930,Nissewaard,86292
-GM1931,Krimpenerwaard,57106
-GM1940,De Fryske Marren,51604
-GM1942,Gooise Meren,58885
-GM1945,Berg en Dal,34979
-GM1948,Meierijstad,82672
-GM1949,Waadhoeke,46344
-GM1950,Westerwolde,26701
-GM1952,Midden-Groningen,60865
-GM1954,Beekdaelen,35931
-GM1955,Montferland,36348
-GM1959,Altena,57020
-GM1960,West Betuwe,52010
-GM1961,Vijfheerenlanden,58889
-GM1963,Hoeksche Waard,88742
-GM1966,Het Hogeland,48006
-GM1969,Westerkwartier,64345
-GM1970,Noardeast-Fryslân,45601
-GM1978,Molenlanden,44660
-GM1979,Eemsdelta,45559
-GM1980,Dijk en Waard,87783
-GM1982,Land van Cuijk,90780
-GM1991,Maashorst,58384
+"Municipality_code","Municipality_name","population"
+"GM0014","Groningen",234949
+"GM0034","Almere",218334
+"GM0037","Stadskanaal",31881
+"GM0047","Veendam",27465
+"GM0050","Zeewolde",23464
+"GM0059","Achtkarspelen",27957
+"GM0060","Ameland",3749
+"GM0072","Harlingen",15922
+"GM0074","Heerenveen",51211
+"GM0080","Leeuwarden",125712
+"GM0085","Ooststellingwerf",25714
+"GM0086","Opsterland",29791
+"GM0088","Schiermonnikoog",945
+"GM0090","Smallingerland",55798
+"GM0093","Terschelling",4917
+"GM0096","Vlieland",1198
+"GM0098","Weststellingwerf",26275
+"GM0106","Assen",69069
+"GM0109","Coevorden",35472
+"GM0114","Emmen",107958
+"GM0118","Hoogeveen",55964
+"GM0119","Meppel",34749
+"GM0141","Almelo",73164
+"GM0147","Borne",24095
+"GM0148","Dalfsen",29182
+"GM0150","Deventer",101553
+"GM0153","Enschede",160341
+"GM0158","Haaksbergen",24257
+"GM0160","Hardenberg",61890
+"GM0163","Hellendoorn",35998
+"GM0164","Hengelo",81531
+"GM0166","Kampen",54902
+"GM0168","Losser",23142
+"GM0171","Noordoostpolder",48199
+"GM0173","Oldenzaal",31781
+"GM0175","Ommen",18459
+"GM0177","Raalte",38166
+"GM0180","Staphorst",17278
+"GM0183","Tubbergen",21359
+"GM0184","Urk",21507
+"GM0189","Wierden",24677
+"GM0193","Zwolle",130943
+"GM0197","Aalten",27122
+"GM0200","Apeldoorn",165741
+"GM0202","Arnhem",164319
+"GM0203","Barneveld",60652
+"GM0209","Beuningen",26242
+"GM0213","Brummen",20866
+"GM0214","Buren",27237
+"GM0216","Culemborg",29320
+"GM0221","Doesburg",11037
+"GM0222","Doetinchem",58593
+"GM0225","Druten",19191
+"GM0226","Duiven",24908
+"GM0228","Ede",120101
+"GM0230","Elburg",23728
+"GM0232","Epe",33218
+"GM0233","Ermelo",27268
+"GM0243","Harderwijk",48824
+"GM0244","Hattem",12312
+"GM0246","Heerde",19038
+"GM0252","Heumen",16918
+"GM0262","Lochem",34086
+"GM0263","Maasdriel",25618
+"GM0267","Nijkerk",44436
+"GM0268","Nijmegen",179494
+"GM0269","Oldebroek",23974
+"GM0273","Putten",24627
+"GM0274","Renkum",31320
+"GM0275","Rheden",43458
+"GM0277","Rozendaal",1755
+"GM0279","Scherpenzeel",10317
+"GM0281","Tiel",42294
+"GM0285","Voorst",25019
+"GM0289","Wageningen",40056
+"GM0293","Westervoort",14943
+"GM0294","Winterswijk",29144
+"GM0296","Wijchen",41302
+"GM0297","Zaltbommel",30041
+"GM0299","Zevenaar",44676
+"GM0301","Zutphen",48322
+"GM0302","Nunspeet",28233
+"GM0303","Dronten",43026
+"GM0307","Amersfoort",158836
+"GM0308","Baarn",24881
+"GM0310","De Bilt",43486
+"GM0312","Bunnik",15684
+"GM0313","Bunschoten",22323
+"GM0317","Eemnes",9462
+"GM0321","Houten",50305
+"GM0327","Leusden",30756
+"GM0331","Lopik",14540
+"GM0335","Montfoort",13813
+"GM0339","Renswoude",5637
+"GM0340","Rhenen",20253
+"GM0342","Soest",47104
+"GM0344","Utrecht",362715
+"GM0345","Veenendaal",67789
+"GM0351","Woudenberg",13921
+"GM0352","Wijk bij Duurstede",23942
+"GM0353","IJsselstein",33443
+"GM0355","Zeist",66019
+"GM0356","Nieuwegein",64529
+"GM0358","Aalsmeer",32532
+"GM0361","Alkmaar",110834
+"GM0362","Amstelveen",92509
+"GM0363","Amsterdam",885941
+"GM0373","Bergen (NH.)",29756
+"GM0375","Beverwijk",42133
+"GM0376","Blaricum",12385
+"GM0377","Bloemendaal",23679
+"GM0383","Castricum",36265
+"GM0384","Diemen",32011
+"GM0385","Edam-Volendam",36439
+"GM0388","Enkhuizen",18652
+"GM0392","Haarlem",163065
+"GM0394","Haarlemmermeer",159342
+"GM0396","Heemskerk",39145
+"GM0397","Heemstede",27578
+"GM0399","Heiloo",24430
+"GM0400","Den Helder",56356
+"GM0402","Hilversum",91840
+"GM0405","Hoorn",74397
+"GM0406","Huizen",40962
+"GM0415","Landsmeer",11565
+"GM0417","Laren",11571
+"GM0420","Medemblik",45478
+"GM0431","Oostzaan",9665
+"GM0432","Opmeer",12126
+"GM0437","Ouder-Amstel",14187
+"GM0439","Purmerend",92504
+"GM0441","Schagen",46856
+"GM0448","Texel",13690
+"GM0450","Uitgeest",13534
+"GM0451","Uithoorn",31004
+"GM0453","Velsen",68452
+"GM0473","Zandvoort",17161
+"GM0479","Zaanstad",157375
+"GM0482","Alblasserdam",20129
+"GM0484","Alphen aan den Rijn",113026
+"GM0489","Barendrecht",48712
+"GM0498","Drechterland",20006
+"GM0501","Brielle",17750
+"GM0502","Capelle aan den IJssel",67281
+"GM0503","Delft",104638
+"GM0505","Dordrecht",119589
+"GM0512","Gorinchem",37858
+"GM0513","Gouda",74131
+"GM0518","'s-Gravenhage",553769
+"GM0523","Hardinxveld-Giessendam",18501
+"GM0530","Hellevoetsluis",40620
+"GM0531","Hendrik-Ido-Ambacht",31767
+"GM0532","Stede Broec",21943
+"GM0534","Hillegom",22295
+"GM0537","Katwijk",66160
+"GM0542","Krimpen aan den IJssel",29431
+"GM0546","Leiden",125304
+"GM0547","Leiderdorp",27443
+"GM0553","Lisse",23005
+"GM0556","Maassluis",34408
+"GM0569","Nieuwkoop",29284
+"GM0575","Noordwijk",44390
+"GM0579","Oegstgeest",25534
+"GM0589","Oudewater",10166
+"GM0590","Papendrecht",32151
+"GM0597","Ridderkerk",47058
+"GM0599","Rotterdam",656338
+"GM0603","Rijswijk",57220
+"GM0606","Schiedam",79759
+"GM0610","Sliedrecht",25942
+"GM0613","Albrandswaard",25990
+"GM0614","Westvoorne",14950
+"GM0622","Vlaardingen",74119
+"GM0626","Voorschoten",25560
+"GM0627","Waddinxveen",31451
+"GM0629","Wassenaar",27252
+"GM0632","Woerden",52951
+"GM0637","Zoetermeer",125840
+"GM0638","Zoeterwoude",9320
+"GM0642","Zwijndrecht",44728
+"GM0654","Borsele",22837
+"GM0664","Goes",39079
+"GM0668","West Maas en Waal",19673
+"GM0677","Hulst",27552
+"GM0678","Kapelle",13006
+"GM0687","Middelburg",49248
+"GM0703","Reimerswaal",22916
+"GM0715","Terneuzen",54509
+"GM0716","Tholen",26442
+"GM0717","Veere",21816
+"GM0718","Vlissingen",44541
+"GM0736","De Ronde Venen",45063
+"GM0737","Tytsjerksteradiel",32287
+"GM0743","Asten",17071
+"GM0744","Baarle-Nassau",6953
+"GM0748","Bergen op Zoom",67959
+"GM0753","Best",30658
+"GM0755","Boekel",11060
+"GM0757","Boxtel",33116
+"GM0758","Breda",184841
+"GM0762","Deurne",32597
+"GM0765","Pekela",12188
+"GM0766","Dongen",26604
+"GM0770","Eersel",19852
+"GM0772","Eindhoven",238657
+"GM0777","Etten-Leur",44165
+"GM0779","Geertruidenberg",21924
+"GM0784","Gilze en Rijen",26545
+"GM0785","Goirle",24010
+"GM0794","Helmond",93676
+"GM0796","'s-Hertogenbosch",156697
+"GM0797","Heusden",45576
+"GM0798","Hilvarenbeek",15819
+"GM0809","Loon op Zand",23782
+"GM0820","Nuenen, Gerwen en Nederwetten",23822
+"GM0823","Oirschot",19083
+"GM0824","Oisterwijk",32534
+"GM0826","Oosterhout",56578
+"GM0828","Oss",93456
+"GM0840","Rucphen",23361
+"GM0845","Sint-Michielsgestel",29743
+"GM0847","Someren",19742
+"GM0848","Son en Breugel",17812
+"GM0851","Steenbergen",24328
+"GM0852","Waterland",17347
+"GM0855","Tilburg",225050
+"GM0858","Valkenswaard",31275
+"GM0861","Veldhoven",45888
+"GM0865","Vught",31853
+"GM0866","Waalre",17727
+"GM0867","Waalwijk",49357
+"GM0873","Woensdrecht",22099
+"GM0879","Zundert",22202
+"GM0880","Wormerland",16374
+"GM0882","Landgraaf",37026
+"GM0888","Beek",15809
+"GM0889","Beesel",13396
+"GM0893","Bergen (L.)",13079
+"GM0899","Brunssum",27684
+"GM0907","Gennep",17199
+"GM0917","Heerlen",86900
+"GM0928","Kerkrade",45255
+"GM0935","Maastricht",120922
+"GM0938","Meerssen",18541
+"GM0944","Mook en Middelaar",8000
+"GM0946","Nederweert",17339
+"GM0957","Roermond",59150
+"GM0965","Simpelveld",10420
+"GM0971","Stein",24817
+"GM0981","Vaals",10084
+"GM0983","Venlo",102182
+"GM0984","Venray",44001
+"GM0986","Voerendaal",12403
+"GM0988","Weert",50356
+"GM0994","Valkenburg aan de Geul",16149
+"GM0995","Lelystad",81341
+"GM1507","Horst aan de Maas",43080
+"GM1509","Oude IJsselstreek",39346
+"GM1525","Teylingen",37949
+"GM1581","Utrechtse Heuvelrug",50003
+"GM1586","Oost Gelre",29624
+"GM1598","Koggenland",23030
+"GM1621","Lansingerland",64167
+"GM1640","Leudal",35938
+"GM1641","Maasgouw",24021
+"GM1652","Gemert-Bakel",31107
+"GM1655","Halderberge",30767
+"GM1658","Heeze-Leende",16485
+"GM1659","Laarbeek",22952
+"GM1667","Reusel-De Mierden",13309
+"GM1669","Roerdalen",20549
+"GM1674","Roosendaal",77208
+"GM1676","Schouwen-Duiveland",34175
+"GM1680","Aa en Hunze",25563
+"GM1681","Borger-Odoorn",25686
+"GM1690","De Wolden",24485
+"GM1695","Noord-Beveland",7678
+"GM1696","Wijdemeren",24536
+"GM1699","Noordenveld",31280
+"GM1700","Twenterand",33723
+"GM1701","Westerveld",19839
+"GM1705","Lingewaard",46989
+"GM1706","Cranendonck",20632
+"GM1708","Steenwijkerland",44785
+"GM1709","Moerdijk",37312
+"GM1711","Echt-Susteren",31777
+"GM1714","Sluis",23145
+"GM1719","Drimmelen",27581
+"GM1721","Bernheze",31785
+"GM1723","Alphen-Chaam",10444
+"GM1724","Bergeijk",18869
+"GM1728","Bladel",20737
+"GM1729","Gulpen-Wittem",14161
+"GM1730","Tynaarlo",34330
+"GM1731","Midden-Drenthe",33729
+"GM1734","Overbetuwe",48233
+"GM1735","Hof van Twente",35104
+"GM1740","Neder-Betuwe",25050
+"GM1742","Rijssen-Holten",38261
+"GM1771","Geldrop-Mierlo",40174
+"GM1773","Olst-Wijhe",18534
+"GM1774","Dinkelland",26594
+"GM1783","Westland",112616
+"GM1842","Midden-Delfland",19466
+"GM1859","Berkelland",43790
+"GM1876","Bronckhorst",36110
+"GM1883","Sittard-Geleen",91724
+"GM1884","Kaag en Braassem",27916
+"GM1891","Dantumadiel",18958
+"GM1892","Zuidplas",45877
+"GM1894","Peel en Maas",44374
+"GM1895","Oldambt",38531
+"GM1896","Zwartewaterland",23039
+"GM1900","Súdwest-Fryslân",90307
+"GM1901","Bodegraven-Reeuwijk",35818
+"GM1903","Eijsden-Margraten",25847
+"GM1904","Stichtse Vecht",65190
+"GM1911","Hollands Kroon",48755
+"GM1916","Leidschendam-Voorburg",76727
+"GM1924","Goeree-Overflakkee",51042
+"GM1926","Pijnacker-Nootdorp",56701
+"GM1930","Nissewaard",86306
+"GM1931","Krimpenerwaard",57151
+"GM1940","De Fryske Marren",51682
+"GM1942","Gooise Meren",58973
+"GM1945","Berg en Dal",34979
+"GM1948","Meierijstad",82681
+"GM1949","Waadhoeke",46399
+"GM1950","Westerwolde",26657
+"GM1952","Midden-Groningen",60897
+"GM1954","Beekdaelen",35931
+"GM1955","Montferland",36365
+"GM1959","Altena",57056
+"GM1960","West Betuwe",52009
+"GM1961","Vijfheerenlanden",58957
+"GM1963","Hoeksche Waard",88832
+"GM1966","Het Hogeland",48001
+"GM1969","Westerkwartier",64331
+"GM1970","Noardeast-Fryslân",45612
+"GM1978","Molenlanden",44692
+"GM1979","Eemsdelta",45568
+"GM1980","Dijk en Waard",87829
+"GM1982","Land van Cuijk",90841
+"GM1991","Maashorst",58454
