@@ -224,17 +224,12 @@ tweet.last_id <- posted_tweet$id_str
 ## Tweet Methode Marino analyses
 
 deaths.comparison.tracker <- read.csv("corrections/death_week_comparisons.csv")
-deaths.comparison.tracker <- deaths.comparison.tracker %>%
-  dplyr::filter(week_year > "2021-47")
-
-cbs.deaths <- sum(excess_mortality$Covid_deaths_CBS_death_statistics,na.rm=T)
-est.deaths <- sum(deaths.comparison.tracker$deaths_estimate_3)
 
 tweet.newmodel <- paste0("6/ Een andere methode om de sterfte door corona te schatten beschreef ik in dit draadje: https://twitter.com/mzelst/status/1390682590105985026
 
 Het aantal sterfgevallen in week ",thisweek," aan de hand van deze methode is ",last(deaths.comparison.tracker$deaths_estimate_3),".
 
-De sterfte door corona tot nu toe is dan ",cbs.deaths+est.deaths, ".
+De sterfte door corona tot nu toe is dan ",last(deaths.comparison.tracker$cumulative_deaths), ".
 ")
 
 posted_tweet <- post_tweet (
