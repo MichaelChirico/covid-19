@@ -68,7 +68,7 @@ tweet.last_id <- posted_tweet$id_str
 ## Build excess mortality (historical) tweet
 excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
 
-tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " maart"," - ",endday.week," maart):
+tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " maart"," - ",endday.week," april):
 
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
 2) Methode RIVM (",rivm.startday," maart - ",rivm.endday," maart): ",round(last(excess_mortality$excess_mortality_rivm)),"
@@ -181,7 +181,7 @@ excess_other_perc <- round(last(wlz.table$Sterfte_Other)/last(wlz.table$other_ve
 wlz.text <- ifelse(excess_wlz_perc<0,"minder","meer")
 other.text <- ifelse(excess_other_perc<0,"minder","meer")
 
-source("data-misc/excess_mortality/plots_weekly_update/plots_excess_mortality_wlz_age.R")
+#source("data-misc/excess_mortality/plots_weekly_update/plots_excess_mortality_wlz_age.R")
 
 tweet.wlz <- paste0("4/ Oversterfte Wlz en overige bevolking (CBS)
 
@@ -243,46 +243,43 @@ posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
 
 ## Provincie - oversterfte
-#excess_mort_province <- read.csv("data-misc/excess_mortality/excess_mortality_provinces_clean.csv")
+excess_mort_province <- read.csv("data-misc/excess_mortality/excess_mortality_provinces_clean.csv")
 
-#excess_mort_province_filtered <- excess_mort_province %>%
-#  dplyr::filter(Week == thisweek) %>%
-#  dplyr::filter(Jaar == 2021)
+excess_mort_province_filtered <- excess_mort_province %>%
+  dplyr::filter(Week == thisweek) %>%
+  dplyr::filter(Jaar == 2022)
 
-#excess_province_long <- gather(excess_mort_province_filtered, "statnaam","excess_mortality",3:14)
-#excess_province_long$excess_mortality <- round(excess_province_long$excess_mortality,0)
-#excess_province_long$statnaam <- recode(excess_province_long$statnaam, "Noord.Holland" = "Noord-Holland",
-#                                        "Zuid.Holland" = "Zuid-Holland",
-#                                        "Noord.Brabant" = "Noord-Brabant")
+excess_province_long <- gather(excess_mort_province_filtered, "statnaam","excess_mortality",3:14)
+excess_province_long$excess_mortality <- round(excess_province_long$excess_mortality,0)
+excess_province_long$statnaam <- recode(excess_province_long$statnaam, "Noord.Holland" = "Noord-Holland",
+                                        "Zuid.Holland" = "Zuid-Holland",
+                                        "Noord.Brabant" = "Noord-Brabant")
 
-#high.prov.mort <- max(excess_province_long$excess_mortality)
-#highest.province <- excess_province_long %>%
-#  filter(excess_mortality == high.prov.mort)
+high.prov.mort <- max(excess_province_long$excess_mortality)
+highest.province <- excess_province_long %>%
+  dplyr::filter(excess_mortality == high.prov.mort)
 
-#tweet.provincie <- paste0("De relatieve oversterfte was afgelopen week het hoogste in ",highest.province[,"statnaam"],": ",high.prov.mort,"%.
+tweet.provincie <- paste0("De relatieve oversterfte was afgelopen week het hoogste in ",highest.province[,"statnaam"],": ",high.prov.mort,"%.")
 
-#In Limburg begint de oversterfte nu te dalen (42%) terwijl de oversterfte in Flevoland nu al weken erg hoog is (61%)")
-
-#posted_tweet <- post_tweet (
-#  tweet.provincie,
-#  token = token.mzelst,
-#  media = c("data-misc/excess_mortality/plots_weekly_update/oversterfte_provincie.png"),
-#  in_reply_to_status_id = tweet.last_id,
-#  auto_populate_reply_metadata = TRUE
-#)
-#posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
-#tweet.last_id <- posted_tweet$id_str
+posted_tweet <- post_tweet (
+  tweet.provincie,
+  token = token.mzelst,
+  media = c("data-misc/excess_mortality/plots_weekly_update/oversterfte_provincie.png"),
+  in_reply_to_status_id = tweet.last_id,
+  auto_populate_reply_metadata = TRUE
+)
+posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+tweet.last_id <- posted_tweet$id_str
 
 
 ## Conclusie tweet
 
-conclusie.tweet <- paste0("Conclusie: De sterfte is na een lange periode van oversterfte nu redelijk gestabiliseerd rond het verwachte patroon. Na bijna twee jaar corona zijn er tot nu toe wel zo'n 40.000 mensen aan corona overleden (zie cumulatieve sterfte hieronder).")
+conclusie.tweet <- paste0("Conclusie: De totale sterfte is nog steeds vrij hoog voor deze tijd van het jaar. De sterfte onder WLZ-zorggebruikers is significant verhoogd.")
 
 posted_tweet <- post_tweet (
   conclusie.tweet,
   token = token.mzelst,
   in_reply_to_status_id = tweet.last_id,
-  media = c("plots/2021_fig2.2.png"),
   auto_populate_reply_metadata = TRUE
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))

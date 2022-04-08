@@ -13,8 +13,8 @@ week.now <- isoweek(Sys.Date())-1
 
 excess_mort_province <- read.csv("data-misc/excess_mortality/excess_mortality_provinces_clean.csv")
 excess_mort_province_filtered <- excess_mort_province %>%
-  filter(Week == week.now) %>%
-  filter(Jaar == 2021)
+  dplyr::filter(Week == week.now) %>%
+  dplyr::filter(Jaar == 2022)
 
 excess_province_long <- gather(excess_mort_province_filtered, "statnaam","excess_mortality",3:14)
 excess_province_long$excess_mortality <- round(excess_province_long$excess_mortality,0)
@@ -60,7 +60,7 @@ province_mort_plot + geom_text(data=pop.df, aes(label=paste0(population,"%"), x=
         plot.title.position = "plot",
         plot.subtitle = element_text(hjust = 0.5, size = 14),
         plot.caption = element_text(hjust = 1, vjust = 8.0)) +
-  labs(subtitle = paste0("Week ",week.now," - 2021 \n Gecorrigeerd voor bevolkingsgroei, omvang, en vergrijzing"),
+  labs(subtitle = paste0("Week ",week.now," - 2022 \n Gecorrigeerd voor bevolkingsgroei, omvang, en vergrijzing"),
        caption = paste0("Bron: CBS | Datum: ",Sys.Date()," | Plot: @mzelst"))
 
 ggsave("data-misc/excess_mortality/plots_weekly_update/oversterfte_provincie.png")

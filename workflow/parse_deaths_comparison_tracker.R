@@ -284,7 +284,7 @@ ggsave("plots/sterfte_per_week_30K_percentage.png", width = 12, height=8)
 
 ## Percentages
 
-#deaths_total <- deaths_total[-c(nrow(deaths_total)),]
+deaths_total <- deaths_total[-c(nrow(deaths_total)),]
 
 plot <- deaths_total %>%
   dplyr::filter(week_year >= "2020-39") %>%
