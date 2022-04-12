@@ -1,0 +1,267 @@
+memory.limit(size = 64000)
+
+#time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
+time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
+
+## Put in double date breaker for NICE update
+repeat {
+  Sys.sleep(30)
+  time.now <- ymd_hms(Sys.time())
+  if (time.start < time.now){
+    message <- "GO GO GO GO GO"
+    break
+  }
+}
+
+pull(repo)
+
+# Generate Banner
+source("workflow/generate_banner.R")
+source("workflow/parse_nice-data.R")
+source("workflow/dashboards/age-distribution-date-NICE.R")
+source("workflow/dashboards/nice_bezetting_onder20.R")
+source("plot_scripts/reden_opname.R")
+
+## Put in double date breaker for LCPS update
+repeat {
+  Sys.sleep(2)
+  time.start <- ymd_hms(paste0(Sys.Date()," 15:14:00"))
+  time.now <- ymd_hms(Sys.time())
+  
+  if (time.start < time.now){
+    message <- "GO GO GO GO GO"
+    break
+  }
+}
+
+source("workflow/parse_lcps-data.R")
+source("plot_scripts/ziekenhuis_plots.R")
+
+## Put in double date breaker for RIVM update
+repeat {
+  Sys.sleep(2)
+  time.start <- ymd_hms(paste0(Sys.Date()," 15:15:30"))
+  time.now <- ymd_hms(Sys.time())
+  
+  if (time.start < time.now){
+    message <- "GO GO GO GO GO"
+    break
+  }
+}
+
+repeat {
+  Sys.sleep(3)
+  date.check <- fread("https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen.csv")
+  
+  date.check <- date.check %>%
+    mutate(
+      date = as.Date(Date_of_report, tryFormats = c('%d-%m-%Y')),
+      .before = Date_of_report
+    ) %>%
+    mutate(
+      Date_of_report = NULL
+    )
+  
+  date.check.update <- last(date.check$date)
+  if (date.check.update == as.Date(Sys.Date())){
+    message <- "GO GO GO GO GO"
+    break
+  }
+}
+
+pull(repo)
+
+#rivm.by_day <- read.csv("data/rivm_by_day.csv")
+
+# Verify RIVM data has been downloaded, otherwise stop script.
+#condition <- Sys.Date()!=as.Date(last(rivm.by_day$date))
+
+#if (condition) {stop("The value is TRUE, so the script must end here")    
+#} else { 
+tic()
+# Parse RIVM, NICE and corrections data
+source("workflow/parse_rivm-data.R")
+source("workflow/parse_nursing-homes.R")
+source("workflow/parse_tests.R")
+source("workflow/parse_corrections.R")
+
+## Set locale
+Sys.setlocale("LC_TIME", "nl_NL")
+
+## Merge RIVM, NICE and corrections data
+
+rivm.by_day <- fread("data/rivm_by_day.csv")  
+nice.by_day <- fread("data-nice/nice-today.csv")
+lcps.by_day <- fread("data/lcps_by_day.csv")
+corr.by_day <- fread("corrections/corrections_perday.csv")
+nursery.by_day <- fread("data/nursery_by_day.csv")
+testrate.by_day <- fread("data-dashboards/percentage-positive-daily-national.csv")[,c("values.tested_total","values.infected","values.infected_percentage","date","pos.rate.3d.avg","pos.rate.7d.avg")]
+#vaccines.by_day <- read.csv("data/vaccines_by_day.csv") , vaccines.by_day
+
+daily_datalist <- list(rivm.by_day,nice.by_day,corr.by_day,nursery.by_day, testrate.by_day,lcps.by_day)
+
+all.data <- Reduce(
+  function(x, y, ...) merge(x, y, by="date",all.x = TRUE, ...),
+  daily_datalist
+)
+
+write.csv(all.data, file = "data/all_data.csv",row.names = F)
+
+# get tokens
+source("workflow/twitter/token_mzelst.R")
+#source("workflow/twitter/token_edwinveldhuizen.R")
+
+LCPS_klinisch_two_days <- last(all.data$Kliniek_Bedden_Nederland,2)
+LCPS_Verpleeg_Huidig_Toename <- LCPS_klinisch_two_days[2] - LCPS_klinisch_two_days[1]
+LCPS_IC_two_days <- last(all.data$IC_Bedden_COVID_Nederland,2)
+LCPS_IC_Huidig_Toename <- LCPS_IC_two_days[2] - LCPS_IC_two_days[1]
+LCPS_IC_Int_two_days <- last(all.data$IC_Bedden_COVID_Internationaal,2)
+LCPS_IC_Int_Huidig_Toename <- LCPS_IC_Int_two_days[2] - LCPS_IC_Int_two_days[1]
+
+sign.hosp.lcps <- paste0(ifelse(LCPS_Verpleeg_Huidig_Toename>=0," (+"," ("))
+sign.ic.lcps <- paste0(ifelse(LCPS_IC_Huidig_Toename>=0," (+"," ("))
+sign.ic.int.lcps <- paste0(ifelse(LCPS_IC_Int_Huidig_Toename>=0," (+"," ("))
+
+Kliniek_Nieuwe_Opnames <- ifelse(is.na(last(all.data$Kliniek_Nieuwe_Opnames_COVID_Nederland)),"Onbekend",last(all.data$Kliniek_Nieuwe_Opnames_COVID_Nederland))
+Kliniek_Aanwezig <- ifelse(is.na(last(all.data$Kliniek_Bedden_Nederland)),"Onbekend",paste0(format(last(all.data$Kliniek_Bedden_Nederland),decimal.mark = ",",big.mark =".",big.interval = 3),sign.hosp.lcps,LCPS_Verpleeg_Huidig_Toename))
+IC_Nieuwe_Opnames <- ifelse(is.na(last(all.data$IC_Nieuwe_Opnames_COVID_Nederland)),"Onbekend",last(all.data$IC_Nieuwe_Opnames_COVID_Nederland))
+IC_Aanwezig <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Nederland)),"Onbekend",paste0(last(all.data$IC_Bedden_COVID_Nederland),sign.ic.lcps,LCPS_IC_Huidig_Toename))
+IC_Aanwezig_Int <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Internationaal)),"Onbekend",paste0(last(all.data$IC_Bedden_COVID_Internationaal),sign.ic.int.lcps,LCPS_IC_Int_Huidig_Toename))
+
+tweet.main <- paste0("#COVID19NL
+
+Opgenomen: ",Kliniek_Nieuwe_Opnames,"
+Huidig: ",Kliniek_Aanwezig,")
+
+Opgenomen op IC: ",IC_Nieuwe_Opnames,"
+Huidig IC Nederland: ",IC_Aanwezig,")
+
+Overleden: ",last(all.data$deaths)-all.data[nrow(all.data)-1,"deaths"],"
+Totaal: ",format(last(all.data$deaths),decimal.mark = ",",big.mark =".",big.interval = 3),"")
+
+tweet.main
+
+posted_tweet <- post_tweet (
+  tweet.main,
+  token = token.mzelst,
+  media = c("plots/opnames_per_dag_kliniek.png",
+            "plots/opnames_per_dag_ic.png",
+            "plots/groei_per_dag_opnames.png",
+            "plots/reden_van_opname.png")) ## Post tweet
+posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+tweet.main.id <- posted_tweet$id_str
+tweet.last_id <- tweet.main.id
+
+
+infectieradar <- fread("https://data.rivm.nl/covid-19/COVID-19_Infectieradar_symptomen_per_dag.csv")
+infectieradar <- infectieradar %>%
+  mutate(date = as.Date(Date_of_statistics)) %>%
+  mutate(infectieradar_7d = frollmean(Perc_covid_symptoms,7)) %>%
+  mutate(groei_infectieradar = Perc_covid_symptoms/(dplyr::lag(Perc_covid_symptoms,7))) %>%
+  mutate(groei_infectieradar_7d = frollmean(groei_infectieradar,7))
+
+
+
+
+infectieradar %>%
+  dplyr::filter(date >= "2022-01-01") %>%
+  ggplot(aes(x = date)) + 
+  geom_line(aes(y = MA_perc_covid_symptoms), lwd = 1.2, color = "red") + 
+  theme_bw() + 
+  theme(plot.title = element_text(size = 18, hjust = 0.5, vjust = 0.5)) + 
+  labs(x = "Datum",
+       y = "% met klachten",
+       title = "Infectieradar: % deelnemers met Covid-19-achtige klachten",
+       color = "Legend",
+       caption = paste("Bron data: RIVM  | Plot: @mzelst | ",Sys.Date()))
+ggsave("plots/infectieradar.png", width = 16, height = 8)
+
+
+
+dat <- fromJSON(txt = "https://coronadashboard.rijksoverheid.nl/json/NL.json")
+sewer.data <- dat$sewer$values
+
+
+
+
+sewer.data <- sewer.data %>%
+  mutate(date = as.Date(as.POSIXct(date_unix, origin = "1970-01-01"))) %>%
+  mutate(sewer_7d = frollmean(average, 7))  %>%
+  mutate(groei_riool = sewer_7d/(dplyr::lag(sewer_7d,7))) %>%
+  mutate(groei_riool_7d = frollmean(groei_riool,7))
+
+
+sewer.data %>%
+  dplyr::filter(date >= "2022-01-01") %>%
+  ggplot(aes(x = date)) + 
+  geom_line(aes(y = sewer_7d), lwd = 1.2, color = "red") + 
+  theme_bw() + 
+  theme(plot.title = element_text(size = 18, hjust = 0.5, vjust = 0.5)) + 
+  labs(x = "Datum",
+       y = "Virusvracht per 100.000 inwoners",
+       title = "Rioolwater: Gemiddelde aantal virusdeeltjes per 100.000 inwoners",
+       color = "Legend",
+       caption = paste("Bron data: RIVM  | Plot: @mzelst | ",Sys.Date()))
+ggsave("plots/rioolwater.png", width = 16, height = 8)
+
+
+
+
+vroegsurveillance.tweet <- paste0("Vroege signalen
+
+Rioolwater: ",round(last(sewer.data$sewer_7d),1)," RNA flow per 100.000 inwoners
+Verandering (week op week): ",round(last(sewer.data$groei_riool_7d)*100-100,1),"%
+
+Infectieradar: ",round(last(infectieradar$infectieradar_7d),1)," % covid-19-achtige klachten
+Verandering (week op week): ",round(last(infectieradar$groei_infectieradar_7d)*100-100,1),"%")
+
+
+posted_tweet <- post_tweet (
+  vroegsurveillance.tweet,
+  token = token.mzelst,
+  media = c("plots/infectieradar.png",
+            "plots/rioolwater.png"),
+  in_reply_to_status_id = tweet.last_id,
+  auto_populate_reply_metadata = TRUE)
+
+posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+tweet.last_id <- posted_tweet$id_str
+
+
+
+
+########
+# Tweet - nursery homes
+########
+all.data <- read.csv("data/all_data.csv")
+
+source("plot_scripts/nursery_homes.R")
+new.locations.nursery <- all.data[nrow(all.data),"total.current.locations.nursery"] - all.data[nrow(all.data)-1,"total.current.locations.nursery"]
+
+tweet.nurseryhomes <- paste0("#Verpleeghuis statistieken t.o.v. gisteren: 
+
+Positief getest: ",last(all.data$infections.today.nursery),"
+Totaal: ",last(all.data$infections.total.nursery),"
+
+Overleden: ",last(all.data$deaths.today.nursery),"
+Totaal: ",last(all.data$deaths.total.nursery),"
+
+Nieuwe locaties met besmettingen: ",new.locations.nursery,"
+Huidig aantal locaties met besmettingen:* ",last(all.data$total.current.locations.nursery),"
+*Locaties waar in de afgelopen 28 dagen minstens één COVID-19 besmetting is gemeld.")
+tweet.nurseryhomes
+# Tweet for nursery homes ####
+posted_tweet <- post_tweet (
+  tweet.nurseryhomes,
+  token = token.mzelst,
+  media = c("plots/nursery_homes_vr_map.png",
+            "plots/verpleeghuizen_bewoners.png",
+            "plots/verpleeghuizen_locaties.png"
+  ),
+  in_reply_to_status_id = tweet.main.id,
+  auto_populate_reply_metadata = TRUE
+)
+posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+tweet.last_id <- posted_tweet$id_str
+
+
