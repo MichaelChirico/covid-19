@@ -84,3 +84,14 @@ bot$set_default_chat_id(user_id('me'))
 bot$sendMessage((lcps.data$Kliniek_Nieuwe_Opnames_COVID[1]))
 
 rm(filename, filename.common, filename.daily, lcps.condition, lcps.date, lcps.dailydata, lcps.data.original,bot)
+
+
+git.credentials <- read_lines("git_auth.txt")
+git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
+
+## Push to git
+repo <- init()
+add(repo, path = "*")
+commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update LCPS update"))
+push(repo, credentials = git.auth)
+

@@ -249,7 +249,7 @@ Totaal: ",last(all.data$deaths.total.nursery),"
 Nieuwe locaties met besmettingen: ",new.locations.nursery,"
 Huidig aantal locaties met besmettingen:* ",last(all.data$total.current.locations.nursery),"
 *Locaties waar in de afgelopen 28 dagen minstens één COVID-19 besmetting is gemeld.")
-tweet.nurseryhomes
+
 # Tweet for nursery homes ####
 posted_tweet <- post_tweet (
   tweet.nurseryhomes,
@@ -258,10 +258,19 @@ posted_tweet <- post_tweet (
             "plots/verpleeghuizen_bewoners.png",
             "plots/verpleeghuizen_locaties.png"
   ),
-  in_reply_to_status_id = tweet.main.id,
+  in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
 
+
+git.credentials <- read_lines("git_auth.txt")
+git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
+
+## Push to git
+repo <- init()
+add(repo, path = "*")
+commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update"))
+push(repo, credentials = git.auth)
 
