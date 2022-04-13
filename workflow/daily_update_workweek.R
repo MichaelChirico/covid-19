@@ -40,7 +40,7 @@ source("plot_scripts/ziekenhuis_plots.R")
 ## Put in double date breaker for RIVM update
 repeat {
   Sys.sleep(2)
-  time.start <- ymd_hms(paste0(Sys.Date()," 15:15:30"))
+  time.start <- ymd_hms(paste0(Sys.Date()," 16:00:00"))
   time.now <- ymd_hms(Sys.time())
   
   if (time.start < time.now){
