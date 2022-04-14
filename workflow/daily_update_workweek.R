@@ -274,3 +274,5 @@ add(repo, path = "*")
 commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update"))
 push(repo, credentials = git.auth)
 
+remove(list = ls())
+source("workflow/twitter/token_mzelst.R")
