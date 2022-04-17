@@ -68,12 +68,12 @@ tweet.last_id <- posted_tweet$id_str
 ## Build excess mortality (historical) tweet
 excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
 
-tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " maart"," - ",endday.week," april):
+tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " april"," - ",endday.week," april):
 
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
-2) Methode RIVM (",rivm.startday," maart - ",rivm.endday," maart): ",round(last(excess_mortality$excess_mortality_rivm)),"
+2) Methode RIVM (",rivm.startday," maart - ",rivm.endday," april): ",round(last(excess_mortality$excess_mortality_rivm)),"
 
-Bij de leeftijdsgroep 65-80 is de sterfte significant boven de verwachte sterfte.
+Bij de leeftijdsgroep 65-80 en 80+ is de sterfte significant boven de verwachte sterfte.
 
 (grafieken CBS / RIVM)
 ")
@@ -181,7 +181,7 @@ excess_other_perc <- round(last(wlz.table$Sterfte_Other)/last(wlz.table$other_ve
 wlz.text <- ifelse(excess_wlz_perc<0,"minder","meer")
 other.text <- ifelse(excess_other_perc<0,"minder","meer")
 
-#source("data-misc/excess_mortality/plots_weekly_update/plots_excess_mortality_wlz_age.R")
+source("data-misc/excess_mortality/plots_weekly_update/plots_excess_mortality_wlz_age.R")
 
 tweet.wlz <- paste0("4/ Oversterfte Wlz en overige bevolking (CBS)
 
@@ -274,7 +274,7 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Conclusie tweet
 
-conclusie.tweet <- paste0("Conclusie: De totale sterfte is nog steeds vrij hoog voor deze tijd van het jaar. De sterfte onder WLZ-zorggebruikers is significant verhoogd.")
+conclusie.tweet <- paste0("Conclusie: De totale sterfte is nog steeds erg hoog voor deze tijd van het jaar. De sterfte onder WLZ-zorggebruikers is significant verhoogd en er is significante oversterfte vanaf 65+.")
 
 posted_tweet <- post_tweet (
   conclusie.tweet,
