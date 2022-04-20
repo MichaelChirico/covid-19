@@ -238,7 +238,7 @@ all.data <- read.csv("data/all_data.csv")
 source("plot_scripts/nursery_homes.R")
 new.locations.nursery <- all.data[nrow(all.data),"total.current.locations.nursery"] - all.data[nrow(all.data)-1,"total.current.locations.nursery"]
 
-tweet.nurseryhomes <- paste0("#Verpleeghuis statistieken t.o.v. laatste update: 
+tweet.nurseryhomes <- paste0("#Verpleeghuis t.o.v. laatste update: 
 
 Positief getest: ",last(all.data$infections.today.nursery),"
 Totaal: ",last(all.data$infections.total.nursery),"
