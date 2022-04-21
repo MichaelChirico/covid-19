@@ -271,8 +271,58 @@ git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 ## Push to git
 repo <- init()
 add(repo, path = "*")
-commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update"))
+commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - part 1"))
 push(repo, credentials = git.auth)
+
+
+
+##### Generate municipality images ####
+source("workflow/parse_nice-municipalities-data.R")
+#source("workflow/parse_municipalities.R")
+#source("workflow/generate_municipality_images.R")
+
+
+##### Download case file
+rivm.data <- fread("https://data.rivm.nl/covid-19/COVID-19_casus_landelijk.csv", sep =";") ## Read in data with all cases until today
+last_date <- as.Date(last(rivm.data$Date_statistics))
+
+filename.compressed <- paste0("data-rivm/casus-datasets/COVID-19_casus_landelijk_",last_date,".csv.gz")
+fwrite(rivm.data, file=filename.compressed,row.names = F) ## Write file with all cases until today
+
+Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/pandoc"); rmarkdown::render('reports/daily_report.Rmd') ## Render daily report
+file.copy(from = list.files('reports', pattern="*.pdf",full.names = TRUE), 
+          to = paste0("reports/daily_reports/Epidemiologische situatie COVID-19 in Nederland - ",
+                      format((last_date),'%d')," ",format((last_date),'%B')," 2022.pdf")) ## Save daily file in archive
+
+git.credentials <- read_lines("git_auth.txt")
+git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
+
+## Push to git
+repo <- init()
+add(repo, path = "*")
+commit(repo, all = T, paste0("[", Sys.Date(), "]  Daily (automated) covid-19 - workweek update - part 2"))
+push(repo, credentials = git.auth)
+
+
+## Workflows for databases
+rm(list=ls())
+source("workflow/parse_data_download_rivm.R")
+source("workflow/dashboards/cases_ggd_agegroups.R")
+source("workflow/dashboards/date_statistics_mutations.R")
+source("workflow/parse_age-data.R")
+source("workflow/dashboards/rivm-date-corrections.R")
+source("workflow/dashboards/heatmap-age-week.R")
+source("workflow/dashboards/ggd_tests_corrections.R")
+## Download data coronadashboard ##
+filename.dashboard <- paste0("data-rivm/dashboard-data/data-coronadashboard_",Sys.Date(),".zip")
+download.file("https://coronadashboard.rijksoverheid.nl/json/latest-data.zip",filename.dashboard)
+source("workflow/estimate_R.R")
+#source("workflow/excess_mortality_cbsmodel_2021.R")
+source("workflow/parse_deaths_comparison_tracker.R")
+source("workflow/parse_vaccines_ecdc.R")
+source("workflow/parse_vaccination_neighborhood.R")
+
+
 
 remove(list = ls())
 source("workflow/twitter/token_mzelst.R")

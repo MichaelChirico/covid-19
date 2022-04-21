@@ -7,13 +7,11 @@
 # Cumulative dataset 
 rivm.municipalities <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_cumulatief.csv", sep=";")
 last_date <- as.Date(last(rivm.municipalities$Date_of_report))
-filename.municipality <- paste0("raw-data-archive/municipal-datasets/rivm_municipality_", last_date ,".csv") ## Filename for daily data municipalities
-fwrite(rivm.municipalities, file=filename.municipality,row.names = F)
 
 filename.municipality.compressed <- paste0("data-rivm/municipal-datasets/rivm_municipality_", last_date ,".csv.gz") ## Filename for daily data municipalities
 fwrite(rivm.municipalities, file = filename.municipality.compressed)
 
-rm(rivm.municipalities, last_date, filename.municipality,filename.municipality.compressed)
+rm(rivm.municipalities, last_date, filename.municipality.compressed)
 
 
 # const.date <- as.Date('2020-09-10') ## Change when you want to see a specific date
