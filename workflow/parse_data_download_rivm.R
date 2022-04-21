@@ -1,25 +1,22 @@
 ## Download data disabled people 
 disabled.people <- fread("https://data.rivm.nl/covid-19/COVID-19_gehandicaptenzorg.csv", sep = ";")
-filename.disabledpeople.raw  <- paste0("raw-data-archive/disabled-people-per-day/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data
-fwrite(disabled.people, file = filename.disabledpeople.raw,row.names = F) 
+last_date <- as.Date(max(disabled.people$Date_of_statistic_reported))
 
-filename.disabledpeople.compressed  <- paste0("data-rivm/disabled-people-per-day/rivm_daily_",Sys.Date(),".csv.gz") ## Filename for daily data
+filename.disabledpeople.compressed  <- paste0("data-rivm/disabled-people-per-day/rivm_daily_",last_date,".csv.gz") ## Filename for daily data
 fwrite(disabled.people, file = filename.disabledpeople.compressed,row.names = F) 
 
 ## Download data 70+ living at home 
 living.home.70plus <- fread("https://data.rivm.nl/covid-19/COVID-19_thuiswonend_70plus.csv", sep = ";")
-filename.living.home.70plus.raw <- paste0("raw-data-archive/70plus-living-at-home-per-day/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data
-fwrite(living.home.70plus, file = filename.living.home.70plus.raw,row.names = F) 
+last_date <- as.Date(max(living.home.70plus$Date_of_statistic_reported))
 
-filename.living.home.70plus.compressed <- paste0("data-rivm/70plus-living-at-home-per-day/rivm_daily_",Sys.Date(),".csv.gz") ## Filename for daily data
+filename.living.home.70plus.compressed <- paste0("data-rivm/70plus-living-at-home-per-day/rivm_daily_",last_date,".csv.gz") ## Filename for daily data
 fwrite(living.home.70plus, file = filename.living.home.70plus.compressed,row.names = F) 
 
 ## Download behavior
 behavior <- fread("https://data.rivm.nl/covid-19/COVID-19_gedrag.csv", sep = ";")
-filename.behavior.raw <- paste0("raw-data-archive/behavior/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data
-fwrite(behavior, file = filename.behavior.raw,row.names = F) 
+last_date <- as.Date(max(behavior$Date_of_measurement))
 
-filename.behavior.compressed <- paste0("data-rivm/behavior/rivm_daily_",Sys.Date(),".csv.gz") ## Filename for daily data
+filename.behavior.compressed <- paste0("data-rivm/behavior/rivm_daily_",last_date,"_of_data.csv.gz") ## Filename for daily data
 fwrite(behavior, file = filename.behavior.compressed,row.names = F) 
 
 ## Download IC data (NICE)
@@ -43,13 +40,13 @@ fwrite(settings, file = filename.bco.settings,row.names = F)
 ## Download vaccine rate per municipality
 
 vaccine.municipality <- fread("https://data.rivm.nl/data/covid-19/COVID-19_vaccinatiegraad_per_gemeente_per_week_leeftijd.csv")
-filename.vaccine.municipality <- paste0("data-rivm/vaccine-municipality/vaccine_municipality_weekly_",as.Date(last(vaccine.municipality$Date_of_report)),".csv") ## Filename for daily data
+filename.vaccine.municipality <- paste0("data-rivm/vaccine-municipality/vaccine_municipality_weekly_",as.Date(last(vaccine.municipality$Date_of_statistics)),"_ofdata.csv") ## Filename for daily data
 fwrite(vaccine.municipality, file = filename.vaccine.municipality,row.names = F)
 
 ## Download vaccine rate per neighborhood per week
 
 vaccine.neighborhood <- fread("https://data.rivm.nl/covid-19/COVID-19_vaccinatiegraad_per_wijk_per_week.csv")
-filename.vaccine.neighborhood <- paste0("data-rivm/vaccine-neighborhood/vaccine_neighborhood_weekly_",as.Date(last(vaccine.neighborhood$Date_of_report)),".csv.gz") ## Filename for daily data
+filename.vaccine.neighborhood <- paste0("data-rivm/vaccine-neighborhood/vaccine_neighborhood_weekly_",as.Date(last(vaccine.neighborhood$Date_of_statistics)),"_ofdata.csv.gz") ## Filename for daily data
 fwrite(vaccine.neighborhood, file = filename.vaccine.neighborhood,row.names = F)
 
 

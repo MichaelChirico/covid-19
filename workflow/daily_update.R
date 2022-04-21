@@ -395,16 +395,17 @@ tweet.last_id <- posted_tweet$id_str
 
 ##### Download case file
 rivm.data <- fread("https://data.rivm.nl/covid-19/COVID-19_casus_landelijk.csv", sep =";") ## Read in data with all cases until today
-filename.raw <- paste0("raw-data-archive/casus-datasets/COVID-19_casus_landelijk_",Sys.Date(),".csv")
+last_date <- as.Date(last(rivm.data$Date_statistics))
+filename.raw <- paste0("raw-data-archive/casus-datasets/COVID-19_casus_landelijk_",last_date,".csv")
 fwrite(rivm.data, filename.raw,row.names = F) ## Write file with all cases until today
 
-filename.compressed <- paste0("data-rivm/casus-datasets/COVID-19_casus_landelijk_",Sys.Date(),".csv.gz")
+filename.compressed <- paste0("data-rivm/casus-datasets/COVID-19_casus_landelijk_",last_date,".csv.gz")
 fwrite(rivm.data, file=filename.compressed,row.names = F) ## Write file with all cases until today
 
 Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/pandoc"); rmarkdown::render('reports/daily_report.Rmd') ## Render daily report
 file.copy(from = list.files('reports', pattern="*.pdf",full.names = TRUE), 
           to = paste0("reports/daily_reports/Epidemiologische situatie COVID-19 in Nederland - ",
-                      format((Sys.Date()),'%d')," ",format((Sys.Date()),'%B')," 2022.pdf")) ## Save daily file in archive
+                      format((last_date),'%d')," ",format((last_date),'%B')," 2022.pdf")) ## Save daily file in archive
 
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
