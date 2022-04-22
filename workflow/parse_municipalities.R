@@ -119,8 +119,8 @@ if (const.use_daily_dataset) {
   rm(temp)
 }
 
-dat$date <- as.Date(dat$Date_of_report) ## character into Date class
-last_date <- as.Date(last(dat$Date_of_report))
+dat$date <- as.Date(dat$Date_of_publication) ## character into Date class
+last_date <- as.Date(last(dat$Date_of_publication))
 if(!exists("const.date")){ 
   const.date <- last_date
 }
