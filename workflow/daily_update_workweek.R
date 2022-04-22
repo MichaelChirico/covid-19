@@ -302,10 +302,10 @@ last_date <- as.Date(last(rivm.data$Date_statistics))
 filename.compressed <- paste0("data-rivm/casus-datasets/COVID-19_casus_landelijk_",last_date,".csv.gz")
 fwrite(rivm.data, file=filename.compressed,row.names = F) ## Write file with all cases until today
 
-Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/pandoc"); rmarkdown::render('reports/daily_report.Rmd') ## Render daily report
-file.copy(from = list.files('reports', pattern="*.pdf",full.names = TRUE), 
-          to = paste0("reports/daily_reports/Epidemiologische situatie COVID-19 in Nederland - ",
-                      format((last_date),'%d')," ",format((last_date),'%B')," 2022.pdf")) ## Save daily file in archive
+#Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/pandoc"); rmarkdown::render('reports/daily_report.Rmd') ## Render daily report
+#file.copy(from = list.files('reports', pattern="*.pdf",full.names = TRUE), 
+#          to = paste0("reports/daily_reports/Epidemiologische situatie COVID-19 in Nederland - ",
+#                      format((last_date),'%d')," ",format((last_date),'%B')," 2022.pdf")) ## Save daily file in archive
 
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
