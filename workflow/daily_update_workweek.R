@@ -212,7 +212,15 @@ sewer.data %>%
        caption = paste("Bron data: RIVM  | Plot: @mzelst | ",Sys.Date()))
 ggsave("plots/rioolwater.png", width = 16, height = 8)
 
+## Git Vroegsurveillance
 
+git.credentials <- read_lines("git_auth.txt")
+git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
+## Push to git
+repo <- init()
+add(repo, path = "*")
+commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - Early surveillance"))
+push(repo, credentials = git.auth)
 
 
 vroegsurveillance.tweet <- paste0("Vroege signalen
@@ -226,12 +234,14 @@ Verandering (week op week): ",round(last(infectieradar$groei_infectieradar_7d)*1
 Overzicht data per gemeente: https://raw.githack.com/mzelst/covid-19/master/workflow/daily_municipality.html")
 
 
+
+
 posted_tweet <- post_tweet (
   vroegsurveillance.tweet,
   token = token.mzelst,
   media = c("plots/infectieradar.png",
             "plots/rioolwater.png"),
-  #in_reply_to_status_id = tweet.last_id,
+  in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE)
 
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
@@ -283,13 +293,6 @@ repo <- init()
 add(repo, path = "*")
 commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - part 1"))
 push(repo, credentials = git.auth)
-
-
-
-##### Generate municipality images ####
-source("workflow/parse_nice-municipalities-data.R")
-#source("workflow/parse_municipalities.R")
-#source("workflow/generate_municipality_images.R")
 
 
 ##### Download case file
