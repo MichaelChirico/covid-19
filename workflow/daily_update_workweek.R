@@ -213,7 +213,9 @@ Rioolwater: ",round(last(sewer.data$sewer_7d),1)," RNA flow per 100.000 inwoners
 Verandering (week op week): ",round(last(sewer.data$groei_riool_7d)*100-100,1),"%
 
 Infectieradar: ",round(last(infectieradar$infectieradar_7d),1)," % covid-19-achtige klachten
-Verandering (week op week): ",round(last(infectieradar$groei_infectieradar_7d)*100-100,1),"%")
+Verandering (week op week): ",round(last(infectieradar$groei_infectieradar_7d)*100-100,1),"%
+
+Overzicht data per gemeente: https://raw.githack.com/mzelst/covid-19/master/workflow/daily_municipality.html")
 
 
 posted_tweet <- post_tweet (
