@@ -403,16 +403,19 @@ dat.pop <- read.csv("https://raw.githubusercontent.com/mzelst/covid-19/master/mi
 
 dat.cases <- merge(dat.pop, dat.cases, by = "Municipality_code", all.y=TRUE)
 dat.cases[dat.cases$Municipality_name=="Netherlands", "population"] <- 17443797
+dat.cases[dat.cases$Municipality_name=="Unknown", "population"] <- 17443797
 write.csv(dat.cases, file = "data/municipality-totals.csv",
           fileEncoding = "UTF-8")
 
 dat.hosp <- merge(dat.pop, dat.hosp, by = "Municipality_code", all.y=TRUE)
 dat.hosp[dat.hosp$Municipality_name=="Netherlands", "population"] <- 17443797
+dat.hosp[dat.hosp$Municipality_name=="Unknown", "population"] <- 17443797
 write.csv(dat.hosp, file = "data/municipality-hospitalisations.csv",
           fileEncoding = "UTF-8")
 
 dat.deaths <- merge(dat.pop, dat.deaths, by = "Municipality_code", all.y=TRUE)
 dat.deaths[dat.deaths$Municipality_name=="Netherlands", "population"] <- 17443797
+dat.deaths[dat.deaths$Municipality_name=="Unknown", "population"] <- 17443797
 write.csv(dat.deaths, file = "data/municipality-deaths.csv",
           fileEncoding = "UTF-8")
 
@@ -506,6 +509,9 @@ dat.hosp.d14 <- fread(temp[length(temp)-14])
 
 last.date.hosp <- last(dat.hosp.d0$Date_of_statistics)
 
+last(dat.hosp.d7$Date_of_statistics)
+
+
 dat.hosp.d0 <- dat.hosp.d0 %>%
   group_by(Municipality_name) %>%
   arrange(Date_of_statistics) %>%
@@ -569,6 +575,8 @@ dat.hosp.all <- dat.hosp.all %>%
   mutate(Municipality_name = recode(Municipality_name, "Noardeast-FryslÃ¢n" = "Noardeast-Fryslân",
                                     "SÃºdwest-FryslÃ¢n" = "Súdwest-Fryslân"))
 dat.hosp.all <- merge(dat.hosp.all,dat.pop, by = c("Municipality_code"), all.x=T)
+dat.hosp.all[dat.hosp.all$Municipality_name=="Netherlands", "population"] <- 17443797
+dat.hosp.all[dat.hosp.all$Municipality_name=="Unknown", "population"] <- 17443797
 
 dat.hosp.lowest <- dat.hosp.lowest %>%
   rename(lowest_since_jan1 = Hospital_admission) %>%

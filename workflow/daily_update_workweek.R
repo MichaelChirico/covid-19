@@ -223,7 +223,7 @@ posted_tweet <- post_tweet (
   token = token.mzelst,
   media = c("plots/infectieradar.png",
             "plots/rioolwater.png"),
-  in_reply_to_status_id = tweet.last_id,
+  #in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE)
 
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
