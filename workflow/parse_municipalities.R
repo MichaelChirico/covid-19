@@ -501,18 +501,16 @@ dat.cases.today.simple <- dat.cases.today %>%
 
 temp = list.files(path = "data-rivm/municipal-hospital-datasets/",pattern="*.csv.gz", full.names = T) ## Pull names of all available datafiles
 
-dat.hosp.d0 <- fread(temp[length(temp)])
+dat.hosp <- fread(temp[length(temp)])
 dat.hosp.d1 <- fread(temp[length(temp)-1])
 dat.hosp.d7 <- fread(temp[length(temp)-7])
 dat.hosp.d8 <- fread(temp[length(temp)-8])
 dat.hosp.d14 <- fread(temp[length(temp)-14])
 
-last.date.hosp <- last(dat.hosp.d0$Date_of_statistics)
-
-last(dat.hosp.d7$Date_of_statistics)
+last.date.hosp <- last(dat.hosp$Date_of_statistics)
 
 
-dat.hosp.d0 <- dat.hosp.d0 %>%
+dat.hosp.d0 <- dat.hosp %>%
   group_by(Municipality_name) %>%
   arrange(Date_of_statistics) %>%
   mutate(d0 = cumsum(Hospital_admission)) %>%
@@ -522,56 +520,58 @@ dat.hosp.d0 <- dat.hosp.d0 %>%
   mutate(date = last.date.hosp)
 dat.hosp.d0 <- rbind(dat.hosp.d0, data.frame("Municipality_name" = "Netherlands","Municipality_code" = "", "d0" = sum(dat.hosp.d0$d0), "date" = last.date.hosp))
 
-dat.hosp.d1 <- dat.hosp.d1 %>%
+dat.hosp.d1 <- dat.hosp %>%
   group_by(Municipality_name) %>%
   arrange(Date_of_statistics) %>%
   mutate(d1 = cumsum(Hospital_admission)) %>%
   dplyr::filter(Date_of_statistics == last.date.hosp-1) %>%
   select(Municipality_name, Municipality_code, d1) %>%
   mutate(Municipality_name = replace(Municipality_name, Municipality_name == "","Unknown")) %>%
-  mutate(date = last.date.hosp)
+  mutate(date = last.date.hosp-1)
 dat.hosp.d1 <- rbind(dat.hosp.d1, data.frame("Municipality_name" = "Netherlands","Municipality_code" = "", "d1" = sum(dat.hosp.d1$d1), "date" = last.date.hosp))
 
-dat.hosp.d7 <- dat.hosp.d7 %>%
+dat.hosp.d7 <- dat.hosp %>%
   group_by(Municipality_name) %>%
   arrange(Date_of_statistics) %>%
   mutate(d7 = cumsum(Hospital_admission)) %>%
   dplyr::filter(Date_of_statistics == last.date.hosp-7) %>%
   select(Municipality_name, Municipality_code, d7) %>%
   mutate(Municipality_name = replace(Municipality_name, Municipality_name == "","Unknown")) %>%
-  mutate(date = last.date.hosp)
+  mutate(date = last.date.hosp-7)
 dat.hosp.d7 <- rbind(dat.hosp.d7, data.frame("Municipality_name" = "Netherlands","Municipality_code" = "", "d7" = sum(dat.hosp.d7$d7), "date" = last.date.hosp))
 
-dat.hosp.d8 <- dat.hosp.d8 %>%
+dat.hosp.d8 <- dat.hosp %>%
   group_by(Municipality_name) %>%
   arrange(Date_of_statistics) %>%
   mutate(d8 = cumsum(Hospital_admission)) %>%
   dplyr::filter(Date_of_statistics == last.date.hosp-8) %>%
   select(Municipality_name, Municipality_code, d8) %>%
   mutate(Municipality_name = replace(Municipality_name, Municipality_name == "","Unknown")) %>%
-  mutate(date = last.date.hosp)
+  mutate(date = last.date.hosp-8)
 dat.hosp.d8 <- rbind(dat.hosp.d8, data.frame("Municipality_name" = "Netherlands","Municipality_code" = "", "d8" = sum(dat.hosp.d8$d8), "date" = last.date.hosp))
 
 
-dat.hosp.d14 <- dat.hosp.d14 %>%
+dat.hosp.d14 <- dat.hosp %>%
   group_by(Municipality_name) %>%
   arrange(Date_of_statistics) %>%
   mutate(d14 = cumsum(Hospital_admission)) %>%
   dplyr::filter(Date_of_statistics == last.date.hosp-14) %>%
   select(Municipality_name, Municipality_code, d14) %>%
   mutate(Municipality_name = replace(Municipality_name, Municipality_name == "","Unknown")) %>%
-  mutate(date = last.date.hosp) 
+  mutate(date = last.date.hosp-14) 
 dat.hosp.d14 <- rbind(dat.hosp.d14, data.frame("Municipality_name" = "Netherlands","Municipality_code" = "", "d14" = sum(dat.hosp.d14$d14), "date" = last.date.hosp))
 
 
 daily_datalist_hosp <- list(dat.hosp.d0,dat.hosp.d1,dat.hosp.d7,dat.hosp.d8,dat.hosp.d14)
 
 dat.hosp.all <- Reduce(
-  function(x, y, ...) merge(x, y, by=c("date","Municipality_name","Municipality_code"),all.x = TRUE, ...),
+  function(x, y, ...) merge(x, y, by=c("Municipality_name","Municipality_code"),all.x = TRUE, ...),
   daily_datalist_hosp
 )
 
 dat.hosp.all <- dat.hosp.all %>%
+  select(1:5, 7,9,11) %>%
+  rename(date = date.x) %>%
   mutate(Municipality_name = recode(Municipality_name, "Noardeast-FryslÃ¢n" = "Noardeast-Fryslân",
                                     "SÃºdwest-FryslÃ¢n" = "Súdwest-Fryslân"))
 dat.hosp.all <- merge(dat.hosp.all,dat.pop, by = c("Municipality_code"), all.x=T)
