@@ -109,3 +109,132 @@ plot.wlz.other.sterfte <- wlz.table %>%
 
 ggsave(plot.wlz.other.sterfte, file = "data-misc/excess_mortality/plots_weekly_update/overledenen-per-week-wlz.png", width = 12, height = 8)
 
+
+
+
+### AGE PLOT ###
+
+urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
+
+cbs_url <- last(urls)
+page <- read_html(cbs_url[1,1])
+page <- page %>% html_nodes("a") %>% html_attr('href')
+page <- data.frame(page)
+
+page$category <- grepl(".xlsx", page$page, fixed = TRUE)
+page <- page %>%
+  dplyr::filter(category == "TRUE")
+cbs_url <- page[1,1]
+
+download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
+
+
+cbs_sterfte_leeftijd <- data.table(read_excel("cbs_deaths.xlsx", sheet = 6))[,c(1,2,6:8,11:13)]
+cbs_sterfte_leeftijd <- cbs_sterfte_leeftijd[7:nrow(cbs_sterfte_leeftijd),]
+colnames(cbs_sterfte_leeftijd) <- c("Jaar","Week","sterfte_wlz_0_65","sterfte_wlz_65_80","sterfte_wlz_80","sterfte_other_0_65","sterfte_other_65_80","sterfte_other_80")
+
+
+cbs_sterfte_leeftijd <- cbs_sterfte_leeftijd %>%
+  mutate_all(function(x) parse_number(as.character(x))) %>%
+  mutate(sterfte_0_65 = sterfte_wlz_0_65 + sterfte_other_0_65) %>%
+  mutate(sterfte_65_80 = sterfte_wlz_65_80 + sterfte_other_65_80) %>%
+  mutate(sterfte_80 = sterfte_wlz_80 + sterfte_other_80) %>%
+  select(Jaar,Week,sterfte_0_65,sterfte_65_80,sterfte_80)
+#cbs_sterfte <- cbs_sterfte[c(1:4)]
+
+## Select indices ##
+test <- row_count(cbs_sterfte_leeftijd, count = NA)
+rows.2020.age <- which(test$rowcount == 5)[3]
+rows.2021.age <- which(test$rowcount == 5)[2]
+rows.2022.age <- which(test$rowcount == 4)[1]
+
+sterfte.2022.leeftijd <- cbs_sterfte_leeftijd[1:(rows.2022.age-1),]
+colnames(sterfte.2022.leeftijd) <- c("Jaar","Week","Sterfte_0_65","Sterfte_65_80","Sterfte_80")
+sterfte.2022.leeftijd <- sterfte.2022.leeftijd %>%
+  mutate(Week = (1:nrow(sterfte.2022.leeftijd))) %>%
+  mutate(Jaar = 2022)
+setDF(sterfte.2022.leeftijd)
+
+sterfte.2021.leeftijd <- cbs_sterfte_leeftijd[(rows.2021.age+1):(rows.2020.age-1),]
+colnames(sterfte.2021.leeftijd) <- c("Jaar","Week","Sterfte_0_65","Sterfte_65_80","Sterfte_80")
+sterfte.2021.leeftijd <- sterfte.2021.leeftijd %>%
+  mutate(Jaar = 2021)
+setDF(sterfte.2021.leeftijd)
+
+sterfte.2020.leeftijd <- cbs_sterfte_leeftijd[(rows.2020.age+2):(nrow(cbs_sterfte_leeftijd)-7),]
+colnames(sterfte.2020.leeftijd) <- c("Jaar","Week","Sterfte_0_65","Sterfte_65_80","Sterfte_80")
+sterfte.2020.leeftijd <- sterfte.2020.leeftijd %>%
+  mutate(Jaar = 2020)
+setDF(sterfte.2020.leeftijd)
+sterfte.2020.leeftijd["Week"][sterfte.2020.leeftijd["Week"] == 533] <- 53
+
+sterfte_leeftijd <- rbind(sterfte.2020.leeftijd,sterfte.2021.leeftijd,sterfte.2022.leeftijd)
+
+
+#### Sterfte verwacht ####
+cbs_sterfte_leeftijd_verwacht <- data.table(read_excel("cbs_deaths.xlsx", sheet = 7))[8:166,c(1,19:27)]
+colnames(cbs_sterfte_leeftijd_verwacht) <- c("week_year","verwacht_0_65","verwacht_0_65_lb","verwacht_0_65_ub","verwacht_65_80","verwacht_65_80_lb","verwacht_65_80_ub",
+                                             "verwacht_80","verwacht_80_lb","verwacht_80_ub")
+
+cbs_sterfte_leeftijd_verwacht <- cbs_sterfte_leeftijd_verwacht %>%
+  mutate(Jaar = parse_number(substr(week_year, 1, 4))) %>%
+  mutate(Week = parse_number(substr(week_year, 11, 12))) %>%
+  mutate(week_year = NULL) %>%
+  mutate_all(function(x) parse_number(as.character(x)))
+
+setDF(cbs_sterfte_leeftijd_verwacht)
+
+age.table <- merge(sterfte_leeftijd, cbs_sterfte_leeftijd_verwacht,by=c("Week","Jaar"), all.y=T)
+age.table <- age.table %>%
+  arrange(Jaar,Week) %>%
+  mutate_all(function(x) parse_number(as.character(x))) %>%
+  mutate(weekyear = ifelse(Week<10,
+                           paste0(Jaar,"-",0,Week),
+                           paste0(Jaar,"-",Week))) %>%
+  mutate(date = ymd(paste0(Jaar,"-01-01")) + weeks(Week))
+
+age.table <- age.table[11:(nrow(age.table) - 52 + last(sterfte_leeftijd$Week) + 6),]
+
+
+colors <- c("ci_65_80" = "lightgreen", "ci_0_65" = "lightblue", "65 tot 80" = "darkgreen","0 tot 65" = "blue",
+            "ci_80" = "lightpink1","80+" = "palevioletred3","Verwacht_65_80" = "black","Verwacht_0_65" = "black","Verwacht_80" = "black")
+
+plot.age.sterfte <- age.table %>%
+  ggplot(aes(x=date)) + 
+  geom_ribbon(aes(ymin=verwacht_80_lb,ymax=verwacht_80_ub, fill="ci_80"), alpha = 0.6) +
+  geom_ribbon(aes(ymin=verwacht_65_80_lb,ymax=verwacht_65_80_ub, fill="ci_65_80"), alpha = 0.6) +
+  geom_ribbon(aes(ymin=verwacht_0_65_lb,ymax=verwacht_0_65_ub, fill="ci_0_65"), alpha = 0.6) +
+  geom_line(aes(y = Sterfte_80, color = "80+"), lwd=1.2) +
+  geom_line(aes(y = verwacht_80 , color = "Verwacht_80"),lwd=1.0) +
+  geom_line(aes(y = Sterfte_65_80, color = "65 tot 80"), lwd=1.2) +
+  geom_line(aes(y = verwacht_65_80 , color = "Verwacht_65_80"),lwd=1.0) +
+  geom_line(aes(y = Sterfte_0_65, color = "0 tot 65"), lwd=1.2) +
+  geom_line(aes(y = verwacht_0_65, color = "Verwacht_0_65"),lwd=1.0) +
+  ggtitle("Overledenen per week, naar leeftijd") + 
+  theme_bw() + 
+  scale_y_continuous(expand = c(0,0), limits = c(0, 3500), breaks = c(0,500,1000,1500,2000,2500,3000,3500)) +
+  scale_x_date(date_breaks = "1 month", date_labels = "%Y-%m") + 
+  theme(axis.title.x=element_blank(),
+        #axis.title.y=element_blank(),
+        axis.text.x.bottom = element_text(size=10, angle = 90),
+        axis.text.y = element_text(size=10),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(hjust = 0.5, size = 16),
+        plot.subtitle = element_text(hjust = 0.5, size = 10),
+        plot.title.position = "plot",
+        plot.caption = element_text(size = 6),
+        legend.direction = "vertical",
+        legend.title = element_blank(),
+        legend.text = element_text(size=10, color = "black"),
+        legend.margin = margin(2,2,2,2)) +
+  labs(x = "Datum",
+       y = "Overledenen per week",
+       caption = paste("Bron data: CBS  | Plot: @mzelst | ",Sys.Date())) + 
+  scale_color_manual(name = "Group",values = colors, labels = NULL, guide = "none") +
+  scale_fill_manual(values = colors, breaks = c("80+","65 tot 80","0 tot 65"))
+
+ggsave(plot.age.sterfte, file = "data-misc/excess_mortality/plots_weekly_update/overledenen-per-week.png", width = 12, height = 8)
+## Match names in scale_fill_manual with dataframe
+
+

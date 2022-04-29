@@ -71,7 +71,7 @@ excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
 tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " april"," - ",endday.week," april):
 
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
-2) Methode RIVM (",rivm.startday," maart - ",rivm.endday," april): ",round(last(excess_mortality$excess_mortality_rivm)),"
+2) Methode RIVM (",rivm.startday," april - ",rivm.endday," april): ",round(last(excess_mortality$excess_mortality_rivm)),"
 
 Bij de leeftijdsgroep 65-80 en 80+ is de sterfte significant boven de verwachte sterfte.
 
@@ -87,22 +87,6 @@ posted_tweet <- post_tweet (
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
-
-#### Sterfte gerealiseerd ####
-
-urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
-
-cbs_url <- last(urls)
-page <- read_html(cbs_url[1,1])
-page <- page %>% html_nodes("a") %>% html_attr('href')
-page <- data.frame(page)
-
-page$category <- grepl(".xlsx", page$page, fixed = TRUE)
-page <- page %>%
-  dplyr::filter(category == "TRUE")
-cbs_url <- page[1,1]
-
-download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
 
 #### Parse WLZ mortality data ####
 urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
@@ -274,7 +258,7 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Conclusie tweet
 
-conclusie.tweet <- paste0("Conclusie: De totale sterfte is nog steeds erg hoog voor deze tijd van het jaar. De sterfte onder WLZ-zorggebruikers is significant verhoogd en er is significante oversterfte vanaf 65+.")
+conclusie.tweet <- paste0("Conclusie: De totale sterfte is nog steeds erg hoog voor deze tijd van het jaar maar daalt al wel twee weken op rij. ")
 
 posted_tweet <- post_tweet (
   conclusie.tweet,

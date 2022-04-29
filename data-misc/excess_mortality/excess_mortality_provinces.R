@@ -46,17 +46,19 @@ pop.df <- data.frame(id = idList, population = popList, centroids.df)
 
 province_mort_plot <- ggplot(data = provinceDF) +
   geom_polygon(aes(x=long, y=lat, group = group, fill = excess_mortality), color = "black", lwd=0.2) +
+  theme_minimal() +
   coord_equal()+
   theme(axis.title.x=element_blank(),
         axis.title.y=element_blank(),
         legend.pos = "right",
         legend.title = element_blank()) +
   ggtitle("Procentuele oversterfte per provincie") +
-  theme_void() +
   scale_fill_gradientn(colours=c("yellow","orange", "red","purple"), name = "Percentage")
 
 province_mort_plot + geom_text(data=pop.df, aes(label=paste0(population,"%"), x=long, y=lat), size = 4.5, colour="black",fontface="bold") +
-  theme(plot.title = element_text(hjust = 0.5, size = 20, face = "bold"),
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size = 20, face = "bold"),
         plot.title.position = "plot",
         plot.subtitle = element_text(hjust = 0.5, size = 14),
         plot.caption = element_text(hjust = 1, vjust = 8.0)) +
