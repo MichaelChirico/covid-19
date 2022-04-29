@@ -1,0 +1,129 @@
+library(rgeos)
+library(maptools)
+library(raster)
+library(ggplot2)
+library(dplyr)
+library(ggthemes)
+library(ggalt)
+library(scales)
+require(viridis)
+
+fileName <- "misc/maps/vrgrenzen2020.geojson" # File for GGD map
+vrgrenzen <- geojson_read(fileName, what = "sp") # Load veiligheidsregio map
+
+## Parse daily percentage positive tests - safety region ##
+
+sewer.data.vr <- data.frame()
+
+for (i in 1:25) {
+  if(i<10){
+    db <- fromJSON(txt=paste0("https://coronadashboard.rijksoverheid.nl/json/VR0",i,".json"))
+  }else{
+    db <- fromJSON(txt=paste0("https://coronadashboard.rijksoverheid.nl/json/VR",i,".json"))
+  }
+  db <- as.data.frame(db$sewer[1])
+  VR_name <- ifelse(i < 10, paste0("VR0",i),paste0("VR",i))
+  db$VR <- VR_name
+  sewer.data.vr <- rbind(sewer.data.vr,db)
+}
+
+
+
+sewer.data.vr.test <- sewer.data.vr %>%
+  mutate(date = as.Date(as.POSIXct(values.date_unix, origin = "1970-01-01"))) %>%
+  group_by(VR) %>%
+  mutate(sewer_7d = frollmean(values.average, 7))  %>%
+  mutate(groei_riool = sewer_7d/(dplyr::lag(sewer_7d,7))) %>%
+  mutate(groei_riool_7d = round(frollmean(groei_riool,7),2)) %>%
+  mutate(groei_percentage = groei_riool_7d*100-100) %>%
+  ungroup() %>%
+  dplyr::filter(date == last(date)) %>%
+  dplyr::select(date, VR, sewer_7d, groei_riool, groei_riool_7d,groei_percentage) %>%
+  rename(statcode = VR)
+
+vrgrenzen@data <- vrgrenzen@data %>%
+  left_join(sewer.data.vr.test,by=c("statcode"))
+
+g.vr <- fortify(vrgrenzen, region = "id")
+vrDF <- merge(g.vr, vrgrenzen@data, by = "id")
+
+vrDF$brks <- cut(vrDF$groei_percentage, 
+                   breaks=c(-100, 0, 25, 50, 100, 200), 
+                   labels=c("-100% tot 0%", "0% tot 25%", "25% tot 50%", 
+                            "50% tot 100%", "100% tot 200%"))
+
+
+centroids.df <- as.data.frame(coordinates(vrgrenzen))
+names(centroids.df) <- c("long", "lat") 
+popList <- vrgrenzen@data$groei_percentage
+
+valueList <- round(vrgrenzen@data$sewer_7d,1)
+
+idList <- vrgrenzen@data$statcode
+
+pop.df <- data.frame(id = idList, rioolwaarde = valueList, groei_percentage = popList, centroids.df)
+
+
+colors <- c("-100% tot 0%" = "lightgreen", "0% tot 25%" = "yellow", "25% tot 50%" = "orange","50% tot 100%" = "magenta","100% tot 200%" = "red")
+
+
+sewer.vr.map <- ggplot(data = vrDF) +
+  geom_polygon(aes(x=long, y=lat, group = group, fill = brks), color="#2b2b2b", size = 0.15) +
+  coord_equal()+
+  theme(axis.title.x=element_blank(),
+        axis.title.y=element_blank(),
+        legend.pos = "right",
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        legend.title = element_blank()) +
+  labs(title = "Rioolwater per veiligheidsregio",
+       subtitle = "Cijferwaardes: Gemiddelde aantal virusdeeltjes per 100.000 inwoners \n Kleuren: Relatieve groei/daling ten opzichte van vorige week",
+       color = "Legend",
+       caption = paste("Bron data: RIVM  | Plot: @mzelst | Datum laatst beschikbare data: ",format(last(sewer.data.vr.test$date),"%d-%b-%y"))) +
+  scale_color_manual(name = "Group",values = colors, labels = NULL, guide = "none") +
+  scale_fill_manual(values = colors, breaks = c("-100% tot 0%", "0% tot 25%", "25% tot 50%", 
+                                                       "50% tot 100%", "100% tot 200%"))
+
+sewer.vr.map + geom_text(data=pop.df, aes(label=paste0(rioolwaarde), x=long, y=lat), size = 3.5, colour="black",fontface="bold") +
+  theme(plot.title = element_text(hjust = 0.5, size = 20, face = "bold"),
+        plot.title.position = "plot",
+        plot.subtitle = element_text(hjust = 0.5, size = 14))
+
+ggsave("plots/rioolwater_veiligheidsregio.png", width = 16, height = 8)
+
+
+## Gemeente sewer
+
+#gemeente.dat <- fromJSON("https://coronadashboard.rijksoverheid.nl/json/GM0867.json")
+
+
+#fileName_gemeente <- "misc/maps/Gemeentegrenzen2022_RD.geojson"
+#gemeentegrenzen <- geojson_read(fileName_gemeente, what = "sp")
+
+#municipalities <- fread("misc/municipalities-population.csv")
+#gemeente.codes <- unique(municipalities$Municipality_code)
+
+#sewer.data.mun <- data.frame()
+
+#for (gemeente in gemeente.codes) {
+#  db.gemeente <- fromJSON(txt=paste0("https://coronadashboard.rijksoverheid.nl/json/",gemeente,".json"))
+#
+#  db.gemeente <- as.data.frame(db$sewer[1])
+#  gemeente_code <- gemeente
+#  db$statcode <- gemeente_code
+#  sewer.data.mun <- rbind(sewer.data.mun,db)
+#}
+
+
+sewer.data.mun.test <- sewer.data.mun %>%
+  mutate(date = as.Date(as.POSIXct(values.date_unix, origin = "1970-01-01"))) %>%
+  group_by(statcode) %>%
+  mutate(sewer_7d = frollmean(values.average, 7))  %>%
+  mutate(groei_riool = sewer_7d/(dplyr::lag(sewer_7d,7))) %>%
+  mutate(groei_riool_7d = round(frollmean(groei_riool,7),2)) %>%
+  mutate(groei_percentage = groei_riool_7d*100-100) %>%
+  ungroup() %>%
+  dplyr::filter(date == last(date)) %>%
+  dplyr::select(date, statcode, sewer_7d, groei_riool, groei_riool_7d,groei_percentage) %>%
+  rename(statcode = statcode)
+                                   

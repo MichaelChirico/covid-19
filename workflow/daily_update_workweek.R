@@ -240,7 +240,8 @@ posted_tweet <- post_tweet (
   vroegsurveillance.tweet,
   token = token.mzelst,
   media = c("plots/infectieradar.png",
-            "plots/rioolwater.png"),
+            "plots/rioolwater.png",
+            "plots/rioolwater_veiligheidsregio.png"),
   in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE)
 
