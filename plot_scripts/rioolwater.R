@@ -48,23 +48,30 @@ g.vr <- fortify(vrgrenzen, region = "id")
 vrDF <- merge(g.vr, vrgrenzen@data, by = "id")
 
 vrDF$brks <- cut(vrDF$groei_percentage, 
-                   breaks=c(-100, 0, 25, 50, 100, 200), 
-                   labels=c("-100% tot 0%", "0% tot 25%", "25% tot 50%", 
-                            "50% tot 100%", "100% tot 200%"))
-
+                 breaks=c(-10000,-200,-100,-50,-25,0, 25, 50, 100, 200,10000), 
+                   labels=c("-200% of lager","-100% tot 200%","-50% tot -100%", "-25% tot -50%","0% tot -25%","0% tot 25%", "25% tot 50%", 
+                            "50% tot 100%", "100% tot 200%","200%+"))
 
 centroids.df <- as.data.frame(coordinates(vrgrenzen))
 names(centroids.df) <- c("long", "lat") 
 popList <- vrgrenzen@data$groei_percentage
 
-valueList <- round(vrgrenzen@data$sewer_7d,1)
+valueList <- round(vrgrenzen@data$sewer_7d,0)
 
 idList <- vrgrenzen@data$statcode
 
 pop.df <- data.frame(id = idList, rioolwaarde = valueList, groei_percentage = popList, centroids.df)
 
 
-colors <- c("-100% tot 0%" = "lightgreen", "0% tot 25%" = "yellow", "25% tot 50%" = "orange","50% tot 100%" = "magenta","100% tot 200%" = "red")
+#colors <- c("-100% tot 0%" = "lightgreen", "0% tot 25%" = "yellow", "25% tot 50%" = "orange","50% tot 100%" = "magenta","100% tot 200%" = "red")
+
+colors <- c("-200% of lager" = "#86BADC","-100% tot 200%" = "#709DC8","-50% tot -100%" = "#517AC1", "-25% tot -50%" = "#4253A3", "0% tot -25%" = "#3F3FA7", "0% tot 25%" = "#4B3AAA", "25% tot 50%" = "#54298F","50% tot 100%" = "#742185","100% tot 200%" = "#891187", "200%+" = "#7B1251")
+
+#86BADC 23%, #709DC8 30%, #517AC1 36%, #4253A3 45%, #3F3FA7 51%, #4B3AAA 57%, #54298F 64%, #742185 70%, #891187 76%, #7B1251 83%, 
+
+
+# Minimal colors: #F8FFFF 0%, #C9E5ED 8%, #A1CBDF 16%,
+# Most extreme: #67062B 89%, #5A0712 95%, #2B0100 100%); 
 
 
 sewer.vr.map <- ggplot(data = vrDF) +
@@ -81,8 +88,8 @@ sewer.vr.map <- ggplot(data = vrDF) +
        color = "Legend",
        caption = paste("Bron data: RIVM  | Plot: @mzelst | Datum laatst beschikbare data: ",format(last(sewer.data.vr.test$date),"%d-%b-%y"))) +
   scale_color_manual(name = "Group",values = colors, labels = NULL, guide = "none") +
-  scale_fill_manual(values = colors, breaks = c("-100% tot 0%", "0% tot 25%", "25% tot 50%", 
-                                                       "50% tot 100%", "100% tot 200%"))
+  scale_fill_manual(values = colors, breaks = c("-200% of lager","-100% tot 200%","-50% tot -100%", "-25% tot -50%","0% tot -25%","0% tot 25%", "25% tot 50%", 
+                                                "50% tot 100%", "100% tot 200%","200%+"))
 
 sewer.vr.map + geom_text(data=pop.df, aes(label=paste0(rioolwaarde), x=long, y=lat), size = 3.5, colour="black",fontface="bold") +
   theme(plot.title = element_text(hjust = 0.5, size = 20, face = "bold"),
@@ -115,15 +122,15 @@ ggsave("plots/rioolwater_veiligheidsregio.png", width = 16, height = 8)
 #}
 
 
-sewer.data.mun.test <- sewer.data.mun %>%
-  mutate(date = as.Date(as.POSIXct(values.date_unix, origin = "1970-01-01"))) %>%
-  group_by(statcode) %>%
-  mutate(sewer_7d = frollmean(values.average, 7))  %>%
-  mutate(groei_riool = sewer_7d/(dplyr::lag(sewer_7d,7))) %>%
-  mutate(groei_riool_7d = round(frollmean(groei_riool,7),2)) %>%
-  mutate(groei_percentage = groei_riool_7d*100-100) %>%
-  ungroup() %>%
-  dplyr::filter(date == last(date)) %>%
-  dplyr::select(date, statcode, sewer_7d, groei_riool, groei_riool_7d,groei_percentage) %>%
-  rename(statcode = statcode)
+#sewer.data.mun.test <- sewer.data.mun %>%
+#  mutate(date = as.Date(as.POSIXct(values.date_unix, origin = "1970-01-01"))) %>%
+#  group_by(statcode) %>%
+#  mutate(sewer_7d = frollmean(values.average, 7))  %>%
+#  mutate(groei_riool = sewer_7d/(dplyr::lag(sewer_7d,7))) %>%
+#  mutate(groei_riool_7d = round(frollmean(groei_riool,7),2)) %>%
+#  mutate(groei_percentage = groei_riool_7d*100-100) %>%
+#  ungroup() %>%
+#  dplyr::filter(date == last(date)) %>%
+#  dplyr::select(date, statcode, sewer_7d, groei_riool, groei_riool_7d,groei_percentage) %>%
+#  rename(statcode = statcode)
                                    
