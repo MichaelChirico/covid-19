@@ -212,6 +212,9 @@ sewer.data %>%
        caption = paste("Bron data: RIVM  | Plot: @mzelst | ",Sys.Date()))
 ggsave("plots/rioolwater.png", width = 16, height = 8)
 
+source("plot_scripts/rioolwater.R")
+
+
 ## Git Vroegsurveillance
 
 git.credentials <- read_lines("git_auth.txt")
