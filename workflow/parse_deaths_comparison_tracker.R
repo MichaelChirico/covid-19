@@ -341,7 +341,7 @@ rm(plot, cols, cbs.deaths, cbs.death.statistics,webpage.cbs, u.cbs)
 
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
-repo <- init()
+repo <- git2r::init()
 add(repo, path = "*")
 commit(repo, all = T, paste0("[", Sys.Date(), "] Update death comparison tracker for Twitter thread (Friday update - part 2)"))
 push(repo, credentials = git.auth)

@@ -106,7 +106,7 @@ git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 temp = last(list.files(path = "data-misc/reproduction-numbers/marino/",pattern="*.csv", full.names = T))
-repo <- init()
+repo <- git2r::init()
 add(repo, path = temp)
 commit(repo, all = T, paste0("Update reproduction number ",Sys.Date()))
 push(repo, credentials = git.auth)

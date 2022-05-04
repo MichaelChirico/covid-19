@@ -46,7 +46,7 @@ dat_wide <- merge(date_type_wide, df.final, by = "Datum")
 dat_wide <- dat_wide[,-c("Date_statistics")]
 
 write.csv(dat_wide, file = "data-dashboards/date_statistics_mutations.csv")
-repo <- init()
+repo <- git2r::init()
 add(repo, path = "data-dashboards/date_statistics_mutations.csv")
 commit(repo, all = T, paste0("Update mutations per date_statistics types ",Sys.Date()))
 push(repo, credentials = git.auth)

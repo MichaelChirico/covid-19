@@ -71,7 +71,7 @@ git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 
-repo <- init()
+repo <- git2r::init()
 add(repo, path = "plots/leeftijd_heatmap.png")
 commit(repo, all = T, paste0("Update heatmap age-week ",Sys.Date()))
 push(repo, credentials = git.auth)

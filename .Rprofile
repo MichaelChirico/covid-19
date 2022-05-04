@@ -27,7 +27,7 @@ require(padr)
 source("workflow/twitter/token_mzelst.R")
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
-repo <- init()
+repo <- git2r::init()
 
 
 

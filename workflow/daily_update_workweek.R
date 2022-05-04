@@ -220,7 +220,7 @@ source("plot_scripts/rioolwater.R")
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 ## Push to git
-repo <- init()
+repo <- git2r::init()
 add(repo, path = "*")
 commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - Early surveillance"))
 push(repo, credentials = git.auth)
