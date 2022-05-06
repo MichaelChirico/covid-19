@@ -199,15 +199,18 @@ sewer.data <- sewer.data %>%
   mutate(date = as.Date(as.POSIXct(date_unix, origin = "1970-01-01"))) %>%
   mutate(sewer_7d = frollmean(average, 7))  %>%
   mutate(groei_riool = sewer_7d/(dplyr::lag(sewer_7d,7))) %>%
-  mutate(groei_riool_7d = frollmean(groei_riool,7))
+  mutate(groei_riool_7d = frollmean(groei_riool,7)) %>%
+  dplyr::filter(date >= "2022-01-01")
 
+sewer.max <- max(sewer.data$sewer_7d,na.rm=T)
+y.max.sewer <- ceiling(sewer.max/1000)*1000
 
 sewer.data %>%
-  dplyr::filter(date >= "2022-01-01") %>%
   ggplot(aes(x = date)) + 
   geom_line(aes(y = sewer_7d), lwd = 1.2, color = "red") + 
   theme_bw() + 
   theme(plot.title = element_text(size = 18, hjust = 0.5, vjust = 0.5)) + 
+  scale_y_continuous(limits = c(0, y.max.sewer), breaks = seq(0,y.max.sewer,500)) +
   labs(x = "Datum",
        y = "Virusvracht per 100.000 inwoners",
        title = "Rioolwater: Gemiddelde aantal virusdeeltjes per 100.000 inwoners",
@@ -346,3 +349,4 @@ source("workflow/parse_vaccination_neighborhood.R")
 
 remove(list = ls())
 source("workflow/twitter/token_mzelst.R")
+
