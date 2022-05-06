@@ -39,17 +39,6 @@ source("plot_scripts/ziekenhuis_plots.R")
 
 ## Put in double date breaker for RIVM update
 repeat {
-  Sys.sleep(2)
-  time.start <- ymd_hms(paste0(Sys.Date()," 16:00:00"))
-  time.now <- ymd_hms(Sys.time())
-  
-  if (time.start < time.now){
-    message <- "GO GO GO GO GO"
-    break
-  }
-}
-
-repeat {
   Sys.sleep(3)
   date.check <- fread("https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen.csv")
   
@@ -183,6 +172,20 @@ infectieradar %>%
        color = "Legend",
        caption = paste("Bron data: RIVM  | Plot: @mzelst | ",Sys.Date()))
 ggsave("plots/infectieradar.png", width = 16, height = 8)
+
+## Put in date breaker for dashboard data download ##
+
+repeat {
+  Sys.sleep(300)
+  date.now <- Sys.Date()
+  dat <- fromJSON(txt = "https://coronadashboard.rijksoverheid.nl/json/NL.json")
+  date.dashboard <- as.Date(as.POSIXct(parse_number(dat$last_generated), origin = "1970-01-01"))
+  
+  if (date.now == date.dashboard){
+    message <- "GO GO GO GO GO"
+    break
+  }
+}
 
 
 
