@@ -4,7 +4,7 @@ vaxx.wijk <- fread(last(temp))
 
 vaxx.wijk <- vaxx.wijk %>%
   dplyr::filter(Region_code != "") %>% # Filter observations without municipal name
-  select(
+  dplyr::select(
     Region_name, 
     Region_code,
     Date_of_statistics, 
@@ -14,7 +14,7 @@ vaxx.wijk <- vaxx.wijk %>%
   )
 
 vaxx.wijk.partial <- vaxx.wijk %>%
-  select(
+  dplyr::select(
     Region_name, 
     Region_code,
     Date_of_statistics,
@@ -24,7 +24,7 @@ vaxx.wijk.partial <- vaxx.wijk %>%
   mutate(Coverage_primary_partly = parse_number(Coverage_primary_partly))
 
 vaxx.wijk.completed <- vaxx.wijk %>%
-  select(
+  dplyr::select(
     Region_name, 
     Region_code,
     Date_of_statistics,

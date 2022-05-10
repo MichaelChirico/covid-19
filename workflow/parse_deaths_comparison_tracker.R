@@ -163,7 +163,7 @@ setDF(cbs_sterfte)
 
 cbs.death.statistics.week <- merge(sterfte_wlz_other, cbs_sterfte,by=c("Week","Jaar"))
 cbs.death.statistics.week <- cbs.death.statistics.week %>%
-  select(Week, Jaar, Sterfte_Wlz, Sterfte_Other)
+  dplyr::select(Week, Jaar, Sterfte_Wlz, Sterfte_Other)
 
 #### Merge CBS mortality data ####
 
@@ -177,7 +177,7 @@ cbs.df <- cbs.df %>%
   mutate(other_deaths = parse_number(other_deaths)) %>%
   mutate(wlz_covid = round(wlz_deaths*wlz_deaths_perc,0)) %>%
   mutate(other_covid = round(other_deaths*other_deaths_perc,0)) %>%
-  select(Year, Week, wlz_covid, other_covid) %>%
+  dplyr::select(Year, Week, wlz_covid, other_covid) %>%
   arrange(Year, Week)
 rm(cbs.death.statistics, cbs.death.statistics.week,urls)
 
