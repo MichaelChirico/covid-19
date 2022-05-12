@@ -43,7 +43,7 @@ remove(list = ls())
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
-repo <- init()
+repo <- git2r::init()
 add(repo, path = "data-dashboards/age-week.csv")
 commit(repo, all = T, paste0("Update data agegroups per week ",Sys.Date()))
 push(repo, credentials = git.auth)
