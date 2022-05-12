@@ -229,19 +229,20 @@ deaths_weekly <- merge(deaths_weekly, excess.mort.rivm[,c("Year","Week","excess_
 
 ## CBS death statistics
 u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/13/doodsoorzaken-2020-december-2021.xlsx"
+u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/19/doodsoorzaken-januari-2022.xlsx"
 #webpage.cbs <- read_html(u.cbs)
 
 download.file(u.cbs,destfile = "cbs_deaths.xlsx", mode = "wb")
-cbs.death.statistics <- data.table(read_excel("cbs_deaths.xlsx",sheet = 2))[5:57,c(1,5,6,8,9)]
+cbs.death.statistics <- data.table(read_excel("cbs_deaths.xlsx",sheet = 2))[5:57,c(1,5,6,8,9,11,12)]
 unlink("cbs_deaths.xlsx")
-colnames(cbs.death.statistics) <- c("Week","2020_covid","2020_non_covid","2021_covid","2021_non_covid")
+colnames(cbs.death.statistics) <- c("Week","2020_covid","2020_non_covid","2021_covid","2021_non_covid", "2022_covid","2022_non_covid")
 
 cbs.death.statistics <- cbs.death.statistics %>%
   mutate(Week = parse_number(Week))
 
-cbs.covid <- gather(cbs.death.statistics[,c("Week","2020_covid","2021_covid")], key = "Year",value = "Covid_deaths_CBS_death_statistics",-Week)
+cbs.covid <- gather(cbs.death.statistics[,c("Week","2020_covid","2021_covid","2022_covid")], key = "Year",value = "Covid_deaths_CBS_death_statistics",-Week)
 cbs.covid$Year <- parse_number(cbs.covid$Year)
-cbs.noncovid <- gather(cbs.death.statistics[,c("Week","2020_non_covid","2021_non_covid")], key = "Year",value = "Mortality_without_covid_CBS",-Week)
+cbs.noncovid <- gather(cbs.death.statistics[,c("Week","2020_non_covid","2021_non_covid","2022_non_covid")], key = "Year",value = "Mortality_without_covid_CBS",-Week)
 cbs.noncovid$Year <- parse_number(cbs.noncovid$Year)
 
 cbs.death.statistics <- merge(cbs.covid, cbs.noncovid, by = c("Week","Year"))

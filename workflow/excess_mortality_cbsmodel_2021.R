@@ -470,12 +470,12 @@ totals <- totals %>%
   select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
 
 
-u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/13/doodsoorzaken-2020-december-2021.xlsx"
+u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/19/doodsoorzaken-januari-2022.xlsx"
 
 download.file(u.cbs,destfile = "cbs_deaths.xlsx", mode = "wb")
-cbs.death.statistics <- data.table(read_excel("cbs_deaths.xlsx",sheet = 2)[5:57,c(1,5,8)])
+cbs.death.statistics <- data.table(read_excel("cbs_deaths.xlsx",sheet = 2)[5:57,c(1,5,8,11)])
 unlink("cbs_deaths.xlsx")
-colnames(cbs.death.statistics) <- c("week","Covid_2020","Covid_2021")
+colnames(cbs.death.statistics) <- c("week","Covid_2020","Covid_2021","Covid_2022")
 cbs.death.statistics <- gather(cbs.death.statistics,key = "year",value = "covid_deaths",-week)
 cbs.death.statistics <- cbs.death.statistics %>%
   mutate_all(parse_number) %>%
