@@ -63,7 +63,7 @@ colnames(nice_by_day_IC) <- c("Leeftijd","Totaal","Datum","Type")
 
 nice_by_day <- rbind(nice_by_day_clinical, nice_by_day_IC)
 nice_by_day_wide <- spread(nice_by_day, Leeftijd, Totaal)
-nice_by_day_wide <- nice_by_day_wide %>% select(Datum:`<20`, `20 - 24`:`85 - 89`,`>90`)
+nice_by_day_wide <- nice_by_day_wide %>% dplyr::select(Datum:`<20`, `20 - 24`:`85 - 89`,`>90`)
 write.csv(nice_by_day_wide, file = "data-nice/age/leeftijdsverdeling_datum_Klinisch_IC_long.csv", row.names = F)
 
 ## Plot hospital intake per age group (older groups)
@@ -220,7 +220,7 @@ nice_by_day_clinical_overleden <- nice_by_day_clinical_overleden[,c("Leeftijd","
 Klinisch_overleden <- nice_by_day_clinical_overleden %>%
   spread(Leeftijd,value = Overleden_toename)
 
-Klinisch_overleden <- Klinisch_overleden %>% select(Datum:`<20`, `20 - 24`:`85 - 89`,`>90`)
+Klinisch_overleden <- Klinisch_overleden %>% dplyr::select(Datum:`<20`, `20 - 24`:`85 - 89`,`>90`)
 Klinisch_overleden$Totaal <- rowSums(Klinisch_overleden[,c(2:17)])
 
 write.csv(Klinisch_overleden, file = "data-nice/age/leeftijdsverdeling_datum_Klinisch_Overleden.csv", row.names = F)
@@ -248,7 +248,7 @@ nice_by_day_IC_overleden <- nice_by_day_IC_overleden[,c("Leeftijd","Overleden_to
 IC_overleden <- nice_by_day_IC_overleden %>%
   spread(Leeftijd,value = Overleden_toename)
 
-IC_overleden <- IC_overleden %>% select(Datum:`<20`, `20 - 24`:`85 - 89`,`>90`)
+IC_overleden <- IC_overleden %>% dplyr::select(Datum:`<20`, `20 - 24`:`85 - 89`,`>90`)
 IC_overleden$Totaal <- rowSums(IC_overleden[,c(2:17)])
 
 write.csv(IC_overleden, file = "data-nice/age/leeftijdsverdeling_datum_IC_Overleden.csv", row.names = F)
