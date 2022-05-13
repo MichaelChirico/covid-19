@@ -487,7 +487,7 @@ cbs.death.statistics <- cbs.death.statistics %>%
   select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
 
 totals <- totals %>%
-  dplyr::filter(week >= last(cbs.death.statistics$week)) %>%
+  dplyr::filter(week > last(cbs.death.statistics$week)) %>%
   dplyr::filter(year == 2022)
 
 #totals.test <- subset(totals, !(week <= last(cbs.death.statistics$week) & year == last(cbs.death.statistics$year)))
