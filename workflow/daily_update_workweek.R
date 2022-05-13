@@ -176,7 +176,7 @@ ggsave("plots/infectieradar.png", width = 16, height = 8)
 ## Put in date breaker for dashboard data download ##
 
 repeat {
-  Sys.sleep(300)
+  Sys.sleep(15)
   date.now <- Sys.Date()
   dat <- fromJSON(txt = "https://coronadashboard.rijksoverheid.nl/json/NL.json")
   date.dashboard <- as.Date(as.POSIXct(parse_number(dat$last_generated), origin = "1970-01-01"))

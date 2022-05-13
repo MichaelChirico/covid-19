@@ -32,7 +32,7 @@ lapply(function(dat) {
       Hospital_admission_cum = cumsum(Hospital_admission),
       .after = Hospital_admission
     ) %>%
-    select(
+    dplyr::select(
       date, 
       Municipality_name, 
       Municipality_code,
