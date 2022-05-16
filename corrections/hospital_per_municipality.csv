@@ -1,44 +1,42 @@
 "Date_of_statistics","Municipality_name","Security_region_name","hospital.today.mun","hospital.yesterday.mun","diff"
-2022-03-14,"Amersfoort","Utrecht",2,1,1
-2022-04-25,"Schouwen-Duiveland","Zeeland",1,0,1
-2022-04-28,"Vlissingen","Zeeland",1,0,1
-2022-05-01,"Middelburg","Zeeland",1,0,1
-2022-05-03,"Teylingen","Hollands-Midden",1,0,1
-2022-05-05,"","",2,1,1
-2022-05-07,"Baarn","Utrecht",1,0,1
-2022-05-07,"Brunssum","Limburg-Zuid",0,1,-1
-2022-05-09,"Arnhem","Gelderland-Midden",2,1,1
-2022-05-09,"Capelle aan den IJssel","Rotterdam-Rijnmond",1,0,1
-2022-05-09,"Hollands Kroon","Noord-Holland-Noord",1,0,1
-2022-05-09,"Purmerend","Zaanstreek-Waterland",1,0,1
-2022-05-10,"Alblasserdam","Zuid-Holland-Zuid",1,0,1
-2022-05-10,"Amersfoort","Utrecht",1,0,1
-2022-05-10,"Arnhem","Gelderland-Midden",2,0,2
-2022-05-10,"Breda","Midden- en West-Brabant",1,0,1
-2022-05-10,"Doetinchem","Noord- en Oost-Gelderland",1,0,1
-2022-05-10,"Heerlen","Limburg-Zuid",1,0,1
-2022-05-10,"Hendrik-Ido-Ambacht","Zuid-Holland-Zuid",1,0,1
-2022-05-10,"Hoorn","Noord-Holland-Noord",1,0,1
-2022-05-10,"Nijkerk","Gelderland-Midden",1,0,1
-2022-05-10,"Ridderkerk","Rotterdam-Rijnmond",1,0,1
-2022-05-10,"Terneuzen","Zeeland",1,0,1
-2022-05-10,"Woerden","Utrecht",1,0,1
-2022-05-10,"Zeist","Utrecht",1,0,1
-2022-05-11,"'s-Gravenhage","Haaglanden",1,0,1
-2022-05-11,"Amersfoort","Utrecht",1,0,1
-2022-05-11,"Barneveld","Gelderland-Midden",1,0,1
-2022-05-11,"Beuningen","Gelderland-Zuid",1,0,1
-2022-05-11,"Ede","Gelderland-Midden",1,0,1
-2022-05-11,"Emmen","Drenthe",2,1,1
-2022-05-11,"Heerlen","Limburg-Zuid",1,0,1
-2022-05-11,"Hengelo","Twente",1,0,1
-2022-05-11,"Lingewaard","Gelderland-Midden",1,0,1
-2022-05-11,"Overbetuwe","Gelderland-Midden",1,0,1
-2022-05-11,"Purmerend","Zaanstreek-Waterland",1,0,1
-2022-05-11,"Rheden","Gelderland-Midden",1,0,1
-2022-05-11,"Rotterdam","Rotterdam-Rijnmond",1,0,1
-2022-05-11,"Schagen","Noord-Holland-Noord",1,0,1
-2022-05-11,"Steenwijkerland","IJsselland",1,0,1
-2022-05-11,"Vlissingen","Zeeland",1,0,1
-2022-05-11,"Winterswijk","Noord- en Oost-Gelderland",1,0,1
-2022-05-11,"Woudenberg","Utrecht",1,0,1
+2021-12-30,"Valkenswaard","Brabant-Zuidoost",1,0,1
+2022-01-08,"Eindhoven","Brabant-Zuidoost",1,0,1
+2022-04-13,"Altena","Midden- en West-Brabant",1,0,1
+2022-04-29,"Ede","Gelderland-Midden",0,1,-1
+2022-04-30,"Utrecht","Utrecht",4,3,1
+2022-05-04,"Eindhoven","Brabant-Zuidoost",3,2,1
+2022-05-04,"Schiedam","Rotterdam-Rijnmond",1,0,1
+2022-05-05,"Heerenveen","Fryslân",2,1,1
+2022-05-06,"Barneveld","Gelderland-Midden",1,0,1
+2022-05-08,"Almelo","Twente",1,0,1
+2022-05-09,"Houten","Utrecht",0,1,-1
+2022-05-09,"Oosterhout","Midden- en West-Brabant",1,0,1
+2022-05-09,"Schagen","Noord-Holland-Noord",1,0,1
+2022-05-09,"Schouwen-Duiveland","Zeeland",1,0,1
+2022-05-10,"Castricum","Noord-Holland-Noord",1,0,1
+2022-05-10,"Deventer","IJsselland",1,0,1
+2022-05-10,"Eindhoven","Brabant-Zuidoost",2,0,2
+2022-05-10,"Hardenberg","IJsselland",0,1,-1
+2022-05-10,"Noordoostpolder","Flevoland",1,0,1
+2022-05-10,"Rotterdam","Rotterdam-Rijnmond",1,0,1
+2022-05-10,"Waalwijk","Midden- en West-Brabant",1,0,1
+2022-05-11,"Capelle aan den IJssel","Rotterdam-Rijnmond",1,0,1
+2022-05-11,"Deurne","Brabant-Zuidoost",1,0,1
+2022-05-11,"Enschede","Twente",1,0,1
+2022-05-11,"Hof van Twente","Twente",1,0,1
+2022-05-11,"Woerden","Utrecht",1,0,1
+2022-05-12,"Amsterdam","Amsterdam-Amstelland",1,0,1
+2022-05-12,"Beuningen","Gelderland-Zuid",1,0,1
+2022-05-12,"Capelle aan den IJssel","Rotterdam-Rijnmond",1,0,1
+2022-05-12,"Ede","Gelderland-Midden",1,0,1
+2022-05-12,"Hollands Kroon","Noord-Holland-Noord",1,0,1
+2022-05-12,"Nieuwkoop","Hollands-Midden",1,0,1
+2022-05-12,"Nijmegen","Gelderland-Zuid",1,0,1
+2022-05-12,"Nissewaard","Rotterdam-Rijnmond",1,0,1
+2022-05-12,"Schouwen-Duiveland","Zeeland",1,0,1
+2022-05-12,"Soest","Utrecht",1,0,1
+2022-05-12,"Son en Breugel","Brabant-Zuidoost",1,0,1
+2022-05-12,"Utrechtse Heuvelrug","Utrecht",1,0,1
+2022-05-12,"Waadhoeke","Fryslân",1,0,1
+2022-05-12,"Westvoorne","Rotterdam-Rijnmond",1,0,1
+2022-05-12,"Zoetermeer","Haaglanden",1,0,1
