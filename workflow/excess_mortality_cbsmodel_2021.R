@@ -1,8 +1,8 @@
 ## title: Script for estimating excess deaths from Corona
 ## original author: Trond Husby
 ## edits by: Marino van Zelst
-## date: 26.06.2020
-## last edit: 20-09-2021
+## date: 2020-06-26
+## last edit: 2022-05-13
 
 ##
 ## house keeping
@@ -11,7 +11,7 @@
 ## Put in double date breaker for daily update
 repeat {
 #  Sys.sleep(600)
-  time.start <- ymd_hms(paste0("2022-04-01"," 05:00:00"))
+  time.start <- ymd_hms(paste0("2022-05-20"," 05:00:00"))
   time.now <- ymd_hms(Sys.time())
   
   if (time.start < time.now){
