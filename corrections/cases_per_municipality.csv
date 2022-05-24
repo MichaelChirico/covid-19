@@ -1,59 +1,24 @@
 "Date_of_publication","Municipality_name","Municipal_health_service","cases.today.mun","cases.yesterday.mun","diff"
-2021-03-13,"","GGD Twente",1,0,1
-2021-03-13,"Enschede","GGD Twente",28,29,-1
-2021-12-18,"","GGD Twente",3,4,-1
-2021-12-18,"Enschede","GGD Twente",118,117,1
-2022-02-01,"Tilburg","GGD Hart voor Brabant",1752,1753,-1
-2022-02-03,"Meppel","GGD Drenthe",150,151,-1
-2022-02-08,"Meppel","GGD Drenthe",835,834,1
-2022-02-08,"Tilburg","GGD Hart voor Brabant",9435,9434,1
-2022-05-13,"Vijfheerenlanden","GGD Regio Utrecht",1,2,-1
-2022-05-16,"","GGD Amsterdam",27,18,9
-2022-05-16,"Amsterdam","GGD Amsterdam",93,95,-2
-2022-05-16,"Diemen","GGD Amsterdam",3,4,-1
-2022-05-16,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",3,4,-1
-2022-05-16,"Hendrik-Ido-Ambacht","Dienst Gezondheid & Jeugd ZHZ",5,6,-1
-2022-05-17,"","GGD Amsterdam",25,13,12
-2022-05-17,"Amstelveen","GGD Amsterdam",12,13,-1
-2022-05-17,"Amsterdam","GGD Amsterdam",108,111,-3
-2022-05-18,"","Dienst Gezondheid & Jeugd ZHZ",1,2,-1
-2022-05-18,"","GGD Amsterdam",14,9,5
-2022-05-18,"Alblasserdam","Dienst Gezondheid & Jeugd ZHZ",2,3,-1
-2022-05-18,"Amsterdam","GGD Amsterdam",97,98,-1
-2022-05-18,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",9,8,1
-2022-05-18,"Enschede","GGD Twente",13,12,1
-2022-05-18,"Katwijk","GGD Hollands-Midden",11,12,-1
-2022-05-18,"Leiden","GGD Hollands-Midden",13,14,-1
-2022-05-18,"Oegstgeest","GGD Hollands-Midden",1,2,-1
-2022-05-19,"","GGD Amsterdam",24,10,14
-2022-05-19,"","GGD Kennemerland",11,13,-2
-2022-05-19,"Amsterdam","GGD Amsterdam",131,135,-4
-2022-05-19,"Haarlemmermeer","GGD Kennemerland",9,10,-1
-2022-05-19,"Het Hogeland","GGD Groningen",6,5,1
-2022-05-19,"Katwijk","GGD Hollands-Midden",3,2,1
-2022-05-19,"Leiden","GGD Hollands-Midden",13,12,1
-2022-05-19,"Lopik","GGD Regio Utrecht",1,2,-1
-2022-05-19,"Oegstgeest","GGD Hollands-Midden",7,6,1
-2022-05-19,"Stichtse Vecht","GGD Regio Utrecht",3,2,1
-2022-05-19,"Utrecht","GGD Regio Utrecht",43,42,1
-2022-05-19,"Zeist","GGD Regio Utrecht",5,6,-1
-2022-05-19,"Zwijndrecht","Dienst Gezondheid & Jeugd ZHZ",5,6,-1
-2022-05-20,"","GGD Amsterdam",13,9,4
-2022-05-20,"","GGD Flevoland",1,2,-1
-2022-05-20,"","GGD Fryslân",0,1,-1
-2022-05-20,"","GGD Haaglanden",0,1,-1
-2022-05-20,"","GGD Kennemerland",6,5,1
-2022-05-20,"","GGD Rotterdam-Rijnmond",3,4,-1
-2022-05-20,"","GGD Zeeland",1,0,1
-2022-05-20,"Amsterdam","GGD Amsterdam",77,79,-2
-2022-05-20,"Dronten","GGD Flevoland",3,2,1
-2022-05-20,"Heemskerk","GGD Kennemerland",4,3,1
-2022-05-20,"Leeuwarden","GGD Fryslân",15,14,1
-2022-05-20,"Leiden","GGD Hollands-Midden",19,20,-1
-2022-05-20,"Leudal","GGD Limburg-Noord",1,0,1
-2022-05-20,"Stichtse Vecht","GGD Regio Utrecht",2,3,-1
-2022-05-20,"Terneuzen","GGD Zeeland",1,2,-1
-2022-05-20,"Utrecht","GGD Regio Utrecht",33,34,-1
-2022-05-20,"Waddinxveen","GGD Hollands-Midden",2,1,1
-2022-05-20,"Wageningen","Veiligheids- en Gezondheidsregio Gelderland-Midden",4,5,-1
-2022-05-20,"Zwijndrecht","Dienst Gezondheid & Jeugd ZHZ",6,5,1
+2022-02-03,"Rotterdam","GGD Rotterdam-Rijnmond",3574,3575,-1
+2022-02-08,"Rotterdam","GGD Rotterdam-Rijnmond",8254,8253,1
+2022-05-12,"","GGD Amsterdam",39,40,-1
+2022-05-12,"Amsterdam","GGD Amsterdam",182,181,1
+2022-05-13,"Uithoorn","GGD Amsterdam",7,8,-1
+2022-05-14,"Uithoorn","GGD Amsterdam",2,1,1
+2022-05-17,"","GGD Amsterdam",24,25,-1
+2022-05-17,"Amsterdam","GGD Amsterdam",110,108,2
+2022-05-18,"","Dienst Gezondheid & Jeugd ZHZ",0,1,-1
+2022-05-18,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",10,9,1
+2022-05-21,"","GGD Amsterdam",27,26,1
+2022-05-21,"Katwijk","GGD Hollands-Midden",2,3,-1
+2022-05-22,"Hilversum","GGD Gooi en Vechtstreek",4,5,-1
+2022-05-22,"Katwijk","GGD Hollands-Midden",1,0,1
+2022-05-23,"","GGD Amsterdam",5,3,2
+2022-05-23,"","GGD Haaglanden",2,3,-1
+2022-05-23,"","GGD Kennemerland",14,16,-2
+2022-05-23,"","GGD Regio Utrecht",0,1,-1
+2022-05-23,"'s-Gravenhage","GGD Haaglanden",20,19,1
+2022-05-23,"Amsterdam","GGD Amsterdam",65,67,-2
+2022-05-23,"Hilversum","GGD Gooi en Vechtstreek",21,20,1
+2022-05-23,"Utrecht","GGD Regio Utrecht",25,24,1
+2022-05-23,"Woerden","GGD Regio Utrecht",8,9,-1
