@@ -11,7 +11,7 @@ monkeypox.nl <- monkeypox.nl %>%
   ) %>%
   mutate(Besmettingen = 1)
 
-write.csv(monkeypox.nl[,c(1:5)], file = "data-misc/monkeypox/monkeypox_globaldothealth.csv",row.names=F)
+write.csv(monkeypox.nl[,c(1:6)], file = "data-misc/monkeypox/monkeypox_globaldothealth.csv",row.names=F)
 
 monkeypox.nl <- aggregate(Besmettingen ~ Date_confirmation, data = monkeypox.nl, FUN = sum)
 monkeypox.nl <- pad(monkeypox.nl)
