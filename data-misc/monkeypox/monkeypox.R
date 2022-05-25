@@ -6,14 +6,18 @@ monkeypox.nl <- fread("data-misc/monkeypox/monkeypox_globaldothealth.csv")
 
 monkeypox.nl <- monkeypox.nl %>%
   mutate(
-    date = as.Date(Date_confirmation, tryFormats = c('%m/%d/%Y')),
+    Date_confirmation = as.Date(Date_confirmation, tryFormats = c('%m/%d/%Y')),
     .before = Date_confirmation
   ) %>%
   mutate(Besmettingen = 1)
 
-monkeypox.nl <- aggregate(Besmettingen ~ date, data = monkeypox.nl, FUN = sum)
+write.csv(monkeypox.nl[,c(1:5)], file = "data-misc/monkeypox/monkeypox_globaldothealth.csv",row.names=F)
+
+monkeypox.nl <- aggregate(Besmettingen ~ Date_confirmation, data = monkeypox.nl, FUN = sum)
 monkeypox.nl <- pad(monkeypox.nl)
 monkeypox.nl <- monkeypox.nl %>%
+  mutate(date = Date_confirmation) %>%
+  mutate(Date_confirmation = NULL) %>%
   mutate(Besmettingen = ifelse(is.na(Besmettingen),0,Besmettingen)) %>%
   mutate(Cumulatief = cumsum(Besmettingen))
 
