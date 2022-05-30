@@ -1,48 +1,140 @@
 "Date_of_publication","Municipality_name","Municipal_health_service","cases.today.mun","cases.yesterday.mun","diff"
-2021-07-09,"Hellendoorn","GGD Twente",12,13,-1
-2021-12-18,"","GGD Kennemerland",5,4,1
-2021-12-18,"Haarlem","GGD Kennemerland",159,160,-1
-2021-12-21,"Wierden","GGD Twente",10,11,-1
-2021-12-22,"","GGD Twente",1,2,-1
-2021-12-24,"Almelo","GGD Twente",30,31,-1
-2021-12-26,"Twenterand","GGD Twente",35,36,-1
-2022-01-23,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",529,528,1
-2022-02-01,"Amsterdam","GGD Amsterdam",4069,4070,-1
-2022-02-01,"Hoeksche Waard","Dienst Gezondheid & Jeugd ZHZ",467,466,1
-2022-02-08,"Amsterdam","GGD Amsterdam",11293,11292,1
-2022-02-08,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",2582,2583,-1
-2022-02-08,"Hoeksche Waard","Dienst Gezondheid & Jeugd ZHZ",1737,1738,-1
-2022-05-17,"Waddinxveen","GGD Hollands-Midden",0,1,-1
-2022-05-19,"Ede","Veiligheids- en Gezondheidsregio Gelderland-Midden",16,17,-1
-2022-05-19,"Gorinchem","Dienst Gezondheid & Jeugd ZHZ",5,6,-1
-2022-05-19,"Hoeksche Waard","Dienst Gezondheid & Jeugd ZHZ",4,5,-1
-2022-05-19,"Molenlanden","Dienst Gezondheid & Jeugd ZHZ",8,9,-1
-2022-05-19,"Noord-Beveland","GGD Zeeland",0,1,-1
-2022-05-20,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",10,11,-1
-2022-05-20,"Ede","Veiligheids- en Gezondheidsregio Gelderland-Midden",5,4,1
-2022-05-20,"Gorinchem","Dienst Gezondheid & Jeugd ZHZ",4,3,1
-2022-05-20,"Noord-Beveland","GGD Zeeland",1,0,1
-2022-05-20,"Wageningen","Veiligheids- en Gezondheidsregio Gelderland-Midden",5,4,1
-2022-05-21,"","GGD Amsterdam",26,27,-1
-2022-05-21,"","GGD Flevoland",4,3,1
-2022-05-21,"Amsterdam","GGD Amsterdam",106,105,1
-2022-05-21,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",12,11,1
-2022-05-21,"Het Hogeland","GGD Groningen",4,5,-1
-2022-05-21,"Krimpen aan den IJssel","GGD Rotterdam-Rijnmond",3,4,-1
-2022-05-21,"Wageningen","Veiligheids- en Gezondheidsregio Gelderland-Midden",6,7,-1
-2022-05-23,"","Dienst Gezondheid & Jeugd ZHZ",0,1,-1
-2022-05-23,"","GGD Kennemerland",12,13,-1
-2022-05-23,"Rijswijk","GGD Haaglanden",5,4,1
-2022-05-23,"Zwijndrecht","Dienst Gezondheid & Jeugd ZHZ",2,1,1
-2022-05-24,"Ridderkerk","GGD Rotterdam-Rijnmond",7,8,-1
-2022-05-25,"","Dienst Gezondheid & Jeugd ZHZ",1,2,-1
-2022-05-25,"","GGD Amsterdam",12,4,8
-2022-05-25,"","GGD Drenthe",1,2,-1
-2022-05-25,"","GGD Kennemerland",5,4,1
-2022-05-25,"Amsterdam","GGD Amsterdam",89,95,-6
-2022-05-25,"Deventer","GGD IJsselland",2,3,-1
-2022-05-25,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",11,10,1
-2022-05-25,"Emmen","GGD Drenthe",11,10,1
-2022-05-25,"Overbetuwe","Veiligheids- en Gezondheidsregio Gelderland-Midden",2,3,-1
-2022-05-25,"Velsen","GGD Kennemerland",3,4,-1
-2022-05-25,"Zaanstad","GGD Zaanstreek/Waterland",7,6,1
+2021-01-03,"Enschede","GGD Twente",79,80,-1
+2021-02-27,"Hoeksche Waard","Dienst Gezondheid & Jeugd ZHZ",27,26,1
+2021-02-27,"Rotterdam","GGD Rotterdam-Rijnmond",170,171,-1
+2021-03-14,"Hellendoorn","GGD Twente",11,12,-1
+2021-03-15,"Hellendoorn","GGD Twente",8,9,-1
+2021-03-15,"Hengelo","GGD Twente",14,15,-1
+2021-03-19,"","GGD Twente",1,2,-1
+2021-03-19,"Dinkelland","GGD Twente",13,14,-1
+2021-03-21,"Haaksbergen","GGD Twente",7,8,-1
+2021-03-25,"Borne","GGD Twente",3,4,-1
+2021-03-25,"Enschede","GGD Twente",47,48,-1
+2021-03-25,"Hof van Twente","GGD Twente",15,16,-1
+2021-03-25,"Wierden","GGD Twente",9,10,-1
+2021-03-29,"Almelo","GGD Twente",15,16,-1
+2021-04-02,"","GGD Twente",0,1,-1
+2021-04-03,"Almelo","GGD Twente",14,16,-2
+2021-04-04,"Borne","GGD Twente",6,7,-1
+2021-04-04,"Tubbergen","GGD Twente",7,8,-1
+2021-04-07,"Tubbergen","GGD Twente",4,5,-1
+2021-04-08,"Almelo","GGD Twente",14,15,-1
+2021-04-09,"Enschede","GGD Twente",67,68,-1
+2021-04-10,"","GGD Twente",4,5,-1
+2021-04-10,"Dinkelland","GGD Twente",15,16,-1
+2021-04-10,"Enschede","GGD Twente",53,54,-1
+2021-04-13,"","GGD Twente",2,3,-1
+2021-04-16,"Losser","GGD Twente",9,10,-1
+2021-04-17,"Voorst","GGD Noord- en Oost-Gelderland",27,28,-1
+2021-04-18,"Dalfsen","GGD IJsselland",8,9,-1
+2021-04-20,"Hengelo","GGD Twente",12,13,-1
+2021-04-20,"Rijssen-Holten","GGD Twente",18,19,-1
+2021-04-24,"","GGD Twente",0,1,-1
+2021-04-24,"Almelo","GGD Twente",17,18,-1
+2021-04-26,"Enschede","GGD Twente",73,74,-1
+2021-04-26,"Losser","GGD Twente",4,5,-1
+2021-04-28,"Rijssen-Holten","GGD Twente",24,25,-1
+2021-04-30,"Hengelo","GGD Twente",31,32,-1
+2021-05-01,"Enschede","GGD Twente",35,36,-1
+2021-05-02,"Twenterand","GGD Twente",1,2,-1
+2021-05-03,"Hof van Twente","GGD Twente",28,29,-1
+2021-05-04,"Enschede","GGD Twente",36,37,-1
+2021-05-05,"Hof van Twente","GGD Twente",22,23,-1
+2021-05-05,"Losser","GGD Twente",17,18,-1
+2021-05-06,"Losser","GGD Twente",11,12,-1
+2021-05-07,"Tubbergen","GGD Twente",14,15,-1
+2021-05-10,"Hengelo","GGD Twente",29,30,-1
+2021-05-10,"Rijswijk","GGD Haaglanden",8,9,-1
+2021-05-10,"Tubbergen","GGD Twente",17,18,-1
+2021-05-11,"Almelo","GGD Twente",36,37,-1
+2021-05-11,"Twenterand","GGD Twente",11,12,-1
+2021-05-13,"Almelo","GGD Twente",35,36,-1
+2021-05-13,"Rijswijk","GGD Haaglanden",14,15,-1
+2021-05-14,"Enschede","GGD Twente",58,59,-1
+2021-05-14,"Haaksbergen","GGD Twente",7,8,-1
+2021-05-19,"Dinkelland","GGD Twente",13,14,-1
+2021-05-19,"Enschede","GGD Twente",54,55,-1
+2021-05-19,"Oldenzaal","GGD Twente",27,28,-1
+2021-05-19,"Tubbergen","GGD Twente",7,8,-1
+2021-05-19,"Wierden","GGD Twente",15,16,-1
+2021-05-20,"Losser","GGD Twente",15,16,-1
+2021-05-21,"Almelo","GGD Twente",29,30,-1
+2021-05-23,"Enschede","GGD Twente",28,29,-1
+2021-05-24,"Hellendoorn","GGD Twente",3,4,-1
+2021-05-25,"Enschede","GGD Twente",24,25,-1
+2021-05-27,"Almelo","GGD Twente",28,29,-1
+2021-05-27,"Hengelo","GGD Twente",27,28,-1
+2021-05-28,"Almelo","GGD Twente",27,29,-2
+2021-05-30,"Oldenzaal","GGD Twente",4,5,-1
+2021-06-05,"Apeldoorn","GGD Noord- en Oost-Gelderland",16,17,-1
+2021-06-14,"Oldenzaal","GGD Twente",3,4,-1
+2021-06-17,"Middelburg","GGD Zeeland",3,4,-1
+2021-06-17,"Oldenzaal","GGD Twente",2,3,-1
+2021-06-17,"Twenterand","GGD Twente",14,15,-1
+2021-07-13,"Hof van Twente","GGD Twente",9,10,-1
+2021-10-17,"Hof van Twente","GGD Twente",9,10,-1
+2021-10-20,"Haaksbergen","GGD Twente",8,9,-1
+2021-10-28,"Twenterand","GGD Twente",12,13,-1
+2021-10-29,"Enschede","GGD Twente",44,45,-1
+2021-11-06,"Zaanstad","GGD Zaanstreek/Waterland",73,74,-1
+2021-11-13,"Almelo","GGD Twente",65,66,-1
+2021-11-18,"","GGD Twente",4,5,-1
+2021-11-18,"Almelo","GGD Twente",70,71,-1
+2021-11-18,"Enschede","GGD Twente",156,157,-1
+2021-11-20,"Hengelo","GGD Twente",104,105,-1
+2021-11-22,"Oldenzaal","GGD Twente",41,42,-1
+2021-11-25,"Maasdriel","GGD Gelderland-Zuid",32,33,-1
+2021-11-26,"Hengelo","GGD Twente",137,138,-1
+2021-12-01,"Borne","GGD Twente",26,27,-1
+2021-12-03,"Twenterand","GGD Twente",37,38,-1
+2021-12-05,"","GGD Twente",1,2,-1
+2021-12-05,"Enschede","GGD Twente",201,200,1
+2021-12-06,"","GGD Twente",7,8,-1
+2021-12-06,"Hof van Twente","GGD Twente",26,27,-1
+2021-12-10,"Almelo","GGD Twente",60,61,-1
+2021-12-14,"Rijssen-Holten","GGD Twente",34,35,-1
+2021-12-16,"Hellendoorn","GGD Twente",21,22,-1
+2021-12-17,"Tubbergen","GGD Twente",15,16,-1
+2021-12-19,"Hengelo","GGD Twente",57,58,-1
+2021-12-21,"Geldrop-Mierlo","GGD Brabant-Zuidoost",17,18,-1
+2021-12-21,"Wierden","GGD Twente",9,10,-1
+2022-01-26,"Hendrik-Ido-Ambacht","Dienst Gezondheid & Jeugd ZHZ",152,153,-1
+2022-01-28,"Heiloo","GGD Hollands-Noorden",75,76,-1
+2022-01-29,"Wassenaar","GGD Haaglanden",24,25,-1
+2022-02-01,"Maastricht","GGD Zuid-Limburg",322,323,-1
+2022-02-03,"Eemnes","GGD Regio Utrecht",27,28,-1
+2022-02-03,"Rotterdam","GGD Rotterdam-Rijnmond",3575,3574,1
+2022-02-04,"Amsterdam","GGD Amsterdam",2966,2967,-1
+2022-02-04,"Rotterdam","GGD Rotterdam-Rijnmond",1308,1309,-1
+2022-02-08,"Amsterdam","GGD Amsterdam",11294,11293,1
+2022-02-08,"Eemnes","GGD Regio Utrecht",132,131,1
+2022-02-08,"Heiloo","GGD Hollands-Noorden",520,519,1
+2022-02-08,"Hendrik-Ido-Ambacht","Dienst Gezondheid & Jeugd ZHZ",697,696,1
+2022-02-08,"Maastricht","GGD Zuid-Limburg",1769,1768,1
+2022-02-08,"Wassenaar","GGD Haaglanden",397,396,1
+2022-05-20,"","GGD Amsterdam",12,13,-1
+2022-05-20,"Amsterdam","GGD Amsterdam",78,77,1
+2022-05-22,"","GGD Brabant-Zuidoost",1,2,-1
+2022-05-22,"Eindhoven","GGD Brabant-Zuidoost",7,6,1
+2022-05-24,"","GGD Regio Utrecht",1,2,-1
+2022-05-24,"Amersfoort","GGD Regio Utrecht",15,14,1
+2022-05-24,"Soest","GGD Regio Utrecht",8,7,1
+2022-05-24,"Vijfheerenlanden","GGD Regio Utrecht",9,10,-1
+2022-05-25,"","GGD Regio Utrecht",1,2,-1
+2022-05-25,"","GGD Rotterdam-Rijnmond",3,4,-1
+2022-05-25,"Hellevoetsluis","GGD Rotterdam-Rijnmond",6,5,1
+2022-05-25,"Utrecht","GGD Regio Utrecht",37,36,1
+2022-05-26,"","GGD Amsterdam",11,8,3
+2022-05-26,"Amsterdam","GGD Amsterdam",143,144,-1
+2022-05-26,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",13,14,-1
+2022-05-26,"Haarlemmermeer","GGD Kennemerland",12,11,1
+2022-05-27,"","GGD Amsterdam",24,20,4
+2022-05-27,"","GGD Kennemerland",38,37,1
+2022-05-27,"Amersfoort","GGD Regio Utrecht",15,14,1
+2022-05-27,"Amsterdam","GGD Amsterdam",99,106,-7
+2022-05-27,"Ede","Veiligheids- en Gezondheidsregio Gelderland-Midden",4,5,-1
+2022-05-27,"Haarlemmermeer","GGD Kennemerland",9,7,2
+2022-05-27,"Hillegom","GGD Hollands-Midden",0,1,-1
+2022-05-27,"Moerdijk","GGD West-Brabant",3,2,1
+2022-05-27,"Montfoort","GGD Regio Utrecht",1,2,-1
+2022-05-27,"Velsen","GGD Kennemerland",5,6,-1
