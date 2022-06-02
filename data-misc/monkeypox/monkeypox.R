@@ -1,6 +1,6 @@
 require(rvest)
 require(padr)
-
+setwd("C:/Users/ZELST007/Desktop/covid-19")
 monkeypox.nl <- fread("data-misc/monkeypox/monkeypox_globaldothealth.csv")
 
 
