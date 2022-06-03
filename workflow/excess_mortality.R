@@ -45,8 +45,8 @@ table_mortality[, ':=' (year = as.numeric(substr(Perioden, 1, 4)),
                         week = as.numeric(substr(Perioden, 7, 8))
 )
 ][,
-  ':=' (week_update1 = Overledenen_1 + shift(Overledenen_1),
-        week_update2 = Overledenen_1 + shift(Overledenen_1, -1)
+  ':=' (week_update1 = Overledenen_1 + data.table::shift(Overledenen_1),
+        week_update2 = Overledenen_1 + data.table::shift(Overledenen_1, -1)
   )
 ][week == 1 & w_length < 7,
   Overledenen_1 := week_update1
@@ -178,17 +178,17 @@ nl_dt$Year <- as.numeric(nl_dt$Year)
 excess_deaths_wide <- merge(excess_deaths_wide, nl_dt, by=c("Week","Year"), all.x=T)
 
 deaths_2020 <- mortality_wide %>%
-  select(LeeftijdOp31December,Week,`2020`) %>%
+  dplyr::select(LeeftijdOp31December,Week,`2020`) %>%
   spread(LeeftijdOp31December, `2020`) %>%
   add_column(Year = 2020)
 
 deaths_2021 <- mortality_wide %>%
-  select(LeeftijdOp31December,Week,`2021`) %>%
+  dplyr::select(LeeftijdOp31December,Week,`2021`) %>%
   spread(LeeftijdOp31December, `2021`) %>%
   add_column(Year = 2021)
 
 deaths_2022 <- mortality_wide %>%
-  select(LeeftijdOp31December,Week,`2022`) %>%
+  dplyr::select(LeeftijdOp31December,Week,`2022`) %>%
   spread(LeeftijdOp31December, `2022`) %>%
   add_column(Year = 2022)
 
@@ -339,7 +339,7 @@ git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 ## Push to git
-repo <- init()
+repo <- git2r::init()
 add(repo, path = "*")
 commit(repo, all = T, paste0("Excess mortality analyses - Week ", week.readfile))
 push(repo, credentials = git.auth)
