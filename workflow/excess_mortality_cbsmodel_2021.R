@@ -467,7 +467,7 @@ totals[53,"deaths_week_low"] <- totals[53,"Laag"]
 totals[53,"deaths_week_high"] <- totals[53,"Hoog"]
 
 totals <- totals %>%
-  select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
+  dplyr::select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
 
 
 u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/19/doodsoorzaken-januari-2022.xlsx"
@@ -484,7 +484,7 @@ cbs.death.statistics <- cbs.death.statistics %>%
   mutate(deaths_week_high = covid_deaths) %>%
   mutate(deaths_week_low = covid_deaths) %>%
   relocate(year, .after = deaths_week_low) %>%
-  select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
+  dplyr::select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
 
 totals <- totals %>%
   dplyr::filter(week > last(cbs.death.statistics$week)) %>%
@@ -677,7 +677,7 @@ git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 ## Push to git
-repo <- init()
+repo <- git2r::init()
 add(repo, path = "*")
 commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update DLM mortality analyses"))
 push(repo, credentials = git.auth)
