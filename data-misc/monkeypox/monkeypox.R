@@ -1,7 +1,10 @@
 require(rvest)
 require(padr)
+require(discordr)
+require(git2r)
 setwd("C:/Users/ZELST007/Desktop/covid-19")
 monkeypox.nl <- fread("data-misc/monkeypox/monkeypox_globaldothealth.csv")
+source("workflow/twitter/token_mzelst.R")
 
 
 monkeypox.nl <- monkeypox.nl %>%
@@ -26,7 +29,7 @@ title.monkeypox <- paste0("Cumulatief gemelde besmettingen met monkeypox in Nede
 
 Sys.setlocale("LC_TIME", "dutch")
 
-monkeypox.nl %>%
+monkeypox.plot <- monkeypox.nl %>%
   dplyr::filter(date() >= "2022-05-17") %>%
   ggplot() + 
   geom_col(aes(x = date, y = Cumulatief)) +
@@ -45,6 +48,34 @@ monkeypox.nl %>%
        caption = paste0("Bron: RIVM | Plot: @mzelst | Datum: ",as.Date(Sys.Date()))) +
   ylim(0, max(monkeypox.nl$Cumulatief)+5) +
   xlim(min(monkeypox.nl$date)-2, Sys.Date() + 1)
-
+monkeypox.plot
 write.csv(monkeypox.nl, file = "data-misc/monkeypox/monkeypox.csv", row.names = F)
 
+ggsave(monkeypox.plot, file = "plots/monkeypox.png",width = 16, height = 8)
+
+
+rivm.text <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
+  read_html() %>%
+  html_nodes('.blockPadding') %>%
+  html_text()
+
+tweet.monkeypox <- paste0("#Monkeypox
+
+",rivm.text,"
+
+Voor meer informatie, zie de website van het RIVM: https://rivm.nl/monkeypox-apenpokken")
+
+post_tweet (
+  tweet.monkeypox,
+  token = token.mzelst,
+  media = "plots/monkeypox.png")
+
+
+git.credentials <- read_lines("git_auth.txt")
+git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
+
+## Push to git
+repo <- init()
+add(repo, path = "*")
+commit(repo, all = T, paste0("[", Sys.Date(), "] - Monkeypox update"))
+push(repo, credentials = git.auth)
