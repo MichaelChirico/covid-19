@@ -1,70 +1,27 @@
 "Date_of_statistics","Municipality_name","Security_region_name","hospital.today.mun","hospital.yesterday.mun","diff"
-2022-05-14,"Rijswijk","Haaglanden",1,0,1
-2022-05-16,"Dordrecht","Zuid-Holland-Zuid",2,1,1
-2022-05-17,"Delft","Haaglanden",2,1,1
-2022-05-23,"'s-Gravenhage","Haaglanden",4,3,1
-2022-05-23,"Delft","Haaglanden",3,2,1
-2022-05-25,"Lansingerland","Rotterdam-Rijnmond",1,0,1
-2022-05-29,"Delft","Haaglanden",1,0,1
-2022-05-31,"Nieuwegein","Utrecht",1,0,1
-2022-05-31,"Pijnacker-Nootdorp","Haaglanden",1,0,1
-2022-06-01,"Buren","Gelderland-Zuid",1,0,1
-2022-06-02,"Breda","Midden- en West-Brabant",1,0,1
-2022-06-02,"Haarlemmermeer","Kennemerland",1,0,1
-2022-06-02,"Houten","Utrecht",1,0,1
-2022-06-02,"Krimpen aan den IJssel","Rotterdam-Rijnmond",1,0,1
-2022-06-02,"Rotterdam","Rotterdam-Rijnmond",2,0,2
-2022-06-02,"Tiel","Gelderland-Zuid",1,0,1
-2022-06-02,"Veenendaal","Utrecht",1,0,1
-2022-06-02,"Westland","Haaglanden",1,0,1
-2022-06-03,"'s-Gravenhage","Haaglanden",2,1,1
-2022-06-03,"Amersfoort","Utrecht",1,0,1
-2022-06-03,"Amsterdam","Amsterdam-Amstelland",2,0,2
-2022-06-03,"Barneveld","Gelderland-Midden",1,0,1
-2022-06-03,"Bergen op Zoom","Midden- en West-Brabant",2,0,2
-2022-06-03,"Beuningen","Gelderland-Zuid",1,0,1
-2022-06-03,"Breda","Midden- en West-Brabant",1,0,1
-2022-06-03,"Dinkelland","Twente",1,0,1
-2022-06-03,"Hoeksche Waard","Zuid-Holland-Zuid",1,0,1
-2022-06-03,"Leiden","Hollands-Midden",1,0,1
-2022-06-03,"Maassluis","Rotterdam-Rijnmond",1,0,1
-2022-06-03,"Nieuwegein","Utrecht",1,0,1
-2022-06-03,"Terneuzen","Zeeland",1,0,1
-2022-06-03,"Tilburg","Midden- en West-Brabant",1,0,1
-2022-06-03,"Utrecht","Utrecht",1,0,1
-2022-06-04,"Amsterdam","Amsterdam-Amstelland",1,0,1
-2022-06-04,"De Bilt","Utrecht",1,0,1
-2022-06-04,"Losser","Twente",1,0,1
-2022-06-04,"Nijmegen","Gelderland-Zuid",1,0,1
-2022-06-04,"Oldenzaal","Twente",2,0,2
-2022-06-04,"Reusel-De Mierden","Brabant-Zuidoost",1,0,1
-2022-06-04,"Rotterdam","Rotterdam-Rijnmond",2,0,2
-2022-06-04,"Sliedrecht","Zuid-Holland-Zuid",1,0,1
-2022-06-04,"Utrecht","Utrecht",1,0,1
-2022-06-05,"Breda","Midden- en West-Brabant",1,0,1
-2022-06-05,"Capelle aan den IJssel","Rotterdam-Rijnmond",1,0,1
-2022-06-05,"Enschede","Twente",1,0,1
-2022-06-05,"Leeuwarden","Fryslân",1,0,1
-2022-06-05,"Ridderkerk","Rotterdam-Rijnmond",1,0,1
-2022-06-05,"Rotterdam","Rotterdam-Rijnmond",1,0,1
-2022-06-05,"Utrecht","Utrecht",1,0,1
-2022-06-05,"Voorschoten","Hollands-Midden",1,0,1
-2022-06-05,"Woerden","Utrecht",1,0,1
-2022-06-05,"Zeist","Utrecht",1,0,1
-2022-06-06,"","",1,0,1
-2022-06-06,"Amersfoort","Utrecht",1,0,1
-2022-06-06,"Amsterdam","Amsterdam-Amstelland",1,0,1
-2022-06-06,"Barendrecht","Rotterdam-Rijnmond",1,0,1
-2022-06-06,"Dalfsen","IJsselland",1,0,1
-2022-06-06,"Haaksbergen","Twente",1,0,1
-2022-06-06,"Katwijk","Hollands-Midden",1,0,1
-2022-06-06,"Leiden","Hollands-Midden",1,0,1
-2022-06-06,"Leusden","Utrecht",1,0,1
-2022-06-06,"Midden-Groningen","Groningen",1,0,1
-2022-06-06,"Oldenzaal","Twente",1,0,1
-2022-06-06,"Valkenswaard","Brabant-Zuidoost",1,0,1
-2022-06-06,"Vlissingen","Zeeland",1,0,1
-2022-06-06,"Wageningen","Gelderland-Midden",1,0,1
-2022-06-06,"Wijchen","Gelderland-Zuid",1,0,1
-2022-06-06,"Woerden","Utrecht",1,0,1
-2022-06-06,"Zaanstad","Zaanstreek-Waterland",1,0,1
+2022-03-15,"","",6,5,1
+2022-05-18,"Halderberge","Midden- en West-Brabant",1,0,1
+2022-06-06,"","",2,1,1
+2022-06-06,"Barneveld","Gelderland-Midden",0,1,-1
+2022-06-06,"Hardenberg","IJsselland",1,0,1
+2022-06-07,"","",1,0,1
+2022-06-07,"Amsterdam","Amsterdam-Amstelland",2,1,1
+2022-06-07,"Barendrecht","Rotterdam-Rijnmond",1,0,1
+2022-06-07,"Deurne","Brabant-Zuidoost",1,0,1
+2022-06-07,"Ede","Gelderland-Midden",1,0,1
+2022-06-07,"Elburg","Noord- en Oost-Gelderland",1,0,1
+2022-06-07,"Geldrop-Mierlo","Brabant-Zuidoost",1,0,1
+2022-06-07,"Haarlemmermeer","Kennemerland",1,0,1
+2022-06-07,"Het Hogeland","Groningen",1,0,1
+2022-06-07,"Hoorn","Noord-Holland-Noord",1,0,1
+2022-06-07,"Nijmegen","Gelderland-Zuid",1,0,1
+2022-06-07,"Oss","Brabant-Noord",1,0,1
+2022-06-07,"Purmerend","Zaanstreek-Waterland",2,0,2
+2022-06-07,"Ridderkerk","Rotterdam-Rijnmond",1,0,1
+2022-06-07,"Roosendaal","Midden- en West-Brabant",1,0,1
+2022-06-07,"Terschelling","Fryslân",1,0,1
+2022-06-07,"Waadhoeke","Fryslân",1,0,1
+2022-06-07,"Westerkwartier","Groningen",1,0,1
+2022-06-07,"Westerwolde","Groningen",1,0,1
+2022-06-07,"Westland","Haaglanden",1,0,1
+2022-06-07,"Zoetermeer","Haaglanden",1,0,1
