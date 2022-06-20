@@ -339,7 +339,7 @@ source("workflow/dashboards/ggd_tests_corrections.R")
 ## Download data coronadashboard ##
 filename.dashboard <- paste0("data-rivm/dashboard-data/data-coronadashboard_",Sys.Date(),".zip")
 download.file("https://coronadashboard.rijksoverheid.nl/json/latest-data.zip",filename.dashboard)
-source("workflow/estimate_R.R")
+#source("workflow/estimate_R.R")
 #source("workflow/excess_mortality_cbsmodel_2021.R")
 source("workflow/parse_deaths_comparison_tracker.R")
 source("workflow/parse_vaccines_ecdc.R")
