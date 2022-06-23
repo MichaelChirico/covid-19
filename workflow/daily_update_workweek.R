@@ -251,7 +251,7 @@ posted_tweet <- post_tweet (
   media = c("plots/infectieradar.png",
             "plots/rioolwater.png",
             "plots/rioolwater_veiligheidsregio.png"),
-  in_reply_to_status_id = "1539235848197230594",
+  in_reply_to_status_id = tweet.main.id,
   auto_populate_reply_metadata = TRUE)
 
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
