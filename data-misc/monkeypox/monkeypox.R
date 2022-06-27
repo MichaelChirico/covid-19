@@ -3,26 +3,39 @@ require(padr)
 require(discordr)
 require(git2r)
 setwd("C:/Users/ZELST007/Desktop/covid-19")
-monkeypox.nl <- fread("data-misc/monkeypox/monkeypox_globaldothealth.csv")
+#monkeypox.nl <- fread("data-misc/monkeypox/monkeypox_globaldothealth.csv")
 source("workflow/twitter/token_mzelst.R")
 
 
+monkeypox.nl <- fread("data-misc/monkeypox/monkeypox.csv")
 monkeypox.nl <- monkeypox.nl %>%
   mutate(
-    Date_confirmation = as.Date(Date_confirmation, tryFormats = c('%m/%d/%Y')),
-    .before = Date_confirmation
-  ) %>%
-  mutate(Besmettingen = 1)
+    date = as.Date(date, tryFormats = c("%Y-%m-%d")),
+    .before = date
+  )
 
-write.csv(monkeypox.nl, file = "data-misc/monkeypox/monkeypox_globaldothealth.csv",row.names=F)
+rivm.text <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
+  read_html() %>%
+  html_nodes('.blockPadding') %>%
+  html_text() %>%
+  parse_number()
 
-monkeypox.nl <- aggregate(Besmettingen ~ Date_confirmation, data = monkeypox.nl, FUN = sum)
+
+new.data <- data.frame("Besmettingen" = 0, "date" = as.Date(Sys.Date()), "Cumulatief" = rivm.text)
+
+monkeypox.nl <- rbind(monkeypox.nl,new.data)
+
+last.data <- last(monkeypox.nl$Cumulatief,2)
+new.infections <- last.data[2] - last.data[1]
+
+
+monkeypox.nl[nrow(monkeypox.nl),"Besmettingen"] <- new.infections
 monkeypox.nl <- pad(monkeypox.nl)
+
 monkeypox.nl <- monkeypox.nl %>%
-  mutate(date = Date_confirmation) %>%
-  mutate(Date_confirmation = NULL) %>%
-  mutate(Besmettingen = ifelse(is.na(Besmettingen),0,Besmettingen)) %>%
-  mutate(Cumulatief = cumsum(Besmettingen))
+  mutate(Cumulatief = replace_na(Cumulatief, last.data[1])) %>%
+  mutate(Besmettingen = replace_na(Besmettingen, 0))
+
 
 
 title.monkeypox <- paste0("Cumulatief gemelde besmettingen met monkeypox in Nederland: ", max(monkeypox.nl$Cumulatief,na.rm=T))
