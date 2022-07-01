@@ -228,7 +228,7 @@ colnames(excess.mort.rivm) <- c("Year","Week","start_week","end_week","lower_bou
 deaths_weekly <- merge(deaths_weekly, excess.mort.rivm[,c("Year","Week","excess_mortality_rivm")],by=c("Week","Year"),all.x=T)
 
 ## CBS death statistics
-u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/19/doodsoorzaken-januari-2022.xlsx"
+u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/26/doodsoorzaken-2020-februari-2022-1.xlsx"
 #webpage.cbs <- read_html(u.cbs)
 
 download.file(u.cbs,destfile = "cbs_deaths.xlsx", mode = "wb")
@@ -331,8 +331,10 @@ mortality_wide %>%
   annotate("text", x = 14, y = 5300, label = "Eerste golf", color = "red") +
   annotate("text", x = 32, y = 3400, label = "Hittegolf (2020)", color ="red") +
   annotate("text", x = 44, y = 3300, label = "Tweede golf", color = "red") +
-  annotate("text", x = 14.5, y = 3400, label = "Derde golf", color = "#2231C5") +
-  annotate("text", x = 43, y = 4000, label = "Vijfde golf", color = "#2231C5")
+  annotate("text", x = 14, y = 3400, label = "Derde golf", color = "#2231C5") +
+  annotate("text", x = 43, y = 4000, label = "Vijfde golf", color = "#2231C5") +
+  annotate("text", x = 14, y = 3700, label = "Zesde golf", color = "#000000") +
+  annotate("text", x = 24, y = 3200, label = "Zevende golf", color = "#000000")
 ggsave("data-misc/excess_mortality/plots_weekly_update/sterfte_perweek.png", width = 16, height = 8)
 
 git.credentials <- read_lines("git_auth.txt")
