@@ -470,7 +470,8 @@ totals <- totals %>%
   dplyr::select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
 
 
-u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/19/doodsoorzaken-januari-2022.xlsx"
+u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/26/doodsoorzaken-2020-februari-2022-1.xlsx"
+
 
 download.file(u.cbs,destfile = "cbs_deaths.xlsx", mode = "wb")
 cbs.death.statistics <- data.table(read_excel("cbs_deaths.xlsx",sheet = 2)[5:57,c(1,5,8,11)])
