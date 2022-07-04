@@ -33,8 +33,8 @@ monkeypox.nl[nrow(monkeypox.nl),"Besmettingen"] <- new.infections
 monkeypox.nl <- pad(monkeypox.nl)
 
 monkeypox.nl <- monkeypox.nl %>%
-  mutate(Cumulatief = replace_na(Cumulatief, last.data[1])) %>%
-  mutate(Besmettingen = replace_na(Besmettingen, 0))
+  mutate(Cumulatief = tidyr::replace_na(Cumulatief, last.data[1])) %>%
+  mutate(Besmettingen = tidyr::replace_na(Besmettingen, 0))
 
 
 
