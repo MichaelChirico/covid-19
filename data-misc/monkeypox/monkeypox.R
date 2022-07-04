@@ -88,7 +88,7 @@ git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 ## Push to git
-repo <- init()
+repo <- git2r::init()
 add(repo, path = "*")
 commit(repo, all = T, paste0("[", Sys.Date(), "] - Monkeypox update"))
 push(repo, credentials = git.auth)
