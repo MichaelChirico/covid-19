@@ -68,12 +68,12 @@ tweet.last_id <- posted_tweet$id_str
 ## Build excess mortality (historical) tweet
 excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
 
-tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " mei"," - ",endday.week," mei):
+tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " juni"," - ",endday.week," juli):
 
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
-2) Methode RIVM (",rivm.startday," mei - ",rivm.endday," mei): ",round(last(excess_mortality$excess_mortality_rivm)),"
+2) Methode RIVM (",rivm.startday," juni - ",rivm.endday," juni): ",round(last(excess_mortality$excess_mortality_rivm)),"
 
-Bij de leeftijdsgroep 65-80 is de sterfte significant boven de verwachte sterfte.
+Bij de leeftijdsgroep 0-64 en 80+ is de sterfte significant boven de verwachte sterfte.
 
 (grafieken CBS / RIVM)
 ")
@@ -82,13 +82,13 @@ posted_tweet <- post_tweet (
   tweet.excess.historical,
   token = token.mzelst,
   media = c("data-misc/excess_mortality/plots_weekly_update/overledenen-per-week.png","data-misc/excess_mortality/plots_weekly_update/sterfte_perweek_rivm.jpeg"),
-  in_reply_to_status_id = tweet.last_id,
+  in_reply_to_status_id = "1545336322633637889",
   auto_populate_reply_metadata = TRUE
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
 
-#### Parse WLZ mortality data ####
+  #### Parse WLZ mortality data ####
 urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
 
 cbs_url <- last(urls)
@@ -165,7 +165,7 @@ excess_other_perc <- round(last(wlz.table$Sterfte_Other)/last(wlz.table$other_ve
 wlz.text <- ifelse(excess_wlz_perc<0,"minder","meer")
 other.text <- ifelse(excess_other_perc<0,"minder","meer")
 
-source("data-misc/excess_mortality/plots_weekly_update/plots_excess_mortality_wlz_age.R")
+#source("data-misc/excess_mortality/plots_weekly_update/plots_excess_mortality_wlz_age.R")
 
 tweet.wlz <- paste0("4/ Oversterfte Wlz en overige bevolking (CBS)
 
@@ -258,7 +258,9 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Conclusie tweet
 
-conclusie.tweet <- paste0("Conclusie: De totale sterfte is nog steeds erg hoog voor deze tijd van het jaar maar daalt al wel twee weken op rij. ")
+conclusie.tweet <- paste0("Conclusie: De hele maand juni was er significante oversterfte, vooral bij de groep 65+ (laatste week ook bij 0-64).
+
+Waarschijnlijk wordt dit mede veroorzaakt door de huidige coronagolf, uitgestelde zorg, en mogelijk door een paar zeer warme dagen.")
 
 posted_tweet <- post_tweet (
   conclusie.tweet,
