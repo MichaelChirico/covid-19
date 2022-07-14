@@ -16,7 +16,7 @@ monkeypox.nl <- monkeypox.nl %>%
 
 rivm.text <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
   read_html() %>%
-  html_nodes('.blockPadding') %>%
+  html_nodes('.below') %>%
   html_text() %>%
   parse_number()
 
@@ -69,19 +69,21 @@ ggsave(monkeypox.plot, file = "plots/monkeypox.png",width = 16, height = 8)
 
 rivm.text <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
   read_html() %>%
-  html_nodes('.blockPadding') %>%
+  html_nodes('.below') %>%
   html_text()
+
+
 
 tweet.monkeypox <- paste0("#Monkeypox
 
-",rivm.text,"
+In Nederland is bij ",last(monkeypox.nl$Cumulatief)," mensen monkeypox vastgesteld. Het zevendaags gemiddelde neemt toe (",round(doo.monkeypox.MA$infections_7d,1)," per dag).
 
 Voor meer informatie, zie de website van het RIVM: https://rivm.nl/monkeypox-apenpokken")
 
 post_tweet (
   tweet.monkeypox,
   token = token.mzelst,
-  media = "plots/monkeypox.png")
+  media = "plots/monkeypox_doo.png")
 
 
 git.credentials <- read_lines("git_auth.txt")
