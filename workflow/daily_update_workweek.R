@@ -37,6 +37,8 @@ repeat {
   }
 }
 
+repo <- git2r::init()
+pull(repo)
 source("workflow/parse_lcps-data.R")
 source("plot_scripts/ziekenhuis_plots.R")
 
@@ -61,7 +63,6 @@ repeat {
   }
 }
 
-pull(repo)
 
 #rivm.by_day <- read.csv("data/rivm_by_day.csv")
 
