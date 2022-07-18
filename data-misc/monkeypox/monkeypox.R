@@ -2,7 +2,7 @@ require(rvest)
 require(padr)
 require(discordr)
 require(git2r)
-setwd("C:/Users/ZELST007/Desktop/covid-19")
+setwd("C:/Users/marin/Documents/covid-19")
 #monkeypox.nl <- fread("data-misc/monkeypox/monkeypox_globaldothealth.csv")
 source("workflow/twitter/token_mzelst.R")
 
@@ -70,7 +70,7 @@ ggsave(monkeypox.plot, file = "plots/monkeypox.png",width = 16, height = 8)
 
 ## Plot based on DOO
 
-doo.monkeypox <- fread("C:/Users/ZELST007/Downloads/meldingen-apenpokken.csv")
+doo.monkeypox <- fread("C:/Users/marin/Downloads/meldingen-apenpokken.csv")
 
 colnames(doo.monkeypox) <- c("date","unknown","before_endjune","after_endjune")
 doo.monkeypox$infections <- rowSums(doo.monkeypox[,c("unknown","before_endjune","after_endjune")],na.rm=T)
@@ -87,7 +87,7 @@ doo.monkeypox <- doo.monkeypox %>%
 
 rows.monkeypox <- nrow(doo.monkeypox)
 
-doo.monkeypox[(rows.monkeypox-8):rows.monkeypox,6] <- NA
+doo.monkeypox[(rows.monkeypox-4):rows.monkeypox,6] <- NA
 
 doo.monkeypox.MA <- doo.monkeypox %>%
   drop_na(infections_7d) %>%
@@ -122,20 +122,21 @@ monkeypox.plot.doo
 
 ggsave(monkeypox.plot.doo, file = "plots/monkeypox_doo.png",width = 16, height = 8)
 
-
-
-
-
 rivm.text <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
   read_html() %>%
   html_nodes('.below') %>%
   html_text()
 
 
+doo.monkeypox.growth <- doo.monkeypox %>%
+  drop_na(infections_7d)
+
+monkeypox.growth <- last(doo.monkeypox.growth$infections_7d,8)
+growth.text <- ifelse(monkeypox.growth[8]/monkeypox.growth[1]>1,"toe","af")
 
 tweet.monkeypox <- paste0("#Monkeypox
 
-In Nederland is bij ",last(monkeypox.nl$Cumulatief)," mensen monkeypox vastgesteld. Het zevendaags gemiddelde neemt toe (",round(doo.monkeypox.MA$infections_7d,1)," per dag).
+In Nederland is bij ",last(monkeypox.nl$Cumulatief)," mensen monkeypox vastgesteld. Het zevendaags gemiddelde neemt ",growth.text," (",round(doo.monkeypox.MA$infections_7d,1)," per dag).
 
 Voor meer informatie, zie de website van het RIVM: https://rivm.nl/monkeypox-apenpokken")
 
