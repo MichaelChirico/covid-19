@@ -67,6 +67,65 @@ write.csv(monkeypox.nl, file = "data-misc/monkeypox/monkeypox.csv", row.names = 
 ggsave(monkeypox.plot, file = "plots/monkeypox.png",width = 16, height = 8)
 
 
+
+## Plot based on DOO
+
+doo.monkeypox <- fread("C:/Users/ZELST007/Downloads/meldingen-apenpokken.csv")
+
+colnames(doo.monkeypox) <- c("date","unknown","before_endjune","after_endjune")
+doo.monkeypox$infections <- rowSums(doo.monkeypox[,c("unknown","before_endjune","after_endjune")],na.rm=T)
+
+
+doo.monkeypox <- doo.monkeypox %>%
+  mutate(
+    date = as.Date(date, tryFormats = c("%d-%m-%Y")),
+    .before = date
+  ) %>%
+  #mutate(infections = before_endjune+after_endjune) %>%
+  mutate(infections_7d = frollmean(infections,7))
+
+
+rows.monkeypox <- nrow(doo.monkeypox)
+
+doo.monkeypox[(rows.monkeypox-8):rows.monkeypox,6] <- NA
+
+doo.monkeypox.MA <- doo.monkeypox %>%
+  drop_na(infections_7d) %>%
+  last()
+
+title.monkeypox.doo <- paste0("Monkeypox besmettingen op basis van eerste ziektedag")
+
+monkeypox.plot.doo <- doo.monkeypox %>%
+  dplyr::filter(date() >= "2022-05-17") %>%
+  ggplot() + 
+  geom_col(aes(x = date, y = infections)) +
+  geom_line(aes(x = date, y = infections_7d), color = "red",lwd = 1.6) + 
+  ggtitle(title.monkeypox.doo) +
+  theme_bw() +
+  theme(axis.title.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.x.bottom = element_text(size=14),
+        axis.text.y = element_text(size = 14),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(hjust = 0.5, size = 16, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5, size = 12),
+        plot.title.position = "plot",
+        plot.caption = element_text(size = 12)) +
+  labs(subtitle = paste0("Totale aantal besmettingen: ",last(monkeypox.nl$Cumulatief),"
+  Zevendaagse gemiddelde: ", round(doo.monkeypox.MA$infections_7d,1),"
+  Let op (!): Monkeypox kent een lange incubatietijd (~8.5 dagen, interval: 6.6 - 10.9 dagen) waardoor de gegevens voor de afgelopen twee weken nog incompleet zijn."),
+       caption = paste0("Bron: RIVM | Plot: @mzelst | Datum: ",as.Date(Sys.Date()))) +
+  ylim(0, max(doo.monkeypox$infections)+5) +
+  xlim(min(doo.monkeypox$date)-2, Sys.Date())
+monkeypox.plot.doo
+
+ggsave(monkeypox.plot.doo, file = "plots/monkeypox_doo.png",width = 16, height = 8)
+
+
+
+
+
 rivm.text <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
   read_html() %>%
   html_nodes('.below') %>%
