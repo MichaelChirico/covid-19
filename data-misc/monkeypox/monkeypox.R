@@ -16,10 +16,10 @@ monkeypox.nl <- monkeypox.nl %>%
 
 rivm.text <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
   read_html() %>%
-  html_nodes('.below') %>%
+  html_nodes('.card-outline-primary') %>%
   html_text() %>%
   parse_number()
-
+rivm.text <- rivm.text[1]
 
 new.data <- data.frame("Besmettingen" = 0, "date" = as.Date(Sys.Date()), "Cumulatief" = rivm.text)
 
@@ -121,11 +121,6 @@ monkeypox.plot.doo <- doo.monkeypox %>%
 monkeypox.plot.doo
 
 ggsave(monkeypox.plot.doo, file = "plots/monkeypox_doo.png",width = 16, height = 8)
-
-rivm.text <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
-  read_html() %>%
-  html_nodes('.below') %>%
-  html_text()
 
 
 doo.monkeypox.growth <- doo.monkeypox %>%
