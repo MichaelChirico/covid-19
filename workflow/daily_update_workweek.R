@@ -28,7 +28,7 @@ source("plot_scripts/reden_opname.R")
 ## Put in double date breaker for LCPS update
 repeat {
   Sys.sleep(2)
-  time.start <- ymd_hms(paste0(Sys.Date()," 15:14:00"))
+  time.start <- ymd_hms(paste0(Sys.Date()," 14:01:00"))
   time.now <- ymd_hms(Sys.time())
   
   if (time.start < time.now){
