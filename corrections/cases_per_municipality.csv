@@ -1,33 +1,81 @@
 "Date_of_publication","Municipality_name","Municipal_health_service","cases.today.mun","cases.yesterday.mun","diff"
-2022-01-23,"Halderberge","GGD West-Brabant",42,43,-1
-2022-01-25,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",363,364,-1
-2022-01-28,"Hilversum","GGD Gooi en Vechtstreek",626,627,-1
-2022-01-29,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",680,681,-1
-2022-01-30,"Amsterdam","GGD Amsterdam",3190,3191,-1
-2022-02-03,"Deventer","GGD IJsselland",558,559,-1
-2022-02-07,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",919,920,-1
-2022-02-08,"Amsterdam","GGD Amsterdam",11358,11357,1
-2022-02-08,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",7546,7545,1
-2022-02-08,"Deventer","GGD IJsselland",2348,2347,1
-2022-02-08,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",2593,2591,2
-2022-02-08,"Halderberge","GGD West-Brabant",570,569,1
-2022-02-08,"Hilversum","GGD Gooi en Vechtstreek",1602,1601,1
-2022-03-26,"","GGD Amsterdam",48,49,-1
-2022-07-06,"","GGD Amsterdam",8,9,-1
-2022-07-06,"Amsterdam","GGD Amsterdam",313,312,1
-2022-07-14,"Doetinchem","GGD Noord- en Oost-Gelderland",38,39,-1
-2022-07-17,"","GGD Amsterdam",23,22,1
-2022-07-17,"Roermond","GGD Limburg-Noord",15,16,-1
-2022-07-19,"'s-Gravenhage","GGD Haaglanden",112,111,1
-2022-07-19,"Gouda","GGD Hollands-Midden",19,20,-1
-2022-07-19,"Tynaarlo","GGD Drenthe",6,7,-1
-2022-07-20,"'s-Gravenhage","GGD Haaglanden",91,92,-1
-2022-07-20,"Gouda","GGD Hollands-Midden",17,16,1
-2022-07-21,"","GGD Haaglanden",2,4,-2
-2022-07-21,"","GGD Regio Utrecht",12,13,-1
-2022-07-21,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",6,7,-1
-2022-07-21,"De Wolden","GGD Drenthe",3,4,-1
-2022-07-21,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",40,41,-1
-2022-07-21,"Nieuwegein","GGD Regio Utrecht",12,11,1
-2022-07-21,"Renkum","Veiligheids- en Gezondheidsregio Gelderland-Midden",10,9,1
-2022-07-21,"Westland","GGD Haaglanden",29,28,1
+2022-01-23,"Nijmegen","GGD Gelderland-Zuid",694,695,-1
+2022-01-24,"Amsterdam","GGD Amsterdam",4276,4277,-1
+2022-01-27,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",622,623,-1
+2022-01-27,"Westervoort","Veiligheids- en Gezondheidsregio Gelderland-Midden",31,32,-1
+2022-01-28,"Nijmegen","GGD Gelderland-Zuid",908,909,-1
+2022-01-29,"Amsterdam","GGD Amsterdam",2831,2833,-2
+2022-01-31,"Amsterdam","GGD Amsterdam",5833,5834,-1
+2022-02-01,"Alphen aan den Rijn","GGD Hollands-Midden",328,329,-1
+2022-02-01,"Hellendoorn","GGD Twente",683,684,-1
+2022-02-01,"Waadhoeke","GGD Fryslân",143,144,-1
+2022-02-02,"Hoeksche Waard","Dienst Gezondheid & Jeugd ZHZ",503,504,-1
+2022-02-02,"Teylingen","GGD Hollands-Midden",151,152,-1
+2022-02-03,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",296,297,-1
+2022-02-03,"Heerlen","GGD Zuid-Limburg",257,258,-1
+2022-02-04,"Súdwest-Fryslân","GGD Fryslân",98,99,-1
+2022-02-05,"Amsterdam","GGD Amsterdam",2628,2629,-1
+2022-02-06,"Amsterdam","GGD Amsterdam",4234,4235,-1
+2022-02-06,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",871,872,-1
+2022-02-06,"Nijmegen","GGD Gelderland-Zuid",1155,1156,-1
+2022-02-07,"Utrecht","GGD Regio Utrecht",1789,1790,-1
+2022-02-08,"Alphen aan den Rijn","GGD Hollands-Midden",1726,1725,1
+2022-02-08,"Amsterdam","GGD Amsterdam",11364,11358,6
+2022-02-08,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",7547,7546,1
+2022-02-08,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",2595,2593,2
+2022-02-08,"Heerlen","GGD Zuid-Limburg",1177,1176,1
+2022-02-08,"Hellendoorn","GGD Twente",895,894,1
+2022-02-08,"Hoeksche Waard","Dienst Gezondheid & Jeugd ZHZ",1742,1741,1
+2022-02-08,"Nijmegen","GGD Gelderland-Zuid",3672,3669,3
+2022-02-08,"Súdwest-Fryslân","GGD Fryslân",2358,2357,1
+2022-02-08,"Teylingen","GGD Hollands-Midden",658,657,1
+2022-02-08,"Utrecht","GGD Regio Utrecht",5749,5748,1
+2022-02-08,"Waadhoeke","GGD Fryslân",1125,1124,1
+2022-02-08,"Westervoort","Veiligheids- en Gezondheidsregio Gelderland-Midden",663,662,1
+2022-06-25,"Hoorn","GGD Hollands-Noorden",26,27,-1
+2022-06-28,"Hoorn","GGD Hollands-Noorden",25,24,1
+2022-06-30,"","Dienst Gezondheid & Jeugd ZHZ",1,2,-1
+2022-06-30,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",60,59,1
+2022-07-01,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",37,38,-1
+2022-07-01,"Zaanstad","GGD Zaanstreek/Waterland",63,64,-1
+2022-07-02,"Zaanstad","GGD Zaanstreek/Waterland",39,38,1
+2022-07-08,"","Dienst Gezondheid & Jeugd ZHZ",10,12,-2
+2022-07-08,"Hoeksche Waard","Dienst Gezondheid & Jeugd ZHZ",59,58,1
+2022-07-09,"De Ronde Venen","GGD Regio Utrecht",23,22,1
+2022-07-10,"","GGD Flevoland",5,6,-1
+2022-07-10,"Almere","GGD Flevoland",93,92,1
+2022-07-10,"De Ronde Venen","GGD Regio Utrecht",12,13,-1
+2022-07-12,"Almere","GGD Flevoland",83,84,-1
+2022-07-14,"Barneveld","Veiligheids- en Gezondheidsregio Gelderland-Midden",14,15,-1
+2022-07-14,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",54,53,1
+2022-07-14,"Hendrik-Ido-Ambacht","Dienst Gezondheid & Jeugd ZHZ",17,18,-1
+2022-07-15,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",51,52,-1
+2022-07-16,"","Dienst Gezondheid & Jeugd ZHZ",2,4,-2
+2022-07-16,"","GGD Amsterdam",23,24,-1
+2022-07-16,"Amsterdam","GGD Amsterdam",362,361,1
+2022-07-16,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",31,29,2
+2022-07-18,"","GGD Flevoland",13,14,-1
+2022-07-18,"Almere","GGD Flevoland",47,46,1
+2022-07-20,"","GGD Amsterdam",13,14,-1
+2022-07-20,"","GGD Hollands-Midden",3,4,-1
+2022-07-20,"","GGD Kennemerland",100,101,-1
+2022-07-20,"","GGD Regio Utrecht",2,3,-1
+2022-07-20,"Amsterdam","GGD Amsterdam",244,243,1
+2022-07-21,"","GGD Brabant-Zuidoost",3,4,-1
+2022-07-21,"Amsterdam","GGD Amsterdam",182,183,-1
+2022-07-21,"Laren","GGD Gooi en Vechtstreek",6,5,1
+2022-07-22,"","GGD Amsterdam",10,12,-2
+2022-07-22,"","GGD Haaglanden",3,4,-1
+2022-07-22,"","GGD Kennemerland",2,4,-2
+2022-07-22,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",2,3,-1
+2022-07-22,"'s-Gravenhage","GGD Haaglanden",126,125,1
+2022-07-22,"Amsterdam","GGD Amsterdam",291,288,3
+2022-07-22,"Berg en Dal","GGD Gelderland-Zuid",11,10,1
+2022-07-22,"Capelle aan den IJssel","GGD Rotterdam-Rijnmond",15,16,-1
+2022-07-22,"Ede","Veiligheids- en Gezondheidsregio Gelderland-Midden",28,27,1
+2022-07-22,"Emmen","GGD Drenthe",26,27,-1
+2022-07-22,"Haarlem","GGD Kennemerland",41,40,1
+2022-07-22,"Het Hogeland","GGD Groningen",14,13,1
+2022-07-22,"Nijmegen","GGD Gelderland-Zuid",101,102,-1
+2022-07-22,"Rotterdam","GGD Rotterdam-Rijnmond",141,142,-1
+2022-07-22,"Zwijndrecht","Dienst Gezondheid & Jeugd ZHZ",7,6,1
