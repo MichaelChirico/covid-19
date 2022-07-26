@@ -62,3 +62,13 @@ lcps.growth %>%
 ggsave("plots/groei_per_dag_opnames.png", width = 16, heigh = 8)  
 
 
+
+git.credentials <- read_lines("git_auth.txt")
+git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
+
+## Push to git
+repo <- git2r::init()
+add(repo, path = "*")
+commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update LCPS update"))
+push(repo, credentials = git.auth)
+
