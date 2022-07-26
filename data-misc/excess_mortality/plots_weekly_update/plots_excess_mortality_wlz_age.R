@@ -39,6 +39,7 @@ sterfte.2021 <- sterfte.2021 %>%
   mutate(Week = parse_number(Week)) %>%
   mutate(Jaar = 2021)
 setDF(sterfte.2021)
+sterfte.2021["Week"][sterfte.2021["Week"] == 524] <- 52
 
 sterfte.2020 <- cbs_sterfte[(rows.2020+2):(nrow(cbs_sterfte)-7),]
 colnames(sterfte.2020) <- c("Jaar","Week","Sterfte_Wlz","Sterfte_Other")
@@ -76,6 +77,8 @@ wlz.table <- wlz.table[11:(nrow(wlz.table) - 52 + last(sterfte_wlz_other$Week) +
 
 colors <- c("WLZ_ci" = "lightgreen", "Other_ci" = "lightblue", "WLZ Zorggebruikers" = "darkgreen","Overige bevolking" = "blue","WLZ_Verwacht" = "black","Other_Verwacht" = "black")
 
+week.cbs.plots <- isoweek(Sys.Date())-2
+
 plot.wlz.other.sterfte <- wlz.table %>%
   ggplot(aes(x=date)) + 
   geom_ribbon(aes(ymin=wlz_verwacht_lb,ymax=wlz_verwacht_ub, fill="WLZ_ci"), alpha = 0.6) +
@@ -103,7 +106,8 @@ plot.wlz.other.sterfte <- wlz.table %>%
         legend.text = element_text(size=10, color = "black"),
         legend.margin = margin(2,2,2,2)) +
   labs(x = "Datum",
-       y = "Overledenen per week") +
+       y = "Overledenen per week",
+       subtitle = paste0("Data t/m week ",week.cbs.plots+1," - 2022")) +
   scale_color_manual(name = "Group",values = colors, labels = NULL, guide = "none") +
   scale_fill_manual(values = colors, breaks = c("WLZ Zorggebruikers","Overige bevolking"))
 
@@ -160,6 +164,7 @@ colnames(sterfte.2021.leeftijd) <- c("Jaar","Week","Sterfte_0_65","Sterfte_65_80
 sterfte.2021.leeftijd <- sterfte.2021.leeftijd %>%
   mutate(Jaar = 2021)
 setDF(sterfte.2021.leeftijd)
+sterfte.2021.leeftijd["Week"][sterfte.2021.leeftijd["Week"] == 524] <- 52
 
 sterfte.2020.leeftijd <- cbs_sterfte_leeftijd[(rows.2020.age+2):(nrow(cbs_sterfte_leeftijd)-7),]
 colnames(sterfte.2020.leeftijd) <- c("Jaar","Week","Sterfte_0_65","Sterfte_65_80","Sterfte_80")
@@ -230,6 +235,7 @@ plot.age.sterfte <- age.table %>%
         legend.margin = margin(2,2,2,2)) +
   labs(x = "Datum",
        y = "Overledenen per week",
+       subtitle = paste0("Data t/m week ",week.cbs.plots," - 2022"),
        caption = paste("Bron data: CBS  | Plot: @mzelst | ",Sys.Date())) + 
   scale_color_manual(name = "Group",values = colors, labels = NULL, guide = "none") +
   scale_fill_manual(values = colors, breaks = c("80+","65 tot 80","0 tot 65"))

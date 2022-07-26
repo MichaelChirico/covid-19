@@ -87,7 +87,7 @@ doo.monkeypox <- doo.monkeypox %>%
 
 rows.monkeypox <- nrow(doo.monkeypox)
 
-doo.monkeypox[(rows.monkeypox-4):rows.monkeypox,6] <- NA
+doo.monkeypox[(rows.monkeypox-7):rows.monkeypox,6] <- NA
 
 doo.monkeypox.MA <- doo.monkeypox %>%
   drop_na(infections_7d) %>%
@@ -139,6 +139,22 @@ post_tweet (
   tweet.monkeypox,
   token = token.mzelst,
   media = "plots/monkeypox_doo.png")
+
+
+## Region
+
+rivm.monkeypox.table <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
+  read_html() %>%
+  html_table()
+
+
+rivm.mpx.table <- rbindlist(rivm.monkeypox.table)
+rivm.mpx.table.dat <- t(rivm.mpx.table[,2])
+colnames(rivm.mpx.table.dat) <- t(rivm.mpx.table[,1])
+
+data.frame(rivm.mpx.table.dat)
+
+
 
 
 git.credentials <- read_lines("git_auth.txt")

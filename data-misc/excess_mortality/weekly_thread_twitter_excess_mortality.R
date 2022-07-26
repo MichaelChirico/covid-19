@@ -68,12 +68,10 @@ tweet.last_id <- posted_tweet$id_str
 ## Build excess mortality (historical) tweet
 excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
 
-tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " juni"," - ",endday.week," juli):
+tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " juli"," - ",endday.week," juli):
 
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
-2) Methode RIVM (",rivm.startday," juni - ",rivm.endday," juni): ",round(last(excess_mortality$excess_mortality_rivm)),"
-
-Bij de leeftijdsgroep 0-64 en 80+ is de sterfte significant boven de verwachte sterfte.
+2) Methode RIVM (",rivm.startday," juli - ",rivm.endday," juli): ",round(last(excess_mortality$excess_mortality_rivm)),"
 
 (grafieken CBS / RIVM)
 ")
@@ -82,13 +80,13 @@ posted_tweet <- post_tweet (
   tweet.excess.historical,
   token = token.mzelst,
   media = c("data-misc/excess_mortality/plots_weekly_update/overledenen-per-week.png","data-misc/excess_mortality/plots_weekly_update/sterfte_perweek_rivm.jpeg"),
-  in_reply_to_status_id = "1545336322633637889",
+  in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
 
-  #### Parse WLZ mortality data ####
+#### Parse WLZ mortality data ####
 urls <- read.csv("data-misc/excess_mortality/links_cbs_mortality.csv")
 
 cbs_url <- last(urls)
@@ -237,7 +235,8 @@ excess_province_long <- gather(excess_mort_province_filtered, "statnaam","excess
 excess_province_long$excess_mortality <- round(excess_province_long$excess_mortality,0)
 excess_province_long$statnaam <- recode(excess_province_long$statnaam, "Noord.Holland" = "Noord-Holland",
                                         "Zuid.Holland" = "Zuid-Holland",
-                                        "Noord.Brabant" = "Noord-Brabant")
+                                        "Noord.Brabant" = "Noord-Brabant",
+                                        "Fryslan" = "Fryslân")
 
 high.prov.mort <- max(excess_province_long$excess_mortality)
 highest.province <- excess_province_long %>%
