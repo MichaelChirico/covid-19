@@ -145,6 +145,14 @@ posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.main.id <- posted_tweet$id_str
 tweet.last_id <- tweet.main.id
 
+git.credentials <- read_lines("git_auth.txt")
+git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
+
+## Push to git
+repo <- git2r::init()
+add(repo, path = "*")
+commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - part 1"))
+push(repo, credentials = git.auth)
 
 ## Vroeg surveillance
 
@@ -176,6 +184,17 @@ infectieradar %>%
        color = "Legend",
        caption = paste("Bron data: RIVM  | Plot: @mzelst | ",Sys.Date()))
 ggsave("plots/infectieradar.png", width = 16, height = 8)
+
+
+git.credentials <- read_lines("git_auth.txt")
+git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
+
+## Push to git
+repo <- git2r::init()
+add(repo, path = "*")
+commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - part 2"))
+push(repo, credentials = git.auth)
+
 
 ## Put in date breaker for dashboard data download ##
 
@@ -225,17 +244,6 @@ ggsave("plots/rioolwater.png", width = 16, height = 8)
 source("plot_scripts/rioolwater.R")
 
 
-## Git Vroegsurveillance
-
-git.credentials <- read_lines("git_auth.txt")
-git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
-## Push to git
-repo <- git2r::init()
-add(repo, path = "*")
-commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - Early surveillance"))
-push(repo, credentials = git.auth)
-
-
 vroegsurveillance.tweet <- paste0("Vroege signalen
 
 Rioolwater: ",round(last(sewer.data$sewer_7d),1)," RNA flow per 100.000 inwoners
@@ -260,9 +268,6 @@ posted_tweet <- post_tweet (
 
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
-
-
-
 
 ########
 # Tweet - nursery homes
@@ -299,15 +304,15 @@ posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
 
 
+## Git Vroegsurveillance
+
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
-
 ## Push to git
 repo <- git2r::init()
 add(repo, path = "*")
-commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - part 1"))
+commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - Early surveillance"))
 push(repo, credentials = git.auth)
-
 
 ##### Download case file
 rivm.data <- fread("https://data.rivm.nl/covid-19/COVID-19_casus_landelijk.csv", sep =";") ## Read in data with all cases until today
@@ -320,16 +325,6 @@ fwrite(rivm.data, file=filename.compressed,row.names = F) ## Write file with all
 #file.copy(from = list.files('reports', pattern="*.pdf",full.names = TRUE), 
 #          to = paste0("reports/daily_reports/Epidemiologische situatie COVID-19 in Nederland - ",
 #                      format((last_date),'%d')," ",format((last_date),'%B')," 2022.pdf")) ## Save daily file in archive
-
-git.credentials <- read_lines("git_auth.txt")
-git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
-
-## Push to git
-repo <- git2r::init()
-add(repo, path = "*")
-commit(repo, all = T, paste0("[", Sys.Date(), "]  Daily (automated) covid-19 - workweek update - part 2"))
-push(repo, credentials = git.auth)
-
 
 ## Workflows for databases
 rm(list=ls())
