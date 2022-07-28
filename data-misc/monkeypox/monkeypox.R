@@ -136,10 +136,13 @@ In Nederland is bij ",last(monkeypox.nl$Cumulatief)," mensen monkeypox vastgeste
 
 Voor meer informatie, zie de website van het RIVM: https://rivm.nl/monkeypox-apenpokken")
 
-post_tweet (
+posted_tweet <- post_tweet (
   tweet.monkeypox,
   token = token.mzelst,
   media = "plots/monkeypox_doo.png")
+
+posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+tweet.main.id.monkeypox <- posted_tweet$id_str
 
 
 ## Region
@@ -148,15 +151,43 @@ rivm.monkeypox.table <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
   read_html() %>%
   html_table()
 
-
-rivm.mpx.table <- rbindlist(rivm.monkeypox.table)
-rivm.mpx.table.dat <- t(rivm.mpx.table[,2])
-colnames(rivm.mpx.table.dat) <- t(rivm.mpx.table[,1])
-
-data.frame(rivm.mpx.table.dat)
+monkeypox.region <- data.frame(do.call(rbind,rivm.monkeypox.table),"Datum" =Sys.Date())
 
 
+monkeypox.region.dat <- fread("data-misc/monkeypox/monkeypox_region.csv")
 
+monkeypox.region.dat <- monkeypox.region.dat %>%
+  mutate(
+  Datum = as.Date(Datum, tryFormats = c("%d/%m/%Y"))) %>%
+  arrange(Datum) %>%
+  group_by(Regio) %>%
+  mutate(toename_monkeypox = c(0,diff(Aantallen)))
+
+
+fwrite(monkeypox.region.dat, file = "data-misc/monkeypox/monkeypox_region.csv")
+
+monkeypox.region.dat.latest <- monkeypox.region.dat %>%
+  dplyr::filter(Datum == Sys.Date())
+
+tweet.monkeypox.regio <- paste0("#Monkeypox - Besmettingen per regio (totaal en toename)
+
+",monkeypox.region.dat.latest[1,1],": ",monkeypox.region.dat.latest[1,2]," (+",monkeypox.region.dat.latest[1,4],")
+",monkeypox.region.dat.latest[2,1],": ",monkeypox.region.dat.latest[2,2]," (+",monkeypox.region.dat.latest[2,4],")
+",monkeypox.region.dat.latest[3,1],": ",monkeypox.region.dat.latest[3,2]," (+",monkeypox.region.dat.latest[3,4],")
+",monkeypox.region.dat.latest[4,1],": ",monkeypox.region.dat.latest[4,2]," (+",monkeypox.region.dat.latest[4,4],")
+",monkeypox.region.dat.latest[5,1],": ",monkeypox.region.dat.latest[5,2]," (+",monkeypox.region.dat.latest[5,4],")
+",monkeypox.region.dat.latest[6,1],": ",monkeypox.region.dat.latest[6,2]," (+",monkeypox.region.dat.latest[6,4],")
+",monkeypox.region.dat.latest[7,1],": ",monkeypox.region.dat.latest[7,2]," (+",monkeypox.region.dat.latest[7,4],")")
+
+post_tweet (
+  tweet.monkeypox.regio,
+  token = token.mzelst,
+  in_reply_to_status_id = tweet.main.id.monkeypox)
+
+
+
+
+## Push to GIT
 
 git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
