@@ -1,37 +1,52 @@
 "Date_of_publication","Municipality_name","Municipal_health_service","cases.today.mun","cases.yesterday.mun","diff"
-2022-01-26,"Berg en Dal","GGD Gelderland-Zuid",83,84,-1
-2022-01-28,"Barneveld","Veiligheids- en Gezondheidsregio Gelderland-Midden",99,100,-1
-2022-01-28,"Oosterhout","GGD West-Brabant",342,343,-1
-2022-01-29,"Amsterdam","GGD Amsterdam",2830,2831,-1
-2022-01-30,"Amstelveen","GGD Amsterdam",272,273,-1
-2022-02-06,"Oss","GGD Hart voor Brabant",111,112,-1
-2022-02-08,"Amstelveen","GGD Amsterdam",1375,1374,1
-2022-02-08,"Amsterdam","GGD Amsterdam",11366,11365,1
-2022-02-08,"Barneveld","Veiligheids- en Gezondheidsregio Gelderland-Midden",3196,3195,1
-2022-02-08,"Berg en Dal","GGD Gelderland-Zuid",540,539,1
-2022-02-08,"Oosterhout","GGD West-Brabant",956,955,1
-2022-02-08,"Oss","GGD Hart voor Brabant",3834,3833,1
-2022-07-15,"","GGD West-Brabant",4,5,-1
-2022-07-16,"Barendrecht","GGD Rotterdam-Rijnmond",23,24,-1
-2022-07-21,"Echt-Susteren","GGD Limburg-Noord",10,11,-1
-2022-07-21,"Meppel","GGD Drenthe",5,4,1
-2022-07-21,"Rotterdam","GGD Rotterdam-Rijnmond",215,216,-1
-2022-07-21,"Steenwijkerland","GGD IJsselland",6,7,-1
-2022-07-22,"Meppel","GGD Drenthe",8,9,-1
-2022-07-25,"","GGD Fryslân",0,1,-1
-2022-07-25,"Haarlemmermeer","GGD Kennemerland",25,26,-1
-2022-07-25,"Leeuwarden","GGD Fryslân",18,17,1
-2022-07-26,"","GGD Amsterdam",7,6,1
-2022-07-26,"","GGD Fryslân",5,4,1
-2022-07-26,"","GGD Hollands-Midden",5,6,-1
-2022-07-26,"","GGD Kennemerland",12,15,-3
-2022-07-26,"Amsterdam","GGD Amsterdam",170,171,-1
-2022-07-26,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",84,85,-1
-2022-07-26,"Baarn","GGD Regio Utrecht",6,7,-1
-2022-07-26,"Doetinchem","GGD Noord- en Oost-Gelderland",16,15,1
-2022-07-26,"Haarlemmermeer","GGD Kennemerland",21,18,3
-2022-07-26,"Helmond","GGD Brabant-Zuidoost",47,46,1
-2022-07-26,"Losser","GGD Twente",8,7,1
-2022-07-26,"Teylingen","GGD Hollands-Midden",11,10,1
-2022-07-26,"Utrecht","GGD Regio Utrecht",89,90,-1
-2022-07-26,"Zandvoort","GGD Kennemerland",8,7,1
+2022-01-26,"Berg en Dal","GGD Gelderland-Zuid",82,83,-1
+2022-01-26,"Stein","GGD Zuid-Limburg",91,92,-1
+2022-01-28,"Hoogeveen","GGD Drenthe",233,234,-1
+2022-01-28,"Nijmegen","GGD Gelderland-Zuid",907,908,-1
+2022-01-29,"Breda","GGD West-Brabant",1022,1023,-1
+2022-02-02,"Amsterdam","GGD Amsterdam",3309,3310,-1
+2022-02-03,"Westerkwartier","GGD Groningen",244,245,-1
+2022-02-08,"Amsterdam","GGD Amsterdam",11367,11366,1
+2022-02-08,"Berg en Dal","GGD Gelderland-Zuid",541,540,1
+2022-02-08,"Breda","GGD West-Brabant",3430,3429,1
+2022-02-08,"Hoogeveen","GGD Drenthe",1256,1255,1
+2022-02-08,"Nijmegen","GGD Gelderland-Zuid",3673,3672,1
+2022-02-08,"Stein","GGD Zuid-Limburg",358,357,1
+2022-02-08,"Westerkwartier","GGD Groningen",1151,1150,1
+2022-06-27,"","Dienst Gezondheid & Jeugd ZHZ",2,3,-1
+2022-06-27,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",34,33,1
+2022-06-28,"","Dienst Gezondheid & Jeugd ZHZ",4,5,-1
+2022-06-28,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",42,41,1
+2022-06-29,"","Dienst Gezondheid & Jeugd ZHZ",2,4,-2
+2022-06-29,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",39,38,1
+2022-06-29,"Hoeksche Waard","Dienst Gezondheid & Jeugd ZHZ",27,26,1
+2022-07-01,"","Dienst Gezondheid & Jeugd ZHZ",2,3,-1
+2022-07-01,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",38,37,1
+2022-07-19,"","GGD Rotterdam-Rijnmond",5,6,-1
+2022-07-19,"Rotterdam","GGD Rotterdam-Rijnmond",166,165,1
+2022-07-20,"","GGD Amsterdam",12,13,-1
+2022-07-20,"","GGD Flevoland",4,3,1
+2022-07-20,"Lelystad","GGD Flevoland",24,25,-1
+2022-07-21,"","GGD West-Brabant",7,8,-1
+2022-07-21,"Rijswijk","GGD Haaglanden",15,14,1
+2022-07-22,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",34,35,-1
+2022-07-25,"De Wolden","GGD Drenthe",3,4,-1
+2022-07-25,"Katwijk","GGD Hollands-Midden",10,11,-1
+2022-07-26,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",5,6,-1
+2022-07-26,"Katwijk","GGD Hollands-Midden",7,6,1
+2022-07-26,"Nissewaard","GGD Rotterdam-Rijnmond",19,20,-1
+2022-07-26,"Zevenaar","Veiligheids- en Gezondheidsregio Gelderland-Midden",16,15,1
+2022-07-27,"","GGD Amsterdam",7,8,-1
+2022-07-27,"","GGD Brabant-Zuidoost",4,5,-1
+2022-07-27,"","GGD Flevoland",3,4,-1
+2022-07-27,"","GGD Kennemerland",5,7,-2
+2022-07-27,"","GGD Regio Utrecht",6,7,-1
+2022-07-27,"","GGD Zuid-Limburg",12,11,1
+2022-07-27,"Aalsmeer","GGD Amsterdam",6,5,1
+2022-07-27,"Amsterdam","GGD Amsterdam",200,198,2
+2022-07-27,"Haarlemmermeer","GGD Kennemerland",30,29,1
+2022-07-27,"Het Hogeland","GGD Groningen",10,9,1
+2022-07-27,"Lochem","GGD Noord- en Oost-Gelderland",9,8,1
+2022-07-27,"Nissewaard","GGD Rotterdam-Rijnmond",17,16,1
+2022-07-27,"Noordoostpolder","GGD Flevoland",9,8,1
+2022-07-27,"Utrecht","GGD Regio Utrecht",98,99,-1
