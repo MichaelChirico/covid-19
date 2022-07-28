@@ -87,7 +87,7 @@ doo.monkeypox <- doo.monkeypox %>%
 
 rows.monkeypox <- nrow(doo.monkeypox)
 
-doo.monkeypox[(rows.monkeypox-7):rows.monkeypox,6] <- NA
+doo.monkeypox[(rows.monkeypox-9):rows.monkeypox,6] <- NA
 
 doo.monkeypox.MA <- doo.monkeypox %>%
   drop_na(infections_7d) %>%
@@ -124,7 +124,8 @@ ggsave(monkeypox.plot.doo, file = "plots/monkeypox_doo.png",width = 16, height =
 
 
 doo.monkeypox.growth <- doo.monkeypox %>%
-  drop_na(infections_7d)
+  drop_na(infections_7d) %>%
+  mutate(groei_monkeypox = infections_7d/(dplyr::lag(infections_7d,7)))
 
 monkeypox.growth <- last(doo.monkeypox.growth$infections_7d,8)
 growth.text <- ifelse(monkeypox.growth[8]/monkeypox.growth[1]>1,"toe","af")
