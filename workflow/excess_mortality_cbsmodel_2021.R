@@ -2,7 +2,7 @@
 ## original author: Trond Husby
 ## edits by: Marino van Zelst
 ## date: 2020-06-26
-## last edit: 2022-07-13
+## last edit: 2022-07-27
 
 ##
 ## house keeping
@@ -138,8 +138,8 @@ cbs_dt[, ':=' (year = as.numeric(substr(Perioden, 1, 4)),
                week = as.numeric(substr(Perioden, 7, 8))
 )
 ][,
-  ':=' (week_update1 = Overledenen_1 + shift(Overledenen_1),
-        week_update2 = Overledenen_1 + shift(Overledenen_1, -1)
+  ':=' (week_update1 = Overledenen_1 + data.table::shift(Overledenen_1),
+        week_update2 = Overledenen_1 + data.table::shift(Overledenen_1, -1)
   )
 ][week == 1 & w_length < 7,
   Overledenen_1 := week_update1
@@ -470,7 +470,7 @@ totals <- totals %>%
   dplyr::select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
 
 
-u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/26/doodsoorzaken-2020-februari-2022-1.xlsx"
+u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/30/doodsoorzaken-2020-maart-2022-nw3.xlsx"
 
 
 download.file(u.cbs,destfile = "cbs_deaths.xlsx", mode = "wb")

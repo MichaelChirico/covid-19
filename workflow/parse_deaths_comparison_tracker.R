@@ -65,7 +65,7 @@ colnames(excess_dlm) <- c("Week","Year","total_covid_mortality")
 deaths_total <- merge(deaths_total,excess_dlm,by=c("Week","Year"), all.x=T)
 
 ## Deaths WLZ vs. other / CBS
-cbs_url <- "https://www.cbs.nl/-/media/_excel/2022/26/doodsoorzaken-2020-februari-2022-1.xlsx"
+cbs_url <- "https://www.cbs.nl/-/media/_excel/2022/30/doodsoorzaken-2020-maart-2022-nw3.xlsx"
 
 
 download.file(cbs_url,destfile = "cbs_deaths.xlsx", mode = "wb")
@@ -251,7 +251,7 @@ ggsave("plots/sterfte_per_week_30K.png", width = 12, height=8)
 
 plot <- deaths_total %>%
   dplyr::filter(week_year >= "2020-39") %>%
-  dplyr::filter(week_year <= "2022-08") %>%
+  dplyr::filter(week_year <= "2022-12") %>%
   ggplot(aes(x=factor(week_year), y=deaths_wlz_perc, group = 1)) + 
   geom_line(aes(y = deaths_wlz_perc, color = "Verpleeghuis"), lwd=1.2) +
   geom_line(aes(y = deaths_home_perc, color = "Thuis"), lwd=1.2) +
@@ -329,7 +329,7 @@ cbs.deaths <- sum(total.covid.mortality.cbs$total_covid_mortality,na.rm=T)
 
 
 cbs.filter <- deaths_total %>%
-  dplyr::filter(week_year > "2022-08")
+  dplyr::filter(week_year > "2022-12")
 cbs.filter$cumulative_deaths <- cumsum(cbs.filter$deaths_estimate_3) + cbs.deaths
 deaths_total <- merge(deaths_total, cbs.filter[,c("Week","Year","cumulative_deaths")], by = c("Week","Year"),all.x=T)
 setorder(deaths_total, Year, Week)
