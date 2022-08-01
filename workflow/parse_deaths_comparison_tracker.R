@@ -324,7 +324,7 @@ ggsave("plots/sterfte_per_week_30K_totalen.png", width = 12, height=8)
 
 ##cbs.deaths
 total.covid.mortality.cbs <- deaths_total %>%
-  dplyr::filter(week_year <= "2022-08")
+  dplyr::filter(week_year <= "2022-12")
 cbs.deaths <- sum(total.covid.mortality.cbs$total_covid_mortality,na.rm=T)
 
 
