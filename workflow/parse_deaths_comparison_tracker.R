@@ -217,7 +217,7 @@ cols <- c("#009E73", "#87109A","#E6830C","#D96DEA", "#2231C5","#000000")
 
 
 plot <- deaths_total %>%
-  dplyr::filter(week_year <= "2022-08") %>%
+  dplyr::filter(week_year <= "2022-12") %>%
   ggplot(aes(x=factor(week_year), y=deaths_rivm, group = 1)) + 
   geom_line(aes(y = deaths_rivm, color = "RIVM"), lwd=1.2) +
   geom_line(aes(y = total_covid_mortality, color = "CBS"), lwd=1.2) +
@@ -225,7 +225,7 @@ plot <- deaths_total %>%
   xlab("")+
   ylab("")+
   labs(title = "Sterfte per week",
-       subtitle = "CBS data beschikbaar t/m februari 2022",
+       subtitle = "CBS data beschikbaar t/m maart 2022",
        caption = paste("Bron: CBS/RIVM | Plot: @mzelst  | ",Sys.Date())) +
   theme(
     legend.title = element_blank(),  ## legend title

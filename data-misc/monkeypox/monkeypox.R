@@ -151,14 +151,15 @@ rivm.monkeypox.table <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
   read_html() %>%
   html_table()
 
-monkeypox.region <- data.frame(do.call(rbind,rivm.monkeypox.table),"Datum" =Sys.Date())
+monkeypox.region <- data.frame(do.call(rbind,rivm.monkeypox.table),"Datum" =as.character(Sys.Date()))
 
 
-monkeypox.region.dat <- fread("data-misc/monkeypox/monkeypox_region.csv")
+monkeypox.region.dat <- read.csv("data-misc/monkeypox/monkeypox_region.csv")[,1:3]
+monkeypox.region.dat <- rbind(monkeypox.region.dat,monkeypox.region)
 
 monkeypox.region.dat <- monkeypox.region.dat %>%
   mutate(
-  Datum = as.Date(Datum, tryFormats = c("%d/%m/%Y"))) %>%
+  Datum = as.Date(Datum, tryFormats = c("%Y-%m-%d"))) %>%
   arrange(Datum) %>%
   group_by(Regio) %>%
   mutate(toename_monkeypox = c(0,diff(Aantallen)))
