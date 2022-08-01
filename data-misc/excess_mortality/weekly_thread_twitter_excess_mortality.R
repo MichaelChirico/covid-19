@@ -45,25 +45,25 @@ tweet.last_id <- tweet.main.id
 
 ## Build information tweet
 #3) Sterfte door corona met model gebaseerd op plaats van overlijden (tweet 6)
-tweet.information <- paste0("2/ 
-
-Ik kijk naar:
-
-1) Oversterfte adhv historische gemiddeldes (tweet 3/4)
-2) Sterfte door corona met een dynamisch linear model (DLM) (tweet 5)
-2) Sterfte door corona met een fitted model obv CBS, NICE, en RIVM (tweet 6)
-
-
-De uitleg kun je hier vinden: https://github.com/mzelst/covid-19/blob/master/data-misc/excess_mortality/REMARKS.md")
-
-posted_tweet <- post_tweet (
-  tweet.information,
-  token = token.mzelst,
-  in_reply_to_status_id = tweet.last_id,
-  auto_populate_reply_metadata = TRUE
-)
-posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
-tweet.last_id <- posted_tweet$id_str
+#tweet.information <- paste0("2/ 
+#
+#Ik kijk naar:
+#
+#1) Oversterfte adhv historische gemiddeldes (tweet 3/4)
+#2) Sterfte door corona met een dynamisch linear model (DLM) (tweet 5)
+#2) Sterfte door corona met een fitted model obv CBS, NICE, en RIVM (tweet 6)
+#
+#
+#De uitleg kun je hier vinden: https://github.com/mzelst/covid-19/blob/master/data-misc/excess_mortality/REMARKS.md")
+#
+#posted_tweet <- post_tweet (
+#  tweet.information,
+#  token = token.mzelst,
+#  in_reply_to_status_id = tweet.last_id,
+#  auto_populate_reply_metadata = TRUE
+#)
+#posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+#tweet.last_id <- posted_tweet$id_str
 
 ## Build excess mortality (historical) tweet
 excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
