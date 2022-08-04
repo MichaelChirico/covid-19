@@ -1,38 +1,39 @@
 "Date_of_publication","Municipality_name","Municipal_health_service","cases.today.mun","cases.yesterday.mun","diff"
-2022-01-26,"Bergen op Zoom","GGD West-Brabant",239,240,-1
-2022-01-27,"Gooise Meren","GGD Gooi en Vechtstreek",280,281,-1
-2022-01-30,"Zaanstad","GGD Zaanstreek/Waterland",1513,1514,-1
-2022-01-31,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",265,266,-1
-2022-02-01,"Putten","GGD Noord- en Oost-Gelderland",172,173,-1
-2022-02-03,"Zaanstad","GGD Zaanstreek/Waterland",278,279,-1
-2022-02-05,"'s-Hertogenbosch","GGD Hart voor Brabant",545,546,-1
-2022-02-06,"Amsterdam","GGD Amsterdam",4231,4232,-1
-2022-02-08,"'s-Hertogenbosch","GGD Hart voor Brabant",6124,6123,1
-2022-02-08,"Amsterdam","GGD Amsterdam",11372,11371,1
-2022-02-08,"Bergen op Zoom","GGD West-Brabant",1236,1235,1
-2022-02-08,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",2596,2595,1
-2022-02-08,"Gooise Meren","GGD Gooi en Vechtstreek",988,987,1
-2022-02-08,"Putten","GGD Noord- en Oost-Gelderland",506,505,1
-2022-02-08,"Zaanstad","GGD Zaanstreek/Waterland",3500,3498,2
-2022-07-21,"Overbetuwe","Veiligheids- en Gezondheidsregio Gelderland-Midden",11,12,-1
-2022-07-22,"Utrecht","GGD Regio Utrecht",80,81,-1
-2022-07-26,"","GGD Drenthe",2,3,-1
-2022-07-26,"Overbetuwe","Veiligheids- en Gezondheidsregio Gelderland-Midden",24,23,1
-2022-07-26,"Zwolle","GGD IJsselland",27,26,1
-2022-07-28,"Middelburg","GGD Zeeland",13,12,1
-2022-07-29,"Middelburg","GGD Zeeland",10,9,1
-2022-07-29,"Rotterdam","GGD Rotterdam-Rijnmond",87,88,-1
-2022-07-30,"","GGD Kennemerland",4,5,-1
-2022-07-30,"Haarlemmermeer","GGD Kennemerland",21,20,1
-2022-07-31,"","GGD Amsterdam",9,12,-3
-2022-07-31,"Amsterdam","GGD Amsterdam",120,117,3
-2022-08-01,"","Dienst Gezondheid & Jeugd ZHZ",0,1,-1
-2022-08-01,"","GGD Amsterdam",5,6,-1
-2022-08-01,"","GGD Kennemerland",6,7,-1
-2022-08-01,"","GGD Noord- en Oost-Gelderland",0,1,-1
-2022-08-01,"Amsterdam","GGD Amsterdam",72,70,2
-2022-08-01,"Assen","GGD Drenthe",7,6,1
-2022-08-01,"Doetinchem","GGD Noord- en Oost-Gelderland",12,11,1
-2022-08-01,"Haarlemmermeer","GGD Kennemerland",13,14,-1
-2022-08-01,"Hendrik-Ido-Ambacht","Dienst Gezondheid & Jeugd ZHZ",5,4,1
-2022-08-01,"Nijmegen","GGD Gelderland-Zuid",54,53,1
+2022-01-24,"Den Helder","GGD Hollands-Noorden",175,176,-1
+2022-01-27,"Berg en Dal","GGD Gelderland-Zuid",103,104,-1
+2022-01-28,"Hilversum","GGD Gooi en Vechtstreek",625,626,-1
+2022-01-31,"Eindhoven","GGD Brabant-Zuidoost",3218,3219,-1
+2022-02-03,"Utrecht","GGD Regio Utrecht",1410,1411,-1
+2022-02-04,"Amstelveen","GGD Amsterdam",303,304,-1
+2022-02-08,"Amstelveen","GGD Amsterdam",1377,1376,1
+2022-02-08,"Berg en Dal","GGD Gelderland-Zuid",542,541,1
+2022-02-08,"Den Helder","GGD Hollands-Noorden",1334,1333,1
+2022-02-08,"Eindhoven","GGD Brabant-Zuidoost",5641,5640,1
+2022-02-08,"Hilversum","GGD Gooi en Vechtstreek",1605,1604,1
+2022-02-08,"Utrecht","GGD Regio Utrecht",5750,5749,1
+2022-07-18,"Beverwijk","GGD Kennemerland",5,6,-1
+2022-07-18,"Haarlem","GGD Kennemerland",37,36,1
+2022-07-20,"Haarlem","GGD Kennemerland",33,34,-1
+2022-07-23,"Haarlem","GGD Kennemerland",41,40,1
+2022-07-26,"Assen","GGD Drenthe",21,20,1
+2022-07-26,"Zwolle","GGD IJsselland",26,27,-1
+2022-07-27,"","GGD Gelderland-Zuid",15,16,-1
+2022-07-27,"Nijmegen","GGD Gelderland-Zuid",237,236,1
+2022-07-29,"Haarlem","GGD Kennemerland",42,43,-1
+2022-08-01,"","GGD Amsterdam",6,5,1
+2022-08-01,"Krimpenerwaard","GGD Hollands-Midden",7,8,-1
+2022-08-01,"Leiderdorp","GGD Hollands-Midden",4,5,-1
+2022-08-01,"Zoeterwoude","GGD Hollands-Midden",1,3,-2
+2022-08-02,"Gooise Meren","GGD Gooi en Vechtstreek",15,14,1
+2022-08-02,"Krimpenerwaard","GGD Hollands-Midden",6,5,1
+2022-08-02,"Zoeterwoude","GGD Hollands-Midden",5,4,1
+2022-08-03,"","GGD Amsterdam",12,13,-1
+2022-08-03,"","GGD Kennemerland",7,9,-2
+2022-08-03,"","GGD Zaanstreek/Waterland",0,1,-1
+2022-08-03,"Amstelveen","GGD Amsterdam",14,15,-1
+2022-08-03,"Amsterdam","GGD Amsterdam",126,124,2
+2022-08-03,"Haarlemmermeer","GGD Kennemerland",28,26,2
+2022-08-03,"Hellendoorn","GGD Twente",3,4,-1
+2022-08-03,"Leiderdorp","GGD Hollands-Midden",7,6,1
+2022-08-03,"Purmerend","GGD Zaanstreek/Waterland",28,27,1
+2022-08-03,"Zoeterwoude","GGD Hollands-Midden",6,5,1
