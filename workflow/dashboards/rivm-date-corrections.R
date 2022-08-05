@@ -13,7 +13,7 @@ gc()
 
 df.yesterday <- df.yesterday %>%
   mutate(value = 1) %>%
-  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS")))
+  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS"))-1)
 
 df_date_long.yesterday <- dcast.data.table(df.yesterday, Date_statistics + date ~ value, fun.aggregate = sum)
 rm(df.yesterday)
@@ -69,7 +69,7 @@ gc()
 df.yesterday <- df.yesterday %>%
   dplyr::filter(Deceased == "Yes") %>%
   mutate(value = 1) %>%
-  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS")))
+  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS"))-1)
 
 df_date_long.yesterday <- dcast.data.table(df.yesterday, Date_statistics + date ~ value, fun.aggregate = sum, fill = 0)
 rm(df.yesterday)
