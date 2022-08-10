@@ -1,44 +1,31 @@
 "Date_of_publication","Municipality_name","Municipal_health_service","cases.today.mun","cases.yesterday.mun","diff"
-2022-01-26,"Ermelo","GGD Noord- en Oost-Gelderland",98,99,-1
-2022-02-01,"Utrecht","GGD Regio Utrecht",2742,2743,-1
-2022-02-03,"Amersfoort","GGD Regio Utrecht",873,874,-1
-2022-02-07,"Enschede","GGD Twente",1105,1106,-1
-2022-02-08,"Amersfoort","GGD Regio Utrecht",2384,2383,1
-2022-02-08,"Enschede","GGD Twente",3947,3946,1
-2022-02-08,"Ermelo","GGD Noord- en Oost-Gelderland",536,535,1
-2022-02-08,"Utrecht","GGD Regio Utrecht",5751,5750,1
-2022-07-21,"Amstelveen","GGD Amsterdam",25,24,1
-2022-07-23,"Amstelveen","GGD Amsterdam",37,38,-1
-2022-07-24,"Utrecht","GGD Regio Utrecht",57,56,1
-2022-07-24,"Wageningen","Veiligheids- en Gezondheidsregio Gelderland-Midden",6,7,-1
-2022-07-26,"Dronten","GGD Flevoland",1,2,-1
-2022-07-27,"","GGD Brabant-Zuidoost",4,5,-1
-2022-07-27,"","GGD Zuid-Limburg",12,11,1
-2022-07-27,"Dronten","GGD Flevoland",14,13,1
-2022-07-28,"","GGD Zeeland",3,4,-1
-2022-07-28,"Vlissingen","GGD Zeeland",16,15,1
-2022-07-29,"Beuningen","GGD Gelderland-Zuid",27,28,-1
-2022-07-29,"Renkum","Veiligheids- en Gezondheidsregio Gelderland-Midden",11,10,1
-2022-07-29,"Vlissingen","GGD Zeeland",5,6,-1
-2022-07-30,"Beuningen","GGD Gelderland-Zuid",10,9,1
-2022-08-01,"Noordoostpolder","GGD Flevoland",4,3,1
-2022-08-01,"Zeist","GGD Regio Utrecht",3,4,-1
-2022-08-03,"Amstelveen","GGD Amsterdam",13,14,-1
-2022-08-03,"Amsterdam","GGD Amsterdam",125,126,-1
-2022-08-03,"Haarlemmermeer","GGD Kennemerland",27,28,-1
-2022-08-03,"Waddinxveen","GGD Hollands-Midden",4,5,-1
-2022-08-04,"Gouda","GGD Hollands-Midden",10,11,-1
-2022-08-04,"Leiden","GGD Hollands-Midden",19,21,-2
-2022-08-04,"Waddinxveen","GGD Hollands-Midden",3,2,1
-2022-08-05,"","GGD Hollands-Midden",3,4,-1
-2022-08-05,"","GGD Kennemerland",6,8,-2
-2022-08-05,"","GGD Noord- en Oost-Gelderland",4,5,-1
-2022-08-05,"Amsterdam","GGD Amsterdam",144,143,1
-2022-08-05,"Apeldoorn","GGD Noord- en Oost-Gelderland",34,33,1
-2022-08-05,"Dalfsen","GGD IJsselland",3,4,-1
-2022-08-05,"Dinkelland","GGD Twente",2,3,-1
-2022-08-05,"Haarlemmermeer","GGD Kennemerland",18,16,2
-2022-08-05,"Kaag en Braassem","GGD Hollands-Midden",1,2,-1
-2022-08-05,"Leiden","GGD Hollands-Midden",16,15,1
-2022-08-05,"Oegstgeest","GGD Hollands-Midden",2,3,-1
-2022-08-05,"Voorschoten","GGD Hollands-Midden",8,7,1
+2022-01-25,"Geldrop-Mierlo","GGD Brabant-Zuidoost",2,3,-1
+2022-01-29,"Roosendaal","GGD West-Brabant",488,489,-1
+2022-02-01,"Het Hogeland","GGD Groningen",372,373,-1
+2022-02-06,"Aalsmeer","GGD Amsterdam",157,158,-1
+2022-02-08,"Aalsmeer","GGD Amsterdam",590,589,1
+2022-02-08,"Geldrop-Mierlo","GGD Brabant-Zuidoost",1037,1036,1
+2022-02-08,"Het Hogeland","GGD Groningen",788,787,1
+2022-02-08,"Roosendaal","GGD West-Brabant",1290,1289,1
+2022-07-21,"Amstelveen","GGD Amsterdam",26,25,1
+2022-07-28,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",64,65,-1
+2022-07-28,"Overbetuwe","Veiligheids- en Gezondheidsregio Gelderland-Midden",16,15,1
+2022-08-03,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",7,8,-1
+2022-08-03,"Lingewaard","Veiligheids- en Gezondheidsregio Gelderland-Midden",15,14,1
+2022-08-05,"Lingewaard","Veiligheids- en Gezondheidsregio Gelderland-Midden",10,9,1
+2022-08-07,"","GGD Fryslân",2,1,1
+2022-08-07,"Heerenveen","GGD Fryslân",4,5,-1
+2022-08-08,"","GGD Kennemerland",4,5,-1
+2022-08-08,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",2,3,-1
+2022-08-08,"Bodegraven-Reeuwijk","GGD Hollands-Midden",8,7,1
+2022-08-08,"Gouda","GGD Hollands-Midden",4,5,-1
+2022-08-08,"Putten","GGD Noord- en Oost-Gelderland",2,3,-1
+2022-08-08,"Veenendaal","GGD Regio Utrecht",5,4,1
+2022-08-09,"","GGD Fryslân",0,1,-1
+2022-08-09,"","GGD Kennemerland",2,3,-1
+2022-08-09,"","GGD Noord- en Oost-Gelderland",3,5,-2
+2022-08-09,"Apeldoorn","GGD Noord- en Oost-Gelderland",41,42,-1
+2022-08-09,"Beverwijk","GGD Kennemerland",3,2,1
+2022-08-09,"Breda","GGD West-Brabant",34,33,1
+2022-08-09,"Het Hogeland","GGD Groningen",7,6,1
+2022-08-09,"Zwolle","GGD IJsselland",14,12,2
