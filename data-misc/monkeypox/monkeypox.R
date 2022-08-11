@@ -19,7 +19,7 @@ rivm.text <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
   html_nodes('.card-outline-primary') %>%
   html_text() %>%
   parse_number()
-rivm.text <- rivm.text[1]
+rivm.text <- rivm.text[1]*1000
 
 new.data <- data.frame("Besmettingen" = 0, "date" = as.Date(Sys.Date()), "Cumulatief" = rivm.text)
 
