@@ -316,7 +316,7 @@ push(repo, credentials = git.auth)
 
 ##### Download case file
 rivm.data <- fread("https://data.rivm.nl/covid-19/COVID-19_casus_landelijk.csv", sep =";") ## Read in data with all cases until today
-rivm.data.archive <- fread("data-rivm/casus-datasets/COVID-19_casus_landelijk_until_03102021.csv.gz")
+rivm.data.archive <- fread("data-rivm/casus-datasets/COVID-19_casus_landelijk_2021_until_03102021.csv.gz")
 rivm.data <- rbind(rivm.data.archive,rivm.data)
 
 last_date <- as.Date(last(rivm.data$Date_statistics))
