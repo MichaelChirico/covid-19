@@ -3,17 +3,21 @@ temp = last(list.files(path = "data-rivm/casus-datasets/",pattern="*.csv.gz", fu
 df.today <- fread(temp[2])
 df.yesterday <- fread(temp[1])
 
+date_file <- as.Date(parse_date_time(last(df.today$Date_file), "Ymd HMS"))
+
 df.today <- df.today %>%
   mutate(value = 1) %>%
-  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS")))
+  mutate(date = date_file)
 
 df_date_long <- dcast.data.table(df.today, Date_statistics + date ~ value, fun.aggregate = sum)
 rm(df.today)
 gc()
 
+date_file_yesterday <- as.Date(parse_date_time(last(df.yesterday$Date_file), "Ymd HMS"))
+
 df.yesterday <- df.yesterday %>%
   mutate(value = 1) %>%
-  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS"))-1)
+  mutate(date = date_file_yesterday)
 
 df_date_long.yesterday <- dcast.data.table(df.yesterday, Date_statistics + date ~ value, fun.aggregate = sum)
 rm(df.yesterday)
@@ -57,19 +61,23 @@ write.csv(df.cases, file = "corrections/cases_perday.csv", row.names = F)
 df.today <- fread(temp[2])
 df.yesterday <- fread(temp[1])
 
+date_file <- as.Date(parse_date_time(last(df.today$Date_file), "Ymd HMS"))
+
 df.today <- df.today %>%
   dplyr::filter(Deceased == "Yes") %>%
   mutate(value = 1) %>%
-  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS")))
+  mutate(date = date_file)
 
 df_date_long <- dcast.data.table(df.today, Date_statistics + date ~ value, fun.aggregate = sum, fill = 0)
 rm(df.today)
 gc()
 
+date_file_yesterday <- as.Date(parse_date_time(last(df.yesterday$Date_file), "Ymd HMS"))
+
 df.yesterday <- df.yesterday %>%
   dplyr::filter(Deceased == "Yes") %>%
   mutate(value = 1) %>%
-  mutate(date = as.Date(parse_date_time(Date_file, "Ymd HMS"))-1)
+  mutate(date = date_file_yesterday)
 
 df_date_long.yesterday <- dcast.data.table(df.yesterday, Date_statistics + date ~ value, fun.aggregate = sum, fill = 0)
 rm(df.yesterday)
