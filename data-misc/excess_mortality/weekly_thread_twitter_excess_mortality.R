@@ -67,11 +67,17 @@ tweet.last_id <- tweet.main.id
 
 ## Build excess mortality (historical) tweet
 excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
+month.names <- date_names_lang(language = "nl")
+which.month <- month(ymd(Sys.Date()))
+this.month <- month.names$mon[8]
 
-tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week, " juli"," - ",endday.week," juli):
+
+
+
+tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week," ",this.month," - ",endday.week," ",this.month,"):
 
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
-2) Methode RIVM (",rivm.startday," juli - ",rivm.endday," juli): ",round(last(excess_mortality$excess_mortality_rivm)),"
+2) Methode RIVM (",rivm.startday," ",this.month," - ",rivm.endday," ",this.month,"): ",round(last(excess_mortality$excess_mortality_rivm)),"
 
 (grafieken CBS / RIVM)
 ")
@@ -163,7 +169,7 @@ excess_other_perc <- round(last(wlz.table$Sterfte_Other)/last(wlz.table$other_ve
 wlz.text <- ifelse(excess_wlz_perc<0,"minder","meer")
 other.text <- ifelse(excess_other_perc<0,"minder","meer")
 
-#source("data-misc/excess_mortality/plots_weekly_update/plots_excess_mortality_wlz_age.R")
+source("data-misc/excess_mortality/plots_weekly_update/plots_excess_mortality_wlz_age.R")
 
 tweet.wlz <- paste0("4/ Oversterfte Wlz en overige bevolking (CBS)
 
