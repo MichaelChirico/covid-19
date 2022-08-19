@@ -10,7 +10,7 @@
 
 ## Put in double date breaker for daily update
 repeat {
-#  Sys.sleep(600)
+  Sys.sleep(600)
   time.start <- ymd_hms(paste0("2022-08-12"," 05:00:00"))
   time.now <- ymd_hms(Sys.time())
   
@@ -470,7 +470,7 @@ totals <- totals %>%
   dplyr::select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
 
 
-u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/30/doodsoorzaken-2020-maart-2022-nw3.xlsx"
+u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/33/doodsoorzaken-april-2022.xlsx"
 
 
 download.file(u.cbs,destfile = "cbs_deaths.xlsx", mode = "wb")
