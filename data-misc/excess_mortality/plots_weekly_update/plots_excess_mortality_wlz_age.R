@@ -143,7 +143,7 @@ cbs_sterfte_leeftijd <- cbs_sterfte_leeftijd %>%
   mutate(sterfte_0_65 = sterfte_wlz_0_65 + sterfte_other_0_65) %>%
   mutate(sterfte_65_80 = sterfte_wlz_65_80 + sterfte_other_65_80) %>%
   mutate(sterfte_80 = sterfte_wlz_80 + sterfte_other_80) %>%
-  select(Jaar,Week,sterfte_0_65,sterfte_65_80,sterfte_80)
+  dplyr::select(Jaar,Week,sterfte_0_65,sterfte_65_80,sterfte_80)
 #cbs_sterfte <- cbs_sterfte[c(1:4)]
 
 ## Select indices ##
