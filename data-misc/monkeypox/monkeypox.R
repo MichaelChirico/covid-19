@@ -2,7 +2,7 @@ require(rvest)
 require(padr)
 require(discordr)
 require(git2r)
-setwd("C:/Users/marin/Documents/covid-19")
+#setwd("C:/Users/Marino/Documents/covid-19")
 #monkeypox.nl <- fread("data-misc/monkeypox/monkeypox_globaldothealth.csv")
 source("workflow/twitter/token_mzelst.R")
 
@@ -70,7 +70,22 @@ ggsave(monkeypox.plot, file = "plots/monkeypox.png",width = 16, height = 8)
 
 ## Plot based on DOO
 
-doo.monkeypox <- fread("C:/Users/marin/Downloads/meldingen-apenpokken.csv")
+#doo.monkeypox <- fread("C:/Users/marin/Downloads/meldingen-apenpokken.csv")
+
+u <- "https://www.rivm.nl/monkeypox-apenpokken"
+webpage <- read_html(u)
+
+
+script <- webpage %>%
+  html_nodes('script') %>%
+  html_text()
+
+dat.monkeypox <- script[4]
+dat.monkeypox <- fromJSON(dat.monkeypox)
+dat.monkeypox <- fromJSON(dat.monkeypox$easychart$`764271-0-field_par_chart`$config)
+
+doo.monkeypox <- data.frame(dat.monkeypox$series$data)
+doo.monkeypox <- doo.monkeypox[,c(1,2,4,6)]
 
 colnames(doo.monkeypox) <- c("date","unknown","before_endjune","after_endjune")
 doo.monkeypox$infections <- rowSums(doo.monkeypox[,c("unknown","before_endjune","after_endjune")],na.rm=T)
