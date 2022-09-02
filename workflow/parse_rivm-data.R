@@ -1,5 +1,6 @@
 rivm.mun.perday <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_per_dag.csv", sep=";")
-
+rivm.mun.perday.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_gemeente_per_dag_tm_03102021.csv")
+rivm.mun.perday <- rbind(rivm.mun.perday.archive,rivm.mun.perday)
 # Verify that new data has been uploaded
 #condition <- Sys.Date()!=as.Date(last(rivm.mun.perday$Date_of_report))
 
@@ -51,6 +52,9 @@ fwrite(rivm_by_day, file = "data/rivm_by_day.csv",row.names = F) ## Write file w
 ## Download nursing homes
 
 nursing.homes <- fread("https://data.rivm.nl/covid-19/COVID-19_verpleeghuizen.csv", sep = ";")
+nursing.homes.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_verpleeghuizen_tm_03102021.csv")
+nursing.homes <- rbind(nursing.homes.archive,nursing.homes)
+
 filename.nursinghomes.raw <- paste0("raw-data-archive/nursing-home-datasets/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data
 fwrite(nursing.homes, file = filename.nursinghomes.raw,row.names = F)
 
@@ -60,6 +64,9 @@ fwrite(nursing.homes, file = filename.nursinghomes.compressed,row.names = F)
 ## Download tests
 
 tests <- fread("https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen.csv", sep = ";")
+tests.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen_tm_03102021.csv")
+tests <- rbind(tests.archive, tests)
+
 filename.tests.raw <- paste0("raw-data-archive/tests/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data
 fwrite(tests, file = filename.tests.raw,row.names = F)
 

@@ -91,7 +91,7 @@ nursery.by_day <- fread("data/nursery_by_day.csv")
 testrate.by_day <- fread("data-dashboards/percentage-positive-daily-national.csv")[,c("values.tested_total","values.infected","values.infected_percentage","date","pos.rate.3d.avg","pos.rate.7d.avg")]
 #vaccines.by_day <- read.csv("data/vaccines_by_day.csv") , vaccines.by_day
 
-daily_datalist <- list(rivm.by_day,nice.by_day,corr.by_day,nursery.by_day, testrate.by_day,lcps.by_day)
+daily_datalist <- list(lcps.by_day,nice.by_day,rivm.by_day,corr.by_day,nursery.by_day, testrate.by_day)
 
 all.data <- Reduce(
   function(x, y, ...) merge(x, y, by="date",all.x = TRUE, ...),
@@ -121,6 +121,9 @@ IC_Nieuwe_Opnames <- ifelse(is.na(last(all.data$IC_Nieuwe_Opnames_COVID_Nederlan
 IC_Aanwezig <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Nederland)),"Onbekend",paste0(last(all.data$IC_Bedden_COVID_Nederland),sign.ic.lcps,LCPS_IC_Huidig_Toename))
 IC_Aanwezig_Int <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Internationaal)),"Onbekend",paste0(last(all.data$IC_Bedden_COVID_Internationaal),sign.ic.int.lcps,LCPS_IC_Int_Huidig_Toename))
 
+total.deaths <- last(all.data$deaths,5)
+total.deaths <- last(total.deaths[!is.na(total.deaths)],2)
+
 tweet.main <- paste0("#COVID19NL
 
 Opgenomen: ",Kliniek_Nieuwe_Opnames,"
@@ -129,7 +132,7 @@ Huidig: ",Kliniek_Aanwezig,")
 Opgenomen op IC: ",IC_Nieuwe_Opnames,"
 Huidig IC Nederland: ",IC_Aanwezig,")
 
-Overleden: ",last(all.data$deaths)-all.data[nrow(all.data)-1,"deaths"],"
+Overleden: ",total.deaths[2]-total.deaths[1],"
 Totaal: ",format(last(all.data$deaths),decimal.mark = ",",big.mark =".",big.interval = 3),"")
 
 tweet.main
