@@ -130,6 +130,8 @@ const.date_hosp <- const.date
 
 ## Add hospital admissions from NICE
 nice.hosp <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv")
+nice.hosp.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames_tm_03102021.csv")
+nice.hosp <- rbind(nice.hosp.archive, nice.hosp)
 nice.hosp$date <- nice.hosp$Date_of_statistics+1
 
 nice.hosp.cumsum <- nice.hosp %>%
