@@ -278,7 +278,12 @@ tweet.last_id <- posted_tweet$id_str
 all.data <- read.csv("data/all_data.csv")
 
 source("plot_scripts/nursery_homes.R")
-new.locations.nursery <- all.data[nrow(all.data),"total.current.locations.nursery"] - all.data[nrow(all.data)-1,"total.current.locations.nursery"]
+
+total.nursing.locations <- last(all.data$total.current.locations.nursery,5)
+total.nursing.locations <- last(total.nursing.locations[!is.na(total.nursing.locations)],2)
+
+
+new.locations.nursery <- total.nursing.locations[2] - total.nursing.locations[1]
 
 tweet.nurseryhomes <- paste0("#Verpleeghuis t.o.v. laatste update: 
 

@@ -1,5 +1,7 @@
 ## Download data disabled people 
 disabled.people <- fread("https://data.rivm.nl/covid-19/COVID-19_gehandicaptenzorg.csv", sep = ";")
+disabled.people.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_gehandicaptenzorg_tm_03102021.csv")
+disabled.people <- rbind(disabled.people.archive, disabled.people)
 last_date <- as.Date(max(disabled.people$Date_of_statistic_reported))
 
 filename.disabledpeople.compressed  <- paste0("data-rivm/disabled-people-per-day/rivm_daily_",last_date,".csv.gz") ## Filename for daily data
@@ -7,6 +9,8 @@ fwrite(disabled.people, file = filename.disabledpeople.compressed,row.names = F)
 
 ## Download data 70+ living at home 
 living.home.70plus <- fread("https://data.rivm.nl/covid-19/COVID-19_thuiswonend_70plus.csv", sep = ";")
+living.home.70plus.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_thuiswonend_70plus_tm_03102021.csv")
+living.home.70plus <- rbind(living.home.70plus.archive, living.home.70plus)
 last_date <- as.Date(max(living.home.70plus$Date_of_statistic_reported))
 
 filename.living.home.70plus.compressed <- paste0("data-rivm/70plus-living-at-home-per-day/rivm_daily_",last_date,".csv.gz") ## Filename for daily data
@@ -22,12 +26,16 @@ fwrite(behavior, file = filename.behavior.compressed,row.names = F)
 ## Download IC data (NICE)
 
 ic.nice.data <- fread("https://data.rivm.nl/covid-19/COVID-19_ic_opnames.csv", sep = ";")
+ic.nice.data.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_ic_opnames_tm_03102021.csv")
+ic.nice.data <- rbind(ic.nice.data.archive, ic.nice.data)
 filename.ic.nice <- paste0("data-rivm/ic-datasets/ic_daily_",last(ic.nice.data$Date_of_statistics),".csv") ## Filename for daily data
 fwrite(ic.nice.data, file = filename.ic.nice,row.names = F)
 
 ## Download IC data stratified by age and week (NICE)
 
 ic.nice.age.data <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuis_ic_opnames_per_leeftijdsgroep.csv", sep = ";")
+ic.nice.age.data.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_ziekenhuis_ic_opnames_per_leeftijdsgroep_tm_03102021.csv")
+ic.nice.age.data <- rbind(ic.nice.age.data.archive, ic.nice.age.data)
 filename.ic.age.nice <- paste0("data-rivm/ic-age-datasets/ic_daily_",last(ic.nice.age.data$Date_of_statistics),".csv") ## Filename for daily data
 fwrite(ic.nice.age.data, file = filename.ic.age.nice,row.names = F)
 
