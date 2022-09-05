@@ -66,11 +66,18 @@ write.csv(all.data, file = "data/all_data.csv",row.names = F)
 source("workflow/twitter/token_mzelst.R")
 #source("workflow/twitter/token_edwinveldhuizen.R")
 
-LCPS_klinisch_two_days <- last(all.data$Kliniek_Bedden_Nederland,2)
+total.deaths <- last(all.data$deaths,5)
+total.deaths <- last(total.deaths[!is.na(total.deaths)],2)
+
+
+LCPS_klinisch_two_days <- last(all.data$Kliniek_Bedden_Nederland,5)
+LCPS_klinisch_two_days <- last(LCPS_klinisch_two_days[!is.na(LCPS_klinisch_two_days)],2)
 LCPS_Verpleeg_Huidig_Toename <- LCPS_klinisch_two_days[2] - LCPS_klinisch_two_days[1]
-LCPS_IC_two_days <- last(all.data$IC_Bedden_COVID_Nederland,2)
+LCPS_IC_two_days <- last(all.data$IC_Bedden_COVID_Nederland,5)
+LCPS_IC_two_days <- last(LCPS_IC_two_days[!is.na(LCPS_IC_two_days)],2)
 LCPS_IC_Huidig_Toename <- LCPS_IC_two_days[2] - LCPS_IC_two_days[1]
-LCPS_IC_Int_two_days <- last(all.data$IC_Bedden_COVID_Internationaal,2)
+LCPS_IC_Int_two_days <- last(all.data$IC_Bedden_COVID_Internationaal,5)
+LCPS_IC_Int_two_days <- last(LCPS_IC_Int_two_days[!is.na(LCPS_IC_Int_two_days)],2)
 LCPS_IC_Int_Huidig_Toename <- LCPS_IC_Int_two_days[2] - LCPS_IC_Int_two_days[1]
 
 sign.hosp.lcps <- paste0(ifelse(LCPS_Verpleeg_Huidig_Toename>=0," (+"," ("))
