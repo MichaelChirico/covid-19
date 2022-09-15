@@ -6,6 +6,29 @@ require(git2r)
 #monkeypox.nl <- fread("data-misc/monkeypox/monkeypox_globaldothealth.csv")
 source("workflow/twitter/token_mzelst.R")
 
+## Loop for start ##
+
+number.infections <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
+  read_html() %>%
+  html_nodes('.card-outline-primary') %>%
+  html_text() 
+number.infections.old <- parse_number(number.infections[1])*1000
+
+repeat {
+  Sys.sleep(30)
+  number.infections <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
+    read_html() %>%
+    html_nodes('.card-outline-primary') %>%
+    html_text() 
+  number.infections.new <- parse_number(number.infections[1])*1000
+  
+  if (number.infections.old < number.infections.new){
+    message <- "GO GO GO GO GO"
+    break
+  }
+}
+
+
 
 monkeypox.nl <- fread("data-misc/monkeypox/monkeypox.csv")
 monkeypox.nl <- monkeypox.nl %>%
@@ -80,11 +103,14 @@ script <- webpage %>%
   html_nodes('script') %>%
   html_text()
 
-dat.monkeypox <- script[4]
+dat.monkeypox <- script[3]
 dat.monkeypox <- fromJSON(dat.monkeypox)
+dat.monkeypox$
 dat.monkeypox <- fromJSON(dat.monkeypox$easychart$`764271-0-field_par_chart`$config)
 
-doo.monkeypox <- data.frame(dat.monkeypox$series$data)
+
+
+doo.monkeypox <- data.frame(dat.monkeypox$dat.monkeypox$series$data)
 doo.monkeypox <- doo.monkeypox[,c(1,2,4,6)]
 
 colnames(doo.monkeypox) <- c("date","unknown","before_endjune","after_endjune")
@@ -199,9 +225,6 @@ post_tweet (
   tweet.monkeypox.regio,
   token = token.mzelst,
   in_reply_to_status_id = tweet.main.id.monkeypox)
-
-
-
 
 ## Push to GIT
 
