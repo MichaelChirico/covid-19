@@ -1,30 +1,47 @@
 "Date_of_publication","Municipality_name","Municipal_health_service","cases.today.mun","cases.yesterday.mun","diff"
-2022-01-23,"Amsterdam","GGD Amsterdam",4726,4727,-1
-2022-02-01,"Haaksbergen","GGD Twente",526,527,-1
-2022-02-03,"Deventer","GGD IJsselland",557,558,-1
-2022-02-07,"Westerkwartier","GGD Groningen",222,223,-1
-2022-02-08,"Amsterdam","GGD Amsterdam",11376,11375,1
-2022-02-08,"Deventer","GGD IJsselland",2350,2349,1
-2022-02-08,"Haaksbergen","GGD Twente",564,563,1
-2022-02-08,"Westerkwartier","GGD Groningen",1153,1152,1
-2022-08-16,"Venray","GGD Limburg-Noord",7,9,-2
-2022-09-01,"Amsterdam","GGD Amsterdam",76,75,1
-2022-09-01,"Heemskerk","GGD Kennemerland",0,1,-1
-2022-09-02,"","GGD Amsterdam",2,3,-1
-2022-09-03,"Bronckhorst","GGD Noord- en Oost-Gelderland",2,3,-1
-2022-09-03,"Meerssen","GGD Zuid-Limburg",2,3,-1
-2022-09-05,"Amsterdam","GGD Amsterdam",35,36,-1
-2022-09-07,"'s-Gravenhage","GGD Haaglanden",33,32,1
-2022-09-08,"","GGD Kennemerland",1,2,-1
-2022-09-08,"Haarlem","GGD Kennemerland",25,24,1
-2022-09-08,"Woerden","GGD Regio Utrecht",9,10,-1
-2022-09-09,"","GGD Haaglanden",0,2,-2
-2022-09-09,"","GGD IJsselland",1,2,-1
-2022-09-09,"","GGD Zuid-Limburg",1,2,-1
-2022-09-09,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",1,2,-1
-2022-09-09,"'s-Gravenhage","GGD Haaglanden",57,56,1
-2022-09-09,"Noordoostpolder","GGD Flevoland",1,2,-1
-2022-09-09,"Rotterdam","GGD Rotterdam-Rijnmond",51,52,-1
-2022-09-09,"Sittard-Geleen","GGD Zuid-Limburg",9,8,1
-2022-09-09,"Veenendaal","GGD Regio Utrecht",7,6,1
-2022-09-09,"Zoetermeer","GGD Haaglanden",17,16,1
+2022-01-22,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",348,349,-1
+2022-01-24,"Druten","GGD Gelderland-Zuid",82,83,-1
+2022-01-25,"Amsterdam","GGD Amsterdam",3770,3771,-1
+2022-01-28,"Aalsmeer","GGD Amsterdam",136,137,-1
+2022-02-04,"Hoeksche Waard","Dienst Gezondheid & Jeugd ZHZ",469,470,-1
+2022-02-07,"Amsterdam","GGD Amsterdam",3883,3884,-1
+2022-02-07,"Bernheze","GGD Hart voor Brabant",115,116,-1
+2022-02-08,"Aalsmeer","GGD Amsterdam",591,590,1
+2022-02-08,"Amsterdam","GGD Amsterdam",11378,11376,2
+2022-02-08,"Bernheze","GGD Hart voor Brabant",1391,1390,1
+2022-02-08,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",2597,2596,1
+2022-02-08,"Druten","GGD Gelderland-Zuid",330,329,1
+2022-02-08,"Hoeksche Waard","Dienst Gezondheid & Jeugd ZHZ",1746,1745,1
+2022-08-02,"Gouda","GGD Hollands-Midden",9,8,1
+2022-08-02,"Krimpenerwaard","GGD Hollands-Midden",5,6,-1
+2022-08-05,"Bodegraven-Reeuwijk","GGD Hollands-Midden",6,5,1
+2022-08-05,"Gouda","GGD Hollands-Midden",14,15,-1
+2022-08-05,"Oegstgeest","GGD Hollands-Midden",1,2,-1
+2022-08-05,"Waddinxveen","GGD Hollands-Midden",4,5,-1
+2022-08-08,"Bodegraven-Reeuwijk","GGD Hollands-Midden",6,8,-2
+2022-08-08,"Leiden","GGD Hollands-Midden",9,10,-1
+2022-08-08,"Teylingen","GGD Hollands-Midden",3,4,-1
+2022-08-11,"Leiden","GGD Hollands-Midden",18,19,-1
+2022-08-12,"Leiden","GGD Hollands-Midden",12,11,1
+2022-08-15,"","GGD Hollands-Midden",9,10,-1
+2022-08-15,"Gouda","GGD Hollands-Midden",14,15,-1
+2022-08-17,"","GGD Hollands-Midden",0,1,-1
+2022-08-17,"Gouda","GGD Hollands-Midden",16,17,-1
+2022-08-17,"Katwijk","GGD Hollands-Midden",13,12,1
+2022-08-19,"Katwijk","GGD Hollands-Midden",7,8,-1
+2022-08-23,"","GGD Hollands-Midden",1,2,-1
+2022-08-23,"Leiden","GGD Hollands-Midden",11,10,1
+2022-08-25,"Leiden","GGD Hollands-Midden",9,10,-1
+2022-08-26,"Katwijk","GGD Hollands-Midden",4,3,1
+2022-08-28,"","GGD Hollands-Midden",1,2,-1
+2022-08-28,"Leiden","GGD Hollands-Midden",2,1,1
+2022-08-29,"Katwijk","GGD Hollands-Midden",2,3,-1
+2022-08-30,"Leiden","GGD Hollands-Midden",5,6,-1
+2022-09-01,"Bodegraven-Reeuwijk","GGD Hollands-Midden",2,3,-1
+2022-09-04,"","GGD Haaglanden",2,3,-1
+2022-09-04,"","GGD Limburg-Noord",1,0,1
+2022-09-13,"","GGD Amsterdam",2,3,-1
+2022-09-13,"","GGD Drenthe",1,2,-1
+2022-09-13,"'s-Gravenhage","GGD Haaglanden",48,47,1
+2022-09-13,"Borger-Odoorn","GGD Drenthe",2,1,1
+2022-09-13,"Uithoorn","GGD Amsterdam",3,4,-1
