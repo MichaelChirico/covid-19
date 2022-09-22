@@ -204,6 +204,16 @@ Verandering (week op week): ",round(last(sewer.data$groei_riool_7d)*100-100,1),"
 Infectieradar: ",round(last(infectieradar$infectieradar_7d),1)," % covid-19-achtige klachten
 Verandering (week op week): ",round(last(infectieradar$groei_infectieradar_7d)*100-100,1),"%")
 
+posted_tweet <- post_tweet (
+  vroegsurveillance.tweet,
+  token = token.mzelst,
+  media = c("plots/infectieradar.png",
+            "plots/rioolwater.png",
+            "plots/rioolwater_veiligheidsregio.png"),
+  in_reply_to_status_id = tweet.main.id,
+  auto_populate_reply_metadata = TRUE)
+
+
 ## Git Vroegsurveillance
 
 git.credentials <- read_lines("git_auth.txt")
