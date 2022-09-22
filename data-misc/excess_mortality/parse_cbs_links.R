@@ -8,15 +8,31 @@ urls <- webpage %>%
 urls <- data.frame(urls)
 urls$number <- gsub("[^0-9.]", "",  urls$urls)
 urls$number <- substr(urls$number, 3, 8)
-urls$category <- grepl("provincie", urls$urls, fixed = TRUE)
-urls <- urls %>%
+
+sterfte.per.week <- urls
+
+sterfte.per.week$category <- grepl("provincie", sterfte.per.week$urls, fixed = TRUE)
+sterfte.per.week <- sterfte.per.week %>%
   dplyr::filter(category == "TRUE") %>%
   dplyr::filter(number >= 0) %>%
   mutate(year = substr(number, 1, 4)) %>%
   mutate(week = substr(number, 5, 6)) %>%
   setorder(year, week)
 rm(webpage,u)
-write.csv(urls, file = "data-misc/excess_mortality/links_cbs_mortality.csv",row.names = F)
+write.csv(sterfte.per.week, file = "data-misc/excess_mortality/links_cbs_mortality.csv",row.names = F)
+
+doodsoorzaken <- urls
+doodsoorzaken$category <- grepl("doodsoorzaken", doodsoorzaken$urls, fixed = TRUE)
+doodsoorzaken <- doodsoorzaken %>%
+  dplyr::filter(category == "TRUE") %>%
+  dplyr::filter(number >= 0) %>%
+  mutate(year = substr(number, 1, 4)) %>%
+  mutate(week = substr(number, 5, 6)) %>%
+  setorder(year, week)
+
+write.csv(doodsoorzaken, file = "data-misc/excess_mortality/links_death_causes.csv",row.names = F)
+
+rm(doodsoorzaken, urls, webpage, u)
 
 ## Download RIVM mortality graph
 

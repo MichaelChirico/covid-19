@@ -5,8 +5,6 @@ require(reshape2)
 require(lubridate)
 require(readxl)
 
-source("data-misc/excess_mortality/parse_cbs_links.R")
-
 table_mortality <- data.table(cbs_get_data("70895ned", 
                                 Geslacht = "1100",
                                 Perioden = has_substring("W") | has_substring("X")))
@@ -228,7 +226,16 @@ colnames(excess.mort.rivm) <- c("Year","Week","start_week","end_week","lower_bou
 deaths_weekly <- merge(deaths_weekly, excess.mort.rivm[,c("Year","Week","excess_mortality_rivm")],by=c("Week","Year"),all.x=T)
 
 ## CBS death statistics
-u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/33/doodsoorzaken-april-2022.xlsx"
+cbs_links <- read.csv("data-misc/excess_mortality/links_death_causes.csv")
+cbs_url <- last(cbs_links)
+page <- read_html(cbs_url[1,1])
+page <- page %>% html_nodes("a") %>% html_attr('href')
+page <- data.frame(page)
+
+page$category <- grepl(".xlsx", page$page, fixed = TRUE)
+page <- page %>%
+  dplyr::filter(category == "TRUE")
+u.cbs <- page[1,1]
 #webpage.cbs <- read_html(u.cbs)
 
 download.file(u.cbs,destfile = "cbs_deaths.xlsx", mode = "wb")

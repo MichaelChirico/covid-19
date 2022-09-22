@@ -69,7 +69,7 @@ tweet.last_id <- tweet.main.id
 excess_mortality <- read.csv("data-misc/excess_mortality/excess_mortality.csv")
 month.names <- date_names_lang(language = "nl")
 which.month <- month(ymd(Sys.Date()))
-this.month <- month.names$mon[8]
+this.month <- month.names$mon[which.month]
 
 
 

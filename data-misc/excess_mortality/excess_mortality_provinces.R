@@ -54,7 +54,7 @@ province_mort_plot <- ggplot(data = provinceDF) +
         legend.pos = "right",
         legend.title = element_blank()) +
   ggtitle("Procentuele oversterfte per provincie") +
-  scale_fill_gradientn(colours=c("yellow","orange", "red","purple"), name = "Percentage")
+  scale_fill_gradientn(colours=c("green","yellow","orange", "red","purple"), name = "Percentage")
 
 province_mort_plot + geom_text(data=pop.df, aes(label=paste0(population,"%"), x=long, y=lat), size = 4.5, colour="black",fontface="bold") +
   theme(axis.text.x = element_blank(),

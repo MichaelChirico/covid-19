@@ -36,6 +36,10 @@ require(git2r)
 ## for reproducibility
 set.seed(123)
 
+## Parse links for mortality
+
+source("data-misc/excess_mortality/parse_cbs_links.R")
+
 ## helper functions
 
 ## 95% confidence interval
@@ -470,8 +474,16 @@ totals <- totals %>%
   dplyr::select(week,year,deaths_week_mid,deaths_week_high,deaths_week_low)
 
 
-u.cbs <- "https://www.cbs.nl/-/media/_excel/2022/33/doodsoorzaken-april-2022.xlsx"
+cbs_links <- read.csv("data-misc/excess_mortality/links_death_causes.csv")
+cbs_url <- last(cbs_links)
+page <- read_html(cbs_url[1,1])
+page <- page %>% html_nodes("a") %>% html_attr('href')
+page <- data.frame(page)
 
+page$category <- grepl(".xlsx", page$page, fixed = TRUE)
+page <- page %>%
+  dplyr::filter(category == "TRUE")
+u.cbs <- page[1,1]
 
 download.file(u.cbs,destfile = "cbs_deaths.xlsx", mode = "wb")
 cbs.death.statistics <- data.table(read_excel("cbs_deaths.xlsx",sheet = 2)[5:57,c(1,5,8,11)])
