@@ -137,15 +137,17 @@ Totaal: ",format(last(all.data$deaths),decimal.mark = ",",big.mark =".",big.inte
 
 tweet.main
 
-posted_tweet <- post_tweet (
-  tweet.main,
-  token = token.mzelst,
-  media = c("plots/opnames_per_dag_kliniek.png",
-            "plots/opnames_per_dag_ic.png",
-            "plots/groei_per_dag_opnames.png",
-            "plots/reden_van_opname.png")) ## Post tweet
-posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
-tweet.main.id <- posted_tweet$id_str
+#posted_tweet <- post_tweet (
+#  tweet.main,
+#  token = token.mzelst,
+#  media = c("plots/opnames_per_dag_kliniek.png",
+#            "plots/opnames_per_dag_ic.png",
+#            "plots/groei_per_dag_opnames.png",
+#            "plots/reden_van_opname.png")) ## Post tweet
+#posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+
+tweet.main.id <- "1574731915663638528"
+#tweet.main.id <- posted_tweet$id_str
 tweet.last_id <- tweet.main.id
 
 git.credentials <- read_lines("git_auth.txt")
