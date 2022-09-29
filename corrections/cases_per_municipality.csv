@@ -1,26 +1,53 @@
 "Date_of_publication","Municipality_name","Municipal_health_service","cases.today.mun","cases.yesterday.mun","diff"
-2022-01-24,"Amstelveen","GGD Amsterdam",456,457,-1
-2022-01-24,"Zuidplas","GGD Hollands-Midden",120,121,-1
-2022-01-27,"Noardeast-Fryslân","GGD Fryslân",118,119,-1
-2022-01-29,"Tilburg","GGD Hart voor Brabant",181,182,-1
-2022-01-30,"Amsterdam","GGD Amsterdam",3189,3190,-1
-2022-02-07,"Enschede","GGD Twente",1104,1105,-1
-2022-02-08,"Amstelveen","GGD Amsterdam",1378,1377,1
-2022-02-08,"Amsterdam","GGD Amsterdam",11379,11378,1
-2022-02-08,"Enschede","GGD Twente",3949,3948,1
-2022-02-08,"Noardeast-Fryslân","GGD Fryslân",1546,1545,1
-2022-02-08,"Tilburg","GGD Hart voor Brabant",9439,9438,1
-2022-02-08,"Zuidplas","GGD Hollands-Midden",940,939,1
-2022-07-17,"Berg en Dal","GGD Gelderland-Zuid",4,5,-1
-2022-09-17,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",0,1,-1
-2022-09-17,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",15,14,1
-2022-09-19,"","GGD Amsterdam",2,3,-1
-2022-09-19,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",0,1,-1
-2022-09-19,"Amsterdam","GGD Amsterdam",40,39,1
-2022-09-19,"Lisse","GGD Hollands-Midden",2,3,-1
-2022-09-20,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",0,2,-2
-2022-09-20,"'s-Hertogenbosch","GGD Hart voor Brabant",16,17,-1
-2022-09-20,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",17,15,2
-2022-09-20,"Heerlen","GGD Zuid-Limburg",16,17,-1
-2022-09-20,"Wageningen","Veiligheids- en Gezondheidsregio Gelderland-Midden",2,1,1
-2022-09-20,"Westerkwartier","GGD Groningen",5,6,-1
+2022-01-25,"Leeuwarden","GGD Fryslân",229,230,-1
+2022-01-29,"Amsterdam","GGD Amsterdam",2828,2829,-1
+2022-02-02,"Tilburg","GGD Hart voor Brabant",158,159,-1
+2022-02-03,"Dalfsen","GGD IJsselland",159,160,-1
+2022-02-04,"Deventer","GGD IJsselland",841,842,-1
+2022-02-05,"Amsterdam","GGD Amsterdam",2627,2628,-1
+2022-02-05,"Deventer","GGD IJsselland",365,366,-1
+2022-02-07,"Enschede","GGD Twente",1103,1104,-1
+2022-02-07,"Krimpenerwaard","GGD Hollands-Midden",594,595,-1
+2022-02-08,"Amsterdam","GGD Amsterdam",11381,11379,2
+2022-02-08,"Dalfsen","GGD IJsselland",690,689,1
+2022-02-08,"Deventer","GGD IJsselland",2352,2350,2
+2022-02-08,"Enschede","GGD Twente",3950,3949,1
+2022-02-08,"Krimpenerwaard","GGD Hollands-Midden",1116,1115,1
+2022-02-08,"Leeuwarden","GGD Fryslân",3493,3492,1
+2022-02-08,"Tilburg","GGD Hart voor Brabant",9440,9439,1
+2022-06-22,"Oldenzaal","GGD Twente",12,13,-1
+2022-06-25,"Dinkelland","GGD Twente",7,6,1
+2022-06-26,"Dinkelland","GGD Twente",4,5,-1
+2022-06-26,"Enschede","GGD Twente",50,49,1
+2022-06-27,"Enschede","GGD Twente",40,42,-2
+2022-07-08,"Enschede","GGD Twente",56,57,-1
+2022-07-12,"Enschede","GGD Twente",91,90,1
+2022-09-07,"Houten","GGD Regio Utrecht",2,3,-1
+2022-09-07,"Nieuwegein","GGD Regio Utrecht",6,5,1
+2022-09-10,"Smallingerland","GGD Fryslân",5,4,1
+2022-09-13,"Rotterdam","GGD Rotterdam-Rijnmond",43,42,1
+2022-09-15,"Lansingerland","GGD Rotterdam-Rijnmond",15,16,-1
+2022-09-19,"Bunschoten","GGD Regio Utrecht",2,3,-1
+2022-09-19,"Nieuwegein","GGD Regio Utrecht",4,5,-1
+2022-09-20,"Amersfoort","GGD Regio Utrecht",7,8,-1
+2022-09-21,"","GGD Rotterdam-Rijnmond",3,4,-1
+2022-09-21,"Amstelveen","GGD Amsterdam",14,13,1
+2022-09-21,"Het Hogeland","GGD Groningen",8,7,1
+2022-09-22,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",1,2,-1
+2022-09-22,"'s-Gravenhage","GGD Haaglanden",44,45,-1
+2022-09-22,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",24,23,1
+2022-09-22,"Rijswijk","GGD Haaglanden",10,9,1
+2022-09-23,"","GGD Amsterdam",2,3,-1
+2022-09-23,"","GGD Gelderland-Zuid",2,3,-1
+2022-09-23,"","GGD Hollands-Midden",5,6,-1
+2022-09-23,"","GGD IJsselland",0,1,-1
+2022-09-23,"","GGD Regio Utrecht",4,3,1
+2022-09-23,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",1,2,-1
+2022-09-23,"'s-Gravenhage","GGD Haaglanden",48,47,1
+2022-09-23,"Amsterdam","GGD Amsterdam",84,83,1
+2022-09-23,"Hardenberg","GGD IJsselland",5,4,1
+2022-09-23,"IJsselstein","GGD Regio Utrecht",3,4,-1
+2022-09-23,"Kampen","GGD IJsselland",15,14,1
+2022-09-23,"Leeuwarden","GGD Fryslân",16,15,1
+2022-09-23,"Lingewaard","Veiligheids- en Gezondheidsregio Gelderland-Midden",6,5,1
+2022-09-23,"Zwolle","GGD IJsselland",27,28,-1
