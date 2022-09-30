@@ -110,7 +110,7 @@ dat.monkeypox <- fromJSON(dat.monkeypox$easychart$`764271-0-field_par_chart`$con
 
 
 
-doo.monkeypox <- data.frame(dat.monkeypox$dat.monkeypox$series$data)
+doo.monkeypox <- data.frame(dat.monkeypox$series$data)
 doo.monkeypox <- doo.monkeypox[,c(1,2,4,6)]
 
 colnames(doo.monkeypox) <- c("date","unknown","before_endjune","after_endjune")
