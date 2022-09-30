@@ -170,7 +170,7 @@ growth.text <- ifelse(monkeypox.growth[8]/monkeypox.growth[1]>1,"toe","af")
 
 tweet.monkeypox <- paste0("#Monkeypox
 
-Er zijn ",new.infections," nieuwe monkeypox besmettingen met vastgesteld in de afgelopen week. Het zevendaags gemiddelde neemt ",growth.text," (",round(doo.monkeypox.MA$infections_7d,1)," per dag).
+Er zijn ",new.infections," nieuwe monkeypox besmettingen vastgesteld in de afgelopen week. Het zevendaags gemiddelde neemt ",growth.text," (",round(doo.monkeypox.MA$infections_7d,1)," per dag).
 
 Tot nu toe zijn er in totaal ",last(monkeypox.nl$Cumulatief)," besmettingen vastgesteld. 
 
