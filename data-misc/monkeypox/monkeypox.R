@@ -15,7 +15,7 @@ number.infections <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
 number.infections.old <- parse_number(number.infections[1])*1000
 
 repeat {
-  Sys.sleep(30)
+  Sys.sleep(300)
   number.infections <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
     read_html() %>%
     html_nodes('.card-outline-primary') %>%
@@ -28,7 +28,7 @@ repeat {
   }
 }
 
-
+pull(repo)
 
 monkeypox.nl <- fread("data-misc/monkeypox/monkeypox.csv")
 monkeypox.nl <- monkeypox.nl %>%
@@ -105,10 +105,7 @@ script <- webpage %>%
 
 dat.monkeypox <- script[3]
 dat.monkeypox <- fromJSON(dat.monkeypox)
-dat.monkeypox$
 dat.monkeypox <- fromJSON(dat.monkeypox$easychart$`764271-0-field_par_chart`$config)
-
-
 
 doo.monkeypox <- data.frame(dat.monkeypox$series$data)
 doo.monkeypox <- doo.monkeypox[,c(1,2,4,6)]
@@ -173,7 +170,9 @@ growth.text <- ifelse(monkeypox.growth[8]/monkeypox.growth[1]>1,"toe","af")
 
 tweet.monkeypox <- paste0("#Monkeypox
 
-In Nederland is bij ",last(monkeypox.nl$Cumulatief)," mensen monkeypox vastgesteld. Het zevendaags gemiddelde neemt ",growth.text," (",round(doo.monkeypox.MA$infections_7d,1)," per dag).
+Er zijn ",new.infections," nieuwe monkeypox besmettingen met vastgesteld in de afgelopen week. Het zevendaags gemiddelde neemt ",growth.text," (",round(doo.monkeypox.MA$infections_7d,1)," per dag).
+
+Tot nu toe zijn er in totaal ",last(monkeypox.nl$Cumulatief)," besmettingen vastgesteld. 
 
 Voor meer informatie, zie de website van het RIVM: https://rivm.nl/monkeypox-apenpokken")
 
@@ -184,7 +183,6 @@ posted_tweet <- post_tweet (
 
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.main.id.monkeypox <- posted_tweet$id_str
-
 
 ## Region
 
@@ -200,7 +198,7 @@ monkeypox.region.dat <- rbind(monkeypox.region.dat,monkeypox.region)
 
 monkeypox.region.dat <- monkeypox.region.dat %>%
   mutate(
-  Datum = as.Date(Datum, tryFormats = c("%Y-%m-%d"))) %>%
+    Datum = as.Date(Datum, tryFormats = c("%Y-%m-%d"))) %>%
   arrange(Datum) %>%
   group_by(Regio) %>%
   mutate(toename_monkeypox = c(0,diff(Aantallen)))
