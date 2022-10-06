@@ -24,6 +24,7 @@ source("workflow/parse_nice-data.R")
 source("workflow/dashboards/age-distribution-date-NICE.R")
 source("workflow/dashboards/nice_bezetting_onder20.R")
 source("plot_scripts/reden_opname.R")
+source("workflow/parse_opnameduur_ntvg.R")
 
 ## Put in double date breaker for LCPS update
 repeat {

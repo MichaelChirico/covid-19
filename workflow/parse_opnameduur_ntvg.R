@@ -35,10 +35,11 @@ dat.merge %>%
   scale_x_date(date_breaks = "1 month", 
                date_labels= format("%m-%Y"),
                limits = as.Date(c("2021-01-01", NA))) +
+  labs(x = "Maand") +
   ggtitle("Opnameduur en druk op de zorg") +
   theme(
     axis.title.y = element_text(color = "black", size=13),
     axis.title.y.right = element_text(color = "#ED7D31", size=13),
     axis.text.y.right = element_text(color = "#ED7D31"),
     plot.title = element_text(hjust = 0.5, size = 16, face = "bold"))
- 
+ggsave("plots/opnameduur_ntvg.png", width = 22,height = 12)
