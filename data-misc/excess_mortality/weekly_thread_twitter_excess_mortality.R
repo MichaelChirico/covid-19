@@ -19,11 +19,13 @@ tweet.main <- paste0("CBS heeft het aantal overlijdensgevallen bijgewerkt t/m we
 
 Een korte draad over de sterfte per week en sterfte door corona.")
 
+media.main.tweet <- "data-misc/excess_mortality/plots_weekly_update/sterfte_perweek.png"
+
 posted_tweet <- post_tweet (
   tweet.main,
   token = token.mzelst,
-  media = "data-misc/excess_mortality/plots_weekly_update/sterfte_perweek.png"
-) ## Post tweet
+  media = media.main.tweet)
+
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.main.id <- posted_tweet$id_str
 tweet.last_id <- tweet.main.id
@@ -74,7 +76,7 @@ this.month <- month.names$mon[which.month]
 
 
 
-tweet.excess.historical <- paste0("3/ De oversterfte in week ",thisweek," (",startday.week," ",this.month," - ",endday.week," ",this.month,"):
+tweet.excess.historical <- paste0("2/ De oversterfte in week ",thisweek," (",startday.week," ",this.month," - ",endday.week," ",this.month,"):
 
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
 2) Methode RIVM (",rivm.startday," ",this.month," - ",rivm.endday," ",this.month,"): ",round(last(excess_mortality$excess_mortality_rivm)),"
@@ -171,7 +173,7 @@ other.text <- ifelse(excess_other_perc<0,"minder","meer")
 
 #source("data-misc/excess_mortality/plots_weekly_update/plots_excess_mortality_wlz_age.R")
 
-tweet.wlz <- paste0("4/ Oversterfte Wlz en overige bevolking (CBS)
+tweet.wlz <- paste0("3/ Oversterfte Wlz en overige bevolking (CBS)
 
 De sterfte bij Wlz-gebruikers (mensen in zorginstellingen) is ",abs(excess_wlz_perc),"% ",wlz.text," dan verwacht.
 
@@ -192,7 +194,7 @@ thisweek <- isoweek(Sys.Date())-1
 
 ## Tweet DLM analyses
 
-tweet.dlm <- paste0("5/ Het officiële aantal sterfgevallen voor week ",thisweek," is op dit moment ",last(excess_mortality$covid_sterfgevallen),".
+tweet.dlm <- paste0("4/ Het officiële aantal sterfgevallen voor week ",thisweek," is op dit moment ",last(excess_mortality$covid_sterfgevallen),".
 
 De DLM methode schat het aantal corona-overledenen voor week ",thisweek," op ",last(excess_mortality$DLModel_week_estimate)," (95% betrouwbaarheidsinterval: ",last(excess_mortality$DLModel_lowerbound95),"-",last(excess_mortality$DLModel_upperbound95),").
 
@@ -213,7 +215,7 @@ tweet.last_id <- posted_tweet$id_str
 
 deaths.comparison.tracker <- read.csv("corrections/death_week_comparisons.csv")
 
-tweet.newmodel <- paste0("6/ Een andere methode om de sterfte door corona te schatten beschreef ik in dit draadje: https://twitter.com/mzelst/status/1390682590105985026
+tweet.newmodel <- paste0("5/ Een andere methode om de sterfte door corona te schatten beschreef ik in dit draadje: https://twitter.com/mzelst/status/1390682590105985026
 
 Het aantal sterfgevallen in week ",thisweek," aan de hand van deze methode is ",last(deaths.comparison.tracker$deaths_estimate_3),".
 
@@ -248,7 +250,7 @@ high.prov.mort <- max(excess_province_long$excess_mortality)
 highest.province <- excess_province_long %>%
   dplyr::filter(excess_mortality == high.prov.mort)
 
-tweet.provincie <- paste0("De relatieve oversterfte was afgelopen week het hoogste in ",highest.province[,"statnaam"],": ",high.prov.mort,"%.")
+tweet.provincie <- paste0("6/ De relatieve oversterfte was afgelopen week het hoogste in ",highest.province[,"statnaam"],": ",high.prov.mort,"%.")
 
 posted_tweet <- post_tweet (
   tweet.provincie,

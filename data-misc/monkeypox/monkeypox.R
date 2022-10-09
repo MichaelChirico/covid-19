@@ -10,9 +10,9 @@ source("workflow/twitter/token_mzelst.R")
 
 number.infections <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
   read_html() %>%
-  html_nodes('.card-outline-primary') %>%
+  html_nodes('p') %>%
   html_text() 
-number.infections.old <- parse_number(number.infections[1])*1000
+number.infections.old <- parse_number(number.infections[3])*1000
 
 repeat {
   Sys.sleep(300)
@@ -108,10 +108,10 @@ dat.monkeypox <- fromJSON(dat.monkeypox)
 dat.monkeypox <- fromJSON(dat.monkeypox$easychart$`764271-0-field_par_chart`$config)
 
 doo.monkeypox <- data.frame(dat.monkeypox$series$data)
-doo.monkeypox <- doo.monkeypox[,c(1,2,4,6)]
+doo.monkeypox <- doo.monkeypox[,c(1,2,4)]
 
-colnames(doo.monkeypox) <- c("date","unknown","before_endjune","after_endjune")
-doo.monkeypox$infections <- rowSums(doo.monkeypox[,c("unknown","before_endjune","after_endjune")],na.rm=T)
+colnames(doo.monkeypox) <- c("date","before_endjune","after_endjune")
+doo.monkeypox$infections <- rowSums(doo.monkeypox[,c("before_endjune","after_endjune")],na.rm=T)
 
 
 doo.monkeypox <- doo.monkeypox %>%
@@ -176,10 +176,13 @@ Tot nu toe zijn er in totaal ",last(monkeypox.nl$Cumulatief)," besmettingen vast
 
 Voor meer informatie, zie de website van het RIVM: https://rivm.nl/monkeypox-apenpokken")
 
+monkeypox.png <- "plots/monkeypox_doo"
+
 posted_tweet <- post_tweet (
   tweet.monkeypox,
   token = token.mzelst,
-  media = "plots/monkeypox_doo.png")
+  media = "plots/monkeypox_doo.png",
+  media_alt_text = "Monkeypox")
 
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.main.id.monkeypox <- posted_tweet$id_str
