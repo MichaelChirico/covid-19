@@ -19,12 +19,11 @@ tweet.main <- paste0("CBS heeft het aantal overlijdensgevallen bijgewerkt t/m we
 
 Een korte draad over de sterfte per week en sterfte door corona.")
 
-media.main.tweet <- "data-misc/excess_mortality/plots_weekly_update/sterfte_perweek.png"
-
 posted_tweet <- post_tweet (
   tweet.main,
   token = token.mzelst,
-  media = media.main.tweet)
+  media = "data-misc/excess_mortality/plots_weekly_update/sterfte_perweek.png",
+  media_alt_text = "Oversterfte")
 
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.main.id <- posted_tweet$id_str
@@ -88,6 +87,7 @@ posted_tweet <- post_tweet (
   tweet.excess.historical,
   token = token.mzelst,
   media = c("data-misc/excess_mortality/plots_weekly_update/overledenen-per-week.png","data-misc/excess_mortality/plots_weekly_update/sterfte_perweek_rivm.jpeg"),
+  media_alt_text = c("Oversterfte - Leeftijdsgroep","Oversterfte - RIVM"),
   in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE
 )
@@ -184,6 +184,7 @@ posted_tweet <- post_tweet (
   tweet.wlz,
   token = token.mzelst,
   media = c("data-misc/excess_mortality/plots_weekly_update/overledenen-per-week-wlz.png"),
+  media_alt_text = "Oversterfte - WLZ-gebruikers",
   in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE
 )
@@ -205,6 +206,7 @@ posted_tweet <- post_tweet (
   tweet.dlm,
   token = token.mzelst,
   media = c("plots/2021_fig4.2.1.png"),
+  media_alt_text = "Sterfte door corona (DLM)",
   in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE
 )
@@ -226,6 +228,7 @@ posted_tweet <- post_tweet (
   tweet.newmodel,
   token = token.mzelst,
   media = c("plots/sterfte_per_week_30K_totalen.png"),
+  media_alt_text = "Sterfte door corona (schatting)",
   in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE
 )
@@ -256,6 +259,7 @@ posted_tweet <- post_tweet (
   tweet.provincie,
   token = token.mzelst,
   media = c("data-misc/excess_mortality/plots_weekly_update/oversterfte_provincie.png"),
+  media_alt_text = "Oversterfte per provincie",
   in_reply_to_status_id = tweet.last_id,
   auto_populate_reply_metadata = TRUE
 )
