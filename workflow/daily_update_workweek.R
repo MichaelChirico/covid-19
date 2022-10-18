@@ -247,9 +247,9 @@ ggsave("plots/rioolwater.png", width = 16, height = 8)
 
 source("plot_scripts/rioolwater.R")
 
-sign.riool <- paste0(ifelse(last(sewer.data$groei_riool_7d)*100-100>=0,"+"," ("))
-sign.radar <- paste0(ifelse(last(infectieradar$infectieradar_7d)>=0,"+"," ("))
-sign.radar.change <- paste0(ifelse(last(infectieradar$groei_infectieradar_7d)*100-100>=0,"+"," ("))
+sign.riool <- paste0(ifelse(last(sewer.data$groei_riool_7d)*100-100>=0,"+",""))
+sign.radar <- paste0(ifelse(last(infectieradar$infectieradar_7d)>=0,"+",""))
+sign.radar.change <- paste0(ifelse(last(infectieradar$groei_infectieradar_7d)*100-100>=0,"+",""))
 
 vroegsurveillance.tweet <- paste0("Vroege signalen
 
