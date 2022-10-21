@@ -77,7 +77,7 @@ wlz.table <- wlz.table[11:(nrow(wlz.table) - 52 + last(sterfte_wlz_other$Week) +
 
 colors <- c("WLZ_ci" = "lightgreen", "Other_ci" = "lightblue", "WLZ Zorggebruikers" = "darkgreen","Overige bevolking" = "blue","WLZ_Verwacht" = "black","Other_Verwacht" = "black")
 
-week.cbs.plots <- isoweek(Sys.Date())-2
+week.cbs.plots <- isoweek(Sys.Date())-1
 
 plot.wlz.other.sterfte <- wlz.table %>%
   ggplot(aes(x=date)) + 
@@ -107,7 +107,7 @@ plot.wlz.other.sterfte <- wlz.table %>%
         legend.margin = margin(2,2,2,2)) +
   labs(x = "Datum",
        y = "Overledenen per week",
-       subtitle = paste0("Data t/m week ",week.cbs.plots+1," - 2022")) +
+       subtitle = paste0("Data t/m week ",week.cbs.plots," - 2022")) +
   scale_color_manual(name = "Group",values = colors, labels = NULL, guide = "none") +
   scale_fill_manual(values = colors, breaks = c("WLZ Zorggebruikers","Overige bevolking"))
 
@@ -174,6 +174,30 @@ setDF(sterfte.2020.leeftijd)
 sterfte.2020.leeftijd["Week"][sterfte.2020.leeftijd["Week"] == 533] <- 53
 
 sterfte_leeftijd <- rbind(sterfte.2020.leeftijd,sterfte.2021.leeftijd,sterfte.2022.leeftijd)
+
+## Add current week from other CBS data source
+
+table_mortality <- data.table(cbs_get_data("70895ned", 
+                                           Geslacht = "1100",
+                                           Perioden = has_substring("W") | has_substring("X")))
+
+table_mortality$Jaar <- substr(table_mortality$Perioden, 1, 4)
+
+table_mortality$Week <- parse_number(str_sub(table_mortality$Perioden, start = -2))
+
+current.week.mort.age <- isoweek(Sys.Date())-1
+current.jaar.mort.age <- isoyear(Sys.Date())
+
+mortality.test <- table_mortality %>%
+  dplyr::filter(Jaar == current.jaar.mort.age) %>%
+  dplyr::filter(Week == current.week.mort.age) %>%
+  dplyr::filter(LeeftijdOp31December != 10000) %>%
+  dplyr::select(Jaar, Week, Overledenen_1)
+
+sterfte_leeftijd_currentweek <- c(current.jaar.mort.age, current.week.mort.age, t(mortality.test$Overledenen_1))
+
+sterfte_leeftijd <- rbind(sterfte_leeftijd,sterfte_leeftijd_currentweek)
+
 
 
 #### Sterfte verwacht ####
