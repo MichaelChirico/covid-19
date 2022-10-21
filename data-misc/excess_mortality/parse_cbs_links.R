@@ -21,8 +21,16 @@ sterfte.per.week <- sterfte.per.week %>%
 rm(webpage,u)
 write.csv(sterfte.per.week, file = "data-misc/excess_mortality/links_cbs_mortality.csv",row.names = F)
 
-doodsoorzaken <- urls
-doodsoorzaken$category <- grepl("doodsoorzaken", doodsoorzaken$urls, fixed = TRUE)
+
+webpage.causes <- read_html("https://www.cbs.nl/nl-nl/reeksen/doodsoorzaken")
+doodsoorzaken <- webpage.causes %>%
+  html_nodes("a") %>%
+  html_attr(("href"))
+
+doodsoorzaken <- data.frame(doodsoorzaken)
+doodsoorzaken$number <- gsub("[^0-9.]", "",  doodsoorzaken$doodsoorzaken)
+doodsoorzaken$number <- substr(doodsoorzaken$number, 3, 8)
+doodsoorzaken$category <- grepl("doodsoorzaken", doodsoorzaken$doodsoorzaken, fixed = TRUE)
 doodsoorzaken <- doodsoorzaken %>%
   dplyr::filter(category == "TRUE") %>%
   dplyr::filter(number >= 0) %>%
