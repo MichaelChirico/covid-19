@@ -80,6 +80,8 @@ tweet.excess.historical <- paste0("2/ De oversterfte in week ",thisweek," (",sta
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
 2) Methode RIVM (",rivm.startday," ",this.month," - ",rivm.endday," ",this.month,"): ",round(last(excess_mortality$excess_mortality_rivm)),"
 
+Er is sprake van oversterfte in alle leeftijdsgroepen.
+
 (grafieken CBS / RIVM)
 ")
 
@@ -175,7 +177,7 @@ other.text <- ifelse(excess_other_perc<0,"minder","meer")
 
 tweet.wlz <- paste0("3/ Oversterfte Wlz en overige bevolking (CBS)
 
-De sterfte bij Wlz-gebruikers (mensen in zorginstellingen) is ",abs(excess_wlz_perc),"% ",wlz.text," dan verwacht.
+De sterfte bij Wlz-zorggebruikers (zoals bijv. verpleeghuisbewoners) is ",abs(excess_wlz_perc),"% ",wlz.text," dan verwacht.
 
 De sterfte in de overige bevolking is ",abs(excess_other_perc),"% ",other.text," dan verwacht.
 ")
