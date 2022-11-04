@@ -8,11 +8,8 @@ source("workflow/twitter/token_mzelst.R")
 
 ## Loop for start ##
 
-number.infections <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
-  read_html() %>%
-  html_nodes('p') %>%
-  html_text() 
-number.infections.old <- parse_number(number.infections[3])*1000
+monkeypox.old <- fread("https://raw.githubusercontent.com/mzelst/covid-19/master/data-misc/monkeypox/monkeypox.csv")
+number.infections.old <- last(monkeypox.old$Cumulatief)
 
 repeat {
   Sys.sleep(300)
@@ -37,12 +34,24 @@ monkeypox.nl <- monkeypox.nl %>%
     .before = date
   )
 
-rivm.text <- "https://www.rivm.nl/monkeypox-apenpokken" %>%
-  read_html() %>%
-  html_nodes('.card-outline-primary') %>%
-  html_text() %>%
-  parse_number()
-rivm.text <- rivm.text[1]*1000
+u <- "https://www.rivm.nl/monkeypox-apenpokken"
+webpage <- read_html(u)
+
+script <- webpage %>%
+  html_nodes('script') %>%
+  html_text()
+
+dat.monkeypox <- script[3]
+dat.monkeypox <- fromJSON(dat.monkeypox)
+dat.monkeypox <- fromJSON(dat.monkeypox$easychart$`764271-0-field_par_chart`$config)
+
+doo.monkeypox <- data.frame(dat.monkeypox$series$data)
+doo.monkeypox <- doo.monkeypox[,c(1,2,4)]
+
+colnames(doo.monkeypox) <- c("date","before_endjune","after_endjune")
+doo.monkeypox$infections <- rowSums(doo.monkeypox[,c("before_endjune","after_endjune")],na.rm=T)
+
+rivm.text <- sum(doo.monkeypox$infections)
 
 new.data <- data.frame("Besmettingen" = 0, "date" = as.Date(Sys.Date()), "Cumulatief" = rivm.text)
 
@@ -58,8 +67,6 @@ monkeypox.nl <- pad(monkeypox.nl)
 monkeypox.nl <- monkeypox.nl %>%
   mutate(Cumulatief = tidyr::replace_na(Cumulatief, last.data[1])) %>%
   mutate(Besmettingen = tidyr::replace_na(Besmettingen, 0))
-
-
 
 title.monkeypox <- paste0("Cumulatief gemelde besmettingen met monkeypox in Nederland: ", max(monkeypox.nl$Cumulatief,na.rm=T))
 
@@ -89,30 +96,7 @@ write.csv(monkeypox.nl, file = "data-misc/monkeypox/monkeypox.csv", row.names = 
 
 ggsave(monkeypox.plot, file = "plots/monkeypox.png",width = 16, height = 8)
 
-
-
 ## Plot based on DOO
-
-#doo.monkeypox <- fread("C:/Users/marin/Downloads/meldingen-apenpokken.csv")
-
-u <- "https://www.rivm.nl/monkeypox-apenpokken"
-webpage <- read_html(u)
-
-
-script <- webpage %>%
-  html_nodes('script') %>%
-  html_text()
-
-dat.monkeypox <- script[3]
-dat.monkeypox <- fromJSON(dat.monkeypox)
-dat.monkeypox <- fromJSON(dat.monkeypox$easychart$`764271-0-field_par_chart`$config)
-
-doo.monkeypox <- data.frame(dat.monkeypox$series$data)
-doo.monkeypox <- doo.monkeypox[,c(1,2,4)]
-
-colnames(doo.monkeypox) <- c("date","before_endjune","after_endjune")
-doo.monkeypox$infections <- rowSums(doo.monkeypox[,c("before_endjune","after_endjune")],na.rm=T)
-
 
 doo.monkeypox <- doo.monkeypox %>%
   mutate(
@@ -122,10 +106,6 @@ doo.monkeypox <- doo.monkeypox %>%
   #mutate(infections = before_endjune+after_endjune) %>%
   mutate(infections_7d = frollmean(infections,7))
 
-
-rows.monkeypox <- nrow(doo.monkeypox)
-
-doo.monkeypox[(rows.monkeypox-9):rows.monkeypox,6] <- NA
 
 doo.monkeypox.MA <- doo.monkeypox %>%
   drop_na(infections_7d) %>%
@@ -175,8 +155,6 @@ Er zijn ",new.infections," nieuwe monkeypox besmettingen vastgesteld in de afgel
 Tot nu toe zijn er in totaal ",last(monkeypox.nl$Cumulatief)," besmettingen vastgesteld. 
 
 Voor meer informatie, zie de website van het RIVM: https://rivm.nl/monkeypox-apenpokken")
-
-monkeypox.png <- "plots/monkeypox_doo"
 
 posted_tweet <- post_tweet (
   tweet.monkeypox,
