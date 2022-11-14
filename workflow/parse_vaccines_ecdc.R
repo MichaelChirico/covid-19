@@ -2,13 +2,13 @@ vaccines <- fread("https://opendata.ecdc.europa.eu/covid19/vaccine_tracker/csv/d
 
 vaccines.nl <- vaccines %>%
   dplyr::filter(Region == "NL") %>%
-  dplyr::select(YearWeekISO,Vaccine,NumberDosesReceived, FirstDose, SecondDose,DoseAdditional1,DoseAdditional2, UnknownDose,TargetGroup)
+  dplyr::select(YearWeekISO,Vaccine,NumberDosesReceived, FirstDose, SecondDose,DoseAdditional1,DoseAdditional2,DoseAdditional3, UnknownDose,TargetGroup)
  
-vaccines.nl <- aggregate(cbind(NumberDosesReceived, FirstDose, SecondDose,DoseAdditional1,DoseAdditional2, UnknownDose) ~ YearWeekISO + Vaccine, data = vaccines.nl, FUN = sum)
+vaccines.nl <- aggregate(cbind(NumberDosesReceived, FirstDose, SecondDose,DoseAdditional1,DoseAdditional2,DoseAdditional3, UnknownDose) ~ YearWeekISO + Vaccine, data = vaccines.nl, FUN = sum)
  
 vaccines.nl.long <- vaccines.nl %>%
   gather(key = "dose_number", value = "total_administered",
-         NumberDosesReceived, FirstDose, SecondDose,DoseAdditional1,DoseAdditional2, UnknownDose)
+         NumberDosesReceived, FirstDose, SecondDose,DoseAdditional1,DoseAdditional2, DoseAdditional3,UnknownDose)
 
 
 vaccines.nl.long <- vaccines.nl.long %>%
@@ -22,6 +22,7 @@ vaccines.nl.long <- vaccines.nl.long %>%
                               "SecondDose" = "2",
                               "DoseAdditional1" = "3",
                               "DoseAdditional2" = "4",
+                              "DoseAdditional3" = "5",
                               "NumberDosesReceived" = "99",
                               "UnknownDose" = "6"))) %>%  
   mutate(week = parse_number(str_sub(YearWeekISO, 7, 8))) %>%
