@@ -159,7 +159,7 @@ Voor meer informatie, zie de website van het RIVM: https://rivm.nl/monkeypox-ape
 posted_tweet <- post_tweet (
   tweet.monkeypox,
   token = token.mzelst,
-  media = "plots/monkeypox_doo.png",
+  media = "plots/monkeypox_doo.png")#,
   media_alt_text = "Monkeypox")
 
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
