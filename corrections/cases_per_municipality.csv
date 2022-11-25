@@ -1,96 +1,14 @@
 "Date_of_publication","Municipality_name","Municipal_health_service","cases.today.mun","cases.yesterday.mun","diff"
-2022-01-26,"Eindhoven","GGD Brabant-Zuidoost",1261,1262,-1
-2022-02-01,"Gooise Meren","GGD Gooi en Vechtstreek",234,235,-1
-2022-02-02,"Amsterdam","GGD Amsterdam",3306,3307,-1
-2022-02-07,"Zwolle","GGD IJsselland",498,499,-1
-2022-02-08,"Amsterdam","GGD Amsterdam",11415,11414,1
-2022-02-08,"Eindhoven","GGD Brabant-Zuidoost",5643,5642,1
-2022-02-08,"Gooise Meren","GGD Gooi en Vechtstreek",991,990,1
-2022-02-08,"Zwolle","GGD IJsselland",2993,2992,1
-2022-08-08,"Velsen","GGD Kennemerland",5,6,-1
-2022-08-12,"Velsen","GGD Kennemerland",21,20,1
-2022-09-06,"Haarlem","GGD Kennemerland",11,12,-1
-2022-09-07,"Haarlem","GGD Kennemerland",15,16,-1
-2022-09-07,"Heemstede","GGD Kennemerland",2,3,-1
-2022-09-07,"Velsen","GGD Kennemerland",4,5,-1
-2022-09-08,"Velsen","GGD Kennemerland",7,6,1
-2022-09-09,"Haarlem","GGD Kennemerland",7,8,-1
-2022-09-09,"Haarlemmermeer","GGD Kennemerland",4,5,-1
-2022-09-11,"","GGD Kennemerland",2,3,-1
-2022-09-11,"Bloemendaal","GGD Kennemerland",1,2,-1
-2022-09-11,"Zandvoort","GGD Kennemerland",2,3,-1
-2022-09-12,"","GGD Kennemerland",0,1,-1
-2022-09-12,"Haarlemmermeer","GGD Kennemerland",15,16,-1
-2022-09-12,"Uitgeest","GGD Kennemerland",0,1,-1
-2022-09-13,"Bloemendaal","GGD Kennemerland",1,2,-1
-2022-09-13,"Haarlem","GGD Kennemerland",14,15,-1
-2022-09-13,"Heemstede","GGD Kennemerland",2,1,1
-2022-09-13,"Uitgeest","GGD Kennemerland",3,2,1
-2022-09-15,"Bloemendaal","GGD Kennemerland",1,0,1
-2022-09-15,"Haarlem","GGD Kennemerland",18,15,3
-2022-09-15,"Haarlemmermeer","GGD Kennemerland",31,29,2
-2022-09-16,"Zandvoort","GGD Kennemerland",0,1,-1
-2022-09-19,"","GGD Kennemerland",3,4,-1
-2022-09-19,"Haarlem","GGD Kennemerland",11,10,1
-2022-09-21,"Haarlemmermeer","GGD Kennemerland",10,11,-1
-2022-09-22,"Haarlem","GGD Kennemerland",18,21,-3
-2022-09-22,"Haarlemmermeer","GGD Kennemerland",21,20,1
-2022-09-23,"Haarlem","GGD Kennemerland",24,22,2
-2022-09-29,"","GGD Kennemerland",1,2,-1
-2022-09-29,"Haarlem","GGD Kennemerland",51,53,-2
-2022-09-30,"Haarlem","GGD Kennemerland",29,30,-1
-2022-10-01,"Haarlem","GGD Kennemerland",15,16,-1
-2022-10-01,"Zandvoort","GGD Kennemerland",5,6,-1
-2022-10-04,"Haarlem","GGD Kennemerland",25,21,4
-2022-10-04,"Zandvoort","GGD Kennemerland",2,1,1
-2022-10-05,"Haarlem","GGD Kennemerland",35,36,-1
-2022-10-05,"Haarlemmermeer","GGD Kennemerland",22,21,1
-2022-10-05,"Heemskerk","GGD Kennemerland",3,2,1
-2022-10-05,"Heemstede","GGD Kennemerland",2,3,-1
-2022-10-05,"Zaanstad","GGD Zaanstreek/Waterland",34,35,-1
-2022-10-06,"Haarlem","GGD Kennemerland",54,53,1
-2022-10-06,"Heemskerk","GGD Kennemerland",10,11,-1
-2022-10-06,"Heemstede","GGD Kennemerland",7,6,1
-2022-10-07,"Haarlemmermeer","GGD Kennemerland",37,36,1
-2022-10-07,"Waterland","GGD Zaanstreek/Waterland",7,8,-1
-2022-10-09,"Beverwijk","GGD Kennemerland",5,6,-1
-2022-10-10,"Haarlem","GGD Kennemerland",24,25,-1
-2022-10-10,"Haarlemmermeer","GGD Kennemerland",22,23,-1
-2022-10-10,"Heemskerk","GGD Kennemerland",10,12,-2
-2022-10-11,"","Dienst Gezondheid & Jeugd ZHZ",2,3,-1
-2022-10-11,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",38,37,1
-2022-10-11,"Haarlem","GGD Kennemerland",38,39,-1
-2022-10-11,"Haarlemmermeer","GGD Kennemerland",28,30,-2
-2022-10-11,"Heemskerk","GGD Kennemerland",9,8,1
-2022-10-12,"Haarlemmermeer","GGD Kennemerland",24,25,-1
-2022-10-13,"Beverwijk","GGD Kennemerland",8,7,1
-2022-10-13,"Haarlem","GGD Kennemerland",32,31,1
-2022-10-13,"Haarlemmermeer","GGD Kennemerland",33,30,3
-2022-10-13,"Heemskerk","GGD Kennemerland",6,5,1
-2022-10-14,"Haarlem","GGD Kennemerland",42,43,-1
-2022-10-17,"Haarlem","GGD Kennemerland",18,19,-1
-2022-10-17,"Velsen","GGD Kennemerland",10,11,-1
-2022-10-18,"Beverwijk","GGD Kennemerland",11,12,-1
-2022-10-18,"Haarlem","GGD Kennemerland",38,36,2
-2022-10-18,"Heemskerk","GGD Kennemerland",11,12,-1
-2022-10-18,"Zwolle","GGD IJsselland",30,31,-1
-2022-10-19,"Haarlem","GGD Kennemerland",30,31,-1
-2022-10-19,"Heemstede","GGD Kennemerland",5,6,-1
-2022-10-20,"Haarlem","GGD Kennemerland",25,26,-1
-2022-10-20,"Haarlemmermeer","GGD Kennemerland",17,18,-1
-2022-10-20,"Heemskerk","GGD Kennemerland",11,10,1
-2022-10-20,"Velsen","GGD Kennemerland",12,11,1
-2022-10-21,"Beverwijk","GGD Kennemerland",14,13,1
-2022-10-21,"Haarlem","GGD Kennemerland",21,20,1
-2022-10-24,"Haarlem","GGD Kennemerland",17,16,1
-2022-10-24,"Haarlemmermeer","GGD Kennemerland",16,15,1
-2022-10-24,"Heemstede","GGD Kennemerland",4,3,1
-2022-10-25,"Rijssen-Holten","GGD Twente",7,8,-1
-2022-10-26,"Rijssen-Holten","GGD Twente",6,5,1
-2022-11-09,"Meppel","GGD Drenthe",5,6,-1
-2022-11-10,"Wormerland","GGD Zaanstreek/Waterland",1,2,-1
-2022-11-15,"Eindhoven","GGD Brabant-Zuidoost",15,16,-1
-2022-11-15,"Meppel","GGD Drenthe",5,4,1
-2022-11-18,"Eijsden-Margraten","GGD Zuid-Limburg",5,6,-1
-2022-11-18,"Land van Cuijk","GGD Hart voor Brabant",2,3,-1
-2022-11-18,"Westerkwartier","GGD Groningen",2,1,1
+2022-01-25,"De Ronde Venen","GGD Regio Utrecht",69,70,-1
+2022-02-06,"Rotterdam","GGD Rotterdam-Rijnmond",5431,5432,-1
+2022-02-08,"De Ronde Venen","GGD Regio Utrecht",609,608,1
+2022-02-08,"Rotterdam","GGD Rotterdam-Rijnmond",8268,8267,1
+2022-08-07,"Haarlemmermeer","GGD Kennemerland",12,13,-1
+2022-08-25,"Maashorst","GGD Hart voor Brabant",2,3,-1
+2022-08-26,"Maashorst","GGD Hart voor Brabant",4,3,1
+2022-09-19,"Tiel","GGD Gelderland-Zuid",2,3,-1
+2022-09-20,"Tiel","GGD Gelderland-Zuid",5,4,1
+2022-10-12,"Uitgeest","GGD Kennemerland",0,1,-1
+2022-11-19,"De Ronde Venen","GGD Regio Utrecht",3,4,-1
+2022-11-22,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",0,1,-1
+2022-11-22,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",16,15,1
