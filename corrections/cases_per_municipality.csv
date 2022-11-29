@@ -1,14 +1,23 @@
 "Date_of_publication","Municipality_name","Municipal_health_service","cases.today.mun","cases.yesterday.mun","diff"
-2022-01-25,"De Ronde Venen","GGD Regio Utrecht",69,70,-1
-2022-02-06,"Rotterdam","GGD Rotterdam-Rijnmond",5431,5432,-1
-2022-02-08,"De Ronde Venen","GGD Regio Utrecht",609,608,1
-2022-02-08,"Rotterdam","GGD Rotterdam-Rijnmond",8268,8267,1
-2022-08-07,"Haarlemmermeer","GGD Kennemerland",12,13,-1
-2022-08-25,"Maashorst","GGD Hart voor Brabant",2,3,-1
-2022-08-26,"Maashorst","GGD Hart voor Brabant",4,3,1
-2022-09-19,"Tiel","GGD Gelderland-Zuid",2,3,-1
-2022-09-20,"Tiel","GGD Gelderland-Zuid",5,4,1
-2022-10-12,"Uitgeest","GGD Kennemerland",0,1,-1
-2022-11-19,"De Ronde Venen","GGD Regio Utrecht",3,4,-1
-2022-11-22,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",0,1,-1
-2022-11-22,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",16,15,1
+2022-01-24,"Amsterdam","GGD Amsterdam",4270,4271,-1
+2022-01-28,"Hilversum","GGD Gooi en Vechtstreek",624,625,-1
+2022-01-31,"Groningen","GGD Groningen",2204,2205,-1
+2022-02-06,"Amsterdam","GGD Amsterdam",4230,4231,-1
+2022-02-08,"Amsterdam","GGD Amsterdam",11417,11415,2
+2022-02-08,"Groningen","GGD Groningen",3922,3921,1
+2022-02-08,"Hilversum","GGD Gooi en Vechtstreek",1610,1609,1
+2022-10-12,"","Dienst Gezondheid & Jeugd ZHZ",1,2,-1
+2022-10-12,"Hendrik-Ido-Ambacht","Dienst Gezondheid & Jeugd ZHZ",8,7,1
+2022-10-13,"","Dienst Gezondheid & Jeugd ZHZ",0,1,-1
+2022-10-13,"Dordrecht","Dienst Gezondheid & Jeugd ZHZ",24,23,1
+2022-10-15,"","Dienst Gezondheid & Jeugd ZHZ",2,3,-1
+2022-10-15,"Papendrecht","Dienst Gezondheid & Jeugd ZHZ",5,6,-1
+2022-11-04,"Velsen","GGD Kennemerland",4,5,-1
+2022-11-10,"Zaanstad","GGD Zaanstreek/Waterland",19,18,1
+2022-11-19,"Den Helder","GGD Hollands-Noorden",5,6,-1
+2022-11-19,"Rheden","Veiligheids- en Gezondheidsregio Gelderland-Midden",2,3,-1
+2022-11-22,"","GGD Groningen",3,1,2
+2022-11-22,"Stadskanaal","GGD Groningen",0,2,-2
+2022-11-25,"","Veiligheids- en Gezondheidsregio Gelderland-Midden",0,1,-1
+2022-11-25,"Arnhem","Veiligheids- en Gezondheidsregio Gelderland-Midden",13,12,1
+2022-11-25,"Groningen","GGD Groningen",11,12,-1
