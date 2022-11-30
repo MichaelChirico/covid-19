@@ -123,7 +123,7 @@ push(repo, credentials = git.auth)
 
 ## Vroeg surveillance
 
-infectieradar <- fread("https://data.rivm.nl/covid-19/COVID-19_Infectieradar_symptomen_per_dag.csv")
+infectieradar <- fread("https://data.rivm.nl/covid-19/COVID-19_Infectieradar_symptomen_per_dag.csv", dec = ",")
 infectieradar <- infectieradar %>%
   mutate(date = as.Date(Date_of_statistics)) %>%
   mutate(infectieradar_7d = frollmean(Perc_covid_symptoms,7)) %>%
