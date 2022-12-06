@@ -166,7 +166,7 @@ source("workflow/parse_municipalities.R")
 source("workflow/generate_municipality_images.R")
 
 
-infectieradar <- fread("https://data.rivm.nl/covid-19/COVID-19_Infectieradar_symptomen_per_dag.csv", dec = ",")
+infectieradar <- fread("https://data.rivm.nl/covid-19/COVID-19_Infectieradar_symptomen_per_dag.csv")
 infectieradar <- infectieradar %>%
   mutate(date = as.Date(Date_of_statistics)) %>%
   mutate(infectieradar_7d = frollmean(Perc_covid_symptoms,7)) %>%
