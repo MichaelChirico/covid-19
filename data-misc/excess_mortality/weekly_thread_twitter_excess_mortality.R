@@ -80,7 +80,7 @@ tweet.excess.historical <- paste0("2/ De oversterfte in week ",thisweek," (",sta
 1) Methode CBS: ",last(excess_mortality$excess_cbs_method),"
 2) Methode RIVM (",rivm.startday," ",this.month," - ",rivm.endday," ",this.month,"): ",round(last(excess_mortality$excess_mortality_rivm)),"
 
-Er is sprake van oversterfte in alle leeftijdsgroepen.
+Er is sprake van oversterfte in de leeftijdsgroep van 65-80.
 
 (grafieken CBS / RIVM)
 ")
