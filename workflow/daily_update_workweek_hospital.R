@@ -124,3 +124,4 @@ push(repo, credentials = git.auth)
 
 remove(list = ls())
 source("workflow/twitter/token_mzelst.R")
+POST(url = deploy.netlify.url)
