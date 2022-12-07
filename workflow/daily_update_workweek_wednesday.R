@@ -123,8 +123,9 @@ push(repo, credentials = git.auth)
 
 ## Vroeg surveillance
 
-infectieradar <- fread("https://data.rivm.nl/covid-19/COVID-19_Infectieradar_symptomen_per_dag.csv", dec = ",")
-infectieradar <- infectieradar %>%
+infectieradar <- rjson::fromJSON(file = "https://data.rivm.nl/covid-19/COVID-19_Infectieradar_symptomen_per_dag.json",simplify=TRUE) %>%
+  map(as.data.table) %>%
+  rbindlist(fill = TRUE) %>%
   mutate(date = as.Date(Date_of_statistics)) %>%
   mutate(infectieradar_7d = frollmean(Perc_covid_symptoms,7)) %>%
   mutate(groei_infectieradar = Perc_covid_symptoms/(dplyr::lag(Perc_covid_symptoms,7))) %>%

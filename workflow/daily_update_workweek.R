@@ -158,6 +158,46 @@ add(repo, path = "*")
 commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - part 1.1"))
 push(repo, credentials = git.auth)
 
+########
+# Tweet - nursery homes
+########
+all.data <- read.csv("data/all_data.csv")
+
+source("plot_scripts/nursery_homes.R")
+
+total.nursing.locations <- last(all.data$total.current.locations.nursery,5)
+total.nursing.locations <- last(total.nursing.locations[!is.na(total.nursing.locations)],2)
+
+
+new.locations.nursery <- total.nursing.locations[2] - total.nursing.locations[1]
+
+tweet.nurseryhomes <- paste0("#Verpleeghuis t.o.v. laatste update: 
+
+Positief getest: ",last(all.data$infections.today.nursery),"
+Totaal: ",last(all.data$infections.total.nursery),"
+
+Overleden: ",last(all.data$deaths.today.nursery),"
+Totaal: ",last(all.data$deaths.total.nursery),"
+
+Nieuwe locaties met besmettingen: ",new.locations.nursery,"
+Huidig aantal locaties met besmettingen:* ",last(all.data$total.current.locations.nursery),"
+*Locaties waar in de afgelopen 28 dagen minstens één COVID-19 besmetting is gemeld.")
+
+# Tweet for nursery homes ####
+posted_tweet <- post_tweet (
+  tweet.nurseryhomes,
+  token = token.mzelst,
+  media = c("plots/nursery_homes_vr_map.png",
+            "plots/verpleeghuizen_bewoners.png",
+            "plots/verpleeghuizen_locaties.png"
+  ),
+  in_reply_to_status_id = tweet.last_id,
+  auto_populate_reply_metadata = TRUE
+)
+posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
+tweet.last_id <- posted_tweet$id_str
+
+
 ## Vroeg surveillance
 
 ##### Generate municipality images ####
@@ -165,6 +205,17 @@ source("workflow/parse_nice-municipalities-data.R")
 source("workflow/parse_municipalities.R")
 source("workflow/generate_municipality_images.R")
 
+git.credentials <- read_lines("git_auth.txt")
+git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
+
+## Push to git
+repo <- git2r::init()
+add(repo, path = "*")
+commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - part 2"))
+push(repo, credentials = git.auth)
+
+
+# Infectieradar
 
 infectieradar <- rjson::fromJSON(file = "https://data.rivm.nl/covid-19/COVID-19_Infectieradar_symptomen_per_dag.json",simplify=TRUE) %>%
   map(as.data.table) %>%
@@ -187,17 +238,6 @@ infectieradar %>%
        caption = paste("Bron data: RIVM  | Plot: @mzelst | ",Sys.Date()))
 ggsave("plots/infectieradar.png", width = 16, height = 8)
 
-
-git.credentials <- read_lines("git_auth.txt")
-git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
-
-## Push to git
-repo <- git2r::init()
-add(repo, path = "*")
-commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - part 2"))
-push(repo, credentials = git.auth)
-
-
 ## Put in date breaker for dashboard data download ##
 
 repeat {
@@ -212,13 +252,8 @@ repeat {
   }
 }
 
-
-
 dat <- fromJSON(txt = "https://coronadashboard.rijksoverheid.nl/json/NL.json")
 sewer.data <- dat$sewer$values
-
-
-
 
 sewer.data <- sewer.data %>%
   mutate(date = as.Date(as.POSIXct(date_unix, origin = "1970-01-01"))) %>%
@@ -271,46 +306,6 @@ posted_tweet <- post_tweet (
 
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
-
-########
-# Tweet - nursery homes
-########
-all.data <- read.csv("data/all_data.csv")
-
-source("plot_scripts/nursery_homes.R")
-
-total.nursing.locations <- last(all.data$total.current.locations.nursery,5)
-total.nursing.locations <- last(total.nursing.locations[!is.na(total.nursing.locations)],2)
-
-
-new.locations.nursery <- total.nursing.locations[2] - total.nursing.locations[1]
-
-tweet.nurseryhomes <- paste0("#Verpleeghuis t.o.v. laatste update: 
-
-Positief getest: ",last(all.data$infections.today.nursery),"
-Totaal: ",last(all.data$infections.total.nursery),"
-
-Overleden: ",last(all.data$deaths.today.nursery),"
-Totaal: ",last(all.data$deaths.total.nursery),"
-
-Nieuwe locaties met besmettingen: ",new.locations.nursery,"
-Huidig aantal locaties met besmettingen:* ",last(all.data$total.current.locations.nursery),"
-*Locaties waar in de afgelopen 28 dagen minstens één COVID-19 besmetting is gemeld.")
-
-# Tweet for nursery homes ####
-posted_tweet <- post_tweet (
-  tweet.nurseryhomes,
-  token = token.mzelst,
-  media = c("plots/nursery_homes_vr_map.png",
-            "plots/verpleeghuizen_bewoners.png",
-            "plots/verpleeghuizen_locaties.png"
-  ),
-  in_reply_to_status_id = tweet.last_id,
-  auto_populate_reply_metadata = TRUE
-)
-posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
-tweet.last_id <- posted_tweet$id_str
-
 
 ## Git Vroegsurveillance
 
