@@ -166,20 +166,18 @@ source("workflow/parse_municipalities.R")
 source("workflow/generate_municipality_images.R")
 
 
-infectieradar <- fread("https://data.rivm.nl/covid-19/COVID-19_Infectieradar_symptomen_per_dag.csv")
-infectieradar <- infectieradar %>%
+infectieradar <- rjson::fromJSON(file = "https://data.rivm.nl/covid-19/COVID-19_Infectieradar_symptomen_per_dag.json",simplify=TRUE) %>%
+  map(as.data.table) %>%
+  rbindlist(fill = TRUE) %>%
   mutate(date = as.Date(Date_of_statistics)) %>%
   mutate(infectieradar_7d = frollmean(Perc_covid_symptoms,7)) %>%
   mutate(groei_infectieradar = Perc_covid_symptoms/(dplyr::lag(Perc_covid_symptoms,7))) %>%
   mutate(groei_infectieradar_7d = frollmean(groei_infectieradar,7))
 
-
-
-
 infectieradar %>%
   dplyr::filter(date >= "2022-01-01") %>%
   ggplot(aes(x = date)) + 
-  geom_line(aes(y = MA_perc_covid_symptoms), lwd = 1.2, color = "red") + 
+  geom_line(aes(y = MA_perc_covid_symptoms), linewidth = 1.2, color = "red") + 
   theme_bw() + 
   theme(plot.title = element_text(size = 18, hjust = 0.5, vjust = 0.5)) + 
   labs(x = "Datum",
