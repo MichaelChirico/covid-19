@@ -23,6 +23,12 @@ rm(lcps.data, lcps.data.original, date.lcps, date.now, message)
 
 lcps.data.original <- utils::read.csv('https://lcps.nu/wp-content/uploads/covid-19-datafeed.csv', sep =',')
 
+#lcps_old <- read.csv("data-lcps/total/covid-19_2022-12-07.csv")
+#lcps_old[943,] <- c("08-12-2022",35,0, 705, 593, 3, 80)
+
+#lcps.data <- lcps.data %>%
+#  mutate_at(c("IC_Bedden_COVID_Nederland","IC_Bedden_COVID_Internationaal","IC_Bedden_Non_COVID_Nederland","Kliniek_Bedden_Nederland","IC_Nieuwe_Opnames_COVID_Nederland","Kliniek_Nieuwe_Opnames_COVID_Nederland"), as.numeric)
+
 # Order numbers: IC_Bedden_COVID, IC_Bedden_Non_COVID, Kliniek_Bedden, IC_Nieuwe_Opnames_COVID, Kliniek_Nieuwe_Opnames_COVID
 lcps.data <- lcps.data.original %>%
   mutate(
