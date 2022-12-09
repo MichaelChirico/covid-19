@@ -260,8 +260,8 @@ cols <- c("#009E73", "#87109A","#E6830C","#D96DEA", "#2231C5","#000000")
 plot <- deaths_total %>%
   dplyr::filter(week_year <= period.death_causes.filter) %>%
   ggplot(aes(x=factor(week_year), y=deaths_rivm, group = 1)) + 
-  geom_line(aes(y = deaths_rivm, color = "RIVM"), lwd=1.2) +
-  geom_line(aes(y = total_covid_mortality, color = "CBS"), lwd=1.2) +
+  geom_line(aes(y = deaths_rivm, color = "RIVM"), linewidth=1.2) +
+  geom_line(aes(y = total_covid_mortality, color = "CBS"), linewidth=1.2) +
   theme_classic()+
   xlab("")+
   ylab("")+
@@ -294,9 +294,9 @@ plot <- deaths_total %>%
   dplyr::filter(week_year >= "2020-39") %>%
   dplyr::filter(week_year <= period.death_causes.filter) %>%
   ggplot(aes(x=factor(week_year), y=deaths_wlz_perc, group = 1)) + 
-  geom_line(aes(y = deaths_wlz_perc, color = "Verpleeghuis"), lwd=1.2) +
-  geom_line(aes(y = deaths_home_perc, color = "Thuis"), lwd=1.2) +
-  geom_line(aes(y = deaths_nice_perc, color = "Ziekenhuis"), lwd=1.2) +
+  geom_line(aes(y = deaths_wlz_perc, color = "Verpleeghuis"), linewidth=1.2) +
+  geom_line(aes(y = deaths_home_perc, color = "Thuis"), linewidth=1.2) +
+  geom_line(aes(y = deaths_nice_perc, color = "Ziekenhuis"), linewidth=1.2) +
   scale_y_continuous(expand = c(0, 0), limits = c(0, 100), n.breaks = 10) +
   theme_classic()+
   xlab("")+
@@ -331,10 +331,10 @@ deaths_total <- deaths_total[-c(nrow(deaths_total)),]
 plot <- deaths_total %>%
   dplyr::filter(week_year >= "2020-39") %>%
   ggplot(aes(x=factor(week_year), y=deaths_nursing, group = 1)) + 
-  geom_line(aes(y = deaths_nursing, color = "Verpleeghuis"), lwd=1.2) +
-  geom_line(aes(y = deaths_nice, color = "Ziekenhuis"), lwd=1.2) +
-  geom_line(aes(y = deaths_rivm, color = "Totaal (RIVM)"), lwd=1.2) +
-  geom_line(aes(y = average_covid_mortality, color = "Totaal (Schatting)"), lwd=1.2) +
+  geom_line(aes(y = deaths_nursing, color = "Verpleeghuis"), linewidth=1.2) +
+  geom_line(aes(y = deaths_nice, color = "Ziekenhuis"), linewidth=1.2) +
+  geom_line(aes(y = deaths_rivm, color = "Totaal (RIVM)"), linewidth=1.2) +
+  geom_line(aes(y = average_covid_mortality, color = "Totaal (Schatting)"), linewidth=1.2) +
   scale_y_continuous(expand = c(0, 0), limits = c(0, 1200), n.breaks = 10) +
   theme_classic()+
   xlab("")+

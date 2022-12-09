@@ -309,12 +309,12 @@ mortality_wide <- mortality_wide %>%
 
 mortality_wide %>%
   ggplot(aes(x=Week, y=`2017`, group = 1)) + 
-  geom_line(aes(y = `2017`, color = "2017"), lwd=1.0, linetype = "dashed") +
-  geom_line(aes(y = `2018`, color = "2018"), lwd=1.0, linetype = "dashed") +
-  geom_line(aes(y = `2019`, color = "2019"), lwd=1.0, linetype = "dashed") +
-  geom_line(aes(y = `2020`, color = "2020"), lwd=1.0) +
-  geom_line(aes(y = `2021`, color = "2021"), lwd=1.0) +
-  geom_line(aes(y = `2022`, color = "2022"), lwd=1.2) +
+  geom_line(aes(y = `2017`, color = "2017"), linewidth=1.0, linetype = "dashed") +
+  geom_line(aes(y = `2018`, color = "2018"), linewidth=1.0, linetype = "dashed") +
+  geom_line(aes(y = `2019`, color = "2019"), linewidth=1.0, linetype = "dashed") +
+  geom_line(aes(y = `2020`, color = "2020"), linewidth=1.0) +
+  geom_line(aes(y = `2021`, color = "2021"), linewidth=1.0) +
+  geom_line(aes(y = `2022`, color = "2022"), linewidth=1.2) +
   scale_y_continuous(limits = c(2000, 5500)) +
   theme_bw() +
   theme(axis.title.x=element_blank(),
