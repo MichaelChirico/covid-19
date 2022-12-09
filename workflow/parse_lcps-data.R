@@ -25,9 +25,7 @@ lcps.data.original <- utils::read.csv('https://lcps.nu/wp-content/uploads/covid-
 
 #lcps_old <- read.csv("data-lcps/total/covid-19_2022-12-07.csv")
 #lcps_old[943,] <- c("08-12-2022",35,0, 705, 593, 3, 80)
-
-#lcps.data <- lcps.data %>%
-#  mutate_at(c("IC_Bedden_COVID_Nederland","IC_Bedden_COVID_Internationaal","IC_Bedden_Non_COVID_Nederland","Kliniek_Bedden_Nederland","IC_Nieuwe_Opnames_COVID_Nederland","Kliniek_Nieuwe_Opnames_COVID_Nederland"), as.numeric)
+#lcps_old[944,] <- c("09-12-2022",31,0, 738, 595, 3, 92)
 
 # Order numbers: IC_Bedden_COVID, IC_Bedden_Non_COVID, Kliniek_Bedden, IC_Nieuwe_Opnames_COVID, Kliniek_Nieuwe_Opnames_COVID
 lcps.data <- lcps.data.original %>%
@@ -38,6 +36,10 @@ lcps.data <- lcps.data.original %>%
   mutate(
     Datum = NULL
   )
+
+#lcps.data <- lcps.data %>%
+#  mutate_at(c("IC_Bedden_COVID_Nederland","IC_Bedden_COVID_Internationaal","IC_Bedden_Non_COVID_Nederland","Kliniek_Bedden_Nederland","IC_Nieuwe_Opnames_COVID_Nederland","Kliniek_Nieuwe_Opnames_COVID_Nederland"), as.numeric)
+
 
 lcps.condition <- head(lcps.data$Kliniek_Nieuwe_Opnames_COVID,1) < head(lcps.data$IC_Nieuwe_Opnames_COVID,1)
 # Verify clinical beds and IC beds are correctly reported (not swapped around)
