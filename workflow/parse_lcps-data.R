@@ -30,11 +30,11 @@ lcps.data.original <- utils::read.csv('https://lcps.nu/wp-content/uploads/covid-
 # Order numbers: IC_Bedden_COVID, IC_Bedden_Non_COVID, Kliniek_Bedden, IC_Nieuwe_Opnames_COVID, Kliniek_Nieuwe_Opnames_COVID
 lcps.data <- lcps.data.original %>%
   mutate(
-    date = as.Date(Datum, tryFormats = c('%d-%m-%Y')),
-    .before = Datum
+    date = as.Date(datum, tryFormats = c('%d-%m-%Y')),
+    .before = datum
   ) %>%
   mutate(
-    Datum = NULL
+    datum = NULL
   )
 
 #lcps.data <- lcps.data %>%
@@ -59,12 +59,14 @@ if (lcps.condition) {stop("The value is TRUE, so the script must end here")
   lcps.data <- pad(lcps.data)
   
   lcps.data <- lcps.data %>%
+    mutate(Kliniek_Bedden_Nederland = kliniek_bezetting_covid + kliniek_bezetting_ontlabeld) %>%
+    mutate(IC_Bedden_COVID_Nederland = IC_bezetting_covid + IC_bezetting_ontlabeld) %>%
     mutate(Totaal_Bezetting = Kliniek_Bedden_Nederland + IC_Bedden_COVID_Nederland) %>%
-    mutate(IC_Opnames_7d = frollmean(IC_Nieuwe_Opnames_COVID_Nederland,7, na.rm=T)) %>%
-    mutate(Kliniek_Opnames_7d = frollmean(Kliniek_Nieuwe_Opnames_COVID_Nederland,7, na.rm=T)) %>%
-    mutate(Totaal_opnames = IC_Nieuwe_Opnames_COVID_Nederland + Kliniek_Nieuwe_Opnames_COVID_Nederland) %>%
+    mutate(IC_Opnames_7d = frollmean(IC_opnames_covid,7, na.rm=T)) %>%
+    mutate(Kliniek_Opnames_7d = frollmean(kliniek_opnames_covid,7, na.rm=T)) %>%
+    mutate(Totaal_opnames = IC_opnames_covid + kliniek_opnames_covid) %>%
     mutate(Totaal_opnames_7d = IC_Opnames_7d + Kliniek_Opnames_7d) %>%
-    mutate(Totaal_IC = IC_Bedden_COVID_Nederland + IC_Bedden_Non_COVID_Nederland) %>%
+    mutate(Totaal_IC = IC_Bedden_COVID_Nederland + IC_bezetting_covid_internationaal) %>%
     mutate(IC_opnames_14d = dplyr::lag(IC_Opnames_7d,7)) %>%
     mutate(Kliniek_opnames_14d = dplyr::lag(Kliniek_Opnames_7d,7)) %>%
     mutate(OMT_Check_IC = round(IC_Opnames_7d/IC_opnames_14d*100,1)) %>%
