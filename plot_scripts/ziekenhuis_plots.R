@@ -8,7 +8,7 @@ lcps <- fread("data/lcps_by_day.csv")
 lcps %>%
   dplyr::filter(date >= "2022-01-01") %>%
   ggplot(aes(x = date)) + 
-  geom_col(aes(y = Kliniek_Nieuwe_Opnames_COVID_Nederland),width = 0.9, fill = "blue",color = "black") + 
+  geom_col(aes(y = kliniek_opnames_covid),width = 0.9, fill = "blue",color = "black") + 
   geom_line(aes(y = Kliniek_Opnames_7d), lwd = 1.2, color = "red") + 
   theme_bw() + 
   theme(plot.title = element_text(size = 18, hjust = 0.5, vjust = 0.5)) + 
@@ -22,7 +22,7 @@ ggsave("plots/opnames_per_dag_kliniek.png", width = 16, height = 8)
 lcps %>%
   dplyr::filter(date >= "2022-01-01") %>%
   ggplot(aes(x = date)) + 
-  geom_col(aes(y = IC_Nieuwe_Opnames_COVID_Nederland),width = 0.9, fill = "blue",color = "black") + 
+  geom_col(aes(y = IC_opnames_covid),width = 0.9, fill = "blue",color = "black") + 
   geom_line(aes(y = IC_Opnames_7d), lwd = 1.2, color = "red") + 
   theme_bw() +
   theme(plot.title = element_text(size = 18, hjust = 0.5, vjust = 0.5)) + 

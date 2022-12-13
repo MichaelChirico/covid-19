@@ -4,11 +4,11 @@ repeat {
   
   lcps.data <- lcps.data.original %>%
     mutate(
-      date = as.Date(Datum, tryFormats = c('%d-%m-%Y')),
-      .before = Datum
+      date = as.Date(datum, tryFormats = c('%d-%m-%Y')),
+      .before = datum
     ) %>%
     mutate(
-      Datum = NULL
+      datum = NULL
     )
   
   date.lcps <- first(lcps.data$date)
@@ -41,7 +41,7 @@ lcps.data <- lcps.data.original %>%
 #  mutate_at(c("IC_Bedden_COVID_Nederland","IC_Bedden_COVID_Internationaal","IC_Bedden_Non_COVID_Nederland","Kliniek_Bedden_Nederland","IC_Nieuwe_Opnames_COVID_Nederland","Kliniek_Nieuwe_Opnames_COVID_Nederland"), as.numeric)
 
 
-lcps.condition <- head(lcps.data$Kliniek_Nieuwe_Opnames_COVID,1) < head(lcps.data$IC_Nieuwe_Opnames_COVID,1)
+lcps.condition <- head(lcps.data$kliniek_opnames_covid,1) < head(lcps.data$IC_opnames_covid,1)
 # Verify clinical beds and IC beds are correctly reported (not swapped around)
 if (lcps.condition) {stop("The value is TRUE, so the script must end here")    
 } else {
@@ -93,7 +93,7 @@ if (lcps.condition) {stop("The value is TRUE, so the script must end here")
 
 bot <- TGBot$new(token = bot_token('RBot'))
 bot$set_default_chat_id(user_id('me'))
-bot$sendMessage((lcps.data$Kliniek_Nieuwe_Opnames_COVID[1]))
+bot$sendMessage((lcps.data$kliniek_opnames_covid[1]))
 
 rm(filename, filename.common, filename.daily, lcps.condition, lcps.date, lcps.dailydata, lcps.data.original,bot)
 
