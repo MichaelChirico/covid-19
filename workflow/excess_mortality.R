@@ -279,7 +279,7 @@ cbs_oversterfte <- data.table(read_excel("cbs_deaths.xlsx", sheet = 7))[,1:10]
 unlink("cbs_deaths.xlsx")
 cbs_oversterfte <- cbs_oversterfte[8:nrow(cbs_oversterfte),]
 cbs_oversterfte <- cbs_oversterfte[-c(54,107),]
-cbs_oversterfte <- cbs_oversterfte[-c(158:163),]
+cbs_oversterfte <- cbs_oversterfte[-c(158:217),]
 colnames(cbs_oversterfte) <- c("Periode","deaths_expected_cbs","verwacht_lb","Verwacht_ub","Verwacht_WLZ","verwacht_WLZ_lb","Verwacht_WLZ_ub",
                                "Verwacht_other","Verwacht_other_lb","Verwacht_other_ub")
 
