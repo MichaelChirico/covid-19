@@ -28,4 +28,4 @@ write.csv(nice_by_day_ic,"data-dashboards/bezetting_ic_onder20.csv", row.names =
 repo <- git2r::init()
 add(repo, path = "*")
 commit(repo, all = T, paste0("Update NICE age-distribution in hospital (regular and IC)",Sys.Date()))
-push(repo, credentials = git.auth)
+git2r::push(repo, credentials = git.auth)
