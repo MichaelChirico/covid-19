@@ -36,4 +36,4 @@ write.csv(vaccines.nl.long, file = "data-rivm/vaccines-ecdc/vaccines_administere
 
 add(repo, path = "data-rivm/vaccines-ecdc/vaccines_administered_nl.csv")
 commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) update vaccine data - ECDC"))
-push(repo, credentials = git.auth)
+git2r::push(repo, credentials = git.auth)

@@ -56,4 +56,4 @@ fwrite(vaxx.wijk.completed,"data/vaccination-neighborhood-completed.csv",row.nam
 repo <- git2r::init()
 add(repo, path = "*")
 commit(repo, all = T, paste0("[", Sys.Date(), "] Weekly update vaccination rate per neighborhood"))
-push(repo, credentials = git.auth)
+git2r::push(repo, credentials = git.auth)

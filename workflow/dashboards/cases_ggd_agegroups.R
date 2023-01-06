@@ -53,5 +53,5 @@ repo <- git2r::init()
 add(repo, path = "data-dashboards/cases_ggd_agegroups.csv")
 add(repo, path = "data-dashboards/cases_week_agegroups.csv")
 commit(repo, all = T, paste0("Update cases per ggd/per week per agegroup ",Sys.Date()))
-push(repo, credentials = git.auth)
+git2r::push(repo, credentials = git.auth)
 
