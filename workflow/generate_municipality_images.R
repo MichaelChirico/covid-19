@@ -13,11 +13,7 @@ screenshots = c(
   "article.hosp > header" = "hosp-head",
   "article.hosp section.municipalities-a-g" = "hosp-all-part1",
   "article.hosp section.municipalities-h-p" = "hosp-all-part2",
-  "article.hosp section.municipalities-r-z" = "hosp-all-part3",
-  "article.deaths > header" = "deaths-head",
-  "article.deaths section.municipalities-a-g" = "deaths-all-part1",
-  "article.deaths section.municipalities-h-p" = "deaths-all-part2",
-  "article.deaths section.municipalities-r-z" = "deaths-all-part3"
+  "article.hosp section.municipalities-r-z" = "hosp-all-part3"
 )
 
 for (i in seq_along(screenshots)) {

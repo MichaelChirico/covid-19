@@ -176,9 +176,6 @@ tweet.nurseryhomes <- paste0("#Verpleeghuis t.o.v. laatste update:
 Positief getest: ",last(all.data$infections.today.nursery),"
 Totaal: ",last(all.data$infections.total.nursery),"
 
-Overleden: ",last(all.data$deaths.today.nursery),"
-Totaal: ",last(all.data$deaths.total.nursery),"
-
 Nieuwe locaties met besmettingen: ",new.locations.nursery,"
 Huidig aantal locaties met besmettingen:* ",last(all.data$total.current.locations.nursery),"
 *Locaties waar in de afgelopen 28 dagen minstens één COVID-19 besmetting is gemeld.")
@@ -196,6 +193,10 @@ posted_tweet <- post_tweet (
 )
 posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.last_id <- posted_tweet$id_str
+
+
+#Overleden: ",last(all.data$deaths.today.nursery),"
+#Totaal: ",last(all.data$deaths.total.nursery),"
 
 
 ## Vroeg surveillance
