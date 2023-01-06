@@ -20,10 +20,10 @@ reason_intake <- rjson::fromJSON(file = "https://www.stichting-nice.nl//covid-19
   slice(1,2,4,6) %>%
   t() %>% as.data.frame() %>%
   mutate_all(unlist) %>%
+  mutate(year = parse_number(paste0("20",parse_number(V1)))) %>%
   rename(week = V1,covid_primair = V2, covid_secundair = V3, met_covid = V4) %>%
   mutate_at(vars(covid_primair,covid_secundair,met_covid), ~. / 100) %>%
-  mutate(week = parse_number(str_sub(week, 8, 10))) %>%
-  mutate(year = 2022)
+  mutate(week = parse_number(str_sub(week, 8, 10)))
 
 setDT(reason_intake)
 
@@ -43,12 +43,16 @@ nice.reason.intake.long <- merge(nice.reason.intake.long, reason.intake.perc, by
 nice.reason.intake.long <- nice.reason.intake.long %>%
   mutate(type = factor(type, rev(unique(type))))
 
+nice.reason.intake.long$weekyear <- ifelse(nice.reason.intake.long$week<10,
+                             paste0(nice.reason.intake.long$year,"-",0,nice.reason.intake.long$week),
+                             paste0(nice.reason.intake.long$year,"-",nice.reason.intake.long$week))
+
 week.data <- last(nice.reason.intake.long$week)
 
 colors <- c("covid_primair" = "blue", "covid_secundair" = "steelblue","met_covid" = "lightblue")
 plot.reason.hospital <- nice.reason.intake.long %>%
   arrange(value) %>%
-  ggplot(aes(x = week, y = value, fill = type)) + 
+  ggplot(aes(x = factor(weekyear), y = value, fill = type)) + 
   geom_bar(stat = 'identity', position = 'stack', alpha = 0.8) + 
   theme_bw() + 
   #scale_x_date(date_breaks = "1 month", date_labels = "%Y-%m") + 
@@ -70,11 +74,12 @@ plot.reason.hospital <- nice.reason.intake.long %>%
   labs(x = "Week",
        y = "Aantal opnames",
        caption = "") +
-  scale_x_continuous(n.breaks = nrow(nice.reason.intake.long)/2) +
+  #scale_x_continuous(n.breaks = nrow(nice.reason.intake.long)/2) +
   scale_fill_manual(labels = c("Door COVID","Met COVID - met ontregeling","Met COVID - zonder ontregeling"),
                     values = colors, guide = guide_legend(reverse = TRUE)) +
   geom_text(aes(label = percentage), position = position_stack(vjust = 0.5), fontface = "bold")
 
+plot.reason.hospital
 
 
 ic_new <- rjson::fromJSON(file = "https://www.stichting-nice.nl/covid-19/public/new-intake/",simplify = TRUE) %>%
@@ -97,10 +102,10 @@ reason_intake_ic <- rjson::fromJSON(file = "https://www.stichting-nice.nl/covid-
   slice(1,2,4,6) %>%
   t() %>% as.data.frame() %>%
   mutate_all(unlist) %>%
+  mutate(year = parse_number(paste0("20",parse_number(V1)))) %>%
   rename(week = V1,covid_primair = V2, covid_secundair = V3, met_covid = V4) %>%
   mutate_at(vars(covid_primair,covid_secundair,met_covid), ~. / 100) %>%
-  mutate(week = parse_number(str_sub(week, 8, 10))) %>%
-  mutate(year = 2022)
+  mutate(week = parse_number(str_sub(week, 8, 10)))
 setDT(reason_intake_ic)
 
 nice.reason.intake.ic <- merge(reason_intake_ic, ic_new, by = c("week","year"), all.x=T)
@@ -120,11 +125,13 @@ nice.reason.intake.ic.long <- merge(nice.reason.intake.ic.long, reason.intake.ic
 nice.reason.intake.ic.long <- nice.reason.intake.ic.long %>%
   mutate(type = factor(type, rev(unique(type))))
 
-
+nice.reason.intake.ic.long$weekyear <- ifelse(nice.reason.intake.ic.long$week<10,
+                                           paste0(nice.reason.intake.ic.long$year,"-",0,nice.reason.intake.ic.long$week),
+                                           paste0(nice.reason.intake.ic.long$year,"-",nice.reason.intake.ic.long$week))
 
 plot.reason.ic <- nice.reason.intake.ic.long %>%
   arrange(value) %>%
-  ggplot(aes(x = week, y = value, fill = type)) + 
+  ggplot(aes(x = factor(weekyear), y = value, fill = type)) + 
   geom_bar(stat = 'identity', position = 'stack', alpha = 0.8) + 
   theme_bw() + 
   #scale_x_date(date_breaks = "1 month", date_labels = "%Y-%m") + 
@@ -146,7 +153,7 @@ plot.reason.ic <- nice.reason.intake.ic.long %>%
   labs(x = "Week",
        y = "Aantal IC-opnames",
        caption = paste0("Bron: Stichting NICE | Plot: @mzelst | ",Sys.Date())) +
-  scale_x_continuous(n.breaks = nrow(nice.reason.intake.ic.long)/2) +
+  #scale_x_continuous(n.breaks = nrow(nice.reason.intake.ic.long)/2) +
   scale_fill_manual(labels = c("Door COVID","Met COVID - met ontregeling","Met COVID - zonder ontregeling"),
                     values = colors, guide = guide_legend(reverse = TRUE)) +
   geom_text(aes(label = percentage), position = position_stack(vjust = 0.5), fontface = "bold")
