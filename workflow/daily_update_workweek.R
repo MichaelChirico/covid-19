@@ -105,11 +105,11 @@ write.csv(all.data, file = "data/all_data.csv",row.names = F)
 source("workflow/twitter/token_mzelst.R")
 #source("workflow/twitter/token_edwinveldhuizen.R")
 
-LCPS_klinisch_two_days <- last(all.data$Kliniek_Bedden_Nederland,2)
+LCPS_klinisch_two_days <- last(na.omit(all.data$Kliniek_Bedden_Nederland),2)
 LCPS_Verpleeg_Huidig_Toename <- LCPS_klinisch_two_days[2] - LCPS_klinisch_two_days[1]
-LCPS_IC_two_days <- last(all.data$IC_Bedden_COVID_Nederland,2)
+LCPS_IC_two_days <- last(na.omit(all.data$IC_Bedden_COVID_Nederland),2)
 LCPS_IC_Huidig_Toename <- LCPS_IC_two_days[2] - LCPS_IC_two_days[1]
-LCPS_IC_Int_two_days <- last(all.data$IC_Bedden_COVID_Internationaal,2)
+LCPS_IC_Int_two_days <- last(na.omit(all.data$IC_Bedden_COVID_Internationaal),2)
 LCPS_IC_Int_Huidig_Toename <- LCPS_IC_Int_two_days[2] - LCPS_IC_Int_two_days[1]
 
 sign.hosp.lcps <- paste0(ifelse(LCPS_Verpleeg_Huidig_Toename>=0," (+"," ("))
@@ -122,8 +122,6 @@ IC_Nieuwe_Opnames <- ifelse(is.na(last(all.data$IC_opnames_covid)),"Onbekend",la
 IC_Aanwezig <- ifelse(is.na(last(all.data$IC_Bedden_COVID_Nederland)),"Onbekend",paste0(last(all.data$IC_Bedden_COVID_Nederland),sign.ic.lcps,LCPS_IC_Huidig_Toename))
 IC_Aanwezig_Int <- ifelse(is.na(last(all.data$IC_bezetting_covid_internationaal)),"Onbekend",paste0(last(all.data$IC_bezetting_covid_internationaal),sign.ic.int.lcps,LCPS_IC_Int_Huidig_Toename))
 
-total.deaths <- last(all.data$deaths,5)
-total.deaths <- last(total.deaths[!is.na(total.deaths)],2)
 
 tweet.main <- paste0("#COVID19NL
 
@@ -131,10 +129,7 @@ Opgenomen: ",Kliniek_Nieuwe_Opnames,"
 Huidig: ",Kliniek_Aanwezig,")
 
 Opgenomen op IC: ",IC_Nieuwe_Opnames,"
-Huidig IC Nederland: ",IC_Aanwezig,")
-
-Overleden: ",total.deaths[2]-total.deaths[1],"
-Totaal: ",format(last(all.data$deaths),decimal.mark = ",",big.mark =".",big.interval = 3),"")
+Huidig IC Nederland: ",IC_Aanwezig,")")
 
 tweet.main
 
