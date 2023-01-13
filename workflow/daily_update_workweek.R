@@ -290,6 +290,7 @@ Verandering (week op week): ",paste0(sign.radar.change,round(last(infectieradar$
 
 Overzicht data per gemeente: https://raw.githack.com/mzelst/covid-19/master/workflow/daily_municipality.html")
 
+vroegsurveillance.tweet
 
 posted_tweet <- post_tweet (
   vroegsurveillance.tweet,
