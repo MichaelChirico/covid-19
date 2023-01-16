@@ -111,7 +111,7 @@ doo.monkeypox.MA <- doo.monkeypox %>%
   drop_na(infections_7d) %>%
   last()
 
-title.monkeypox.doo <- paste0("Monkeypox besmettingen op basis van eerste ziektedag")
+title.monkeypox.doo <- paste0("Mpox besmettingen op basis van eerste ziektedag")
 
 monkeypox.plot.doo <- doo.monkeypox %>%
   dplyr::filter(date() >= "2022-05-17") %>%
@@ -148,7 +148,7 @@ doo.monkeypox.growth <- doo.monkeypox %>%
 monkeypox.growth <- last(doo.monkeypox.growth$infections_7d,8)
 growth.text <- ifelse(monkeypox.growth[8]/monkeypox.growth[1]>1,"toe","af")
 
-tweet.monkeypox <- paste0("#Monkeypox
+tweet.monkeypox <- paste0("#Mpox
 
 Er zijn ",new.infections," nieuwe monkeypox besmettingen vastgesteld in de afgelopen vier weken. Het zevendaags gemiddelde neemt ",growth.text," (",round(doo.monkeypox.MA$infections_7d,1)," per dag).
 
@@ -190,7 +190,7 @@ fwrite(monkeypox.region.dat, file = "data-misc/monkeypox/monkeypox_region.csv")
 monkeypox.region.dat.latest <- monkeypox.region.dat %>%
   dplyr::filter(Datum == Sys.Date())
 
-tweet.monkeypox.regio <- paste0("#Monkeypox - Besmettingen per regio (totaal en toename)
+tweet.monkeypox.regio <- paste0("#Mpox - Besmettingen per regio (totaal en toename)
 
 ",monkeypox.region.dat.latest[1,1],": ",monkeypox.region.dat.latest[1,2]," (+",monkeypox.region.dat.latest[1,4],")
 ",monkeypox.region.dat.latest[2,1],": ",monkeypox.region.dat.latest[2,2]," (+",monkeypox.region.dat.latest[2,4],")
