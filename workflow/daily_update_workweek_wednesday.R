@@ -151,7 +151,7 @@ push(repo, credentials = git.auth)
 ## Put in date breaker for dashboard data download ##
 
 repeat {
-  Sys.sleep(15)
+  Sys.sleep(120)
   date.now <- Sys.Date()
   dat <- fromJSON(txt = "https://coronadashboard.rijksoverheid.nl/json/NL.json")
   date.dashboard <- as.Date(as.POSIXct(parse_number(dat$last_generated), origin = "1970-01-01"))
