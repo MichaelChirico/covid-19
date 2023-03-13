@@ -152,7 +152,7 @@ plot.reason.ic <- nice.reason.intake.ic.long %>%
     legend.margin = margin(2,2,2,2)) +
   labs(x = "Week",
        y = "Aantal IC-opnames",
-       caption = paste0("Bron: Stichting NICE | Plot: @mzelst | ",Sys.Date())) +
+       caption = paste0("Bron: Stichting NICE | Plot: @Ipie33 | ",Sys.Date())) +
   #scale_x_continuous(n.breaks = nrow(nice.reason.intake.ic.long)/2) +
   scale_fill_manual(labels = c("Door COVID","Met COVID - met ontregeling","Met COVID - zonder ontregeling"),
                     values = colors, guide = guide_legend(reverse = TRUE)) +

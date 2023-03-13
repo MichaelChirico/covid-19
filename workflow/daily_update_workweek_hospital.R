@@ -1,7 +1,7 @@
 memory.limit(size = 64000)
 
 remove(list = ls())
-source("workflow/twitter/token_mzelst.R")
+source("workflow/twitter/token_ipie33.R")
 
 #time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
 time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
@@ -64,7 +64,7 @@ all.data <- Reduce(
 
 write.csv(all.data, file = "data/all_data.csv",row.names = F)
 
-source("workflow/twitter/token_mzelst.R")
+source("workflow/twitter/token_ipie33.R")
 #source("workflow/twitter/token_edwinveldhuizen.R")
 
 LCPS_klinisch_two_days <- last(na.omit(all.data$Kliniek_Bedden_Nederland),2)
@@ -96,7 +96,7 @@ tweet.main
 
 posted_tweet <- post_tweet (
   tweet.main,
-  token = token.mzelst,
+  token = token.ipie33,
   media = c("plots/opnames_per_dag_kliniek.png",
             "plots/opnames_per_dag_ic.png",
             "plots/groei_per_dag_opnames.png",
@@ -105,7 +105,7 @@ posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.main.id <- posted_tweet$id_str
 tweet.last_id <- tweet.main.id
 
-git.credentials <- read_lines("git_auth.txt")
+git.credentials <- read_lines("git_auth_ipie33.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 ## Push to git
@@ -116,5 +116,5 @@ push(repo, credentials = git.auth)
 
 
 remove(list = ls())
-source("workflow/twitter/token_mzelst.R")
+source("workflow/twitter/token_ipie33.R")
 POST(url = deploy.netlify.url)

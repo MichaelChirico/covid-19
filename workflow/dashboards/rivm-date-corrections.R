@@ -188,7 +188,7 @@ write.csv(df.hospital.new.corr.mun, file = "corrections/hospital_per_municipalit
 remove(list = ls())
 gc()
 # Git
-git.credentials <- read_lines("git_auth.txt")
+git.credentials <- read_lines("git_auth_ipie33.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 repo <- git2r::init()

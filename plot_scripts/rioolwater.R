@@ -116,7 +116,7 @@ sewer.vr.map <- ggplot(data = vrDF) +
   labs(title = "Rioolwater per veiligheidsregio",
        subtitle = "Cijferwaardes: Gemiddelde aantal virusdeeltjes per 100.000 inwoners \n Kleuren: Relatieve groei/daling ten opzichte van vorige week",
        color = "Legend",
-       caption = paste("Bron data: RIVM  | Plot: @mzelst | Datum laatst beschikbare data: ",format(last(sewer.data.vr.test$date),"%d-%b-%y"))) +
+       caption = paste("Bron data: RIVM  | Plot: @Ipie33 | Datum laatst beschikbare data: ",format(last(sewer.data.vr.test$date),"%d-%b-%y"))) +
   scale_fill_brewer(type="div", 
                     direction =-1, 
                     aesthetics = c("colour", "fill"), 
@@ -146,7 +146,7 @@ sewer.vr.map <- ggplot(data = vrDF) +
   labs(title = "Rioolwater per veiligheidsregio",
        subtitle = "Cijferwaardes: Gemiddelde aantal virusdeeltjes per 100.000 inwoners \n Kleuren: Relatieve groei/daling ten opzichte van vorige week",
        color = "Legend",
-       caption = paste("Bron data: RIVM  | Plot: @mzelst | Datum laatst beschikbare data: ",format(last(sewer.data.vr.test$date),"%d-%b-%y"))) +
+       caption = paste("Bron data: RIVM  | Plot: @Ipie33 | Datum laatst beschikbare data: ",format(last(sewer.data.vr.test$date),"%d-%b-%y"))) +
   scale_fill_distiller(type="div", aesthetics = c("colour", "fill"), palette = "RdBu", limits=c(-200,200))
 
 sewer.vr.map + geom_text(data=pop.df, aes(label=paste0(rioolwaarde), x=long, y=lat), size = 3.5, colour="black",fontface="bold") +

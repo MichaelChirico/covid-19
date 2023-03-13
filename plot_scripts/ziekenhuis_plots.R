@@ -16,7 +16,7 @@ lcps %>%
        y = "Opnames per dag",
        title = "Opnames per dag",
        color = "Legend",
-       caption = paste("Bron data: LCPS  | Plot: @mzelst | ",Sys.Date()))
+       caption = paste("Bron data: LCPS  | Plot: @Ipie33 | ",Sys.Date()))
 ggsave("plots/opnames_per_dag_kliniek.png", width = 16, height = 8)
 
 lcps %>%
@@ -30,7 +30,7 @@ lcps %>%
        y = "IC-opnames per dag",
        title = "IC-opnames per dag",
        color = "Legend",
-       caption = paste("Bron data: LCPS  | Plot: @mzelst | ",Sys.Date()))
+       caption = paste("Bron data: LCPS  | Plot: @Ipie33 | ",Sys.Date()))
 
 ggsave("plots/opnames_per_dag_ic.png", width = 16, height = 8)
 
@@ -56,13 +56,13 @@ lcps.growth %>%
        y = "Groei per dag",
        title = "Groei in opnames (week op week)",
        color = "Legend",
-       caption = paste("Bron data: LCPS  | Plot: @mzelst | ",Sys.Date())) +
+       caption = paste("Bron data: LCPS  | Plot: @Ipie33 | ",Sys.Date())) +
   scale_colour_manual(values = cols, name = cols)
 ggsave("plots/groei_per_dag_opnames.png", width = 16, heigh = 8)  
 
 
 
-git.credentials <- read_lines("git_auth.txt")
+git.credentials <- read_lines("git_auth_ipie33.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 ## Push to git

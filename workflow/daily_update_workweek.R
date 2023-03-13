@@ -1,7 +1,7 @@
 memory.limit(size = 64000)
 
 remove(list = ls())
-source("workflow/twitter/token_mzelst.R")
+source("workflow/twitter/token_ipie33.R")
 
 #time.start <- ymd_hms(paste0(Sys.Date()+1," 14:00:00"))
 time.start <- ymd_hms(paste0(Sys.Date()," 14:00:00"))
@@ -102,7 +102,7 @@ all.data <- Reduce(
 write.csv(all.data, file = "data/all_data.csv",row.names = F)
 
 # get tokens
-source("workflow/twitter/token_mzelst.R")
+source("workflow/twitter/token_ipie33.R")
 #source("workflow/twitter/token_edwinveldhuizen.R")
 
 LCPS_klinisch_two_days <- last(na.omit(all.data$Kliniek_Bedden_Nederland),2)
@@ -135,7 +135,7 @@ tweet.main
 
 posted_tweet <- post_tweet (
   tweet.main,
-  token = token.mzelst,
+  token = token.ipie33,
   media = c("plots/opnames_per_dag_kliniek.png",
             "plots/opnames_per_dag_ic.png",
             "plots/groei_per_dag_opnames.png",
@@ -144,7 +144,7 @@ posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.main.id <- posted_tweet$id_str
 tweet.last_id <- tweet.main.id
 
-git.credentials <- read_lines("git_auth.txt")
+git.credentials <- read_lines("git_auth_ipie33.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 ## Push to git
@@ -178,7 +178,7 @@ Huidig aantal locaties met besmettingen:* ",last(all.data$total.current.location
 # Tweet for nursery homes ####
 posted_tweet <- post_tweet (
   tweet.nurseryhomes,
-  token = token.mzelst,
+  token = token.ipie33,
   media = c("plots/nursery_homes_vr_map.png",
             "plots/verpleeghuizen_bewoners.png",
             "plots/verpleeghuizen_locaties.png"
@@ -201,7 +201,7 @@ source("workflow/parse_nice-municipalities-data.R")
 source("workflow/parse_municipalities.R")
 source("workflow/generate_municipality_images.R")
 
-git.credentials <- read_lines("git_auth.txt")
+git.credentials <- read_lines("git_auth_ipie33.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 ## Push to git
@@ -231,7 +231,7 @@ infectieradar %>%
        y = "% met klachten",
        title = "Infectieradar: % deelnemers met Covid-19-achtige klachten",
        color = "Legend",
-       caption = paste("Bron data: RIVM  | Plot: @mzelst | ",Sys.Date()))
+       caption = paste("Bron data: RIVM  | Plot: @Ipie33 | ",Sys.Date()))
 ggsave("plots/infectieradar.png", width = 16, height = 8)
 
 ## Put in date breaker for dashboard data download ##
@@ -271,7 +271,7 @@ sewer.data %>%
        y = "Virusvracht per 100.000 inwoners",
        title = "Rioolwater: Gemiddelde aantal virusdeeltjes per 100.000 inwoners",
        color = "Legend",
-       caption = paste("Bron data: RIVM  | Plot: @mzelst | ",Sys.Date()))
+       caption = paste("Bron data: RIVM  | Plot: @Ipie33 | ",Sys.Date()))
 ggsave("plots/rioolwater.png", width = 16, height = 8)
 
 source("plot_scripts/rioolwater.R")
@@ -294,7 +294,7 @@ vroegsurveillance.tweet
 
 posted_tweet <- post_tweet (
   vroegsurveillance.tweet,
-  token = token.mzelst,
+  token = token.ipie33,
   media = c("plots/infectieradar.png",
             "plots/rioolwater.png",
             "plots/rioolwater_veiligheidsregio.png"),
@@ -306,7 +306,7 @@ tweet.last_id <- posted_tweet$id_str
 
 ## Git Vroegsurveillance
 
-git.credentials <- read_lines("git_auth.txt")
+git.credentials <- read_lines("git_auth_ipie33.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 ## Push to git
 repo <- git2r::init()
@@ -343,12 +343,12 @@ filename.dashboard <- paste0("data-rivm/dashboard-data/data-coronadashboard_",Sy
 download.file("https://coronadashboard.rijksoverheid.nl/json/latest-data.zip",filename.dashboard)
 #source("workflow/estimate_R.R")
 #source("workflow/excess_mortality_cbsmodel_2021.R")
-source("workflow/parse_deaths_comparison_tracker.R")
-source("workflow/parse_vaccines_ecdc.R")
-source("workflow/parse_vaccination_neighborhood.R")
+#source("workflow/parse_deaths_comparison_tracker.R")
+#source("workflow/parse_vaccines_ecdc.R")
+#source("workflow/parse_vaccination_neighborhood.R")
 
 
 
 remove(list = ls())
-source("workflow/twitter/token_mzelst.R")
+source("workflow/twitter/token_ipie33.R")
 POST(url = deploy.netlify.url)
