@@ -1,5 +1,501 @@
 "Date_statistics","Municipal_health_service","cases.today","cases.yesterday","diff"
-2022-02-03,"GGD Amsterdam",4514,4515,-1
-2022-02-06,"GGD Hollands-Noorden",3288,3287,1
-2022-02-13,"GGD Amsterdam",2850,2849,1
-2022-02-25,"GGD Noord- en Oost-Gelderland",660,661,-1
+2022-01-12,"GGD Hollands-Noorden",1419,1418,1
+2022-01-14,"GGD Fryslân",824,823,1
+2022-01-14,"GGD West-Brabant",1610,1608,2
+2022-01-15,"GGD Kennemerland",1631,1630,1
+2022-01-16,"GGD Brabant-Zuidoost",1571,1570,1
+2022-01-16,"GGD Fryslân",1000,1001,-1
+2022-01-16,"GGD Kennemerland",1700,1701,-1
+2022-01-16,"GGD West-Brabant",1486,1487,-1
+2022-01-16,"Veiligheids- en Gezondheidsregio Gelderland-Midden",1249,1250,-1
+2022-01-17,"GGD Hollands-Midden",2495,2496,-1
+2022-01-17,"GGD Rotterdam-Rijnmond",4637,4636,1
+2022-01-17,"GGD Twente",1557,1558,-1
+2022-01-18,"GGD Flevoland",2088,2087,1
+2022-01-18,"GGD Groningen",1270,1272,-2
+2022-01-18,"GGD Hart voor Brabant",3657,3656,1
+2022-01-18,"GGD Kennemerland",1815,1816,-1
+2022-01-18,"GGD Rotterdam-Rijnmond",5280,5279,1
+2022-01-18,"Veiligheids- en Gezondheidsregio Gelderland-Midden",2095,2098,-3
+2022-01-19,"GGD Brabant-Zuidoost",2983,2982,1
+2022-01-19,"GGD Groningen",1602,1601,1
+2022-01-19,"GGD Noord- en Oost-Gelderland",2214,2213,1
+2022-01-19,"GGD Twente",2191,2189,2
+2022-01-19,"Veiligheids- en Gezondheidsregio Gelderland-Midden",2147,2146,1
+2022-01-20,"GGD Brabant-Zuidoost",2878,2877,1
+2022-01-20,"GGD Flevoland",1982,1983,-1
+2022-01-20,"GGD Gelderland-Zuid",1682,1683,-1
+2022-01-20,"GGD Groningen",1548,1547,1
+2022-01-20,"GGD Hart voor Brabant",4575,4577,-2
+2022-01-20,"GGD Hollands-Noorden",2091,2090,1
+2022-01-20,"GGD Kennemerland",2261,2260,1
+2022-01-20,"GGD Noord- en Oost-Gelderland",2599,2598,1
+2022-01-20,"GGD Rotterdam-Rijnmond",5374,5376,-2
+2022-01-20,"GGD Twente",2158,2159,-1
+2022-01-20,"GGD Zuid-Limburg",1864,1863,1
+2022-01-20,"Veiligheids- en Gezondheidsregio Gelderland-Midden",2364,2362,2
+2022-01-21,"GGD Brabant-Zuidoost",2980,2983,-3
+2022-01-21,"GGD Gelderland-Zuid",1887,1888,-1
+2022-01-21,"GGD Groningen",1561,1562,-1
+2022-01-21,"GGD Hart voor Brabant",4558,4554,4
+2022-01-21,"GGD Hollands-Noorden",2280,2281,-1
+2022-01-21,"GGD Kennemerland",2599,2600,-1
+2022-01-21,"GGD Noord- en Oost-Gelderland",2751,2752,-1
+2022-01-21,"GGD Zaanstreek/Waterland",1463,1462,1
+2022-01-21,"GGD Zuid-Limburg",1685,1686,-1
+2022-01-21,"Veiligheids- en Gezondheidsregio Gelderland-Midden",2663,2662,1
+2022-01-22,"GGD Amsterdam",4554,4555,-1
+2022-01-22,"GGD Gelderland-Zuid",1952,1951,1
+2022-01-22,"GGD Groningen",1713,1711,2
+2022-01-22,"GGD Hart voor Brabant",4050,4051,-1
+2022-01-22,"GGD Hollands-Midden",3028,3029,-1
+2022-01-22,"GGD Kennemerland",2520,2519,1
+2022-01-22,"GGD Noord- en Oost-Gelderland",2294,2295,-1
+2022-01-22,"GGD Twente",1637,1636,1
+2022-01-22,"GGD West-Brabant",2945,2944,1
+2022-01-22,"Veiligheids- en Gezondheidsregio Gelderland-Midden",2609,2610,-1
+2022-01-23,"GGD Gelderland-Zuid",1993,1994,-1
+2022-01-23,"GGD Haaglanden",4944,4942,2
+2022-01-23,"GGD Hart voor Brabant",4532,4533,-1
+2022-01-23,"GGD Hollands-Noorden",2615,2614,1
+2022-01-23,"GGD Kennemerland",2594,2590,4
+2022-01-23,"GGD Rotterdam-Rijnmond",4832,4834,-2
+2022-01-23,"GGD Twente",2602,2603,-1
+2022-01-23,"GGD West-Brabant",2884,2886,-2
+2022-01-23,"GGD Zaanstreek/Waterland",1243,1244,-1
+2022-01-24,"GGD Fryslân",1603,1606,-3
+2022-01-24,"GGD Gelderland-Zuid",1713,1711,2
+2022-01-24,"GGD Hollands-Noorden",3074,3075,-1
+2022-01-24,"GGD IJsselland",2094,2095,-1
+2022-01-24,"GGD Kennemerland",2903,2906,-3
+2022-01-24,"GGD Noord- en Oost-Gelderland",2816,2815,1
+2022-01-24,"GGD Twente",2513,2515,-2
+2022-01-25,"GGD Gelderland-Zuid",2740,2741,-1
+2022-01-25,"GGD Groningen",2002,2001,1
+2022-01-25,"GGD Hollands-Midden",3983,3982,1
+2022-01-25,"GGD IJsselland",2521,2520,1
+2022-01-25,"GGD Noord- en Oost-Gelderland",3380,3379,1
+2022-01-25,"GGD Regio Utrecht",6836,6835,1
+2022-01-25,"GGD Rotterdam-Rijnmond",7090,7091,-1
+2022-01-25,"GGD Twente",3072,3071,1
+2022-01-25,"GGD Zeeland",1936,1935,1
+2022-01-26,"GGD Amsterdam",4951,4950,1
+2022-01-26,"GGD Drenthe",1525,1526,-1
+2022-01-26,"GGD Fryslân",2292,2291,1
+2022-01-26,"GGD Hart voor Brabant",5087,5088,-1
+2022-01-26,"GGD Hollands-Midden",4094,4093,1
+2022-01-26,"GGD IJsselland",2500,2502,-2
+2022-01-26,"GGD Kennemerland",2779,2780,-1
+2022-01-26,"GGD Noord- en Oost-Gelderland",3043,3042,1
+2022-01-26,"GGD Regio Utrecht",7293,7295,-2
+2022-01-26,"GGD Twente",2958,2959,-1
+2022-01-26,"GGD Zaanstreek/Waterland",1863,1862,1
+2022-01-27,"GGD Amsterdam",5200,5201,-1
+2022-01-27,"GGD Drenthe",1264,1263,1
+2022-01-27,"GGD Flevoland",2520,2519,1
+2022-01-27,"GGD Fryslân",2400,2398,2
+2022-01-27,"GGD Gelderland-Zuid",2868,2866,2
+2022-01-27,"GGD Groningen",2198,2199,-1
+2022-01-27,"GGD Hollands-Noorden",3493,3492,1
+2022-01-27,"GGD IJsselland",2569,2567,2
+2022-01-27,"GGD Noord- en Oost-Gelderland",3286,3287,-1
+2022-01-27,"GGD Regio Utrecht",7416,7415,1
+2022-01-27,"GGD West-Brabant",4442,4441,1
+2022-01-27,"GGD Zaanstreek/Waterland",1799,1798,1
+2022-01-27,"GGD Zeeland",2093,2094,-1
+2022-01-28,"GGD Gelderland-Zuid",2826,2827,-1
+2022-01-28,"GGD Gooi en Vechtstreek",1340,1339,1
+2022-01-28,"GGD Hollands-Noorden",3226,3227,-1
+2022-01-28,"GGD Twente",3477,3476,1
+2022-01-29,"GGD Flevoland",2542,2543,-1
+2022-01-29,"GGD Fryslân",2319,2318,1
+2022-01-29,"GGD Gooi en Vechtstreek",1289,1290,-1
+2022-01-29,"GGD Groningen",2368,2369,-1
+2022-01-29,"GGD Hart voor Brabant",5315,5314,1
+2022-01-29,"GGD IJsselland",2505,2504,1
+2022-01-29,"GGD Kennemerland",2748,2747,1
+2022-01-29,"GGD Limburg-Noord",2475,2476,-1
+2022-01-29,"GGD Twente",2759,2760,-1
+2022-01-29,"GGD West-Brabant",3769,3770,-1
+2022-01-29,"GGD Zuid-Limburg",2643,2642,1
+2022-01-29,"Veiligheids- en Gezondheidsregio Gelderland-Midden",3597,3598,-1
+2022-01-30,"Dienst Gezondheid & Jeugd ZHZ",2254,2255,-1
+2022-01-30,"GGD Flevoland",2126,2127,-1
+2022-01-30,"GGD Fryslân",2265,2264,1
+2022-01-30,"GGD Hart voor Brabant",5840,5841,-1
+2022-01-30,"GGD IJsselland",3140,3142,-2
+2022-01-30,"GGD Kennemerland",2853,2855,-2
+2022-01-30,"GGD Regio Utrecht",6730,6729,1
+2022-01-30,"GGD Twente",3269,3270,-1
+2022-01-30,"GGD Zaanstreek/Waterland",2087,2088,-1
+2022-01-30,"Veiligheids- en Gezondheidsregio Gelderland-Midden",3168,3167,1
+2022-01-31,"Dienst Gezondheid & Jeugd ZHZ",2432,2430,2
+2022-01-31,"GGD Flevoland",2446,2447,-1
+2022-01-31,"GGD IJsselland",2870,2869,1
+2022-01-31,"GGD Noord- en Oost-Gelderland",3924,3925,-1
+2022-01-31,"GGD Regio Utrecht",6668,6669,-1
+2022-01-31,"GGD Twente",2823,2822,1
+2022-01-31,"GGD Zuid-Limburg",2233,2232,1
+2022-02-01,"GGD Amsterdam",5251,5250,1
+2022-02-01,"GGD Fryslân",3170,3173,-3
+2022-02-01,"GGD IJsselland",3064,3063,1
+2022-02-01,"GGD Kennemerland",2924,2923,1
+2022-02-01,"GGD Noord- en Oost-Gelderland",4529,4528,1
+2022-02-01,"GGD Rotterdam-Rijnmond",5719,5720,-1
+2022-02-01,"GGD West-Brabant",3901,3902,-1
+2022-02-01,"GGD Zuid-Limburg",2291,2292,-1
+2022-02-02,"GGD Amsterdam",5003,5004,-1
+2022-02-02,"GGD Flevoland",2106,2105,1
+2022-02-02,"GGD Gelderland-Zuid",3467,3468,-1
+2022-02-02,"GGD Gooi en Vechtstreek",1266,1267,-1
+2022-02-02,"GGD Hart voor Brabant",5478,5477,1
+2022-02-02,"GGD Kennemerland",3463,3464,-1
+2022-02-02,"GGD Twente",3943,3941,2
+2022-02-02,"Veiligheids- en Gezondheidsregio Gelderland-Midden",4025,4026,-1
+2022-02-03,"GGD Fryslân",3634,3633,1
+2022-02-03,"GGD Gelderland-Zuid",3222,3220,2
+2022-02-03,"GGD Gooi en Vechtstreek",1382,1381,1
+2022-02-03,"GGD Hart voor Brabant",6467,6466,1
+2022-02-03,"GGD Hollands-Noorden",3633,3632,1
+2022-02-03,"GGD Kennemerland",2943,2942,1
+2022-02-03,"GGD Noord- en Oost-Gelderland",4896,4895,1
+2022-02-03,"GGD Twente",3728,3730,-2
+2022-02-03,"GGD West-Brabant",4492,4491,1
+2022-02-04,"Dienst Gezondheid & Jeugd ZHZ",2523,2522,1
+2022-02-04,"GGD Flevoland",2169,2168,1
+2022-02-04,"GGD Fryslân",3349,3350,-1
+2022-02-04,"GGD Groningen",2856,2855,1
+2022-02-04,"GGD Hollands-Noorden",3731,3732,-1
+2022-02-04,"GGD Rotterdam-Rijnmond",6259,6258,1
+2022-02-04,"GGD West-Brabant",4561,4560,1
+2022-02-04,"GGD Zeeland",2196,2197,-1
+2022-02-05,"Dienst Gezondheid & Jeugd ZHZ",2673,2674,-1
+2022-02-05,"GGD Gelderland-Zuid",3435,3434,1
+2022-02-05,"GGD Gooi en Vechtstreek",1100,1099,1
+2022-02-05,"GGD Hollands-Midden",3908,3909,-1
+2022-02-05,"GGD IJsselland",3639,3638,1
+2022-02-05,"GGD Noord- en Oost-Gelderland",3991,3990,1
+2022-02-05,"GGD Twente",3450,3449,1
+2022-02-06,"GGD Gelderland-Zuid",2718,2720,-2
+2022-02-06,"GGD Gooi en Vechtstreek",1039,1040,-1
+2022-02-06,"GGD Hart voor Brabant",4801,4802,-1
+2022-02-06,"GGD Hollands-Midden",3440,3439,1
+2022-02-06,"GGD IJsselland",3287,3288,-1
+2022-02-06,"GGD Noord- en Oost-Gelderland",4508,4509,-1
+2022-02-06,"GGD Twente",3363,3361,2
+2022-02-06,"GGD Zeeland",1480,1479,1
+2022-02-07,"GGD Hart voor Brabant",4416,4417,-1
+2022-02-07,"GGD Noord- en Oost-Gelderland",4173,4174,-1
+2022-02-07,"GGD Rotterdam-Rijnmond",4700,4701,-1
+2022-02-08,"GGD Amsterdam",4417,4416,1
+2022-02-08,"GGD Hollands-Noorden",3206,3205,1
+2022-02-08,"GGD Noord- en Oost-Gelderland",4522,4523,-1
+2022-02-08,"GGD Twente",2947,2948,-1
+2022-02-09,"Dienst Gezondheid & Jeugd ZHZ",1986,1987,-1
+2022-02-09,"GGD Gooi en Vechtstreek",1034,1033,1
+2022-02-09,"GGD Haaglanden",4998,4999,-1
+2022-02-09,"GGD Hollands-Noorden",3341,3342,-1
+2022-02-09,"GGD IJsselland",3191,3192,-1
+2022-02-09,"GGD Noord- en Oost-Gelderland",4243,4242,1
+2022-02-09,"GGD Rotterdam-Rijnmond",4943,4942,1
+2022-02-10,"Dienst Gezondheid & Jeugd ZHZ",2573,2572,1
+2022-02-10,"GGD Amsterdam",3917,3918,-1
+2022-02-10,"GGD Flevoland",1605,1606,-1
+2022-02-10,"GGD Gelderland-Zuid",2978,2979,-1
+2022-02-10,"GGD Noord- en Oost-Gelderland",4461,4462,-1
+2022-02-10,"GGD Rotterdam-Rijnmond",4304,4303,1
+2022-02-10,"GGD Twente",3585,3584,1
+2022-02-10,"Veiligheids- en Gezondheidsregio Gelderland-Midden",3485,3484,1
+2022-02-11,"GGD Fryslân",3903,3902,1
+2022-02-11,"GGD Gooi en Vechtstreek",698,699,-1
+2022-02-11,"GGD IJsselland",2931,2932,-1
+2022-02-11,"Veiligheids- en Gezondheidsregio Gelderland-Midden",3865,3867,-2
+2022-02-12,"GGD Drenthe",2442,2441,1
+2022-02-12,"GGD Flevoland",1280,1279,1
+2022-02-12,"GGD Fryslân",2992,2993,-1
+2022-02-12,"GGD Gelderland-Zuid",2306,2305,1
+2022-02-12,"GGD Haaglanden",3319,3318,1
+2022-02-12,"GGD Rotterdam-Rijnmond",3576,3577,-1
+2022-02-12,"GGD Twente",2500,2501,-1
+2022-02-12,"GGD Zeeland",1085,1084,1
+2022-02-13,"Dienst Gezondheid & Jeugd ZHZ",1654,1655,-1
+2022-02-13,"GGD Twente",2688,2687,1
+2022-02-13,"GGD Zeeland",1089,1090,-1
+2022-02-13,"Veiligheids- en Gezondheidsregio Gelderland-Midden",2705,2704,1
+2022-02-14,"GGD Flevoland",1163,1164,-1
+2022-02-14,"GGD Fryslân",2855,2856,-1
+2022-02-14,"GGD Hart voor Brabant",3409,3408,1
+2022-02-14,"GGD Twente",2714,2715,-1
+2022-02-15,"GGD Flevoland",1236,1235,1
+2022-02-15,"GGD Fryslân",3439,3438,1
+2022-02-15,"GGD IJsselland",2432,2431,1
+2022-02-15,"GGD Twente",2749,2748,1
+2022-02-16,"GGD Flevoland",952,953,-1
+2022-02-16,"GGD Gooi en Vechtstreek",803,804,-1
+2022-02-16,"GGD Hart voor Brabant",3429,3428,1
+2022-02-16,"GGD Twente",1806,1807,-1
+2022-02-17,"GGD Gooi en Vechtstreek",589,588,1
+2022-02-17,"GGD Hart voor Brabant",3074,3073,1
+2022-02-17,"GGD Zaanstreek/Waterland",698,697,1
+2022-02-17,"GGD Zuid-Limburg",1368,1367,1
+2022-02-18,"GGD Hart voor Brabant",2153,2154,-1
+2022-02-18,"GGD Zuid-Limburg",1263,1264,-1
+2022-02-19,"GGD Hart voor Brabant",1863,1864,-1
+2022-02-20,"GGD Flevoland",727,726,1
+2022-02-20,"GGD Gelderland-Zuid",1262,1263,-1
+2022-02-20,"GGD Hart voor Brabant",1865,1866,-1
+2022-02-20,"GGD Kennemerland",1058,1057,1
+2022-02-21,"GGD Drenthe",1019,1020,-1
+2022-02-21,"GGD Gelderland-Zuid",1092,1091,1
+2022-02-21,"GGD Zaanstreek/Waterland",419,420,-1
+2022-02-22,"GGD Fryslân",2103,2102,1
+2022-02-22,"GGD IJsselland",1738,1737,1
+2022-02-22,"GGD Noord- en Oost-Gelderland",2241,2242,-1
+2022-02-23,"GGD Fryslân",2037,2038,-1
+2022-02-23,"GGD IJsselland",1365,1366,-1
+2022-02-23,"GGD Regio Utrecht",3349,3350,-1
+2022-02-23,"GGD Twente",1652,1653,-1
+2022-02-24,"GGD Noord- en Oost-Gelderland",2102,2101,1
+2022-02-24,"GGD Regio Utrecht",3332,3331,1
+2022-02-24,"GGD Twente",1320,1319,1
+2022-02-25,"GGD Hollands-Midden",1769,1768,1
+2022-02-26,"GGD Hart voor Brabant",1487,1486,1
+2022-02-26,"GGD Hollands-Midden",1212,1213,-1
+2022-02-27,"GGD Gelderland-Zuid",997,996,1
+2022-02-27,"GGD Kennemerland",1377,1378,-1
+2022-02-27,"GGD Noord- en Oost-Gelderland",1598,1597,1
+2022-02-27,"GGD Zuid-Limburg",691,690,1
+2022-02-28,"GGD Gelderland-Zuid",1658,1659,-1
+2022-02-28,"GGD Kennemerland",1641,1640,1
+2022-02-28,"GGD Regio Utrecht",3424,3423,1
+2022-02-28,"GGD Zuid-Limburg",812,813,-1
+2022-03-01,"GGD Hart voor Brabant",3082,3083,-1
+2022-03-01,"GGD Kennemerland",1601,1602,-1
+2022-03-01,"GGD Twente",2366,2367,-1
+2022-03-02,"GGD Noord- en Oost-Gelderland",3067,3068,-1
+2022-03-02,"GGD Rotterdam-Rijnmond",2856,2855,1
+2022-03-02,"GGD Twente",2628,2627,1
+2022-03-03,"GGD Regio Utrecht",5365,5366,-1
+2022-03-03,"GGD Rotterdam-Rijnmond",2593,2594,-1
+2022-03-04,"GGD Gelderland-Zuid",2997,2998,-1
+2022-03-04,"GGD Kennemerland",1410,1411,-1
+2022-03-05,"GGD Twente",1527,1528,-1
+2022-03-06,"GGD Fryslân",1883,1882,1
+2022-03-06,"GGD Twente",2273,2272,1
+2022-03-07,"GGD Fryslân",2417,2418,-1
+2022-03-07,"GGD IJsselland",1875,1874,1
+2022-03-07,"GGD Twente",2355,2356,-1
+2022-03-08,"GGD Gelderland-Zuid",2585,2584,1
+2022-03-08,"GGD IJsselland",2638,2639,-1
+2022-03-08,"GGD Kennemerland",1707,1706,1
+2022-03-08,"GGD Twente",2332,2331,1
+2022-03-09,"GGD Brabant-Zuidoost",4975,4974,1
+2022-03-09,"GGD Kennemerland",1694,1695,-1
+2022-03-10,"GGD Kennemerland",1994,1993,1
+2022-03-11,"GGD Brabant-Zuidoost",2636,2637,-1
+2022-03-11,"GGD Groningen",2260,2259,1
+2022-03-11,"GGD Regio Utrecht",4452,4451,1
+2022-03-12,"GGD Groningen",2174,2175,-1
+2022-03-12,"GGD Regio Utrecht",3675,3676,-1
+2022-03-14,"GGD Zuid-Limburg",2332,2333,-1
+2022-03-15,"GGD Zuid-Limburg",1787,1786,1
+2022-03-16,"GGD Rotterdam-Rijnmond",2967,2968,-1
+2022-03-17,"GGD Gelderland-Zuid",1789,1788,1
+2022-03-17,"GGD Regio Utrecht",3811,3812,-1
+2022-03-17,"GGD Twente",1965,1964,1
+2022-03-18,"GGD Gelderland-Zuid",1380,1381,-1
+2022-03-18,"GGD Regio Utrecht",3418,3417,1
+2022-03-18,"GGD Twente",1638,1639,-1
+2022-03-19,"GGD Rotterdam-Rijnmond",2213,2212,1
+2022-03-21,"GGD IJsselland",1671,1670,1
+2022-03-21,"GGD West-Brabant",1121,1122,-1
+2022-03-22,"GGD Groningen",1515,1514,1
+2022-03-22,"GGD IJsselland",1597,1598,-1
+2022-03-23,"GGD West-Brabant",1100,1099,1
+2022-03-24,"GGD Gelderland-Zuid",1038,1037,1
+2022-03-24,"GGD Groningen",1828,1829,-1
+2022-03-25,"GGD Gelderland-Zuid",1010,1011,-1
+2022-03-26,"GGD Gelderland-Zuid",802,803,-1
+2022-03-27,"GGD Gelderland-Zuid",782,781,1
+2022-03-30,"GGD Twente",1043,1042,1
+2022-03-31,"GGD Twente",941,942,-1
+2022-04-04,"GGD Noord- en Oost-Gelderland",864,863,1
+2022-04-05,"GGD Noord- en Oost-Gelderland",713,714,-1
+2022-04-08,"GGD Regio Utrecht",962,963,-1
+2022-04-10,"GGD Regio Utrecht",588,587,1
+2022-04-16,"GGD West-Brabant",91,90,1
+2022-04-17,"GGD West-Brabant",65,66,-1
+2022-04-20,"GGD Rotterdam-Rijnmond",205,206,-1
+2022-04-23,"GGD Rotterdam-Rijnmond",122,121,1
+2022-04-29,"GGD Amsterdam",212,211,1
+2022-05-04,"GGD Amsterdam",199,200,-1
+2022-05-12,"GGD Hart voor Brabant",45,46,-1
+2022-05-13,"GGD Hart voor Brabant",42,41,1
+2022-05-23,"GGD Regio Utrecht",112,113,-1
+2022-05-24,"GGD Regio Utrecht",97,96,1
+2022-06-19,"GGD Noord- en Oost-Gelderland",132,131,1
+2022-06-20,"GGD Noord- en Oost-Gelderland",251,252,-1
+2022-06-28,"GGD Gelderland-Zuid",201,202,-1
+2022-07-02,"GGD Gelderland-Zuid",155,154,1
+2022-07-05,"GGD Brabant-Zuidoost",281,280,1
+2022-07-06,"GGD Brabant-Zuidoost",275,276,-1
+2022-07-09,"GGD Amsterdam",475,476,-1
+2022-07-12,"GGD Amsterdam",521,520,1
+2022-09-01,"GGD Drenthe",28,19,9
+2022-09-02,"GGD Drenthe",29,28,1
+2022-09-03,"GGD Drenthe",30,16,14
+2022-09-04,"GGD Drenthe",33,27,6
+2022-09-05,"GGD Drenthe",48,44,4
+2022-09-06,"GGD Drenthe",43,30,13
+2022-09-07,"GGD Drenthe",56,48,8
+2022-09-08,"GGD Drenthe",45,34,11
+2022-09-08,"GGD Groningen",37,36,1
+2022-09-09,"GGD Drenthe",25,19,6
+2022-09-11,"GGD Drenthe",11,9,2
+2022-09-12,"GGD Drenthe",59,52,7
+2022-09-13,"GGD Drenthe",61,57,4
+2022-09-13,"GGD Groningen",65,63,2
+2022-09-15,"GGD Drenthe",40,33,7
+2022-09-17,"GGD Drenthe",15,12,3
+2022-09-18,"GGD Drenthe",24,17,7
+2022-09-19,"GGD Drenthe",58,54,4
+2022-09-20,"GGD Drenthe",76,66,10
+2022-09-21,"GGD Drenthe",65,53,12
+2022-09-22,"GGD Drenthe",45,36,9
+2022-09-23,"GGD Drenthe",57,44,13
+2022-09-24,"GGD Drenthe",23,17,6
+2022-09-25,"GGD Drenthe",14,12,2
+2022-09-26,"GGD Drenthe",99,83,16
+2022-09-27,"GGD Drenthe",98,73,25
+2022-09-28,"GGD Drenthe",105,83,22
+2022-09-29,"GGD Drenthe",103,84,19
+2022-09-30,"GGD Drenthe",107,73,34
+2022-10-01,"GGD Drenthe",56,43,13
+2022-10-02,"GGD Drenthe",38,23,15
+2022-10-02,"GGD Groningen",82,81,1
+2022-10-03,"GGD Drenthe",168,162,6
+2022-10-04,"GGD Drenthe",135,119,16
+2022-10-06,"GGD Drenthe",123,122,1
+2022-10-14,"GGD Drenthe",73,71,2
+2022-10-16,"GGD Drenthe",13,11,2
+2022-10-17,"GGD Drenthe",119,113,6
+2022-10-18,"GGD Drenthe",152,117,35
+2022-10-19,"GGD Drenthe",44,36,8
+2023-01-03,"GGD IJsselland",19,18,1
+2023-01-15,"GGD Fryslân",6,5,1
+2023-02-01,"GGD Drenthe",4,3,1
+2023-02-03,"GGD Drenthe",6,5,1
+2023-02-04,"GGD Drenthe",5,4,1
+2023-02-07,"GGD Drenthe",13,10,3
+2023-02-09,"GGD Drenthe",11,10,1
+2023-02-10,"GGD Drenthe",12,11,1
+2023-02-12,"GGD Drenthe",1,2,-1
+2023-02-13,"GGD Drenthe",19,17,2
+2023-02-13,"GGD Haaglanden",40,39,1
+2023-02-14,"GGD Drenthe",13,10,3
+2023-02-14,"GGD Haaglanden",38,29,9
+2023-02-15,"GGD Drenthe",18,17,1
+2023-02-15,"GGD Haaglanden",38,30,8
+2023-02-16,"GGD Haaglanden",39,31,8
+2023-02-18,"GGD Fryslân",21,20,1
+2023-02-18,"GGD Haaglanden",31,24,7
+2023-02-19,"GGD Groningen",18,17,1
+2023-02-19,"GGD Haaglanden",35,28,7
+2023-02-20,"GGD Drenthe",28,23,5
+2023-02-20,"GGD Haaglanden",38,27,11
+2023-02-21,"GGD Drenthe",26,22,4
+2023-02-21,"GGD Haaglanden",56,42,14
+2023-02-22,"GGD Drenthe",23,21,2
+2023-02-22,"GGD Haaglanden",51,39,12
+2023-02-23,"GGD Drenthe",18,16,2
+2023-02-23,"GGD Haaglanden",45,36,9
+2023-02-24,"GGD Drenthe",16,14,2
+2023-02-24,"GGD Haaglanden",29,26,3
+2023-02-25,"GGD Drenthe",11,12,-1
+2023-02-25,"GGD Haaglanden",19,17,2
+2023-02-25,"GGD West-Brabant",41,33,8
+2023-02-26,"GGD Haaglanden",27,22,5
+2023-02-26,"GGD West-Brabant",22,10,12
+2023-02-27,"GGD Brabant-Zuidoost",68,67,1
+2023-02-27,"GGD Drenthe",47,35,12
+2023-02-27,"GGD Haaglanden",45,42,3
+2023-02-27,"GGD Hart voor Brabant",78,76,2
+2023-02-27,"GGD IJsselland",32,31,1
+2023-02-27,"GGD West-Brabant",48,25,23
+2023-02-28,"GGD Haaglanden",35,30,5
+2023-02-28,"GGD West-Brabant",40,21,19
+2023-03-01,"GGD Amsterdam",26,27,-1
+2023-03-01,"GGD Drenthe",8,7,1
+2023-03-01,"GGD Haaglanden",28,24,4
+2023-03-01,"GGD West-Brabant",51,35,16
+2023-03-02,"GGD Drenthe",13,12,1
+2023-03-02,"GGD Haaglanden",23,21,2
+2023-03-02,"GGD Hart voor Brabant",57,56,1
+2023-03-02,"GGD IJsselland",19,18,1
+2023-03-02,"GGD Noord- en Oost-Gelderland",32,31,1
+2023-03-02,"GGD West-Brabant",43,27,16
+2023-03-03,"GGD Haaglanden",31,30,1
+2023-03-03,"GGD Hart voor Brabant",66,65,1
+2023-03-03,"GGD Noord- en Oost-Gelderland",42,41,1
+2023-03-03,"GGD West-Brabant",45,26,19
+2023-03-04,"GGD Hart voor Brabant",46,40,6
+2023-03-04,"GGD West-Brabant",29,17,12
+2023-03-05,"GGD Haaglanden",19,18,1
+2023-03-05,"GGD Regio Utrecht",15,14,1
+2023-03-05,"GGD West-Brabant",28,15,13
+2023-03-06,"GGD Brabant-Zuidoost",43,10,33
+2023-03-06,"GGD Gelderland-Zuid",34,33,1
+2023-03-06,"GGD Haaglanden",38,35,3
+2023-03-06,"GGD Hart voor Brabant",83,82,1
+2023-03-06,"GGD Limburg-Noord",28,27,1
+2023-03-06,"GGD Noord- en Oost-Gelderland",53,52,1
+2023-03-06,"GGD Regio Utrecht",49,48,1
+2023-03-06,"GGD West-Brabant",54,34,20
+2023-03-07,"GGD Brabant-Zuidoost",32,30,2
+2023-03-07,"GGD Gelderland-Zuid",35,33,2
+2023-03-07,"GGD Haaglanden",35,29,6
+2023-03-07,"GGD Regio Utrecht",40,37,3
+2023-03-07,"GGD West-Brabant",32,11,21
+2023-03-08,"Dienst Gezondheid & Jeugd ZHZ",22,21,1
+2023-03-08,"GGD Amsterdam",25,22,3
+2023-03-08,"GGD Brabant-Zuidoost",28,26,2
+2023-03-08,"GGD Fryslân",12,11,1
+2023-03-08,"GGD Gelderland-Zuid",15,13,2
+2023-03-08,"GGD Groningen",10,7,3
+2023-03-08,"GGD Haaglanden",32,25,7
+2023-03-08,"GGD Hart voor Brabant",52,43,9
+2023-03-08,"GGD Hollands-Midden",29,25,4
+2023-03-08,"GGD Noord- en Oost-Gelderland",29,27,2
+2023-03-08,"GGD Regio Utrecht",24,23,1
+2023-03-08,"GGD Rotterdam-Rijnmond",38,36,2
+2023-03-08,"GGD Twente",20,17,3
+2023-03-08,"GGD West-Brabant",37,22,15
+2023-03-08,"GGD Zuid-Limburg",26,25,1
+2023-03-08,"Veiligheids- en Gezondheidsregio Gelderland-Midden",41,39,2
+2023-03-09,"Dienst Gezondheid & Jeugd ZHZ",13,11,2
+2023-03-09,"GGD Amsterdam",26,18,8
+2023-03-09,"GGD Brabant-Zuidoost",27,2,25
+2023-03-09,"GGD Flevoland",9,7,2
+2023-03-09,"GGD Fryslân",12,5,7
+2023-03-09,"GGD Gelderland-Zuid",47,29,18
+2023-03-09,"GGD Gooi en Vechtstreek",14,12,2
+2023-03-09,"GGD Groningen",5,2,3
+2023-03-09,"GGD Haaglanden",18,10,8
+2023-03-09,"GGD Hart voor Brabant",45,15,30
+2023-03-09,"GGD Hollands-Midden",24,15,9
+2023-03-09,"GGD Hollands-Noorden",13,8,5
+2023-03-09,"GGD IJsselland",21,9,12
+2023-03-09,"GGD Kennemerland",35,30,5
+2023-03-09,"GGD Limburg-Noord",29,6,23
+2023-03-09,"GGD Noord- en Oost-Gelderland",62,41,21
+2023-03-09,"GGD Regio Utrecht",31,12,19
+2023-03-09,"GGD Rotterdam-Rijnmond",26,12,14
+2023-03-09,"GGD Twente",20,5,15
+2023-03-09,"GGD West-Brabant",47,12,35
+2023-03-09,"GGD Zaanstreek/Waterland",6,1,5
+2023-03-09,"GGD Zeeland",7,4,3
+2023-03-09,"GGD Zuid-Limburg",30,12,18
+2023-03-09,"Veiligheids- en Gezondheidsregio Gelderland-Midden",40,23,17
+2023-03-10,"GGD Amsterdam",22,4,18
+2023-03-10,"GGD Fryslân",28,6,22
+2023-03-10,"GGD Kennemerland",36,4,32
