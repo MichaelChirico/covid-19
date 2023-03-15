@@ -105,7 +105,7 @@ posted_tweet <- fromJSON(rawToChar(posted_tweet$content))
 tweet.main.id <- posted_tweet$id_str
 tweet.last_id <- tweet.main.id
 
-git.credentials <- read_lines("git_auth_ipie33.txt")
+git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 ## Push to git
@@ -138,7 +138,7 @@ infectieradar %>%
 ggsave("plots/infectieradar.png", width = 16, height = 8)
 
 
-git.credentials <- read_lines("git_auth_ipie33.txt")
+git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 ## Push to git
@@ -216,7 +216,7 @@ posted_tweet <- post_tweet (
 
 ## Git Vroegsurveillance
 
-git.credentials <- read_lines("git_auth_ipie33.txt")
+git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 ## Push to git
 repo <- git2r::init()
