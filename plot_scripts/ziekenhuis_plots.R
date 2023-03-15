@@ -62,7 +62,7 @@ ggsave("plots/groei_per_dag_opnames.png", width = 16, heigh = 8)
 
 
 
-git.credentials <- read_lines("git_auth_ipie33.txt")
+git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 ## Push to git
