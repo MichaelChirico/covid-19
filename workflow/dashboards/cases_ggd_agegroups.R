@@ -46,7 +46,7 @@ write.csv(ggd_data, file = "data-dashboards/cases_ggd_agegroups.csv", row.names 
 
 remove(list = ls())
 
-git.credentials <- read_lines("git_auth_ipie33.txt")
+git.credentials <- read_lines("git_auth.txt")
 git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 repo <- git2r::init()
