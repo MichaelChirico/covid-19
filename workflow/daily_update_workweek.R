@@ -21,8 +21,8 @@ pull(repo)
 # Generate Banner
 source("workflow/generate_banner.R")
 source("workflow/parse_nice-data.R")
-source("workflow/dashboards/age-distribution-date-NICE.R")
-source("workflow/dashboards/nice_bezetting_onder20.R")
+#source("workflow/dashboards/age-distribution-date-NICE.R")
+#source("workflow/dashboards/nice_bezetting_onder20.R")
 source("plot_scripts/reden_opname.R")
 source("workflow/parse_opnameduur_ntvg.R")
 
@@ -46,7 +46,7 @@ source("plot_scripts/ziekenhuis_plots.R")
 ## Put in double date breaker for RIVM update
 repeat {
   Sys.sleep(3)
-  date.check <- fread("https://data.rivm.nl/covid-19/COVID-19_uitgevoerde_testen.csv")
+  date.check <- fread("https://data.rivm.nl/covid-19/COVID-19_verpleeghuizen.csv")
   
   date.check <- date.check %>%
     mutate(
@@ -74,25 +74,25 @@ repeat {
 #} else { 
 tic()
 # Parse RIVM, NICE and corrections data
-source("workflow/parse_rivm-data.R")
+#source("workflow/parse_rivm-data.R")
 source("workflow/parse_nursing-homes.R")
-source("workflow/parse_tests.R")
-source("workflow/parse_corrections.R")
+#source("workflow/parse_tests.R")
+#source("workflow/parse_corrections.R")
 
 ## Set locale
 Sys.setlocale("LC_TIME", "nl_NL")
 
 ## Merge RIVM, NICE and corrections data
 
-rivm.by_day <- fread("data/rivm_by_day.csv")  
+#rivm.by_day <- fread("data/rivm_by_day.csv")  
 nice.by_day <- fread("data-nice/nice-today.csv")
 lcps.by_day <- fread("data/lcps_by_day.csv")
-corr.by_day <- fread("corrections/corrections_perday.csv")
+#corr.by_day <- fread("corrections/corrections_perday.csv")
 nursery.by_day <- fread("data/nursery_by_day.csv")
-testrate.by_day <- fread("data-dashboards/percentage-positive-daily-national.csv")[,c("values.tested_total","values.infected","values.infected_percentage","date","pos.rate.3d.avg","pos.rate.7d.avg")]
+#testrate.by_day <- fread("data-dashboards/percentage-positive-daily-national.csv")[,c("values.tested_total","values.infected","values.infected_percentage","date","pos.rate.3d.avg","pos.rate.7d.avg")]
 #vaccines.by_day <- read.csv("data/vaccines_by_day.csv") , vaccines.by_day
 
-daily_datalist <- list(lcps.by_day,nice.by_day,rivm.by_day,corr.by_day,nursery.by_day, testrate.by_day)
+daily_datalist <- list(lcps.by_day,nice.by_day,nursery.by_day) #rivm.by_day,corr.by_day,testrate.by_day
 
 all.data <- Reduce(
   function(x, y, ...) merge(x, y, by="date",all.x = TRUE, ...),
@@ -197,18 +197,18 @@ tweet.last_id <- posted_tweet$id_str
 ## Vroeg surveillance
 
 ##### Generate municipality images ####
-source("workflow/parse_nice-municipalities-data.R")
-source("workflow/parse_municipalities.R")
-source("workflow/generate_municipality_images.R")
+#source("workflow/parse_nice-municipalities-data.R")
+#source("workflow/parse_municipalities.R")
+#source("workflow/generate_municipality_images.R")
 
-git.credentials <- read_lines("git_auth.txt")
-git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
+#git.credentials <- read_lines("git_auth.txt")
+#git.auth <- cred_user_pass(git.credentials[1],git.credentials[2])
 
 ## Push to git
-repo <- git2r::init()
-add(repo, path = "*")
-commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - part 2"))
-push(repo, credentials = git.auth)
+#repo <- git2r::init()
+#add(repo, path = "*")
+#commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - workweek update - part 2"))
+#push(repo, credentials = git.auth)
 
 
 # Infectieradar
@@ -237,7 +237,7 @@ ggsave("plots/infectieradar.png", width = 16, height = 8)
 ## Put in date breaker for dashboard data download ##
 
 repeat {
-  Sys.sleep(15)
+  Sys.sleep(300)
   date.now <- Sys.Date()
   dat <- fromJSON(txt = "https://coronadashboard.rijksoverheid.nl/json/NL.json")
   date.dashboard <- as.Date(as.POSIXct(parse_number(dat$last_generated), origin = "1970-01-01"))
@@ -286,9 +286,9 @@ Rioolwater: ",round(last(sewer.data$sewer_7d),1)," RNA flow per 100.000 inwoners
 Verandering (week op week): ",paste0(sign.riool,round(last(sewer.data$groei_riool_7d)*100-100,1)),"%
 
 Infectieradar: ",paste0(sign.radar,round(last(infectieradar$infectieradar_7d),1)),"% covid-19-achtige klachten
-Verandering (week op week): ",paste0(sign.radar.change,round(last(infectieradar$groei_infectieradar_7d)*100-100,1)),"%
+Verandering (week op week): ",paste0(sign.radar.change,round(last(infectieradar$groei_infectieradar_7d)*100-100,1)),"%")
 
-Overzicht data per gemeente: https://raw.githack.com/mzelst/covid-19/master/workflow/daily_municipality.html")
+#Overzicht data per gemeente: https://raw.githack.com/mzelst/covid-19/master/workflow/daily_municipality.html")
 
 vroegsurveillance.tweet
 
@@ -315,14 +315,14 @@ commit(repo, all = T, paste0("[", Sys.Date(), "] Daily (automated) covid-19 - wo
 push(repo, credentials = git.auth)
 
 ##### Download case file
-rivm.data <- fread("https://data.rivm.nl/covid-19/COVID-19_casus_landelijk.csv", sep =";") ## Read in data with all cases until today
-rivm.data.archive <- fread("data-rivm/casus-datasets/COVID-19_casus_landelijk_2021_until_03102021.csv.gz")
-rivm.data <- rbind(rivm.data.archive,rivm.data)
+#rivm.data <- fread("https://data.rivm.nl/covid-19/COVID-19_casus_landelijk.csv", sep =";") ## Read in data with all cases until today
+#rivm.data.archive <- fread("data-rivm/casus-datasets/COVID-19_casus_landelijk_2021_until_03102021.csv.gz")
+#rivm.data <- rbind(rivm.data.archive,rivm.data)
 
-last_date <- as.Date(last(rivm.data$Date_statistics))
+#last_date <- as.Date(last(rivm.data$Date_statistics))
 
-filename.compressed <- paste0("data-rivm/casus-datasets/COVID-19_casus_landelijk_",last_date,".csv.gz")
-fwrite(rivm.data, file=filename.compressed,row.names = F) ## Write file with all cases until today
+#filename.compressed <- paste0("data-rivm/casus-datasets/COVID-19_casus_landelijk_",last_date,".csv.gz")
+#fwrite(rivm.data, file=filename.compressed,row.names = F) ## Write file with all cases until today
 
 #Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/pandoc"); rmarkdown::render('reports/daily_report.Rmd') ## Render daily report
 #file.copy(from = list.files('reports', pattern="*.pdf",full.names = TRUE), 
@@ -332,12 +332,12 @@ fwrite(rivm.data, file=filename.compressed,row.names = F) ## Write file with all
 ## Workflows for databases
 rm(list=ls())
 source("workflow/parse_data_download_rivm.R")
-source("workflow/dashboards/cases_ggd_agegroups.R")
-source("workflow/dashboards/date_statistics_mutations.R")
-source("workflow/parse_age-data.R")
-source("workflow/dashboards/rivm-date-corrections.R")
-source("workflow/dashboards/heatmap-age-week.R")
-source("workflow/dashboards/ggd_tests_corrections.R")
+#source("workflow/dashboards/cases_ggd_agegroups.R")
+#source("workflow/dashboards/date_statistics_mutations.R")
+#source("workflow/parse_age-data.R")
+#source("workflow/dashboards/rivm-date-corrections.R")
+#source("workflow/dashboards/heatmap-age-week.R")
+#source("workflow/dashboards/ggd_tests_corrections.R")
 ## Download data coronadashboard ##
 filename.dashboard <- paste0("data-rivm/dashboard-data/data-coronadashboard_",Sys.Date(),".zip")
 download.file("https://coronadashboard.rijksoverheid.nl/json/latest-data.zip",filename.dashboard)

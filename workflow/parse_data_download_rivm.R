@@ -1,20 +1,20 @@
 ## Download data disabled people 
-disabled.people <- fread("https://data.rivm.nl/covid-19/COVID-19_gehandicaptenzorg.csv", sep = ";")
-disabled.people.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_gehandicaptenzorg_tm_03102021.csv")
-disabled.people <- rbind(disabled.people.archive, disabled.people)
-last_date <- as.Date(max(disabled.people$Date_of_statistic_reported))
+#disabled.people <- fread("https://data.rivm.nl/covid-19/COVID-19_gehandicaptenzorg.csv", sep = ";")
+#disabled.people.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_gehandicaptenzorg_tm_03102021.csv")
+#disabled.people <- rbind(disabled.people.archive, disabled.people)
+#last_date <- as.Date(max(disabled.people$Date_of_statistic_reported))
 
-filename.disabledpeople.compressed  <- paste0("data-rivm/disabled-people-per-day/rivm_daily_",last_date,".csv.gz") ## Filename for daily data
-fwrite(disabled.people, file = filename.disabledpeople.compressed,row.names = F) 
+#filename.disabledpeople.compressed  <- paste0("data-rivm/disabled-people-per-day/rivm_daily_",last_date,".csv.gz") ## Filename for daily data
+#fwrite(disabled.people, file = filename.disabledpeople.compressed,row.names = F) 
 
 ## Download data 70+ living at home 
-living.home.70plus <- fread("https://data.rivm.nl/covid-19/COVID-19_thuiswonend_70plus.csv", sep = ";")
-living.home.70plus.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_thuiswonend_70plus_tm_03102021.csv")
-living.home.70plus <- rbind(living.home.70plus.archive, living.home.70plus)
-last_date <- as.Date(max(living.home.70plus$Date_of_statistic_reported))
+#living.home.70plus <- fread("https://data.rivm.nl/covid-19/COVID-19_thuiswonend_70plus.csv", sep = ";")
+#living.home.70plus.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_thuiswonend_70plus_tm_03102021.csv")
+#living.home.70plus <- rbind(living.home.70plus.archive, living.home.70plus)
+#last_date <- as.Date(max(living.home.70plus$Date_of_statistic_reported))
 
-filename.living.home.70plus.compressed <- paste0("data-rivm/70plus-living-at-home-per-day/rivm_daily_",last_date,".csv.gz") ## Filename for daily data
-fwrite(living.home.70plus, file = filename.living.home.70plus.compressed,row.names = F) 
+#filename.living.home.70plus.compressed <- paste0("data-rivm/70plus-living-at-home-per-day/rivm_daily_",last_date,".csv.gz") ## Filename for daily data
+#fwrite(living.home.70plus, file = filename.living.home.70plus.compressed,row.names = F) 
 
 ## Download behavior
 behavior <- fread("https://data.rivm.nl/covid-19/COVID-19_gedrag.csv", sep = ";")
@@ -41,9 +41,9 @@ fwrite(ic.nice.age.data, file = filename.ic.age.nice,row.names = F)
 
 ## Download contact tracing data 
 
-settings <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_settings_per_dag.csv", sep = ";")
-filename.bco.settings <- paste0("data-rivm/bco-settings/bco_settings_daily_",last(settings$Date_of_publication),".csv") ## Filename for daily data
-fwrite(settings, file = filename.bco.settings,row.names = F)
+#settings <- fread("https://data.rivm.nl/covid-19/COVID-19_aantallen_settings_per_dag.csv", sep = ";")
+#filename.bco.settings <- paste0("data-rivm/bco-settings/bco_settings_daily_",last(settings$Date_of_publication),".csv") ## Filename for daily data
+#fwrite(settings, file = filename.bco.settings,row.names = F)
 
 ## Download vaccine rate per municipality
 

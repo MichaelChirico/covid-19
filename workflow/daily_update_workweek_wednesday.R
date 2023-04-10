@@ -45,15 +45,15 @@ source("plot_scripts/ziekenhuis_plots.R")
 
 
 
-rivm.by_day <- fread("data/rivm_by_day.csv")  
+#rivm.by_day <- fread("data/rivm_by_day.csv")  
 nice.by_day <- fread("data-nice/nice-today.csv")
 lcps.by_day <- fread("data/lcps_by_day.csv")
-corr.by_day <- fread("corrections/corrections_perday.csv")
+#corr.by_day <- fread("corrections/corrections_perday.csv")
 nursery.by_day <- fread("data/nursery_by_day.csv")
-testrate.by_day <- fread("data-dashboards/percentage-positive-daily-national.csv")[,c("values.tested_total","values.infected","values.infected_percentage","date","pos.rate.3d.avg","pos.rate.7d.avg")]
+#testrate.by_day <- fread("data-dashboards/percentage-positive-daily-national.csv")[,c("values.tested_total","values.infected","values.infected_percentage","date","pos.rate.3d.avg","pos.rate.7d.avg")]
 #vaccines.by_day <- read.csv("data/vaccines_by_day.csv") , vaccines.by_day
 
-daily_datalist <- list(nice.by_day,lcps.by_day,corr.by_day,nursery.by_day, testrate.by_day, rivm.by_day)
+daily_datalist <- list(lcps.by_day,nice.by_day,nursery.by_day) #rivm.by_day,corr.by_day,testrate.by_day
 
 #
 
@@ -200,9 +200,9 @@ Rioolwater: ",round(last(sewer.data$sewer_7d),1)," RNA flow per 100.000 inwoners
 Verandering (week op week): ",paste0(sign.riool,round(last(sewer.data$groei_riool_7d)*100-100,1)),"%
 
 Infectieradar: ",paste0(sign.radar,round(last(infectieradar$infectieradar_7d),1)),"% covid-19-achtige klachten
-Verandering (week op week): ",paste0(sign.radar.change,round(last(infectieradar$groei_infectieradar_7d)*100-100,1)),"%
+Verandering (week op week): ",paste0(sign.radar.change,round(last(infectieradar$groei_infectieradar_7d)*100-100,1)),"%")
 
-Overzicht data per gemeente: https://raw.githack.com/mzelst/covid-19/master/workflow/daily_municipality.html")
+#Overzicht data per gemeente: https://raw.githack.com/mzelst/covid-19/master/workflow/daily_municipality.html")
 
 posted_tweet <- post_tweet (
   vroegsurveillance.tweet,

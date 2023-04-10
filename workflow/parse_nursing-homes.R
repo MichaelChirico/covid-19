@@ -1,3 +1,15 @@
+## Download nursing homes
+
+nursing.homes <- fread("https://data.rivm.nl/covid-19/COVID-19_verpleeghuizen.csv", sep = ";")
+nursing.homes.archive <- fread("https://data.rivm.nl/covid-19/COVID-19_verpleeghuizen_tm_03102021.csv")
+nursing.homes <- rbind(nursing.homes.archive,nursing.homes)
+
+filename.nursinghomes.raw <- paste0("raw-data-archive/nursing-home-datasets/rivm_daily_",Sys.Date(),".csv") ## Filename for daily data
+fwrite(nursing.homes, file = filename.nursinghomes.raw,row.names = F)
+
+filename.nursinghomes.compressed <- paste0("data-rivm/nursing-homes-datasets/rivm_daily_",Sys.Date(),".csv.gz") ## Filename for daily data
+fwrite(nursing.homes, file = filename.nursinghomes.compressed,row.names = F)
+
 nursing.homes.wide <- data.table(aggregate(cbind(Total_cases_reported, Total_deceased_reported) ~ Date_of_statistic_reported, data = nursing.homes, FUN = sum))
 
 nursing.homes.wide[, cases_7daverage_nursinghomes := round(frollmean(Total_cases_reported,7),0)

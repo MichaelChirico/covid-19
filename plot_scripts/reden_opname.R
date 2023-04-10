@@ -58,7 +58,7 @@ plot.reason.hospital <- nice.reason.intake.long %>%
   #scale_x_date(date_breaks = "1 month", date_labels = "%Y-%m") + 
   theme(#axis.title.x=element_blank(),
     #axis.title.y=element_blank(),
-    axis.text.x.bottom = element_text(size=10),
+    axis.text.x.bottom = element_text(size=10, angle = 90),
     axis.text.y = element_text(size=10),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
@@ -137,7 +137,7 @@ plot.reason.ic <- nice.reason.intake.ic.long %>%
   #scale_x_date(date_breaks = "1 month", date_labels = "%Y-%m") + 
   theme(#axis.title.x=element_blank(),
     #axis.title.y=element_blank(),
-    axis.text.x.bottom = element_text(size=10),
+    axis.text.x.bottom = element_text(size=10, angle = 90),
     axis.text.y = element_text(size=10),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
