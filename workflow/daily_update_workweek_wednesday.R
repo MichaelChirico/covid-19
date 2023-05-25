@@ -188,7 +188,7 @@ sewer.data %>%
        caption = paste("Bron data: RIVM  | Plot: @Ipie33 | ",Sys.Date()))
 ggsave("plots/rioolwater.png", width = 16, height = 8)
 
-source("plot_scripts/rioolwater.R")
+#source("plot_scripts/rioolwater.R")
 
 sign.riool <- paste0(ifelse(last(sewer.data$groei_riool_7d)*100-100>=0,"+"," ("))
 sign.radar <- paste0(ifelse(last(infectieradar$infectieradar_7d)>=0,"+"," ("))
@@ -208,8 +208,7 @@ posted_tweet <- post_tweet (
   vroegsurveillance.tweet,
   token = token.ipie33,
   media = c("plots/infectieradar.png",
-            "plots/rioolwater.png",
-            "plots/rioolwater_veiligheidsregio.png"),
+            "plots/rioolwater.png"),
   in_reply_to_status_id = tweet.main.id,
   auto_populate_reply_metadata = TRUE)
 
